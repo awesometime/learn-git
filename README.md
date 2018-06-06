@@ -3,8 +3,7 @@
   <h3 align="center">learn-git</h3>
 
   <p align="center">
-    学习，我是认真的.
-    
+    学习，我是认真的.    
     <br>   
     <a href="https://github.com/awesometime/">awesometime的github主页</a>    
     
@@ -14,8 +13,8 @@
 
 
 
-## 干货
-  -我们称此界面为Edit file，展示给别人的为展示界面
+### 干货
+  [我们称此界面为Edit file，展示给别人的为展示界面]
   
   -#空格就会以标题形式显示
   
