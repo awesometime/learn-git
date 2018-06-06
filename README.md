@@ -60,7 +60,7 @@ HEAD指向的版本就是当前版本，因此，Git允许我们在版本的历�
 要重返未来，用git reflog查看命令历史，以便确定要回到未来的哪个版本。
 
 
-# 创建与合并分支
+# 6.1创建与合并分支
 
       查看分支：git branch
 
@@ -74,7 +74,7 @@ HEAD指向的版本就是当前版本，因此，Git允许我们在版本的历�
 
       删除分支：git branch -d <name>
 
-# 多人协作
+# 6.6多人协作
     
     查看远程库信息，使用git remote -v；
     
@@ -87,3 +87,23 @@ HEAD指向的版本就是当前版本，因此，Git允许我们在版本的历�
     建立本地分支和远程分支的关联，使用git branch --set-upstream branch-name origin/branch-name；
 
     从远程抓取分支，使用git pull，如果有冲突，要先处理冲突。
+# 6.7Rebase
+$ git log --graph --pretty=oneline --abbrev-commit
+* d1be385 (HEAD -> master, origin/master) init hello
+*   e5e69f1 Merge branch 'dev'
+|\  
+| *   57c53ab (origin/dev, dev) fix env conflict
+| |\  
+| | * 7a5e5dd add env
+| * | 7bd91f1 add new env
+| |/  
+* |   12a631b merged bug fix 101
+|\ \  
+| * | 4c805e2 fix bug 101
+|/ /  
+* |   e1e9c68 merge with no-ff
+|\ \  
+| |/  
+| * f52c633 add merge
+|/  
+*   cf810e4 conflict fixed
