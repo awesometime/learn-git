@@ -13,13 +13,14 @@
 - [干货](#干货)
 - [git学习目录](#git学习目录)
 
-
+## test
+  [![awesometime](https://github.com/awesometime/)](https://github.com/awesometime/)
 # 干货
 ## 干货
 ### 干货
 #### 干货
    
-  [干货](https://github.com/awesometime/learn-git/)`我们称此界面为Edit file，展示给别人的为展示界面`
+  [干货移步本页面哈哈](https://github.com/awesometime/learn-git/)  `我们称此界面为Edit file，展示给别人的为展示界面`
 ```
   #空格就会以标题形式显示
   
