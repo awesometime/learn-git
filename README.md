@@ -1,6 +1,7 @@
 # learn-git
 # 干货
   #空格就会以标题形式显示
+  
   隔一行就会换行显示，否则会跟在本行右边
   
   Tab缩进就会单独显示在一块区域，而且支持下表边拖动
@@ -61,21 +62,22 @@ HEAD指向的版本就是当前版本，因此，Git允许我们在版本的历�
 
 # 创建与合并分支
 
-    查看分支：git branch
+      查看分支：git branch
 
-    创建分支：git branch <name>
+      创建分支：git branch <name>
 
-    切换分支：git checkout <name>
+      切换分支：git checkout <name>
 
-    创建+切换分支：git checkout -b <name>
+      创建+切换分支：git checkout -b <name>
 
-    合并某分支到当前分支：git merge <name>
+      合并某分支到当前分支：git merge <name>
 
-    删除分支：git branch -d <name>
+      删除分支：git branch -d <name>
 
 # 多人协作
     
     查看远程库信息，使用git remote -v；
+    
     本地新建的分支如果不推送到远程，对其他人就是不可见的；
 
     从本地推送分支，使用git push origin branch-name，如果推送失败，先用git pull抓取远程的新提交；
