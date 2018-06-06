@@ -7,7 +7,7 @@
     <br>   
     <a href="https://github.com/awesometime/">awesometime的github主页</a>    
     .
-    <a href="http://git-scm.com/"><n>git官网</n></a>
+    <a href="http://git-scm.com/">git官网</a>
     .
     <a href="https://github.com/flyhigher139/Git-Cheat-Sheet/">Git Cheat Sheet命令总结表单</a>
   </p>
@@ -20,6 +20,8 @@
 - [git学习目录](#git学习目录)
 
 ## test
+  三个网址如何换行显示
+  加图片
   [![awesometime](https://github.com/awesometime/)](https://github.com/awesometime/)
   - **这里的字会加黑显示**. [gtignore](https://github.com/github/gitignore)`忽略文件的原则是`：
 1忽略操作系统自动生成的文件，比如缩略图等；
