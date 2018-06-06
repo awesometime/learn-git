@@ -4,9 +4,8 @@
 
   <p align="center">
     学习，我是认真的.
-        
-    <a href="https://github.com/awesometime/">awesometime的github主页</a>
-    ·
+    <br>   
+    <a href="https://github.com/awesometime/">awesometime的github主页</a>    
     
   </p>
 </p>
