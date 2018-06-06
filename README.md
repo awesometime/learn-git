@@ -6,9 +6,9 @@
     学习，我是认真的.    
     <br>   
     <a href="https://github.com/awesometime/">awesometime的github主页</a>    
-    
+    .
     <a href="http://git-scm.com/">git官网</a>
-    
+    .
     <a href="https://github.com/flyhigher139/Git-Cheat-Sheet/">Git Cheat Sheet命令总结表单</a>
   </p>
 </p>
@@ -196,20 +196,24 @@ git clone git@github.com:自己账号/bootstrap.git
 有空学习一下bootstrap这个界面
 
 ## 10.2 配置别名
-  用st表示status，co表示checkout，ci表示commit，br表示branch：
+ 用st表示status，co表示checkout，ci表示commit，br表示branch：
+
     git config --global alias.st status
     git config --global alias.co checkout
-    git config --global alias.ci commit
+    git config --global alias.ci commit   
     git config --global alias.br branch
 
-  配置一个git last，让其显示最后一次提交信息：
+ 配置一个git last，让其显示最后一次提交信息：
+    
     git config --global alias.last 'log -1'
 
     git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 
-  配置Git的时候，加上--global是针对**当前用户**起作用的，如果不加，那只针对**当前仓库**起作用。
-  每个仓库的Git配置文件都放在.git/config文件中
-  当前用户的Git配置文件放在用户主目录下的一个隐藏文件.gitconfig中
+ 配置Git的时候，加上--global是针对**当前用户**起作用的，如果不加，那只针对**当前仓库**起作用。
+ 
+ 每个仓库的Git配置文件都放在.git/config文件中
+ 
+ 当前用户的Git配置文件放在用户主目录下的一个隐藏文件.gitconfig中
 
 
 
