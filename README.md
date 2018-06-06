@@ -62,17 +62,17 @@ HEAD指向的版本就是当前版本，因此，Git允许我们在版本的历�
 
 # 6.1创建与合并分支
 
-      查看分支：git branch
+    查看分支：git branch
 
-      创建分支：git branch <name>
+    创建分支：git branch <name>
 
-      切换分支：git checkout <name>
+    切换分支：git checkout <name>
 
-      创建+切换分支：git checkout -b <name>
+    创建+切换分支：git checkout -b <name>
 
-      合并某分支到当前分支：git merge <name>
+    合并某分支到当前分支：git merge <name>
 
-      删除分支：git branch -d <name>
+    删除分支：git branch -d <name>
 
 # 6.6多人协作
     
@@ -88,22 +88,22 @@ HEAD指向的版本就是当前版本，因此，Git允许我们在版本的历�
 
     从远程抓取分支，使用git pull，如果有冲突，要先处理冲突。
 # 6.7Rebase
-$ git log --graph --pretty=oneline --abbrev-commit
-* d1be385 (HEAD -> master, origin/master) init hello
-*   e5e69f1 Merge branch 'dev'
-|\  
-| *   57c53ab (origin/dev, dev) fix env conflict
-| |\  
-| | * 7a5e5dd add env
-| * | 7bd91f1 add new env
-| |/  
-* |   12a631b merged bug fix 101
-|\ \  
-| * | 4c805e2 fix bug 101
-|/ /  
-* |   e1e9c68 merge with no-ff
-|\ \  
-| |/  
-| * f52c633 add merge
-|/  
-*   cf810e4 conflict fixed
+  $ git log --graph --pretty=oneline --abbrev-commit
+  * d1be385 (HEAD -> master, origin/master) init hello
+  *   e5e69f1 Merge branch 'dev'
+  |\  
+  | *   57c53ab (origin/dev, dev) fix env conflict
+  | |\  
+  | | * 7a5e5dd add env
+  | * | 7bd91f1 add new env
+  | |/  
+  * |   12a631b merged bug fix 101
+  |\ \  
+  | * | 4c805e2 fix bug 101
+  |/ /  
+  * |   e1e9c68 merge with no-ff
+  |\ \  
+  | |/  
+  | * f52c633 add merge
+  |/  
+  *   cf810e4 conflict fixed
