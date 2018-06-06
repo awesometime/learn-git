@@ -18,8 +18,8 @@
 ## 干货
 ### 干货
 #### 干货
-  
-  [干货]`我们称此界面为Edit file，展示给别人的为展示界面`
+   
+  [干货](https://github.com/awesometime/learn-git/)`我们称此界面为Edit file，展示给别人的为展示界面`
 ```
   #空格就会以标题形式显示
   
