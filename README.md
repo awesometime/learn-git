@@ -1,9 +1,9 @@
 <p align="center">
   
-  <h3 align="center">learn-git</h3>
+  <h3 align="center">learn-git<img src="https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg" alt="" width=72 height=72></h3>
 
   <p align="center">
-    学习，我是认真的.[![Awesometime](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)]  
+    学习，我是认真的.  
     <br>   
     <a href="https://github.com/awesometime/">awesometime的github主页</a>    
     <br> 
