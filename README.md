@@ -1,4 +1,19 @@
-# learn-git
+<p align="center">
+  
+  <h3 align="center">learn-git</h3>
+
+  <p align="center">
+    学习，我是认真的.
+        
+    <a href="https://github.com/awesometime/">awesometime的github主页</a>
+    ·
+    
+  </p>
+</p>
+
+
+
+
 # 干货
   我们称此界面为Edit file，展示给别人的为展示界面
   
@@ -77,7 +92,7 @@ HEAD指向的版本就是当前版本，因此，Git允许我们在版本的历�
 
 # 6.1创建与合并分支
 
-  查看分支：git branch
+  查看分支：git branch             
 
   创建分支：git branch <name>
 
@@ -133,16 +148,26 @@ HEAD指向的版本就是当前版本，因此，Git允许我们在版本的历�
     注意：标签总是和某个commit挂钩。如果这个commit既出现在master分支，又出现在dev分支，那么在这两个分支上都可以看到这个标签。
     
 # 7.2操作标签
-    命令git push origin <tagname>可以推送一个本地标签；    我嗯嗯
-
+    命令git push origin <tagname>可以推送一个本地标签；  
+    
     命令git push origin --tags可以推送全部未推送过的本地标签；
 
     命令git tag -d <tagname>可以删除一个本地标签；
 
     命令git push origin :refs/tags/<tagname>可以删除一个远程标签。
 # 8 使用GitHub
-    如何参与一个开源项目呢？比如人气极高的bootstrap项目，这是一个非常强大的CSS框架，你可以访问它的项目主页https://github.com/twbs/bootstrap，点“Fork”就在自己的账号下克隆了一个bootstrap仓库，然后，从自己的账号下clone：
+    在GitHub上，可以任意Fork开源仓库；fork your own copy of 要克隆的项目名 to your account
 
-    git clone git@github.com:michaelliao/bootstrap.git
-    一定要从自己的账号下clone仓库，这样你才能推送修改。如果从bootstrap的作者的仓库地址git@github.com:twbs/bootstrap.git克隆，因为没有权限，你将不能推送修改。
-    有空学习一下bootstrap这个界面
+    自己拥有Fork后的仓库的读写权限；
+
+    可以推送pull request给官方仓库来贡献代码。
+
+例子
+如何参与一个开源项目呢？比如人气极高的bootstrap项目，这是一个非常强大的CSS框架，你可以访问它的项目主页https://github.com/twbs/bootstrap，点“Fork”就在自己的账号下克隆了一个bootstrap仓库，然后，从自己的账号下clone：
+
+git clone git@github.com:自己账号/bootstrap.git
+一定要从自己的账号下clone仓库，这样你才能推送修改。如果从bootstrap的作者的仓库地址git@github.com:twbs/bootstrap.git克隆，因为没有权限，你将不能推送修改。
+希望bootstrap的官方库能接受你的修改，你就可以在GitHub上发起一个pull request
+
+
+有空学习一下bootstrap这个界面
