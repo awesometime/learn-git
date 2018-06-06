@@ -3,12 +3,12 @@
   <h3 align="center">learn-git</h3>
 
   <p align="center">
-    学习，我是认真的.    
+    学习，我是认真的.[![Awesometime](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)]  
     <br>   
     <a href="https://github.com/awesometime/">awesometime的github主页</a>    
-    .
+    <br> 
     <a href="http://git-scm.com/">git官网</a>
-    .
+    <br> 
     <a href="https://github.com/flyhigher139/Git-Cheat-Sheet/">Git Cheat Sheet命令总结表单</a>
   </p>
 </p>
