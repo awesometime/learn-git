@@ -7,7 +7,7 @@
     <br>   
     <a href="https://github.com/awesometime/">awesometime的github主页</a>    
     .
-    <a href="http://git-scm.com/">git官网</a>
+    <a href="http://git-scm.com/"><n>git官网</n></a>
     .
     <a href="https://github.com/flyhigher139/Git-Cheat-Sheet/">Git Cheat Sheet命令总结表单</a>
   </p>
