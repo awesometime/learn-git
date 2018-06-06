@@ -9,7 +9,11 @@
     <br> 
     <a href="http://git-scm.com/">git官网</a>
     <br> 
-    <a href="https://github.com/flyhigher139/Git-Cheat-Sheet/">Git Cheat Sheet命令总结表单</a>
+    <a href="https://www.git-tower.com/blog/git-cheat-sheet/">国外Git Cheat Sheet网址</a>
+    <br> 
+    <a href="https://blog.igevin.info/posts/git-cheat-sheet/">国内一个人的Git Cheat Sheet网址</a>
+    <br> 
+    <a href="https://github.com/flyhigher139/Git-Cheat-Sheet/">国内Git Cheat Sheet托管在GitHub上</a>
   </p>
 </p>
 
