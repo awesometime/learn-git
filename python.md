@@ -44,6 +44,7 @@ is 与 == 区别：   ???
 is 用于判断两个变量引用对象是否为同一个， == 用于判断引用变量的值是否相等。
 在交互模式中，最后被输出的表达式结果被赋值给变量 _ 。 _ 变量应被用户视为只读变量。
 round() 方法返回浮点数x的四舍五入值。    详见Python3 数字
+list(range(2,2))  返回[]        list(range(0, 1))返回[0]          list(range(1, 0))返回[],默认步长+1，所以到不了0
 ```
 ```
 运算符	描述
@@ -66,5 +67,11 @@ and or not	      逻辑运算符
 随机数函数
 三角函数
 常量 π e
-### 7 Python3 字符串
-### 8 Python3 列表
+### 8 Python3 字符串
+### 9 Python3 列表
+### 10 Python 循环语句
+break 语句可以跳出 for 和 while 的循环体。如果你从 for 或 while 循环中终止，任何对应的循环 else 块将不执行。
+continue语句被用来告诉Python跳过当前循环块中的剩余语句，然后继续进行下一轮循环。
+for循环其实可以同时使用两个甚至多个变量，比如dict的items()可以同时迭代key和value:
+    for k, v in d.items():
+        print(k, '=', v)
