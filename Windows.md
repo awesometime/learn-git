@@ -38,6 +38,8 @@ Type "help", "copyright", "credits" or "license" for more information.
 ### 2 pip相关问题
 python是可以安装到C盘以外的盘的
 
+pip是一个安装和管理 Python 包的工具
+
 **修改python及pip环境变量后仍然有如下问题**
 ```
 C:\Users\linuix>pip
@@ -107,4 +109,33 @@ Package    Version
 pip        10.0.1
 pygame     1.9.3
 setuptools 38.4.0
+```
+```
+C:\Users\linuix>pip install ipython
+C:\Users\linuix>ipython
+Python 3.5.2 (v3.5.2:4def2a2901a5, Jun 25 2016, 22:18:55) [MSC v.1900 64 bit (AMD64)]
+Type 'copyright', 'credits' or 'license' for more information
+IPython 6.4.0 -- An enhanced Interactive Python. Type '?' for help.
+
+In [1]:
+```
+查看ipython安装路径
+```
+C:\Users\linuix>pip install ipython
+Requirement already satisfied: ipython in c:\users\linuix\appdata\local\programs\python\python35\lib\site-packages (6.4.0)
+Requirement already satisfied: decorator in c:\users\linuix\appdata\local\programs\python\python35\lib\site-packages (from ipython) (4.3.0)
+Requirement already satisfied: backcall in c:\users\linuix\appdata\local\programs\python\python35\lib\site-packages (from ipython) (0.1.0)
+Requirement already satisfied: win-unicode-console>=0.5; sys_platform == "win32" and python_version < "3.6" in c:\users\linuix\appdata\local\programs\python\python35\lib\site-packages (from ipython) (0.5)
+Requirement already satisfied: pickleshare in c:\users\linuix\appdata\local\programs\python\python35\lib\site-packages (from ipython) (0.7.4)
+Requirement already satisfied: prompt-toolkit<2.0.0,>=1.0.15 in c:\users\linuix\appdata\local\programs\python\python35\lib\site-packages (from ipython) (1.0.15)
+Requirement already satisfied: traitlets>=4.2 in c:\users\linuix\appdata\local\programs\python\python35\lib\site-packages (from ipython) (4.3.2)
+Requirement already satisfied: simplegeneric>0.8 in c:\users\linuix\appdata\local\programs\python\python35\lib\site-packages (from ipython) (0.8.1)
+Requirement already satisfied: colorama; sys_platform == "win32" in c:\users\linuix\appdata\local\programs\python\python35\lib\site-packages (from ipython) (0.3.9)
+Requirement already satisfied: jedi>=0.10 in c:\users\linuix\appdata\local\programs\python\python35\lib\site-packages (from ipython) (0.12.0)
+Requirement already satisfied: pygments in c:\users\linuix\appdata\local\programs\python\python35\lib\site-packages (from ipython) (2.2.0)
+Requirement already satisfied: setuptools>=18.5 in c:\users\linuix\appdata\local\programs\python\python35\lib\site-packages (from ipython) (38.4.0)
+Requirement already satisfied: wcwidth in c:\users\linuix\appdata\local\programs\python\python35\lib\site-packages (from prompt-toolkit<2.0.0,>=1.0.15->ipython) (0.1.7)
+Requirement already satisfied: six>=1.9.0 in c:\users\linuix\appdata\local\programs\python\python35\lib\site-packages (from prompt-toolkit<2.0.0,>=1.0.15->ipython) (1.11.0)
+Requirement already satisfied: ipython-genutils in c:\users\linuix\appdata\local\programs\python\python35\lib\site-packages (from traitlets>=4.2->ipython) (0.2.0)
+Requirement already satisfied: parso>=0.2.0 in c:\users\linuix\appdata\local\programs\python\python35\lib\site-packages (from jedi>=0.10->ipython) (0.2.1)
 ```
