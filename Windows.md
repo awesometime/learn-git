@@ -23,8 +23,11 @@ Win+R，输入regedit，回车；
 **再次注销并重新登录**。
 
 修改完以后打开Win+R，输入cmd，回车，输入python会提示不是内部命令，需要将python加入**环境变量Path**中
+
 具体解决如下：
+
 参考：如何通过cmd（命令提示符）来启动python？https://jingyan.baidu.com/article/b0b63dbf1edef64a48307024.html
+
 解决后输入python显示
 ```
 C:\Users\linuix>python
@@ -32,8 +35,9 @@ Python 3.5.2 (v3.5.2:4def2a2901a5, Jun 25 2016, 22:18:55) [MSC v.1900 64 bit (AM
 Type "help", "copyright", "credits" or "license" for more information.
 >>> exit()
 ```
-## 2 pip相关问题
+### 2 pip相关问题
 python是可以安装到C盘以外的盘的
+
 **修改python及pip环境变量后仍然有如下问题**
 ```
 C:\Users\linuix>pip
