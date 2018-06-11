@@ -26,17 +26,21 @@ Win+R，输入regedit，回车；
 具体解决如下：
 参考：如何通过cmd（命令提示符）来启动python？https://jingyan.baidu.com/article/b0b63dbf1edef64a48307024.html
 解决后输入python显示
+```
 C:\Users\linuix>python
 Python 3.5.2 (v3.5.2:4def2a2901a5, Jun 25 2016, 22:18:55) [MSC v.1900 64 bit (AMD64)] on win32
 Type "help", "copyright", "credits" or "license" for more information.
 >>> exit()
-
+```
 ## 2 pip相关问题
 python是可以安装到C盘以外的盘的
 **修改python及pip环境变量后仍然有如下问题**
+```
 C:\Users\linuix>pip
 Fatal error in launcher: Unable to create process using '"'
+```
 **解决**
+```
 C:\Users\linuix>python -m pip install --upgrade pip
 Collecting pip
   Downloading https://files.pythonhosted.org/packages/0f/74/ecd13431bcc456ed390b44c8a6e917c1820365cbebcb6a8974d1cd045ab4/pip-10.0.1-py2.py3-none-any.whl (1.3MB)
@@ -46,7 +50,8 @@ Installing collected packages: pip
     Uninstalling pip-9.0.1:
       Successfully uninstalled pip-9.0.1
 Successfully installed pip-10.0.1
-
+```
+```
 C:\Users\linuix>pip
 
 Usage:
@@ -90,10 +95,12 @@ General Options:
                               Don't periodically check PyPI to determine whether a new version of pip is available for
                               download. Implied with --no-index.
   --no-color                  Suppress colored output
-
+```
+```
 C:\Users\linuix>pip list
 Package    Version
 ---------- -------
 pip        10.0.1
 pygame     1.9.3
 setuptools 38.4.0
+```
