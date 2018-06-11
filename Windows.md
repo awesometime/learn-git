@@ -1,4 +1,4 @@
-### 1 修改 C:\Users\ 后的用户名
+### 1 修改CMD中显示的 C:\Users\ 后的用户名
 
 参考https://www.jb51.net/diannaojichu/417162.html
 
@@ -41,6 +41,11 @@ python是可以安装到C盘以外的盘的
 pip是一个安装和管理 Python 包的工具
 
 **修改python及pip环境变量后仍然有如下问题**
+
+pip ipython 路径C:\Users\linuix\AppData\Local\Programs\Python\Python35\Scripts
+
+AppData  为隐藏文件夹，查看勾选后可以看到
+
 ```
 C:\Users\linuix>pip
 Fatal error in launcher: Unable to create process using '"'
@@ -110,6 +115,7 @@ pip        10.0.1
 pygame     1.9.3
 setuptools 38.4.0
 ```
+ipython安装
 ```
 C:\Users\linuix>pip install ipython
 C:\Users\linuix>ipython
@@ -119,7 +125,9 @@ IPython 6.4.0 -- An enhanced Interactive Python. Type '?' for help.
 
 In [1]:
 ```
-查看ipython安装路径
+查看通过pip安装ipython的安装路径
+
+C:\Users\linuix\AppData\Local\Programs\Python\Python35\Lib\site-packages
 ```
 C:\Users\linuix>pip install ipython
 Requirement already satisfied: ipython in c:\users\linuix\appdata\local\programs\python\python35\lib\site-packages (6.4.0)
