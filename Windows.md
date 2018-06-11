@@ -147,3 +147,11 @@ Requirement already satisfied: six>=1.9.0 in c:\users\linuix\appdata\local\progr
 Requirement already satisfied: ipython-genutils in c:\users\linuix\appdata\local\programs\python\python35\lib\site-packages (from traitlets>=4.2->ipython) (0.2.0)
 Requirement already satisfied: parso>=0.2.0 in c:\users\linuix\appdata\local\programs\python\python35\lib\site-packages (from jedi>=0.10->ipython) (0.2.1)
 ```
+### 3 cmd中从C盘切到D盘
+```
+Win+R cmd 回车
+C:\Users\linuix>D:
+D:\>
+D:\>dir  查看D盘文件夹
+D:\>cd filename  切到D盘下某个文件夹内
+```
