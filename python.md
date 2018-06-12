@@ -1,5 +1,42 @@
 总结自菜鸟教程
 
+### 2 Python
+**标准库**
+
+sys调用命令行参数 argv 变量，sys 还有 stdin，stdout 和 stderr 属性，另外大多脚本的定向终止都使用 "sys.exit()"。
+
+os模块提供与操作系统接口相关联的函数，
+
+mod 、shutil 模块提供了一个易于日常的文件和目录管理的高级接口，
+
+glob模块提供了一个函数用于从 目录通配符搜索 生成文件列表，
+
+re模块为高级字符串处理提供了正则表达式工具，
+
+math模块为浮点运算提供了对底层C函数库的访问，
+
+random提供了生成随机数的工具，
+
+urllib.request 处理从 urls 接收的数据的；  smtplib 用于发送电子邮件的；(用于访问互联网以及处理网络通信协议)
+
+datetime模块为日期和时间处理同时提供了简单和复杂的方法。
+
+以下模块直接支持通用的数据打包和压缩格式：zlib，gzip，bz2，zipfile，以及 tarfile。
+
+度量解决同一问题的不同方法之间的性能：timeit 细粒度； :mod:profile 和 pstats 模块提供了针对更大代码块的时间度量工具。
+
+doctest ， unittest模块提供了一个用于测试代码的工具，扫描模块并根据程序中内嵌的文档字符串执行测试
+
+**第三方模块安装**
+
+处理图像的Pillow，以及MySQL驱动程序，Web框架Flask，科学计算Numpy等。
+
+用pip一个一个安装费时费力，还需要考虑兼容性。
+
+我们推荐直接使用**Anaconda，这是一个基于Python的数据处理和科学计算平台**，它已经内置了许多非常有用的第三方库，
+
+我们装上Anaconda，就相当于把数十个第三方模块自动安装好了，非常简单易用。
+
 ### 3 Python3 中有六个标准的数据类型：
 ```
 Number（数字）           整型(Int) 浮点型（Float）复数（Complex）
@@ -93,6 +130,28 @@ and or not	      逻辑运算符
 三角函数
 常量 π e
 ### 8 Python3 字符串
+print("12" , "34")
+12 34   会自动产生一个空格
+
+字符串对象的 rjust() 方法, 它可以将字符串靠右, 并在左边填充空格。
+
+还有类似的方法, 如 ljust() 和 center()。 这些方法并不会写任何东西, 它们仅仅返回新的字符串。
+
+另一个方法 zfill(), 它会在数字的左边填充 0
+
+str.format() 的基本使用如下:
+```
+>>> print('{}网址： "{}!"'.format('菜鸟教程', 'www.runoob.com'))
+菜鸟教程网址： "www.runoob.com!"
+```
+```
+在括号中的数字用于指向传入对象在 format() 中的位置，如下所示：
+
+>>> print('{0} 和 {1}'.format('Google', 'Runoob'))
+Google 和 Runoob
+>>> print('{1} 和 {0}'.format('Google', 'Runoob'))
+Runoob 和 Google
+```
 ### 9 Python3 列表
 ### 10 Python 循环语句
 break 语句可以跳出 for 和 while 的循环体。如果你从 for 或 while 循环中终止，任何对应的循环 else 块将不执行。
@@ -100,3 +159,27 @@ continue语句被用来告诉Python跳过当前循环块中的剩余语句，然
 for循环其实可以同时使用两个甚至多个变量，比如dict的items()可以同时迭代key和value:
     for k, v in d.items():
         print(k, '=', v)
+
+### Python3 模块
+每个模块都有一个__name__属性，当其值是'__main__'时，表明该模块只在本程序内部运行，其他程序中导入该模块并不会执行。
+
+内置的函数 dir() 可以找到模块内定义的所有名称。以一个字符串列表的形式返回:
+
+>>> import  sys
+
+>>> dir(sys)  
+
+['__displayhook__', '__doc__', '__excepthook__', '__loader__', '__name__',等等]
+
+
+
+import sound.effects.echo  必须使用全名去访问:
+
+sound.effects.echo.echofilter
+
+from sound.effects import echo   这同样会导入子模块: echo，但他不需要那些冗长的前缀，可以这样使用:
+
+echo.echofilter
+
+包定义文件 __init__.py 存在一个叫做 __all__ 的列表变量，那么在使用 from package import * 的时候就把这个列表中的所有名字作为包内容导入。
+ 
