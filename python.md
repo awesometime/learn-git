@@ -29,7 +29,11 @@ doctest ， unittest模块提供了一个用于测试代码的工具，扫描模
 
 **第三方模块安装**
 
-处理图像的Pillow，以及MySQL驱动程序，Web框架Flask，科学计算Numpy等。
+处理图像的Pillow，以及
+
+MySQL驱动程序，PyMySQL 是在 Python3.x 版本中用于连接 MySQL 服务器的一个库
+
+Web框架Flask，科学计算Numpy等。
 
 matplotlib_venn  文氏图的绘制
 
