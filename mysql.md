@@ -5,7 +5,7 @@ MySQL语法
 
 大小写不敏感？？
 
-创建数据库
+### 创建数据库
 ```
 mysql> create database 'database-name';              创建数据库
 mysql> GRANT ALL PRIVILEGES ON 'database-name'.* TO 'root'@'localhost' IDENTIFIED BY '密码';         Grant proper access to the 'database-name' database:
@@ -14,7 +14,7 @@ mysql> use 'database-name' (此处貌似不需要分号)         选择某个数
 mysql> select database();         查看当前使用的数据库
 ```
 
-创建tables
+### 创建tables
 ```
 mysql> CREATE TABLE 'table-name' (
          FIRST_NAME  CHAR(20) NOT NULL,
@@ -27,7 +27,7 @@ mysql> describe 'table-name'；    查看表头及其参数的类型等信息
 ```
 ### SQL 插入操作 增
 ```
-mysql> INSERT INTO 'table-name'(表头各项) VALUES ( 表头各项的具体内容);
+示例  mysql> INSERT INTO 'table-name'(表头各项) VALUES ( 表头各项的具体内容);
 mysql> INSERT INTO 'table-name'(id,name,sex,birthday) VALUES ( 1,'小明', '男', '2015-11-02');        
 ```
 mysql> select * from 'table-name';                查看数据
@@ -59,6 +59,13 @@ rowcount: 这是一个只读属性，并返回执行execute()方法后影响的�
 将 TESTDB 的EMPLOYEE表中 SEX 为 'M' 的 AGE 字段递增 1
 mysql>  "UPDATE EMPLOYEE SET AGE = AGE + 1 WHERE SEX = '%c'"  % ('M')
 ```
+### 事务
+对于支持事务的数据库， 在Python数据库编程中，当游标建立之时，就自动开始了一个隐形的数据库事务。每一个方法都开始了一个新的事务。
+
+commit()方法提交游标的所有更新操作，
+
+rollback（）方法回滚当前游标的所有操作。
+
 ### 其他
 ```
 mysql> status;
