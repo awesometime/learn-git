@@ -9,7 +9,7 @@ https://dev.mysql.com/downloads/mysql/
 
 ## 2 解压到某个目录G:\MySQL\mysql5.7\下
 
-## 3 添加环境变量（可选）--
+## 3 添加环境变量（可选）
 #### 配置环境变量的目的是：不用每次启动mysql时都将目录切换到G:\MySQL\mysql5.7\bin目录下，只需在C:\Users\linuix>下输入mysql -u root -p 即可登录。
     操作如下：
     1）右键单击我的电脑->属性->高级系统设置(高级)->环境变量
@@ -64,7 +64,7 @@ default-storage-engine=INNODB
   2 计算机图标上右键-->管理-->服务和应用程序-->服务，找到mysql的服务，点击启动即可。
 
 ## 6 修改mysql临时密码为自己设置的密码
-输入：mysqld–initialize，初始化data文件这一步会生成一个mysql临时登录密码。在data文件夹下生成有一个err为后缀的文件。
+输入：mysqld–initialize，初始化data文件这一步会生成一个mysql临时登录密码。在data文件夹下生成有一个lerr为后缀的文件。
 
 用记事本打开，临时密码位于文件的最后一行，[Note] A temporary password is generated for root@localhost: E7203xxdQ.FP
 
@@ -73,8 +73,10 @@ default-storage-engine=INNODB
 在cmd输入：
 
 `C:\Users\linuix>mysql -u root -p`                                     登录MySQL修改改密码,将刚才复制的密码E7203xxdQ.FP粘贴进去，回车。
- `Enter password:*******`
- `mysql>`
+
+`Enter password:*******`
+
+`mysql>`
 
 然后MySQL欢迎界面后，接着输入：
 
