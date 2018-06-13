@@ -1,5 +1,5 @@
 
-MySQL语法
+MySQL语法   更多详细语法直接查[菜鸟教程](http://www.runoob.com/mysql/mysql-tutorial.html)
 
 注意库名  表名
 
