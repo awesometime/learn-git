@@ -21,3 +21,31 @@ ISO-OSI的七层协议经典架构   按照层次由上到下
 路由器和交换机的区别
 http://www.pc811.com/1/25478.html
 http://www.meilele.com/article_cat-1/article-6630.html
+
+
+
+### 网络编程之Socket
+端口号小于1024的是Internet标准服务的端口，端口号大于1024的，可以任意使用。
+Web服务是80端口。
+SMTP服务是25端口。
+FTP服务是21端口。
+
+**客户端**
+`import socket`    导入socket库
+
+`s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)`    创建一个socket
+
+AF_INET指定使用IPv4协议，如果要用更先进的IPv6，就指定为AF_INET6。SOCK_STREAM指定使用面向流的TCP协议.
+
+`s.connect(('www.sina.com.cn', 80))`     建立连接,一般address的格式为元组（hostname,port）
+
+建立TCP连接后，我们就可以向新浪服务器发送请求，要求返回首页的内容(此时用到http协议)：
+TCP连接创建的是双向通道，双方都可以同时给对方发数据。但是谁先发谁后发，怎么协调，要根据具体的协议来决定。
+例如，HTTP协议规定客户端必须先发请求给服务器，服务器收到后才发数据给客户端。
+
+`s.send(b'GET / HTTP/1.1\r\nHost: www.sina.com.cn\r\nConnection: close\r\n\r\n')`  发送请求数据,要求返回首页的内容
+
+`s.close()`  关闭连接
+
+**服务端**
+
