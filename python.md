@@ -29,9 +29,13 @@ doctest ， unittest模块提供了一个用于测试代码的工具，扫描模
 
 **第三方模块安装**
 
-处理图像的Pillow，以及
+处理图像的Pillow，
 
-MySQL驱动程序，PyMySQL 是在 Python3.x 版本中用于连接 MySQL 服务器的一个库
+MySQL驱动程序，PyMySQL 是在 Python3.x 版本中用于连接 MySQL 服务器的一个库。
+SQLite的特点是轻量级、可嵌入，但不能承受高并发访问，适合桌面和移动应用。
+MySQL是Web世界中使用最广泛的数据库服务器。MySQL是为服务器端设计的数据库，能承受高并发访问，同时占用的内存也远远大于SQLite。
+MySQL内部有多种数据库引擎，最常用的引擎是支持数据库事务的InnoDB。
+MySQL官方提供了mysql-connector-python驱动，以支持Python连接到MySQL服务器。
 
 Web框架Flask，科学计算Numpy等。
 
