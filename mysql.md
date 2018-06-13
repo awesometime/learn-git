@@ -1,7 +1,11 @@
 
 MySQL语法
+
 注意库名  表名
+
 大小写不敏感？？
+
+创建数据库
 ```
 mysql> create database 'database-name';              创建数据库
 mysql> GRANT ALL PRIVILEGES ON 'database-name'.* TO 'root'@'localhost' IDENTIFIED BY '密码';         Grant proper access to the 'database-name' database:
@@ -9,7 +13,9 @@ mysql> show databases;               查看显示所有数据库
 mysql> use 'database-name' (此处貌似不需要分号)         选择某个数据库
 mysql> select database();         查看当前使用的数据库
 ```
+
 创建tables
+```
 mysql> CREATE TABLE 'table-name' (
          FIRST_NAME  CHAR(20) NOT NULL,
          LAST_NAME  CHAR(20),
@@ -19,29 +25,41 @@ mysql> CREATE TABLE 'table-name' (
 mysql> show tables;               查看数据库的表名
 mysql> describe 'table-name'；    查看表头及其参数的类型等信息
 ```
-```
 ### SQL 插入操作 增
+```
 mysql> INSERT INTO 'table-name'(表头各项) VALUES ( 表头各项的具体内容);
 mysql> INSERT INTO 'table-name'(id,name,sex,birthday) VALUES ( 1,'小明', '男', '2015-11-02');        
 ```
 mysql> select * from 'table-name';                查看数据
+
 mysql> truncate table 'table-name';               清空数据
+
 mysql> select * from information_schema.tables where table_schema='databasename';          查看某个数据库的表信息。
+
 mysql> select * from information_schema.tables where table_name ='table_name'              查看某种具体表的信息
-                                  查看当前数据库大小
-                                  查看数据所占的空间大小
-```
+
+?                                                                                    查看当前数据库大小
+
+?                                                                                     查看数据所占的空间大小
+
+
 ### SQL 删除语句 删
+```
 删除数据表 EMPLOYEE 中 AGE 大于 20 的所有数据
 sql = "DELETE FROM EMPLOYEE WHERE AGE > '%d'" % (20)
+```
 ### SQL 查询操作 查
+```
 fetchone(): 该方法获取下一个查询结果集。结果集是一个对象
 fetchall(): 接收全部的返回结果行.
 rowcount: 这是一个只读属性，并返回执行execute()方法后影响的行数。
+```
 ### SQL 更新语句 改
+```
 将 TESTDB 的EMPLOYEE表中 SEX 为 'M' 的 AGE 字段递增 1
 mysql>  "UPDATE EMPLOYEE SET AGE = AGE + 1 WHERE SEX = '%c'"  % ('M')
-
+```
+### 其他
 ```
 mysql> status;
 mysql> SELECT VERSION();                                  查看数据库的安装版本
@@ -53,24 +71,6 @@ mysql>  show variables like '%max_connections%';          查看数据库的最�
 mysql> show status like 'Threads%';                       查看数据库当前连接数，并发数。
 mysql> show variables like '%datadir%';                   查看数据文件存放路径
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 MySQL安装及使用配置
