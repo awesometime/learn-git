@@ -1,3 +1,47 @@
+
+MySQL语法
+```
+mysql> show databases;            查看显示所有数据库
+mysql> use dataname-name;         选择某个数据库
+mysql> select database();         查看当前使用的数据库
+mysql> show tables;               查看数据库的表信息
+mysql> select * from information_schema.tables where table_schema='databasename';          查看某个数据库的表信息。
+mysql> select * from information_schema.tables where table_name ='table_name'              查看某种具体表的信息
+                                  查看当前数据库大小
+                                  查看数据所占的空间大小
+```
+
+
+```
+mysql> status;
+mysql> show variables  like 'port';                       查看数据库使用端口
+mysql> show variables like 'character%';                  查看数据库编码
+mysql> select distinct concat('user: ''',user,'''@''',host,''';') as query from mysql.user;   查看数据库的所有用户信息
+mysql> show grants for 'root'@'localhost';                查看某个具体用户的权限
+mysql>  show variables like '%max_connections%';          查看数据库的最大连接数
+mysql> show status like 'Threads%';                       查看数据库当前连接数，并发数。
+mysql> show variables like '%datadir%';                   查看数据文件存放路径
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 MySQL安装及使用配置
 
 ##  1 下载
