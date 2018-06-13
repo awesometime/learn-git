@@ -73,11 +73,14 @@ default-storage-engine=INNODB
 在cmd输入：
 
 `C:\Users\linuix>mysql -u root -p`                                     登录MySQL修改改密码,将刚才复制的密码E7203xxdQ.FP粘贴进去，回车。
+ `Enter password:*******`
+ `mysql>`
 
 然后MySQL欢迎界面后，接着输入：
 
-`mysql>set password =password('用户自己设置的密码，比如root');`         单引号中的内容就是自己的密码，可以改成自己想要的密码。
-  `mysql>exit;`
+`mysql>set password =password('用户自己设置的密码，比如root');`           单引号中的内容就是自己的密码，可以改成自己想要的密码。
+ 
+`mysql>exit;`
 
 用新密码重新登录
 ```
