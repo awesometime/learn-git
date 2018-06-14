@@ -41,7 +41,7 @@ NoSQL
 NoSQL 数据库分类
 
 列存储
-**文档存储**               **MongoDB**
+文档存储              MongoDB
 key-value存储
 图存储
 对象存储
@@ -63,7 +63,7 @@ MongoDB 是一个介于关系数据库和非关系数据库之间的产品，是
 
 [MySQL与MongoDB的区别](https://blog.csdn.net/see__you__again/article/details/51995956)
 
-[mongodb与mysql区别（超详细](https://blog.csdn.net/gjc_csdn/article/details/80419997)
+[mongodb与mysql区别（超详细)](https://blog.csdn.net/gjc_csdn/article/details/80419997)
 
 ### 3 MongoDB 语法      数据库层面  集合层面  文档层面
 **连接、创建、删除数据库**
@@ -87,12 +87,12 @@ mongodb://admin:123456@localhost/test     使用用户 admin 密码 123456 连�
 > db.COLLECTION_NAME.insert(document)                     如果集合COLLECTION_NAME不在该数据库中， MongoDB 会自动创建该集合；再插入文档document
 > db.COLLECTION_NAME.find()                               查看已插入文档
 > db.COLLECTION_NAME.save(document)                       可以指定 _id 字段。如果不指定 _id 字段 save() 方法类似于 insert() 方法。
-
+-------------------------------------------------------
 > db.collection.remove(
    <query>,
    <justOne>
 )
-
+-------------------------------------------------------
 > db.collection.update(
     <query>,
     <update>,
@@ -102,7 +102,7 @@ mongodb://admin:123456@localhost/test     使用用户 admin 密码 123456 连�
      writeConcern: <document>
    }
 )
-
+-------------------------------------------------------
 > db.collection.find(query, projection)
 ```
 
