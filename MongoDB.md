@@ -84,14 +84,22 @@ mongodb://admin:123456@localhost/test     使用用户 admin 密码 123456 连�
 ```
 **文档----增删改查**
 ```
-> db.COLLECTION_NAME.insert(document)                     如果集合COLLECTION_NAME不在该数据库中， MongoDB 会自动创建该集合；再插入文档document
+> db.COLLECTION_NAME.insert(document)                      插入文档，如果集合COLLECTION_NAME不在该数据库中， MongoDB 会自动创建该集合；再插入文档document
+插入文档时没有指定 _id，MongoDB 会为每个文档添加一个唯一的 id
+
+> db.COLLECTION_NAME.insert_many( 字典组成的列表 )          插入多个文档
+insert_many() 方法返回 InsertManyResult 对象，该对象包含 inserted_ids 属性，该属性保存着所有插入文档的 id 值。如果自定义了就保存自定义的id值
+
 > db.COLLECTION_NAME.find()                               查看已插入文档
 > db.COLLECTION_NAME.save(document)                       可以指定 _id 字段。如果不指定 _id 字段 save() 方法类似于 insert() 方法。
 -------------------------------------------------------
-> db.collection.remove(
-   <query>,
+> db.collection.remove(                            疑问：菜鸟的MongoDB教程中为remove
+   <query>,                                                   Python教程中为delete
    <justOne>
 )
+> db.collection.delete_one(query)
+> db.collection.delete_many()   
+> db.collection.delete_many(query)
 -------------------------------------------------------
 > db.collection.update(
     <query>,
@@ -103,7 +111,12 @@ mongodb://admin:123456@localhost/test     使用用户 admin 密码 123456 连�
    }
 )
 -------------------------------------------------------
-> db.collection.find(query, projection)
+> db.collection.find(query, projection)              查询所有(query为查询条件)
+> db.collection.find_one()                           查询一条
+> db.collection.find({},{ "字段名1": 0, "字段名2": 1, "字段名3": 1 })      查询指定字段的数据，将需要返回的字段对应值设置为 1
+query = { "字段名": { "$gt": "S" } }                    读取 address 字段中第一个字母 ASCII 值大于 "S" 的数据，大于的修饰符条件为
+query = { "字段名": { "$regex": "^S" } }                正则表达式作为修饰符
+> db.collection.find().sort("字段名", arg2)             排序    arg2     中1为升序，-1为降序
 ```
 
 
