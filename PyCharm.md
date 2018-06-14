@@ -1,9 +1,11 @@
 pycharm  的一些快捷键 shortcut key
+
 [pycharm快捷键及一些常用设置](https://www.2cto.com/os/201410/341542.html)
 
 官方文档
-PyCharm Default Keymap
 
+PyCharm Default Keymap
+```
 编辑类：
 
 Ctrl + Space 基本的代码完成（类、方法、属性）
@@ -135,3 +137,4 @@ Ctrl + BackQuote(’)快速切换当前计划
 Ctrl + Alt + S　打开设置页
 Ctrl + Shift + A查找编辑器里所有的动作
 Ctrl + Tab在窗口间进行切换
+```
