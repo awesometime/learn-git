@@ -166,24 +166,30 @@ Google 和 Runoob
 Runoob 和 Google
 ```
 ### 9 Python3 列表
-### 10 Python 循环语句
-break 语句可以跳出 for 和 while 的循环体。如果你从 for 或 while 循环中终止，任何对应的循环 else 块将不执行。
-continue语句被用来告诉Python跳过当前循环块中的剩余语句，然后继续进行下一轮循环。
-for循环其实可以同时使用两个甚至多个变量，比如dict的items()可以同时迭代key和value:
-    for k, v in d.items():
-        print(k, '=', v)
 
+### 10 Python3 循环语句
+
+break 语句可以跳出 for 和 while 的循环体。如果你从 for 或 while 循环中终止，任何对应的循环 else 块将不执行。
+
+continue语句被用来告诉Python跳过当前循环块中的剩余语句，然后继续进行下一轮循环。
+
+for循环其实可以同时使用两个甚至多个变量，比如dict的items()可以同时迭代key和value:
+```   
+   for k, v in d.items():
+        print(k, '=', v)
+```
 ### Python3 模块
+
 每个模块都有一个__name__属性，当其值是'__main__'时，表明该模块只在本程序内部运行，其他程序中导入该模块并不会执行。
 
 内置的函数 dir() 可以找到模块内定义的所有名称。以一个字符串列表的形式返回:
-
+```
 >>> import  sys
 
 >>> dir(sys)  
 
 ['__displayhook__', '__doc__', '__excepthook__', '__loader__', '__name__',等等]
-
+```
 
 
 import sound.effects.echo  必须使用全名去访问:
@@ -196,3 +202,116 @@ echo.echofilter
 
 包定义文件 __init__.py 存在一个叫做 __all__ 的列表变量，那么在使用 from package import * 的时候就把这个列表中的所有名字作为包内容导入。
  
+### 11 Python3   多进程multiprocessing    多线程
+
+#### 多进程multiprocessing
+
+**启动一个子进程并等待其结束**   `os.getpid()  p.start()  p.join()`
+
+multiprocessing模块（具有跨平台特性）提供了一个Process类来代表一个进程对象
+
+```
+from multiprocessing import Process
+import time,os
+
+def run_proc(name):                           # 定义一个执行函数run_proc和函数的参数name
+    print('Run child process %s (%s)...' % (name, os.getpid()))      #os.getpid()获取当前进程id , os.getppid()获取父进程id 
+
+if __name__=='__main__':
+    print('Parent process %s.' % os.getpid())      # 打印当前进程(父进程)id
+    p=Process(target=run_proc, args=('test',))     # 传入参数，创建一个Process实例，即创建一个子进程
+    p.start()                                      # 开启一个进程
+    p.join()                                       # 等待该进程运行结束
+```    
+
+另一种方法：创建一个类继承Process类，并重写run方法。[参考](https://www.cnblogs.com/hypnus-ly/p/8129205.html)
+    
+**Pool  批量创建子进程**   `p.apply_async` 
+
+```
+from multiprocessing import Pool
+import os, time, random
+
+def long_time_task(name):
+    print('Run task %s (%s)...' % (name, os.getpid()))
+    start = time.time()
+    time.sleep(random.random() * 3)
+    end = time.time()
+    print('Task %s runs %0.2f seconds.' % (name, (end - start)))   # 用time.sleep结合随机函数来指定每个进程执行多长时间
+
+if __name__=='__main__':
+    
+    p = Pool(4)                   # 同时跑4个进程，默认大小是CPU的核数
+    for i in range(6):            # 总共6个进程，由于只能同时跑4个进程，需要等前边4个中某个结束才能加入一个新的进程
+        p.apply_async(long_time_task, args=(i,))
+    
+    p.close()
+    p.join()
+    
+```
+ **进程Process间通信**
+ 
+Python的multiprocessing模块包装了底层的机制，提供了`Queue、Pipes`等多种方式来交换数据。我们以``Queue``为例  
+```
+from multiprocessing import Process, Queue
+import os, time, random
+
+# 写数据进程执行的代码:
+def write(q):
+    print('Process to write: %s' % os.getpid())
+    for value in ['A', 'B', 'C']:
+        print('Put %s to queue...' % value)
+        q.put(value)                                  # 将xxx写入到Queue
+        time.sleep(random.random())
+
+# 读数据进程执行的代码:
+def read(q):
+    print('Process to read: %s' % os.getpid())
+    while True:
+        value = q.get(True)
+        print('Get %s from queue.' % value)           # 从Queue读出xxx
+
+if __name__=='__main__':
+    # 父进程创建Queue，并传给各个子进程：
+    q = Queue()
+    pw = Process(target=write, args=(q,))
+    pr = Process(target=read, args=(q,))             # 创建子进程pw，pr
+    # 启动子进程pw，写入:
+    pw.start()
+    # 启动子进程pr，读取:
+    pr.start()
+    # 等待pw结束:
+    pw.join()
+    # pr进程里是死循环，无法等待其结束，只能强行终止:
+    pr.terminate()
+ ```
+
+#### 多线程   
+
+Python的标准库提供了两个模块：`_thread 和 threading`，_thread是低级模块，threading是高级模块，对_thread进行了封装。
+
+绝大多数情况下，我们只需要使用threading这个高级模块。
+
+启动一个线程就是把一个函数传入并创建Thread实例，然后调用start()开始执行： 
+    
+```
+import time, threading
+
+# 新线程执行的代码:
+def loop():
+    print('thread %s is running...' % threading.current_thread().name)
+    n = 0
+    while n < 5:
+        n = n + 1
+        print('thread %s >>> %s' % (threading.current_thread().name, n))
+        time.sleep(1)
+    print('thread %s ended.' % threading.current_thread().name)
+
+print('thread %s is running...' % threading.current_thread().name)
+t = threading.Thread(target=loop, name='LoopThread')
+t.start()
+t.join()
+print('thread %s ended.' % threading.current_thread().name)
+```
+    
+    
