@@ -178,7 +178,7 @@ for循环其实可以同时使用两个甚至多个变量，比如dict的items()
    for k, v in d.items():
         print(k, '=', v)
 ```
-### Python3 模块
+### 11 Python3 模块
 
 每个模块都有一个__name__属性，当其值是'__main__'时，表明该模块只在本程序内部运行，其他程序中导入该模块并不会执行。
 
@@ -202,7 +202,8 @@ echo.echofilter
 
 包定义文件 __init__.py 存在一个叫做 __all__ 的列表变量，那么在使用 from package import * 的时候就把这个列表中的所有名字作为包内容导入。
  
-### 11 Python3   多进程 multiprocessing    多线程 threading
+### 12 Python3   多进程 multiprocessing    多线程 threading     (参考廖雪峰)
+
 
 多进程和多线程最大的不同在于，
 
@@ -214,9 +215,9 @@ echo.echofilter
 
 
 
-#### 多进程multiprocessing
+#### 12.1 多进程multiprocessing
 
-**启动一个子进程并等待其结束**   `os.getpid()  p.start()  p.join()`
+**12.1.1 启动一个子进程并等待其结束**   `os.getpid()  p.start()  p.join()`
 
 multiprocessing模块（具有跨平台特性）提供了一个Process类来代表一个进程对象
 
@@ -236,7 +237,7 @@ if __name__=='__main__':
 
 另一种方法：创建一个类继承Process类，并重写run方法。[参考](https://www.cnblogs.com/hypnus-ly/p/8129205.html)
     
-**Pool  批量创建子进程**   `p.apply_async` 
+**12.1.2 Pool  批量创建子进程**   `p.apply_async` 
 
 ```
 from multiprocessing import Pool
@@ -259,7 +260,7 @@ if __name__=='__main__':
     p.join()
     
 ```
- **进程Process间通信**
+ **12.1.3 进程Process间通信**
  
 Python的multiprocessing模块包装了底层的机制，提供了`Queue、Pipes`等多种方式来交换数据。我们以``Queue``为例  
 ```
@@ -296,13 +297,30 @@ if __name__=='__main__':
     pr.terminate()
  ```
 
-#### 多线程   
+#### 12.2 多线程 Threading 
+
+Python的线程是真正的Posix Thread，而不是模拟出来的线程。
+
+Python的线程虽然是真正的线程，但解释器执行代码时，有一个GIL锁：Global Interpreter Lock，任何Python线程执行前，必须先获得GIL锁，
+
+然后，每执行100条字节码，解释器就自动释放GIL锁，让别的线程有机会执行。这个GIL全局锁实际上把所有线程的执行代码都给上了锁，所以，
+
+多线程在Python中只能交替执行，即使100个线程跑在100核CPU上，也只能用到1个核。
+
+GIL是Python解释器设计的历史遗留问题，通常我们用的解释器是官方实现的CPython，要真正利用多核，除非重写一个不带GIL的解释器。
+
+所以，在Python中，可以使用多线程，但不要指望能有效利用多核。如果一定要通过多线程利用多核，那只能通过C扩展来实现，不过这样就失去了
+
+Python简单易用的特点。不过，也不用过于担心，Python虽然不能利用多线程实现多核任务，但可以通过多进程实现多核任务。
+
+多个Python进程有各自独立的GIL锁，互不影响。
+
 
 Python的标准库提供了两个模块：`_thread 和 threading`，_thread是低级模块，threading是高级模块，对_thread进行了封装。
 
 绝大多数情况下，我们只需要使用threading这个高级模块。
 
-**启动一个线程就是把一个函数传入并创建Thread实例，然后调用start()开始执行：** 
+**12.2.1 启动一个线程就是把一个函数传入并创建Thread实例，然后调用start()开始执行：** 
 
 
 由于任何进程默认就会启动一个线程，我们把该线程称为主线程，主线程又可以启动新的线程，
@@ -331,7 +349,7 @@ t.start()                                                            # 新线程
 t.join()
 print('thread %s ended.' % threading.current_thread().name)          # MainThread 执行完毕
 ```
-**Lock**
+**12.2.2 Lock**
 lock = threading.Lock()                # 创建一个锁
 def run_thread(n):
     for i in range(100000):        
@@ -341,3 +359,107 @@ def run_thread(n):
         finally:            
             lock.release()             # 执行代码完了一定要释放锁
     
+**12.3 ThreadLocal**
+
+一个ThreadLocal变量虽然是全局变量，但每个线程都只能读写自己线程的独立副本，互不干扰。ThreadLocal解决了参数在一个线程中各个函数之间互相传递的问题。
+```
+import threading
+   
+local_school = threading.local()                      # 创建全局ThreadLocal对象
+
+def process_student():    
+    std = local_school.student                        # 获取当前线程关联的student
+    print('Hello, %s (in %s)' % (std, threading.current_thread().name))
+
+
+def process_thread(std_name):    
+    local_school.student = std_name                   # 绑定ThreadLocal的student
+    process_student()
+
+
+t1 = threading.Thread(target=process_thread, args=('Alice',), name='Thread-A')  # 此处args传给std_name,  name传给threading.current_thread().name，不传则为Thread-1， Thread-2
+t2 = threading.Thread(target=process_thread, args=('Bob',), name='Thread-A')
+t1.start()
+t2.start()
+t1.join()
+t2.join()
+```
+**12.4 分布式进程**
+
+可以在多台机子上跑
+
+##### task_master.py
+```
+import random, time, queue                                                                    右侧为模块化的东西
+from multiprocessing.managers import BaseManager                                              managers为multiprocessing的子模块
+
+# 发送  任务task_queue  的队列:
+task_queue = queue.Queue()                                                                    queue.Queue()
+# 接收  结果result_queue 的队列:
+result_queue = queue.Queue()
+
+# 从BaseManager继承的QueueManager:
+class QueueManager(BaseManager):
+    pass
+
+# 把两个Queue都注册到网络上, callable参数关联了Queue对象:
+QueueManager.register('get_task_queue', callable=lambda: task_queue)                            QueueManager.register
+QueueManager.register('get_result_queue', callable=lambda: result_queue)
+# 绑定端口5000, 设置验证码'abc':
+manager = QueueManager(address=('', 5000), authkey=b'abc')                                      绑定 QueueManager(address=('', 5000), authkey=b'abc')
+# 启动Queue:
+manager.start()                                                                                 manager.start()
+# 获得通过网络访问的Queue对象:
+task = manager.get_task_queue()                                                                 QueueManager.get_task_queue()
+result = manager.get_result_queue()                                                             QueueManager.get_result_queue()
+# 放几个任务进去:
+for i in range(10):
+    n = random.randint(0, 10000)
+    print('Put task %d...' % n)
+    task.put(n)                                                   QueueManager.get_task_queue().put(n)
+# 从result队列读取结果:
+print('Try get results...')
+for i in range(10):
+    r = result.get(timeout=10)                                    QueueManager.get_result_queue().get(timeout=10) 
+    print('Result: %s' % r)
+# 关闭:
+manager.shutdown()                                                manager.shutdown()
+print('master exit.')
+```
+##### task_worker.py
+```
+import time, sys, queue
+from multiprocessing.managers import BaseManager
+
+# 创建类似的QueueManager:
+class QueueManager(BaseManager):
+    pass
+
+# 由于这个QueueManager只从网络上获取Queue，所以注册时只提供名字:
+QueueManager.register('get_task_queue')                                           QueueManager.register
+QueueManager.register('get_result_queue')
+
+# 连接到服务器，也就是运行task_master.py的机器:
+server_addr = '127.0.0.1'
+print('Connect to server %s...' % server_addr)
+# 端口和验证码注意保持与task_master.py设置的完全一致:
+m = QueueManager(address=(server_addr, 5000), authkey=b'abc')                      绑定QueueManager
+# 从网络连接:
+m.connect()                                                                          QueueManager.connect()
+# 获取Queue的对象:
+task = m.get_task_queue()                                                            QueueManager.get_task_queue()
+result = m.get_result_queue()                                                        QueueManager.get_result_queue()
+# 从task队列取任务,并把结果写入result队列:
+for i in range(10):
+    try:
+        n = task.get(timeout=1)                                                 QueueManager.get_task_queue().get()
+        print('run task %d * %d...' % (n, n))
+        r = '%d * %d = %d' % (n, n, n*n)
+        time.sleep(1)
+        result.put(r)                                                           QeueManager.get_result_queue().put(r)
+    except Queue.Empty:
+        print('task queue is empty.')
+# 处理结束:
+print('worker exit.')
+```
+
