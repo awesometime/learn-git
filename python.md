@@ -396,7 +396,7 @@ from multiprocessing.managers import BaseManager                                
 # 发送  任务task_queue  的队列:
 task_queue = queue.Queue()                                                                    queue.Queue()
 # 接收  结果result_queue 的队列:
-result_queue = queue.Queue()
+result_queue = queue.Queue()                                                                  queue.Queue()
 
 # 从BaseManager继承的QueueManager:
 class QueueManager(BaseManager):
@@ -408,7 +408,7 @@ QueueManager.register('get_result_queue', callable=lambda: result_queue)
 # 绑定端口5000, 设置验证码'abc':
 manager = QueueManager(address=('', 5000), authkey=b'abc')                                      绑定 QueueManager(address=('', 5000), authkey=b'abc')
 # 启动Queue:
-manager.start()                                                                                 manager.start()
+manager.start()                                                                                 QueueManager.start()
 # 获得通过网络访问的Queue对象:
 task = manager.get_task_queue()                                                                 QueueManager.get_task_queue()
 result = manager.get_result_queue()                                                             QueueManager.get_result_queue()
@@ -462,4 +462,4 @@ for i in range(10):
 # 处理结束:
 print('worker exit.')
 ```
-
+Queue 之所以能通过网络访问，就是通过 QueueManager 实现的。也就是 QueueManager 管理着众多的 Queue，参考廖雪峰的图更好理解
