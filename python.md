@@ -202,7 +202,17 @@ echo.echofilter
 
 包定义文件 __init__.py 存在一个叫做 __all__ 的列表变量，那么在使用 from package import * 的时候就把这个列表中的所有名字作为包内容导入。
  
-### 11 Python3   多进程multiprocessing    多线程
+### 11 Python3   多进程 multiprocessing    多线程 threading
+
+多进程和多线程最大的不同在于，
+
+`多进程`中，同一个变量，各自有一份拷贝存在于每个进程中，互不影响.
+
+`多线程`中，所有变量都由所有线程共享，所以，任何一个变量都可以被任何一个线程修改.
+
+因此，线程之间共享数据最大的危险在于多个线程同时改一个变量，把内容给改乱了。
+
+
 
 #### 多进程multiprocessing
 
@@ -292,14 +302,22 @@ Python的标准库提供了两个模块：`_thread 和 threading`，_thread是�
 
 绝大多数情况下，我们只需要使用threading这个高级模块。
 
-启动一个线程就是把一个函数传入并创建Thread实例，然后调用start()开始执行： 
-    
+**启动一个线程就是把一个函数传入并创建Thread实例，然后调用start()开始执行：** 
+
+
+由于任何进程默认就会启动一个线程，我们把该线程称为主线程，主线程又可以启动新的线程，
+
+Python的threading模块有个current_thread()函数，它永远返回当前线程的实例。主线程实例的名字叫MainThread，
+
+子线程的名字在创建时指定，我们用LoopThread命名子线程。名字仅仅在打印时用来显示，完全没有其他意义，
+
+如果不起名字Python就自动给线程命名为Thread-1，Thread-2……
 ```
 import time, threading
 
 # 新线程执行的代码:
-def loop():
-    print('thread %s is running...' % threading.current_thread().name)
+def loop():                                                              # 新线程的代码
+    print('thread %s is running...' % threading.current_thread().name)   # print(threading.current_thread().name)=MainThread
     n = 0
     while n < 5:
         n = n + 1
@@ -307,11 +325,19 @@ def loop():
         time.sleep(1)
     print('thread %s ended.' % threading.current_thread().name)
 
-print('thread %s is running...' % threading.current_thread().name)
-t = threading.Thread(target=loop, name='LoopThread')
-t.start()
+print('thread %s is running...' % threading.current_thread().name)   # MainThread 正在运行
+t = threading.Thread(target=loop, name='LoopThread')                 # Thread中传入loop函数，及参数，创建Thread实例
+t.start()                                                            # 新线程开始执行
 t.join()
-print('thread %s ended.' % threading.current_thread().name)
+print('thread %s ended.' % threading.current_thread().name)          # MainThread 执行完毕
 ```
-    
+**Lock**
+lock = threading.Lock()                # 创建一个锁
+def run_thread(n):
+    for i in range(100000):        
+        lock.acquire()                 # 先要获取锁
+        try:           
+            change_it(n)               # 执行一段代码
+        finally:            
+            lock.release()             # 执行代码完了一定要释放锁
     
