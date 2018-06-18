@@ -1,5 +1,7 @@
 pycharm  的一些快捷键 shortcut key
 
+IDEA主题下载(http://www.riaway.com/theme.php)
+
 [pycharm快捷键及一些常用设置](https://www.2cto.com/os/201410/341542.html)
 
 官方文档
