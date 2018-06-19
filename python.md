@@ -2,6 +2,7 @@
 
 ### 2 Python
 **标准库**
+
 [The Python Standard Library](https://docs.python.org/3/library/index.html)
 
 **sy**s调用命令行参数 argv 变量，sys 还有 stdin，stdout 和 stderr 属性，另外大多脚本的定向终止都使用 "sys.exit()"。
@@ -30,7 +31,7 @@ doctest ， unittest模块提供了一个用于测试代码的工具，扫描模
 
 **第三方模块安装**
 
-处理图像的Pillow，
+处理图像的[Pillow](https://pillow.readthedocs.io/en/latest/index.html)，
 
 SQLite的特点是轻量级、可嵌入，但不能承受高并发访问，适合桌面和移动应用。
 MySQL是Web世界中使用最广泛的数据库服务器。MySQL是为服务器端设计的数据库，能承受高并发访问，同时占用的内存也远远大于SQLite。
