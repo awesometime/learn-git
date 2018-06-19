@@ -75,7 +75,21 @@ tuple的元素不可改变，但它可以包含可变的对象，比如list列�
     tup2 = (20,) # 一个元素，需要在元素后添加逗号
 
 ### 4 Python3 解释器
-### 5
+### 5  if判断
+
+if isinstane(object, classinfo) 如果参数 object 是参数 classinfo 的实例，返回真，否则假；
+
+参数 classinfo 可以是一个包含若干 type 对象的元祖，如果参数 object 是其中任意一个类型的实例，返回真，否则假
+
+```
+def __init__(self, path_or_image):
+    # 若 path_or_image 为 Image.Image 类型的实例，直接赋值
+    if isinstance(path_or_image, Image.Image):
+        self.image = path_or_image
+    # 若 path_or_image 为 str 类型的实例，打开图片
+    elif isinstance(path_or_image, str):
+        self.image = Image.open(path_or_image)
+```
 ### 6 Python3 运算符
 Python语言支持以下类型的运算符:
 ```
