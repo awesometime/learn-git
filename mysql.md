@@ -71,6 +71,7 @@ rollback（）方法回滚当前游标的所有操作。
 
 ### 其他
 ```
+mysql> select * from mysql.user                           查看所有用户
 mysql> status;
 mysql> SELECT VERSION();                                  查看数据库的安装版本
 mysql> show variables  like 'port';                       查看数据库使用端口
