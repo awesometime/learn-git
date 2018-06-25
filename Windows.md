@@ -155,3 +155,6 @@ D:\>
 D:\>dir  查看D盘文件夹
 D:\>cd filename  切到D盘下某个文件夹内
 ```
+### 4 win10如何将txt文件设置为默认从Notepad++打开
+
+[notepad++设置默认打开txt文件失效的解决方法](https://www.cnblogs.com/zsy/p/5951680.html)
