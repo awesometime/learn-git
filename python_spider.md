@@ -1,8 +1,25 @@
-## 爬虫进阶
+## 爬虫一步步进阶
+
+`爬虫方法`
+
+urllib  加密不好使
+
+Selenium+Chromedriver 加密的也可以
+
+Scrapy
+
+`筛选所需内容方法`
+
+find
+
+正则表达式
+
+BeautifulSoup lxml 
 
 #### 一  利用`urllib.request.Request`和`urllib.request.urlopen`
 
 缺点：
+
 A. urllib抓取网页很容易被当作爬虫来对待，url中加header和使用代理地址和设置time.sleep可以实现一些伪装.
 
 B.不能获取js执行(加密)后的网页内容
@@ -115,9 +132,10 @@ Selenium不再支持PhantomJS(无界面浏览器)
 
 选择Selenium+Chromedriver(前提要有chrome，两exe文件放在同一文件夹下)
 
-使用了BeautifulSoup方法，BeautifulSoup是一个模块，该模块用于接收一个HTML或XML字符串，然后将其进行格式化，之后便可以
+使用了`BeautifulSoup`方法，BeautifulSoup是一个模块，该模块用于接收一个HTML或XML字符串，然后将其进行格式化，之后便可
 
-使用他提供的方法进行快速查找指定元素，从而使得在HTML或XML中查找指定元素变得简单。
+以使用他提供的方法进行快速查找指定元素，从而使得在HTML或XML中查找指定元素变得简单。
+
 ```
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
