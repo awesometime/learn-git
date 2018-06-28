@@ -2,11 +2,11 @@
 
 `爬虫方法`
 
-urllib  加密不好使
+- urllib  加密不好使
 
-Selenium+Chromedriver 加密的也可以
+- Selenium+Chromedriver 加密的也可以
 
-Scrapy
+- Scrapy
 
 `筛选所需内容方法`
 
@@ -134,11 +134,13 @@ Selenium不再支持PhantomJS(无界面浏览器)
 
 选择Selenium+Chromedriver(前提要有chrome，两exe文件放在同一文件夹下)
 
-·使用了`BeautifulSoup`方法，BeautifulSoup是一个模块，该模块用于接收一个HTML或XML字符串，然后将其进行格式化，
+- 使用了`BeautifulSoup`方法，BeautifulSoup是一个模块，该模块用于接收一个HTML或XML字符串，然后将其进行格式化，
 
 之后便可以使用他提供的方法进行快速查找指定元素，从而使得在HTML或XML中查找指定元素变得简单。
 
 [BeautifulSoup基本用法总结](https://blog.csdn.net/kikaylee/article/details/56841789)
+
+待解决的问题：无界面，不用打开浏览器
 
 ```
 from selenium import webdriver
