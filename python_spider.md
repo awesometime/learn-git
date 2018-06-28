@@ -10,11 +10,11 @@
 
 `筛选所需内容方法`
 
--find
+- find
 
--正则表达式
+- 正则表达式
 
--BeautifulSoup lxml 
+- BeautifulSoup lxml 
 
 
 转载自[Python 爬虫煎蛋网 OOXX 妹子图爬虫（1）——解密图片地址](http://www.tendcode.com/article/jiandan-meizi-spider/)
@@ -129,21 +129,21 @@ if __name__ == '__main__':  # 注意 = 和 == 区别  ，作为导入模块时�
 
 #### 二  `Selenium+Chromedriver`可以实现对js加密后的网页的爬取
 
--[Selenium使用详解](https://www.jianshu.com/p/4b89c92ff9b4)
+- [Selenium使用详解](https://www.jianshu.com/p/4b89c92ff9b4)
 
--`Selenium+PhantomJS`UserWarning: Selenium support for PhantomJS has been deprecated, please use headless versions 
+- `Selenium+PhantomJS`UserWarning: Selenium support for PhantomJS has been deprecated, please use headless versions 
 
 of Chrome or Firefox instead
 
 Selenium不再支持PhantomJS(无界面浏览器)
 
--选择Selenium+Chromedriver(前提要有chrome，两exe文件放在同一文件夹下)
+- 选择Selenium+Chromedriver(前提要有chrome，两exe文件放在同一文件夹下)
 
 - 使用了`BeautifulSoup`方法，BeautifulSoup是一个模块，该模块用于接收一个HTML或XML字符串，然后将其进行格式化，
 
 之后便可以使用他提供的方法进行快速查找指定元素，从而使得在HTML或XML中查找指定元素变得简单。
 
--[BeautifulSoup基本用法总结](https://blog.csdn.net/kikaylee/article/details/56841789)
+- [BeautifulSoup基本用法总结](https://blog.csdn.net/kikaylee/article/details/56841789)
 
 -待解决的问题：无界面，不用打开浏览器
 
