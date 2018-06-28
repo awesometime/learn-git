@@ -192,6 +192,49 @@ for url in urls:
             jpg.write(r.content)
 ```
 
+#### 三         用Python爬虫抓取免费代理IP
 
+- [用Python爬虫抓取免费代理IP](https://mp.weixin.qq.com/s/bhf1CrWzY-btSJpwEMth3g)
+
+```
+本代码爬取到了'http://www.youdaili.net/Daili/http/36822.html'中显示的ip，但没有端口（正则表达式不会写）
+import requests
+import re
+from bs4 import BeautifulSoup
+
+
+def crawl_xici_ip():
+    ip_list = []
+    url = 'http://www.youdaili.net/Daili/http/36822.html'
+    response = requests.get(url)
+    # print(response.status_code)
+    if response.status_code == 200:
+        content = response.text
+        # print('0')
+        # print(content)
+        soup = BeautifulSoup(content, 'html.parser')
+        # print('1')
+        # print(soup)
+    # print('2')
+    divs = soup.find_all('div')
+    # print(divs)
+    for i in range(0, len(divs)):
+        div = divs[i]
+        # 找到tr中的所有td，返回列表
+        ps = str(div.find_all('p'))
+        # print(ps)
+        # 错误 ，最后一位会出错概率挺大
+        # regex = r'(?:(?:[01]?\d?\d|2[0-4]\d|25[0-5])\.){3}(?:[01]?\d?\d|2[0-4]\d|25[0-5])'
+        
+        # 匹配ip的正则表达式，正确验证过
+        regex = r"\b(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\b"
+        ip_list = re.findall(regex, ps)        
+        for each in ip_list:        
+           print(each)
+
+
+if __name__ == '__main__':
+    crawl_xici_ip()
+```
 
 
