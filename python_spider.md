@@ -2,6 +2,7 @@
 
 [爬虫学习在线教程](https://blog.csdn.net/weicao1990/article/details/52334336)
 
+[Python入门网络爬虫之精华版](https://github.com/lining0806/PythonSpiderNotes)
 
 `爬虫方法`
 
