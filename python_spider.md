@@ -25,6 +25,51 @@
 
 里面有将加密结果，分析加密源代码，分析如何解密，值得看看。
 
+#### 0    实现有道翻译
+
+```
+####################
+#     小甲鱼
+####################
+import urllib.request
+import urllib.parse
+import json
+import time
+
+while True:
+    content = input("Enter the contents need to be translated(输入'q'退出程序):")
+    if content == "q":
+        break
+
+    url = "http://fanyi.youdao.com/translate?smartresult=dict&smartresult=rule"
+    # 修改隐参headers，防止服务器屏蔽，的两种方法1：Request对象生成前
+    # head = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36'}
+    data = {"i": content,
+            "doctype": "json",
+            "version": "2.1",
+            "keyfrom": "fanyi.web",
+            "ue": "UTF-8"}
+    data = urllib.parse.urlencode(data).encode('utf-8')
+
+
+    req = urllib.request.Request(url, data) # head)
+    # 修改隐参headers，防止服务器屏蔽，的两种方法2：Request对象生成后，利用add_header()方法
+    req.add_header('User-Agent','Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36')
+    print(req.headers)
+
+
+    response = urllib.request.urlopen(req)
+    html = response.read().decode('utf-8')
+    print(html)
+
+    # html --> json
+    target1 = json.loads(html)
+    # print(target1)
+    target2 = target1['translateResult'][0][0]['tgt']
+    print(target2)
+    time.sleep(5)
+```
+
 #### 一    利用`urllib.request.Request`和`urllib.request.urlopen`
 
 缺点：
