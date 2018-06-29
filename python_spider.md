@@ -21,7 +21,7 @@
 
 里面有将加密结果，分析加密源代码，分析如何解密，值得看看。
 
-#### 一  利用`urllib.request.Request`和`urllib.request.urlopen`
+#### 一    利用`urllib.request.Request`和`urllib.request.urlopen`
 
 缺点：
 
@@ -29,11 +29,14 @@ A. urllib抓取网页很容易被当作爬虫来对待，url中加header和使�
 
 B.不能获取js执行(加密)后的网页内容
 
-煎蛋网对图片进行了加密因此此方法没有成功。
+
 
 代码未使用正则表达式。
 
 ```
+####################################################################
+#  煎蛋网对图片进行了加密因此此方法没有成功        代码未使用正则表达式   #
+####################################################################
 import urllib.request
 import os
 import random
@@ -141,13 +144,16 @@ Selenium不再支持PhantomJS(无界面浏览器)
 
 - 使用了`BeautifulSoup`方法，BeautifulSoup是一个模块，该模块用于接收一个HTML或XML字符串，然后将其进行格式化，
 
-之后便可以使用他提供的方法进行快速查找指定元素，从而使得在HTML或XML中查找指定元素变得简单。
+  之后便可以使用他提供的方法进行快速查找指定元素，从而使得在HTML或XML中查找指定元素变得简单。
 
 - [BeautifulSoup基本用法总结](https://blog.csdn.net/kikaylee/article/details/56841789)
 
--待解决的问题：无界面，不用打开浏览器
+- 待解决的问题：无界面，不用打开浏览器
 
 ```
+#####################################
+#               爬取到了图片          # 
+#####################################
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import requests
