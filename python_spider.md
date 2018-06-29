@@ -68,6 +68,15 @@ while True:
     target2 = target1['translateResult'][0][0]['tgt']
     print(target2)
     time.sleep(5)
+    
+
+##########################   控制台输出   ####################################
+Enter the contents need to be translated(输入'q'退出程序):中国
+{'User-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36'}
+                          {"type":"ZH_CN2EN","errorCode":0,"elapsedTime":0,"translateResult":[[{"src":"中国","tgt":"China"}]]}
+
+China
+Enter the contents need to be translated(输入'q'退出程序):q
 ```
 
 #### 一    利用`urllib.request.Request`和`urllib.request.urlopen`
