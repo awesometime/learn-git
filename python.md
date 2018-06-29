@@ -1,6 +1,8 @@
 
 - [清华大学 李金老师 Python笔记 《自学Python——编程基础、科学计算及数据分析》](https://github.com/lijin-THU/notes-python)
-- [Python入门网络爬虫之精华版》](https://github.com/lining0806/PythonSpiderNotes)
+- [Python入门网络爬虫之精华版](https://github.com/lining0806/PythonSpiderNotes)
+
+
 以下总结自菜鸟教程
 
 ### 2 Python
