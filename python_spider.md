@@ -190,12 +190,13 @@ for url in urls:
             http_url = "http:" + z
             img_url.append(http_url)
             #print("http:%s" % z)
-    
-    for j in img_url:
-        r=requests.get(j)
-        print('正在下载 %s......' % j)
-        with open(path+j[-15:],'wb')as jpg:
-            jpg.write(r.content)
+
+print(len(img_url))
+for j in img_url:
+    r=requests.get(j)
+    print('正在下载 %s......' % j)
+    with open(path+j[-15:],'wb')as jpg:
+        jpg.write(r.content)
 ```
 
 #### 三         用Python爬虫抓取免费代理IP
