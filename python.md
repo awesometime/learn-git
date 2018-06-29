@@ -1,4 +1,7 @@
-总结自菜鸟教程
+
+- [清华大学 李金老师 Python笔记 《自学Python——编程基础、科学计算及数据分析》](https://github.com/lijin-THU/notes-python)
+
+以下总结自菜鸟教程
 
 ### 2 Python
 **标准库**
