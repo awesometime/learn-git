@@ -197,7 +197,9 @@ for url in urls:
 - [用Python爬虫抓取免费代理IP](https://mp.weixin.qq.com/s/bhf1CrWzY-btSJpwEMth3g)
 
 ```
-本代码爬取到了'http://www.youdaili.net/Daili/http/36822.html'中显示的ip，但没有端口（正则表达式不会写）
+#######################
+#本代码爬取到了'http://www.youdaili.net/Daili/http/36822.html'中显示的ip，但没有端口（正则表达式不会写）
+#######################
 import requests
 import re
 from bs4 import BeautifulSoup
@@ -237,98 +239,108 @@ if __name__ == '__main__':
     crawl_xici_ip()
 ```
 ```
-本代码执行到if response.status_code == 200 返回503，服务器问题
-将原微信里的mango改为mysql
-
-import random
+#############################################################################################
+#改编自https://mp.weixin.qq.com/s/bhf1CrWzY-btSJpwEMth3g，成功爬取西刺ip port并实现Mysql存取数据#
+#############################################################################################
 import requests
 import time
 import pymysql
 from bs4 import BeautifulSoup
 
-
-# 爬取西刺代理网站的代理ip，传入西刺代理的url
-url_ip = "http://www.xicidaili.com/nn/"
+# 爬取西刺代理网站的代理ip，传入西刺代理的url，爬某一页
+url_ip = "http://www.xicidaili.com/nn/1"
 # 设定等待时间
 set_timeout = 2
-# 爬取代理的页数，2表示爬取2页的ip地址
-num = 2
-# 代理的使用次数
-count_time = 5
 # 构造headers
-headers = {
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.146 Safari/537.36'
-}
-# 测试ip的URL = 'http://httpbin.org/get',返回以下内容表示正常
-# {"args":{},
-# "headers":{"Accept":"*/*",
-# 			"Accept-Encoding":"gzip, deflate",
-# 			"Connection":"close",
-# 			"Host":"httpbin.org",
-# 			"User-Agent":"python-requests/2.19.1"
-# 			},
-# "origin":"118.144.138.205",   # http://httpbin.org/ip则只输出origin
-# "url":"http://httpbin.org/get"}
+headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.146 Safari/537.36'}
+# request.get(http://httpbin.org/ip)可以返回自己使用的代理的ip，从而验证此ip有效
 url_for_test = 'http://httpbin.org/ip'
 
 
 # 爬取ip地址
-def crawl_xici_ip(num):
+def crawl_xici_ip():
     ip_list = []
-    for num_page in range(1, num):
-        url = url_ip + str(num_page)
-        response = requests.get(url)
+    response = requests.get(url_ip, headers=headers)
+    # print(response.status_code)
+    
+    if response.status_code == 200:                
+        content = response.text
+        # print('0')
+        # print(content)
+        
 
-        if response.status_code == 200:
-            content = response.text
-            # print('0')
-            print(content)
-            soup = BeautifulSoup(content, 'html.parser')
-            # print('1')
-            # print(soup)
-            # 从网页源码找规律，ip保存在tr表格中.找到context中的所有tr表格，返回列表
-            trs = soup.find_all('tr')
+        soup = BeautifulSoup(content, 'html.parser')
+        # print('1')
+        # print(soup)
+        
+        # 从网页源码找规律，ip保存在tr表格中.找到context中的所有tr表格，返回列表
+        # ip_list = []  在此处申明貌似不可以??UnboundLocalError: local variable 'ip_and_port' referenced before assignment
+        
+        trs = soup.find_all('tr')
+        # print(divs)
+        #print(len(trs))
+        
+        for i in range(1, len(trs)):
+            tr = trs[i]
+            # 找到tr中的所有td，返回列表
+            tds = tr.find_all('td')
+            
+            ip_item = tds[1].text + ':' + tds[2].text
+            # 按和网页一样的顺序，一行一行显示ip_item
+            # print(ip_item)
 
-            for i in range(1, len(divs)):
-                tr = trs[i]
-                # 找到tr中的所有td，返回列表
-                tds = div.find_all('td')
-                # 122.114.31.177:808
-                ip_item = tds[1].text + ':' + tds[2].text
-                # 将ip_item加到ip_list中
-                ip_list = ip_list.append(ip_item)
-                # 通过集合set,去掉可能重复的ip
-                ip_set = set(ip_list)
-                # 再将ip_list设为列表
-                ip_list = list(ip_set)
-            time.sleep(count_time)
+            # 将ip_item加到ip_list中
+            # ***ip_list = ip_list.append(ip_item)不对***
+            ip_list.append(ip_item)
+
+            # 通过集合set,去掉可能重复的ip
+            ip_set = set(ip_list)
+            # 再将ip_list设为列表
+            ip_list = list(ip_set)
+        time.sleep(set_timeout)
+    
+    # for each in ip_list:
+    #    print(each)
+    # 乱序显示ip列表
+    
+    # print(ip_list)  # 测试时用，打印列表ip_list
+    # print(len(ip_list)) # 注意print语句要写在return语句前，return语句后面不会执行
+
     return ip_list
-    # print('2')
+
 
 # 测试爬取到的ip，测试成功使用代理可以访问网页，则存入Mysql
 def ip_test(url_for_test, ip_info):
-    ip = {}
+    ip_and_port = []
     for ip_for_test in ip_info:
         # 设置代理
         proxies = {
             'http': 'http://' + ip_for_test,
             'https': 'http://' + ip_for_test
         }
-        print(proxies)
+        # print(proxies)
         try:
-            response = requests.get(url_for_test, headers=headers, proxies=proxies, timeout=10)
+            response = requests.get(url_for_test, headers=headers, proxies=proxies, timeout=4)
+            # print(response.text)
             if response.status_code == 200:
-                ip = {'ip': ip_for_test}
-                print(response.text)
-                print('测试通过')
-                write_to_Mysql(ip)
-        except Exception as e:
-            print(e)
-            continue
-    return ip
+                ip_and_port.append(ip_for_test)
+                # 返回自己的代理ip内容，并非'http://httpbin.org/ip'网页内容，大概就是这个网页的作用
+                # print(response.text)
 
-# 将测试通过的ip存入Mysql
-def write_to_Mysql(proxies):
+                print("测试通过------" + ip_for_test)
+                # write_to_Mysql(ip_and_port)
+        except Exception as e:
+            print('未通过:(')
+            # print(e)
+            continue
+    print('ip_test执行完毕，下一步将ip存入数据库')
+    # print(ip_and_port)
+    return ip_and_port
+
+
+# python与Mysql搭配  存储数据
+# 将测试通过的ip存入Mysql     ,需要时取出去，能存能取
+def write_to_Mysql(finded_ip_and_port):
     # 连接数据库
     conn = pymysql.Connect(
         host='localhost',  # mysql服务器地址
@@ -338,65 +350,66 @@ def write_to_Mysql(proxies):
         db='ip_test_628',  # 数据库名
         charset='utf8'  # 连接编码
     )
-    print('数据库连接对象为：{}'.format(conn))
+    print('数据库已连接，对象为：{}'.format(conn))
+
     # 获取游标
     cursor = conn.cursor()
-    # 创建表
-    sql = """CREATE TABLE IF NOT EXISTS ip_ip (
+
+    
+    # 创建表     *注意最好新建一个不存在的表
+    sql = """CREATE TABLE IF NOT EXISTS ip_my (
              ip  CHAR(20) NOT NULL,
-             ip_num  CHAR(20)      
+             ip_num  CHAR(30)      
              )"""
     cursor.execute(sql)
-    # SQL 表里插入
-    for p in proxies:
-        sql = """INSERT INTO ip_ip(ip,ip_num)
-                 VALUES ('ip', p)"""
-        try:
-            # 执行sql语句
-            cursor.execute(sql)
-            # 提交到数据库执行
-            conn.commit()
-        except:
-            # 如果发生错误则回滚
-            conn.rollback()
-    print('存储mysql成功')
+    print('已创建tabels')
+
     
-        
+    # SQL 表里插入
+    sql = """INSERT INTO ip_my(ip,ip_num)
+             VALUES ('ip', %s)"""
+    cursor.executemany(sql, finded_ip_and_port)
+    # 提交到数据库执行
+    conn.commit()
+    # 如果发生错误则回滚
+    # conn.rollback()
+    print('mysql数据表已插入')
+
+    
     # 查询表里有啥
     sql = """
-            select ip, ip_num FROM ip_ip
+            select * FROM ip_my
             """
     cursor.execute(sql)
-    list_test_is_or_not_useful_ip = []
-    for row in cursor.fetchall():
-        print("-" * 50)  # 输出50个-,作为分界线
+    fetch_ip = cursor.fetchall()          # 返回元组
+    cursor.close()
+
+    # print(cursor.execute(sql))          # 返回指针地址数字
+    # return cursor.execute(sql)
+
+    fetch_ip = list(fetch_ip)
+    finded_ip = []
+    for row in fetch_ip:
+        print("-" * 50)                       # 输出50个-,作为分界线
         # print("%-10s %s" % ("ip", row[0]))  # 字段名固定10位宽度,并且左对齐
-        print("%-20s %s" % ("ip_ip", row[1]))
-        list_test_is_or_not_useful_ip.append(row[1])
-    return list_test_is_or_not_useful_ip
-   
-    for i in range(len(list_test_is_or_not_useful_ip)):
-        useful_proxy = list_test_is_or_not_useful_ip[i].replace('\n', '')
-        proxies = {
-            'http': 'http://' + useful_proxy,
-            'https': 'http://' + useful_proxy
-        }
-        response = requests.get(url_for_test, headers=headers, proxies=proxies, timeout=10)
-        if response.status_code == 200:
-            return useful_proxy
-    return useful_proxy
-        
+        print("%-20s %s" % ("ip_port", row[1]))
+        finded_ip.append(row[1])
+    return finded_ip
+
 
 def main():
     ip_info = []
-    ip_info = crawl_xici_ip(2)
-    success_proxy = ip_test(url_for_test, ip_info)
-    finally_ip = write_to_Mysql(success_proxy)
-    print('取出的ip为:' + str(finally_ip))
-    print('运行完了，啥结果也没有')
+    ip_info = crawl_xici_ip()
+    finded_proxy = ip_test(url_for_test, ip_info)
+    finally_ip = write_to_Mysql(finded_proxy)
+    print('#' * 50)
+    f = str(finally_ip)
+    print('取出的ip为:' + f)
+    # print(type(f))
+    print('运行完了，结果ok--：):):)')
+
 
 if __name__ == '__main__':
     main()
-
 ```
 
