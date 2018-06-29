@@ -1,5 +1,8 @@
 ## 爬虫一步步进阶
 
+[爬虫学习在线教程](https://blog.csdn.net/weicao1990/article/details/52334336)
+
+
 `爬虫方法`
 
 - urllib  加密不好使
