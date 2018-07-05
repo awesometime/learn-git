@@ -7,19 +7,19 @@
 - spyder ：一个使用Python语言、跨平台的、科学运算集成开发环境。
 
 在Anaconda Prompt中输入
-'''
+```
 (base) C:\Users\linuix>ipython qtconsole
 [TerminalIPythonApp] WARNING | Subcommand `ipython qtconsole` is deprecated and will be removed in future versions.
 [TerminalIPythonApp] WARNING | You likely want to use `jupyter qtconsole` in the future
 [JupyterQtConsoleApp] WARNING | kernel died: 3.0980682373046875
-'''
+```
 进入
-'''
+```
 Jupyter QtConsole 4.3.1
 Python 3.6.5 |Anaconda, Inc.| (default, Mar 29 2018, 13:32:41) [MSC v.1900 64 bit (AMD64)]
 Type 'copyright', 'credits' or 'license' for more information
 IPython 6.4.0 -- An enhanced Interactive Python. Type '?' for help.
-'''
+```
 
  Ipython --> magic  ??? 怎么打开
 
