@@ -3,10 +3,8 @@ linux常用命令总结
 **rpm**
 rpm -qal |grep mysql  查看mysql所有安装包的文件存储位置
 rpm -ql               列出软件包安装的文件
-<p align="center">
-<h3>一、Linux常用命令符
-</h3>
-</p>
+<center>一、Linux常用命令符</center>
+
 
 ```
 ctrl+alt+t                                                    调出终端
