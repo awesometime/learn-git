@@ -25,6 +25,8 @@ IPython 6.4.0 -- An enhanced Interactive Python. Type '?' for help.
 
  Ipython --> magic  ??? 怎么打开
  
+from scipy.misc import lena  不能导入???
+ 
  [Jupyter Notebook 快速入门（上）](http://codingpy.com/article/getting-started-with-jupyter-notebook-part-1/)
  
  [最详尽使用指南：超快上手Jupyter Notebook](https://blog.csdn.net/DataCastle/article/details/78890469)
