@@ -3,7 +3,11 @@ linux常用命令总结
 **rpm**
 rpm -qal |grep mysql  查看mysql所有安装包的文件存储位置
 rpm -ql               列出软件包安装的文件
-<center>一、Linux常用命令符</center>
+
+
+<p align="center">
+   一、Linux常用命令符
+</p>
 
 
 ```
@@ -131,7 +135,8 @@ Vim中退出insert               yy复制一行，p粘到指针下一行
 Vim中退出insert       dd删除一整行；ndd代表删除n行(光标放在前面删除后n行？？？)
 Vim中退出insert               D删除行尾到光标处(含光标)内容
 ```
-
+三、虚拟机常用命令
+```
 Mysql -u root -p                 进入mysql
 Mysql语句                     以；结束。Exit退出
 . (source)  文件名                     ？加载/执行文件
@@ -148,6 +153,13 @@ Service httpd   restart
 do-release-upgrade                 to upgrade to New release '16.04.4 LTS'
 批量删除行首
 批量取消注释
+检查CPU是否支持安装KVM：
+egrep -o '(vmx|svm)' /proc/cpuinfo
+
+sudo apt-get install qemu-kvm qemu-system libvirt-bin virt-manager bridge-utils vlan   
+  安装KVM，参考cloudman
+  命令 virsh         管理虚机
+```
 
 
 
@@ -158,41 +170,30 @@ do-release-upgrade                 to upgrade to New release '16.04.4 LTS'
 
 
 
-
-
-附录------虚拟机安装完以后的configuration步骤[Ubuntu]
-ip  r                                  查看当前ip      
-设置可以远程登录(就可以用SecureCRT软件远程登录进行操作了)
+四、虚拟机安装完以后的configuration可以ping通外网步骤 Ubuntu-16.04
+```
+ip  r                                  查看当前ip      
+设置可以远程登录(就可以用SecureCRT软件远程登录进行操作了)
 sudo apt-get install openssh-server
 sudo passwd root
 su - root或者sudo su root
 vim /etc/ssh/sshd_config
 PermitRootLogin=yes 
 sudo service ssh restart   或者(systemctl restart ssh 、systemctl restart sshd.service)
-
 另：修改host。可以把root@ubuntu改为root@controller，方法如下
 Host name             查看机主名
 Hostname修改   修改/etc/sysconfig/network?和/etc/hosts中的hostname，重启reboot
-Edit the /etc/hosts file to contain the following:
 
+Edit the /etc/hosts file to contain the following:
 # controller
 10.0.0.11       controller
-
 # compute1
 10.0.0.31       compute1
 
-# block1
-10.0.0.41       block1
-
 /etc/network/interfaces   重启，手动设置好IP后用ping命令测试可以ping通   
 sudo   /etc/init.d/networking  restart  (ubuntu16.04)重启网络服务
-远程连接192.168.20.131
-我的
-controller  账号mango密码123；IP地址192.168.20.133；10.0.1.166
-compute1  账号mango密码123；IP地址192.168.20.134；10.0.1.167
-compute2  账号mango密码123；IP地址192.168.20.137；10.0.1.170
-师兄的
-VM账号root密码123456
+
+
 /etc/apt/sources.list
 sudo  cp  /etc/apt/sources.list   /etc/apt/sources.list.backup   备份
 中国科学技术大学源
@@ -209,52 +210,105 @@ deb http://mirrors.aliyun.com/ubuntu/ xenial-security main restricted universe m
 
 sudo apt- get update               更新源列表,换源后必须执行(如果更新速度非常慢请更换源 sudo gedit /etc/apt/sources.list ) 
 sudo apt-get dist-upgrade           更新软件
-Reboot the system to activate the changes     重启虚拟机
-以下两项可根据需要自行配置，非必须项
+Reboot the system to activate the changes     重启虚拟机
+
+以下两项可根据需要自行配置，非必须项
 vim  .bashrc 进去可以自定义配置  .(source)  ~/.bashrc生效
 vim  .vimrc 进去可以自定义配置
-initial configuration完以后做个SnapShot
-另：手动部署完可以试试devstack部署练手
+initial configuration完以后做个SnapShot
+```
 
-附录------问题解决
-1.默认的操作系统是Windows，然后选择Window7系统，如果直接选择Linux系统Ubuntu， 那么可能会出现界面显示不全问题;
+五、Ubuntu 14.04
+```
+Ubuntu 14.04
+普通用户需要加sudo，root用户不用
+Eject弹出  Ubuntu 14.04.5 LTS amd64 iso
+
+# /etc/network/interfaces     重启，可以上网
+可以用sudo gedit /etc/network/interfaces比vi好用
+需要sudo 不然不能保存
+修改/etc/hosts   和
+#sudo apt-get install openssh-server   
+sudo passwd root
+su - root或者sudo su root
+gedit或者vi  /etc/ssh/sshd_config
+PermitRootLogin yes
+sudo service ssh restart
+虚拟机先关机以root登录
+接着可以用SecureCRT远程以root登录
+
+安装vim
+#sudo apt-get install vim 
+
+改源
+#sudo  cp  /etc/apt/sources.list   /etc/apt/sources.list.backup   备份源
+# vim /etc/apt/sources.list
+# sudo apt-get update
+# sudo apt-get upgrade
+
+#vim  .bashrc 
+#source  ~/.bashrc
+# apt-get install git
+不执行apt-get update 的话会出现E: Unable to locate package git
+#git  clone  https://github.com/VundleVim/Vundle.vim.git    ~/.vim/bundle/Vundle.vim
+   configured repository to   ~/.vim/bundle/Vundle.vim   by default
+#vim  .vimrc  将 https://github.com/VundleVim/Vundle.vim 内容粘贴过来
+按需要配置，有空研究一下每一项的作用。。。。。
+#vim +PluginInstall +qall
+root@openstack-compute1:~# vim +PluginInstall +qall
+运行如下  " Installing plugins to /root/.vim/bundle                                       
+. Plugin 'VundleVim/Vundle.vim'                                                 
++ Plugin 'tpope/vim-fugitive'                                                    
++ Plugin 'git://git.wincent.com/command-t.git'                                   
+! Plugin 'file:///home/gmarik/path/to/plugin'  (未安)                                    
++ Plugin 'rstacruz/sparkup'                                                       
++ Plugin 'Yggdroot/indentLine'                                                    
++ Plugin 'scrooloose/nerdtree'                                                    
++ Plugin 'fholgado/minibufexpl.vim'                                               
++ Plugin 'majutsushi/tagbar'                                                      
++ Plugin 'altercation/vim-colors-solarized'                                       
++ Plugin 'davidhalter/jedi'                                                       
++ Plugin 'scrooloose/syntastic'                                                   
++ Plugin 'Raimondi/delimitMate'                                                   
+* Helptags  
+#source  ~/.vimrc
+以下error以后再说
+-bash:  set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+: No such file or directory
+-bash: call vundle#begin('~/some/path/here')
+
+: No such file or directory
+Plugin: command not found
+ The following are examples of different formats supported.
+: command not found
+-bash:  plugin on GitHub repo
+Plugin 'tpope/vim-fugitive'
+: No such file or directory
+ Plugin 'L9'
+: command not found
+Plugin: command not found
+-bash:  git repos on your local machine (i.e. when working on your own plugin)
+Plugin 'file:///home/gmarik/path/to/plugin'
+: No such file or directory
+-bash: /root/.vimrc: line 84: unexpected EOF while looking for matching `''
+-bash: /root/.vimrc: line 109: syntax error: unexpected end of file
 
 
-2.在确保OpenStack正常工作中有个很重要的就是实现虚拟化技术，当然实现虚拟化技术的方式是比较多的，例如：xen、kvm、hyper-v、VMware。
-https://jingyan.baidu.com/article/b907e627cfffc946e7891cd5.html
-3.检查CPU是否支持安装KVM：
-egrep -o '(vmx|svm)' /proc/cpuinfo
+安装KVM
+#sudo apt-get install qemu-kvm qemu-system libvirt-bin virt-manager bridge-utils vlan
+qemu-kvm 和 qemu-system 是 KVM 和 QEMU 的核心包，提供 CPU、内存和 IO 虚拟化功能
+libvirt-bin 就是 libvirt，用于管理 KVM 等 Hypervisor
+virt-manager 是 KVM 图形化管理工具
+bridge-utils 和 vlan，主要是网络虚拟化需要，KVM 网络虚拟化的实现是基于 linux-bridge 和 VLAN。
 
-sudo apt-get install qemu-kvm qemu-system libvirt-bin virt-manager bridge-utils vlan   
-  安装KVM，参考cloudman
-  命令 virsh         管理虚机
+SnapShot保存
+     
+```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-三、Python命令
-
+六、Python命令
+```
 python                         打开python2.7.12
 python3                        打开python3.5.2
 exit()或ctrl + d                  退出python
@@ -262,10 +316,10 @@ print()
 type()                          查看数据类型
 input() 
 Dir(函数，变量，数据，标识符等对象)      查看(对象)的所有属性，方法
+```
 
-
-四、PyCharm命令  
-
+七、PyCharm命令  
+```
 Ctrl+d                               向下复制一行
 鼠标放在方法上点击Ctrl+q             查看帮助信息
 print("xxx", end="")                    不换行打印
@@ -286,9 +340,6 @@ __类名/方法名                       私有类名/方法名
 is/is not                             看地址是否相同/不同
 ==                                 看内容是否相同
 __name__属性                      测试代码，其他模块导入时就不会立即执行一遍了
-
-
-
 
 
 
@@ -315,10 +366,6 @@ Split()                     分割
 Join()                     拼接 
 Sort/Sort（reverse=True）  升序/降序排列【注】reverse为缺省参数，必须为最后一个参数
 
-
-
-
-
 【注意1】
 str、list、tuple都支持slice
 str、list、tuple都支持 * / +  等运算符
@@ -342,3 +389,4 @@ List                                    extend / append / +
 【注意5】
 类            具有属性和方法
 对象
+```
