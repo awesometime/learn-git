@@ -137,9 +137,11 @@ Vim中退出insert               yy复制一行，p粘到指针下一行
 Vim中退出insert       dd删除一整行；ndd代表删除n行(光标放在前面删除后n行？？？)
 Vim中退出insert               D删除行尾到光标处(含光标)内容
 ```
+
 <p align="center">
    三、虚拟机常用命令
 </p>
+
 ```
 Mysql -u root -p                 进入mysql
 Mysql语句                     以；结束。Exit退出
@@ -215,6 +217,7 @@ vim  .bashrc 进去可以自定义配置  .(source)  ~/.bashrc生效
 vim  .vimrc 进去可以自定义配置
 initial configuration完以后做个SnapShot
 ```
+
 <p align="center">
    五、Ubuntu 14.04
 </p>
@@ -306,6 +309,7 @@ bridge-utils 和 vlan，主要是网络虚拟化需要，KVM 网络虚拟化的�
 SnapShot保存
      
 ```
+
 <p align="center">
    六、Python命令
 </p>
@@ -319,6 +323,7 @@ type()                          查看数据类型
 input() 
 Dir(函数，变量，数据，标识符等对象)      查看(对象)的所有属性，方法
 ```
+
 <p align="center">
    七、PyCharm命令
 </p>
