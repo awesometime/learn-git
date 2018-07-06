@@ -64,8 +64,10 @@ ifconfig eth1 -promisc                           取消网卡混杂模式
 root@controller                               用户名@虚拟机名
 ```
 
+<p align="center">
+   二、VI/VIM命令
+</p>
 
-二、VI/VIM命令
 ```
 Vi  进入命令模式，i进入输入模式，    vi进入，  ：wq保存退出
    
@@ -135,7 +137,9 @@ Vim中退出insert               yy复制一行，p粘到指针下一行
 Vim中退出insert       dd删除一整行；ndd代表删除n行(光标放在前面删除后n行？？？)
 Vim中退出insert               D删除行尾到光标处(含光标)内容
 ```
-三、虚拟机常用命令
+<p align="center">
+   三、虚拟机常用命令
+</p>
 ```
 Mysql -u root -p                 进入mysql
 Mysql语句                     以；结束。Exit退出
@@ -161,16 +165,10 @@ sudo apt-get install qemu-kvm qemu-system libvirt-bin virt-manager bridge-utils 
   命令 virsh         管理虚机
 ```
 
+<p align="center">
+   四、虚拟机安装完以后的configuration可以ping通外网步骤 Ubuntu-16.04
+</p>
 
-
-
-
-
-
-
-
-
-四、虚拟机安装完以后的configuration可以ping通外网步骤 Ubuntu-16.04
 ```
 ip  r                                  查看当前ip      
 设置可以远程登录(就可以用SecureCRT软件远程登录进行操作了)
@@ -217,8 +215,10 @@ vim  .bashrc 进去可以自定义配置  .(source)  ~/.bashrc生效
 vim  .vimrc 进去可以自定义配置
 initial configuration完以后做个SnapShot
 ```
+<p align="center">
+   五、Ubuntu 14.04
+</p>
 
-五、Ubuntu 14.04
 ```
 Ubuntu 14.04
 普通用户需要加sudo，root用户不用
@@ -306,8 +306,10 @@ bridge-utils 和 vlan，主要是网络虚拟化需要，KVM 网络虚拟化的�
 SnapShot保存
      
 ```
+<p align="center">
+   六、Python命令
+</p>
 
-六、Python命令
 ```
 python                         打开python2.7.12
 python3                        打开python3.5.2
@@ -317,8 +319,10 @@ type()                          查看数据类型
 input() 
 Dir(函数，变量，数据，标识符等对象)      查看(对象)的所有属性，方法
 ```
-
-七、PyCharm命令  
+<p align="center">
+   七、PyCharm命令
+</p>
+  
 ```
 Ctrl+d                               向下复制一行
 鼠标放在方法上点击Ctrl+q             查看帮助信息
