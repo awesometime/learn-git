@@ -24,6 +24,8 @@ IPython 6.4.0 -- An enhanced Interactive Python. Type '?' for help.
 ```
 
  Ipython --> magic  ??? 怎么打开
+ 
+ [Jupyter Notebook 快速入门（上）](http://codingpy.com/article/getting-started-with-jupyter-notebook-part-1/)
 ```
 在完成Ananconda安装后，在cmd窗口中输入jupyter notebook，随即将会在默认浏览器中打开jupyter notebook主界面（建议将Chrome设置为默认浏览器）。
 
