@@ -1,6 +1,12 @@
 ## 爬虫一步步进阶
+慕课网
+[node.js爬虫 爬取知乎图片存储到本地](https://www.imooc.com/article/22483)
+[nodejs爬虫——知乎专栏](https://www.imooc.com/article/17867)
+[如何扒视频 B站、斗鱼等都可以](https://www.imooc.com/article/23007)
+[Nodejs，不一样的爬虫实践](https://www.imooc.com/article/4731)
 
-[爬虫学习在线教程](https://blog.csdn.net/weicao1990/article/details/52334336)
+
+[爬虫学习在线教程  博客后半部分](https://blog.csdn.net/weicao1990/article/details/52334336)
 
 [Python入门网络爬虫之精华版](https://github.com/lining0806/PythonSpiderNotes)
 
