@@ -10,3 +10,7 @@
 - [Python笔试面试题 目前有28道](http://www.codingonway.com/)
 
 - [Python经典面试题（python面试的复习参考资料）（持续更新中...）](https://github.com/revotu/python-interviews)
+
+
+刷题
+- [牛客网 剑指Offer](https://www.nowcoder.com/ta/coding-interviews)
