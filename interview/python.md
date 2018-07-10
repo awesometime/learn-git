@@ -7,6 +7,8 @@
 
 - [ *5400+star*的  关于Python的面试题  -强推-](https://github.com/taizilongxu/interview_python)
 
+- [stackoverflow-about-python](https://taizilongxu.gitbooks.io/stackoverflow-about-python/content/1/README.html)
+
 - [Python笔试面试题 目前有28道](http://www.codingonway.com/)
 
 - [Python经典面试题（python面试的复习参考资料）（持续更新中...）](https://github.com/revotu/python-interviews)
@@ -16,4 +18,5 @@
 - [牛客网 剑指Offer](https://www.nowcoder.com/ta/coding-interviews)
 
 - [*石晓文的学习日记*   面试算法题 (leetcode、剑指offer等)](https://www.jianshu.com/nb/13142734)
+  
   [石晓文 ](https://github.com/princewen/leetcode_python)
