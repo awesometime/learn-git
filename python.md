@@ -5,6 +5,12 @@
 - [Python入门网络爬虫之精华版](https://github.com/lining0806/PythonSpiderNotes)
 
 
+### pip相关
+pip安装时指定清华源速度快,比如安装lxml  `pip install --index https://mirrors.ustc.edu.cn/pypi/web/simple/  lxml`
+
+
+
+
 以下总结自菜鸟教程
 
 ### 2 Python
