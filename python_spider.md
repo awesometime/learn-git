@@ -531,6 +531,7 @@ def parse_one_page(html):
             'sales': item.select('td')[i + 6].text,
             'return_rates': item.select('td')[i + 7].text
         }
+    # 无return可以吗？？？
 
 
 # 将数据写入Excel表格中
