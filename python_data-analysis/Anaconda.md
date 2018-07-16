@@ -39,9 +39,20 @@ jupyter notebook  笔记本使用
 
 也可运行github李金老师的代码
 ```
+### 2   Anaconda中模块的安装
+```
+在Anaconda Prompt中输入
+(base) C:\Users\li>            anaconda search -t conda pygal
 
+(base) C:\Users\li>            anaconda show Alges/pygal
+To install this package with conda run:
+     conda install --channel https://conda.anaconda.org/Alges pygal
 
-### 2 
+(base) C:\Users\li>            conda install --channel https://conda.anaconda.org/Alges pygal
+
+```
+
+### 3
 
 Ipython 提供了一个很好的解释器界面。
 
@@ -67,7 +78,7 @@ Scikits 以 Scipy 为基础，提供如 scikits-learn 机器学习和scikits-ima
 
 
 
-### 3  Jupyter notebook 单独安装(不基于Anaconda) 
+### 4  Jupyter notebook 单独安装(不基于Anaconda) 
 >>>python -m pip install upgrade pip 
 
 >>>pip3 install jupyter
