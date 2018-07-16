@@ -98,8 +98,43 @@ choice算得 array([[1, 1, 1],
                   [2, 2, 2]])
 以后 0,1,2 分别对应 a，10, 15
  ```
-<p align="center">03.17--choose 函数实现条件筛选</p>
+<p align="center">03.18--Numpy 数组广播机制</p>
 
 ```
-数组广播机制
+General Broadcasting Rules:
+    对于 Numpy 来说，维度匹配当且仅当：
+    - 维度相同
+    - 有一个的维度是1
+    匹配会从最后一维开始进行，直到某一个的维度全部匹配为止.
+可以理解为：从末位开始一一(位置)对应匹配，维度1可以与任意维度数匹配到。如下
+Image  (3d array): 256 x 256 x 3
+Scale  (1d array):             3
+Result (3d array): 256 x 256 x 3
+
+A      (4d array):  8 x 1 x 6 x 1
+B      (3d array):      7 x 1 x 5
+Result (4d array):  8 x 7 x 6 x 5
+
+A      (2d array):  5 x 4
+B      (1d array):      1
+Result (2d array):  5 x 4
+
+A      (2d array):  5 x 4
+B      (1d array):      4
+Result (2d array):  5 x 4
+
+A      (3d array):  15 x 3 x 5
+B      (3d array):  15 x 1 x 5
+Result (3d array):  15 x 3 x 5
+
+A      (3d array):  15 x 3 x 5
+B      (2d array):       3 x 5
+Result (3d array):  15 x 3 x 5
+
+A      (2d array):      2 x 1
+B      (3d array):  8 x 4 x 3 # second from last dimensions mismatched #倒数第二个维度不兼容
+
+A      (3d array):  15 x 3 x 5
+B      (2d array):       3 x 1
+Result (3d array):  15 x 3 x 5
 ```
