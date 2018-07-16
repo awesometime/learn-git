@@ -7,9 +7,7 @@
    <h2 align="center">学习笔记</h2>
    <br>
    <p align="center">03-numpy</p>
-   <br>
    <p align="center">   03.17--choose 函数实现条件筛选</p>
-   <br>
 </p>
 
    
