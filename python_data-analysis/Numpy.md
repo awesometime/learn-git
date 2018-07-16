@@ -4,9 +4,12 @@
 - [人工智能 机器学习 深度学习 入门及进阶资料](Python入门网络爬虫之精华版)
 
 <p align="center">
-   <br><h2 align="center">学习笔记</h2></br>
-   <br>03-numpy</br>
-   <br>   03.17--choose 函数实现条件筛选</br>
+   <h2 align="center">学习笔记</h2>
+   <br>
+   <p align="center">03-numpy</p>
+   <br>
+   <p align="center">   03.17--choose 函数实现条件筛选</p>
+   <br>
 </p>
 
    
