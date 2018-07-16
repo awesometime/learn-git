@@ -175,3 +175,8 @@ A      (3d array):  15 x 3 x 5
 B      (2d array):       3 x 1
 Result (3d array):  15 x 3 x 5
 ```
+<p align="center"> 结构化数组 </p>
+
+我们使用 dtype 创造自定义的 结构类型 ，然后用自定义的结构来解释 数组 所占的内存。
+
+
