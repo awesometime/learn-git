@@ -3,7 +3,7 @@
   [李金老师github.io](http://lijin-thu.github.io/)
 - [人工智能 机器学习 深度学习 入门及进阶资料](Python入门网络爬虫之精华版)
 
-<center> ##  李金老师学习笔记 的笔记 </center >##  李金老师学习笔记 的笔记
+<center>   李金老师学习笔记 的笔记  </center >
 
     03-numpy
 
