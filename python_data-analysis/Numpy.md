@@ -3,7 +3,12 @@
   [李金老师github.io](http://lijin-thu.github.io/)
 - [人工智能 机器学习 深度学习 入门及进阶资料](Python入门网络爬虫之精华版)
 
-<center>   李金老师学习笔记 的笔记  </center >
+<p align="center">
+   <br>学习笔记</br>
+   <br>03-numpy</br>
+
+         <br>03.17--choose 函数实现条件筛选</br>
+</p>
 
     03-numpy
 
