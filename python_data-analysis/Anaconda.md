@@ -39,6 +39,26 @@ jupyter notebook  笔记本使用
 
 也可运行github李金老师的代码
 ```
+```
+In[1]: %%cmd
+       pip install pygal         # jupyter notebook中pip的方法
+ 
+      Microsoft Windows [版本 10.0.17134.165]
+      (c) 2018 Microsoft Corporation。保留所有权利。
+
+      (base) G:\Python\Jupyter Notebook>pip install pygal
+      Collecting pygal
+      Using cached         
+      https://files.pythonhosted.org/packages/5f/b7/201c9254ac0d2b8ffa3bb2d528d23a4130876d9ba90bc28e99633f323f17/pygal-2.4.0-
+      py2.py3-none-any.whl
+      Installing collected packages: pygal
+      Successfully installed pygal-2.4.0
+
+      (base) G:\Python\Jupyter Notebook>
+      distributed 1.21.8 requires msgpack, which is not installed.
+
+In[2]: import pygal         # 可以导入
+```
 ### 2   Anaconda中模块的安装
 ```
 在Anaconda Prompt中输入
