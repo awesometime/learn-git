@@ -1,12 +1,13 @@
 - [清华大学 李金老师 Python笔记 《自学Python——编程基础、科学计算及数据分析》](https://github.com/lijin-THU/notes-python)
+  
   [李金老师github.io](http://lijin-thu.github.io/)
 - [人工智能 机器学习 深度学习 入门及进阶资料](Python入门网络爬虫之精华版)
 
-##  李金老师学习笔记 的笔记
+<center> ##  李金老师学习笔记 的笔记 </center >##  李金老师学习笔记 的笔记
 
- 03-numpy
+    03-numpy
 
-       03.17--choose 函数实现条件筛选
+         03.17--choose 函数实现条件筛选
     
  ```
 ----------------------------------------------------------------
