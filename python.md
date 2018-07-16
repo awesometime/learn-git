@@ -7,6 +7,19 @@
 
 ### pip相关
 pip安装时指定清华源速度快,比如安装lxml  `pip install --index https://mirrors.ustc.edu.cn/pypi/web/simple/  lxml`
+```
+python pip 安装模块
+C:\Users\li>  python -m pip install pygal
+Collecting pygal
+  Downloading https://files.pythonhosted.org/packages/5f/b7/201c9254ac0d2b8ffa3bb2d528d23a4130876d9ba90bc28e99633f323f17/pygal-2.4.0-py2.py3-none-any.whl (127kB)
+    100% |████████████████████████████████| 133kB 15kB/s
+Installing collected packages: pygal
+Successfully installed pygal-2.4.0
+
+查看安装路径
+C:\Users\li> pip install pygal
+Requirement already satisfied: pygal in g:\python\python-3.6.5\lib\site-packages (2.4.0)
+```
 
 
 
