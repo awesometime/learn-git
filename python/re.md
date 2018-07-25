@@ -16,7 +16,7 @@ import re
 # 是将所有匹配符合条件的字符串，打包成一个组，即group。
 # 其中编号为0的group，即group(0)表示匹配的整个字符串。
 # 其他编号分别为1,2,3，…的表示匹配成功返回的组中的每个字符串。
-# [正则表达式中 group groups区别](https://www.cnblogs.com/zyy98877/p/8482371.html)
+  [正则表达式中 group groups区别](https://www.cnblogs.com/zyy98877/p/8482371.html)
 ```
 
 ```
