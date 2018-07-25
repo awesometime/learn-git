@@ -1,5 +1,5 @@
 import re
-
+```
 # match
 # 匹配string 开头，成功返回Match object, 失败返回None，只匹配一个。
 
@@ -16,6 +16,8 @@ import re
 # 是将所有匹配符合条件的字符串，打包成一个组，即group。
 # 其中编号为0的group，即group(0)表示匹配的整个字符串。
 # 其他编号分别为1,2,3，…的表示匹配成功返回的组中的每个字符串。
+```
+
 ```
 a = re.match('pw', 'pwkewkejht') # 匹配开头
 aa = a.group()                   # 显示所有匹配部分
