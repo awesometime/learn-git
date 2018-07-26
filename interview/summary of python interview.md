@@ -23,3 +23,44 @@ print(mc._MyClass__superprivate)  #Hello     通过   *对象名._类名__xxx*  
 
 print(mc._semiprivate)            #, world
 ```
+#### 默认参数是可变的！
+函数可以传递默认参数，默认参数的绑定发生在函数定义的时候，以后每次调用默认参数时都会使用同一个引用。
+```
+def f(x = []):
+    x.append(1)
+    return x
+
+print f()
+print f()
+print f()
+print f(x = [9,9,9])
+print f()
+print f()
+[1]
+[1, 1]
+[1, 1, 1]
+[9, 9, 9, 1]
+[1, 1, 1, 1]
+[1, 1, 1, 1, 1]
+
+
+
+def f(x = None):
+    if x is None:
+        x = []
+    x.append(1)
+    return x
+
+print f()
+print f()
+print f()
+print f(x = [9,9,9])
+print f()
+print f()
+[1]
+[1]
+[1]
+[9, 9, 9, 1]
+[1]
+[1]
+```
