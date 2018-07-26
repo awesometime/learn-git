@@ -55,6 +55,7 @@ def afterTraverse(root):
 
 
 if __name__=='__main__':
+    # [原始二叉树图](https://www.cnblogs.com/freeman818/p/7252041.html)
     root=Node('D',Node('B',Node('A'),Node('C')),Node('E',right=Node('G',Node('F'))))
     print('前序遍历：')
     preTraverse(root)
