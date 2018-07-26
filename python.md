@@ -1,6 +1,9 @@
-
-- [清华大学 李金老师 Python笔记 《自学Python——编程基础、科学计算及数据分析》](https://github.com/lijin-THU/notes-python)
-  [李金老师github.io](http://lijin-thu.github.io/)
+ 
+- [李金老师 Python笔记 《自学Python——编程基础、科学计算及数据分析》github.io](http://lijin-thu.github.io/)
+  
+  [李金老师 Python笔记 《自学Python——编程基础、科学计算及数据分析》Jupyter Notebook Viewer](http://nbviewer.jupyter.org/github/lijin-THU/notes-python/blob/master/index.ipynb)
+  
+  [清华大学 李金老师 Python笔记 《自学Python——编程基础、科学计算及数据分析》](https://github.com/lijin-THU/notes-python)
 - [人工智能 机器学习 深度学习 入门及进阶资料](Python入门网络爬虫之精华版)
 - [Python入门网络爬虫之精华版](https://github.com/lining0806/PythonSpiderNotes)
 
