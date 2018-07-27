@@ -1,6 +1,6 @@
 <p align="center">
   
-  <h3 align="center">learn-git<img src="https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg" alt="" width=72 height=72></h3>
+  <h3 align="center">git<img src="https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg" alt="" width=72 height=72></h3>
 
   <p align="center">
     学习，我是认真的.  
