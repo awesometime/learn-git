@@ -1,0 +1,1 @@
+- [libvirt虚拟机xml配置文件详解](http://blog.51cto.com/as007012/1786034)
