@@ -37,6 +37,9 @@ Welcome to virsh, the virtualization interactive terminal.
 
 
 ```
+vim /etc/nova/nova.conf
+
+
 nova list  虚拟机创建好以后查看虚拟机状态
 nova show id号
 nova network-list
