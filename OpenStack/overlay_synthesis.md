@@ -1,6 +1,7 @@
 参考
 http://forum.openedgecomputing.org/t/a-failure-in-creating-a-vm-overlay/15/4?u=linuix
 ```
+自己下载的小镜像
 【root@cloudlet:~# source admin-openrc.sh  
 【http://download.cirros-cloud.net/0.3.3/cirros-0.3.3-x86_64-disk.img
 【root@cloudlet:~# cloudlet base /var/lib/libvirt/images/cirros-0.3.3-x86_64-disk.img
@@ -146,6 +147,48 @@ DEBUG    File closing time for recover memory snapshot: 0.000247
 INFO     restoring VM...
 INFO     VM is restored...
 INFO     [RESUME] : QEMU resume time (1533638587.402287)~(1533638587.736787)=(0.334500)
+INFO     waiting for finishing VNC interaction
+INFO     close Stream monitoring thread
+INFO     Fuse close pipe
+INFO     NO chunks has been waited at FUSE
+INFO     close Fuse Exec thread
+INFO     close File monitoring thread
+
+```
+
+```
+乐高镜像
+root@cloudlet:~# cloudlet synthesis /root/.cloudlet/a8157d3eb1155ec13b80615afc883b5f01f99362214f72f2b6444854498d7b17/trusty-server-raw.img /root/lx/overlay.zip
+DEBUG    ==========================================
+DEBUG    file:///root/lx/overlay.zip
+INFO     Decompression time : 41.311197 (s)
+INFO     Recovering launch VM
+INFO     Start FUSE (1.291393 s)
+DEBUG    Overlay has 427089 chunks
+INFO     Resume the launch VM
+INFO     QEMU access file : /tmp/cloudlet-overlay-bq8LYR/qemu-trim-log
+INFO     QEMU access file : /tmp/cloudlet-overlay-bq8LYR/qmp-channel
+INFO     Launch disk: /tmp/cloudlet-launch-disk-0VkruI
+INFO     Launch memory: /tmp/cloudlet-launch-mem-Tx2hYC
+INFO     QMP channel: /tmp/cloudlet-overlay-bq8LYR/qmp-channel
+INFO     start monitoring at /var/tmp/cloudletfs-NYpdAe/disk/streams/chunks_modified
+INFO     start monitoring at /var/tmp/cloudletfs-NYpdAe/disk/streams/chunks_accessed
+INFO     start monitoring at /var/tmp/cloudletfs-NYpdAe/memory/streams/chunks_accessed
+INFO     start monitoring at /tmp/cloudlet-overlay-bq8LYR/qemu-trim-log
+ls
+^[INFO     [Delta] Handle dangling DeltaItem (0)
+DEBUG    Delta metrics: 
+DEBUG    ==================================================
+DEBUG    Counter({'sha': 427089, 32: 164516, 48: 144128, 16: 59044, 80: 49869, 64: 8304, 96: 1228})
+DEBUG    Counter({32: 1711.0312843322754, 80: 118.52115035057068, 64: 104.98860192298889, 'unpack': 35.44292974472046, 'sha': 20.44668459892273, 'dict': 4.128907203674316, 'seekwrite': 1.6258974075317383, 'flush': 0.8647711277008057, 48: 0.6096794605255127, 16: 0.09760212898254395, 96: 0.0017435550689697266})
+DEBUG    Total captured time: 1997
+INFO     [Delta] : (1533647921.51)-(1533650262.78)=(2341.27055907), delta 427089 chunks
+INFO     [FUSE] : (1533647921.51)-(1533650262.78)=(2341.26941895)
+
+DEBUG    File closing time for recover memory snapshot: 0.000579
+INFO     restoring VM...
+INFO     VM is restored...
+INFO     [RESUME] : QEMU resume time (1533650264.352120)~(1533650266.354378)=(2.002258)
 INFO     waiting for finishing VNC interaction
 INFO     close Stream monitoring thread
 INFO     Fuse close pipe
