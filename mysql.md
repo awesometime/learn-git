@@ -1,3 +1,4 @@
+- [一千行 MySQL 学习笔记](https://shockerli.net/post/1000-line-mysql-note/)
 
 MySQL语法   更多详细语法直接查[菜鸟教程](http://www.runoob.com/mysql/mysql-tutorial.html)
 
