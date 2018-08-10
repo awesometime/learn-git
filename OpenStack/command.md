@@ -47,7 +47,7 @@ nova network-show id号
 nova network-delete id号
 nova floating-ip-list
 nova service-list
-nova manage service list
+nova-manage service list
 nova image-show id号或image名
 nova floating-ip-bulk-create
 nova floating-ip-bulk-delete
