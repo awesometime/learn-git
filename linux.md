@@ -62,11 +62,17 @@ brctl show                                    查询网桥信息
 ifconfig eth1 promisc                           设置网卡混杂模式
 ifconfig eth1 -promisc                           取消网卡混杂模式
 root@controller                               用户名@虚拟机名
+# lsb_release -a                             查看ubuntu版本
+# uname -ar                                  查看linux内核版本
+# libvirtd --version
+# kvm --version
+# wget  URL 
+
 ```
 
 <p align="center">
    二、VI/VIM命令
-</p>
+</p> 
 
 ```
 Vi  进入命令模式，i进入输入模式，    vi进入，  ：wq保存退出
