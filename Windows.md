@@ -157,3 +157,7 @@ D:\>cd filename  切到D盘下某个文件夹内
 ### 4 win10如何将txt文件设置为默认从Notepad++打开
 
 [notepad++设置默认打开txt文件失效的解决方法](https://www.cnblogs.com/zsy/p/5951680.html)
+
+### 5 win 与远程连接的主机之间传文件方法
+
+win+r  mstsc远程连接     显示选项    本地资源   详细信息  勾选驱动器   确定 
