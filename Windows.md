@@ -108,12 +108,11 @@ General Options:
   --no-color                  Suppress colored output
 ```
 ```
-C:\Users\linuix>pip list
-Package    Version
----------- -------
-pip        10.0.1
-pygame     1.9.3
-setuptools 38.4.0
+pip安装的包位置,一般默认在/usr/lib/python2.7/dist-packages/
+                          /usr/local/lib/python2.7/dist-packages
+
+若遇到SSLError: The read operation timed out可加大超时时间.
+# pip --default-timeout=100 install SQLAlchemy==0.9.7
 ```
 ipython安装
 ```
