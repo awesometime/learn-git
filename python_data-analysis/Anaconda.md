@@ -59,6 +59,14 @@ In[1]: %%cmd
 
 In[2]: import pygal         # 可以导入
 ```
+```
+jupyter nbextensions
+[jupyter_contrib_nbextensions](https://github.com/ipython-contrib/jupyter_contrib_nbextensions)
+jupyter cell 重排序 ？？
+jupyter 调整画出来的图的大小 ？？
+
+
+```
 ### 2   Anaconda中模块的安装
 ```
 在Anaconda Prompt中输入
