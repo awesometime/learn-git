@@ -32,7 +32,10 @@ Requirement already satisfied: pygal in g:\python\python-3.6.5\lib\site-packages
 ### 2 Python
 **标准库**
 
-[The Python Standard Library](https://docs.python.org/3/library/index.html)
+- [Python 3.8.0a0 documentation](https://docs.python.org/3.8/)
+- [The Python Standard Library](https://docs.python.org/3.8/library/index.html)
+- [Python 3.5.2中文文档](https://yiyibooks.cn/xx/python_352/index.html)
+
 
 **sy**s调用命令行参数 argv 变量，sys 还有 stdin，stdout 和 stderr 属性，另外大多脚本的定向终止都使用 "sys.exit()"。
 
