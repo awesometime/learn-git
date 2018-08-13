@@ -278,6 +278,8 @@ if __name__=='__main__':
     p=Process(target=run_proc, args=('test',))     # 传入参数，创建一个Process实例，即创建一个子进程
     p.start()                                      # 开启一个进程
     p.join()                                       # 等待该进程运行结束
+    
+# 在Windows 上实际并未看到子进程的输出，平台原因？？？
 ```    
 
 另一种方法：创建一个类继承Process类，并重写run方法。[参考](https://www.cnblogs.com/hypnus-ly/p/8129205.html)
