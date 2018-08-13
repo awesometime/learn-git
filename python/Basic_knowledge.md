@@ -333,6 +333,20 @@ if __name__=='__main__':
 Python的multiprocessing模块包装了底层的机制，提供了`Queue、Pipes`等多种方式来交换数据。我们以``Queue``为例  
 ```
 from multiprocessing import Process, Queue
+queue 模块
+queue.Queue         class 
+queue.Queue.qsize() 
+queue.Queue.empty()
+queue.Queue.full()
+queue.Queue.put(item, block=True, timeout=None) 
+queue.Queue.put_nowait(item)
+queue.Queue.get(block=True, timeout=None)
+queue.Queue.get_nowait()
+queue.Queue.join()
+p = Process(target='xxx', args=('queue',))
+```
+```
+from multiprocessing import Process, Queue
 import os, time, random
 
 # 写数据进程执行的代码:
@@ -362,7 +376,7 @@ if __name__=='__main__':
     # 等待pw结束:
     pw.join()
     # pr进程里是死循环，无法等待其结束，只能强行终止:
-    pr.terminate()
+    pr.terminate()        ？？？
     
 # 在Windows 上实际并未看到子进程的输出？？？
  ```
@@ -398,13 +412,15 @@ Python的标准库提供了两个**模块**：`_thread 和 threading`，`_thread
 ```
 标准格式`t = threading.Thread(target= '子线程函数', args=('子线程函数所的参数列表',), name='子线程名')`
 threading.current_thread()           返回当前运行的线程实例
-threading.Thread 类
+threading.Thread(group=None, target=None, name=None, args=(), kwargs={})          class
+threading.Thread.is_alive()   
 threading.Thread.start()
 threading.Thread.join()
-threading.Thread.setDaemon(True)         主线程退出的时候，不管子线程运行到哪里，强行让子线程退出,需要注意的是 setDaemon(True) 在 start() 之前
+threading.Thread.setDaemon(True)         守护线程  主线程退出的时候，不管子线程运行到哪里，强行让子线程退出,需要注意的是 setDaemon(True) 在 start() 之前
 threading.Lock().acquire()
 threading.Lock().release()
 threading.local()                       创建ThreadLocal对象
+Queue()              class
 ```
 由于任何**进程**默认就会启动一个**线程**，我们把该线程称为**主线程**，主线程又可以启动新的线程，
 
