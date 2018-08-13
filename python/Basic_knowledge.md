@@ -249,6 +249,7 @@ echo.echofilter
  
 ### 12 Python3   多进程 multiprocessing    多线程 threading     (参考廖雪峰)
 
+`进程 优先级于 线程`
 
 多进程和多线程最大的不同在于，
 
