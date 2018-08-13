@@ -402,6 +402,9 @@ threading.Thread 类
 threading.Thread.start()
 threading.Thread.join()
 threading.Thread.setDaemon(True)         主线程退出的时候，不管子线程运行到哪里，强行让子线程退出,需要注意的是 setDaemon(True) 在 start() 之前
+threading.Lock().acquire()
+threading.Lock().release()
+threading.local()                       创建ThreadLocal对象
 ```
 由于任何**进程**默认就会启动一个**线程**，我们把该线程称为**主线程**，主线程又可以启动新的线程，
 
