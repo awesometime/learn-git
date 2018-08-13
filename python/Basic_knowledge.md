@@ -275,7 +275,7 @@ def run_proc(name):                           # 定义一个执行函数run_proc
 
 if __name__=='__main__':
     print('Parent process %s.' % os.getpid())      # 打印当前进程(父进程)id
-    p=Process(target=run_proc, args=('test',))     # 传入参数，创建一个Process实例，即创建一个子进程；target为子进程函数，args中test为子进程名字
+    p=Process(target=run_proc, args=('test',))     # 传入参数，创建一个Process实例，即创建一个子进程；target为子进程函数，args中的test传给run_proc的参数
     p.start()                                      # 开启一个进程
     p.join()                                       # 等待该进程运行结束
     
@@ -369,18 +369,20 @@ GIL是Python解释器设计的历史遗留问题，通常我们用的解释器�
 
 多个Python进程有各自独立的GIL锁，互不影响。
 
-Python的标准库提供了两个模块：`_thread 和 threading`，_thread是低级模块，threading是高级模块，对_thread进行了封装。
+Python的标准库提供了两个**模块**：`_thread 和 threading`，`_thread`是低级模块，`threading`是高级模块，对_thread进行了封装。
 
 绝大多数情况下，我们只需要使用threading这个高级模块。
 
 **12.2.1 启动一个线程就是把一个函数传入并创建Thread实例，然后调用start()开始执行：** 
 
+标准格式`t = threading.Thread(target= '子线程函数', args=('子线程函数所需参数',), name='子线程名')`
 
-由于任何进程默认就会启动一个线程，我们把该线程称为主线程，主线程又可以启动新的线程，
 
-Python的threading模块有个current_thread()函数，它永远返回当前线程的实例。主线程实例的名字叫MainThread，
+由于任何**进程**默认就会启动一个**线程**，我们把该线程称为**主线程**，主线程又可以启动新的线程，
 
-子线程的名字在创建时指定，我们用LoopThread命名子线程。名字仅仅在打印时用来显示，完全没有其他意义，
+Python的`threading模块`有个`current_thread()函数`，它永远**返回当前线程的实例**。主线程实例的名字叫MainThread，
+
+子线程的**名字在创建时用name参数指定**，我们用LoopThread命名子线程。名字仅仅在打印时用来显示，完全没有其他意义，
 
 如果不起名字Python就自动给线程命名为Thread-1，Thread-2……
 ```
@@ -388,7 +390,7 @@ import time, threading
 
 # 新线程执行的代码:
 def loop():                                                              # 新线程的代码
-    print('thread %s is running...' % threading.current_thread().name)   # print(threading.current_thread().name)=MainThread
+    print('thread %s is running...' % threading.current_thread().name)   # print(threading.current_thread().name)=传入的子线程的名字，此处为threading.Thread(target=loop, name='LoopThread')中的LoopThread
     n = 0
     while n < 5:
         n = n + 1
@@ -397,12 +399,25 @@ def loop():                                                              # 新�
     print('thread %s ended.' % threading.current_thread().name)
 
 print('thread %s is running...' % threading.current_thread().name)   # MainThread 正在运行
-t = threading.Thread(target=loop, name='LoopThread')                 # Thread中传入loop函数，及参数，创建Thread实例
+t = threading.Thread(target=loop, name='LoopThread')                 # Thread中传入loop函数，及name参数（子线程名），创建Thread子线程实例
 t.start()                                                            # 新线程开始执行
 t.join()
 print('thread %s ended.' % threading.current_thread().name)          # MainThread 执行完毕
+
+##### 输出
+thread MainThread is running...
+thread LoopThread is running...
+thread LoopThread >>> 1
+thread LoopThread >>> 2
+thread LoopThread >>> 3
+thread LoopThread >>> 4
+thread LoopThread >>> 5
+thread LoopThread ended.
+thread MainThread ended.
+#####
 ```
 **12.2.2 Lock**
+```
 lock = threading.Lock()                # 创建一个锁
 def run_thread(n):
     for i in range(100000):        
@@ -411,7 +426,7 @@ def run_thread(n):
             change_it(n)               # 执行一段代码
         finally:            
             lock.release()             # 执行代码完了一定要释放锁
-    
+ ```   
 **12.3 ThreadLocal**
 
 一个ThreadLocal变量虽然是全局变量，但每个线程都只能读写自己线程的独立副本，互不干扰。ThreadLocal解决了参数在一个线程中各个函数之间互相传递的问题。
@@ -419,6 +434,7 @@ def run_thread(n):
 import threading
    
 local_school = threading.local()                      # 创建全局ThreadLocal对象
+# print(type(local_school))        #  <class '_thread._local'>
 
 def process_student():    
     std = local_school.student                        # 获取当前线程关联的student
@@ -426,11 +442,11 @@ def process_student():
 
 
 def process_thread(std_name):    
-    local_school.student = std_name                   # 绑定ThreadLocal的student
+    local_school.student = std_name                   # 绑定ThreadLocal的student   local_school.student？？？local_school的属性？
     process_student()
 
 
-t1 = threading.Thread(target=process_thread, args=('Alice',), name='Thread-A')  # 此处args传给std_name,  name传给threading.current_thread().name，不传则为Thread-1， Thread-2
+t1 = threading.Thread(target=process_thread, args=('Alice',), name='Thread-A')  # 此处args传给process_thread函数的std_name,  name指定子线程的名字，传给threading.current_thread().name，不传则为Thread-1， Thread-2
 t2 = threading.Thread(target=process_thread, args=('Bob',), name='Thread-A')
 t1.start()
 t2.start()
@@ -476,10 +492,10 @@ for i in range(10):
     r = result.get(timeout=10)                                    QueueManager.get_result_queue().get(timeout=10) 
     print('Result: %s' % r)
 # 关闭:
-manager.shutdown()                                                manager.shutdown()
+manager.shutdown()                                                QueueManager.shutdown()
 print('master exit.')
 ```
-##### task_worker.py
+##### task_worker.py  另一台机子
 ```
 import time, sys, queue
 from multiprocessing.managers import BaseManager
