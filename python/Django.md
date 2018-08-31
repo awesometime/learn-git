@@ -1,0 +1,2 @@
+-[Django2.1新手图文入门教程](http://www.liujiangblog.com/blog/36/)
+-[Django-MySQL数据库使用](https://www.cnblogs.com/demo-deng/p/7801966.html)
