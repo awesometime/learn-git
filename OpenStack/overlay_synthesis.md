@@ -34,6 +34,7 @@ hash value                                      path
 /var/lib/libvirt/images/cirros-0.3.3-x86_64-disk.img
 ------------------------------------------------------------------------------------------
 
+【export 成zip格式备以后在控制台导入时使用
 【root@cloudlet:~# cloudlet export-base /var/lib/libvirt/images/cirros-0.3.3-x86_64-disk.img   
 my_create_basevm
 
@@ -62,6 +63,7 @@ Traceback (most recent call last):
 elijah.provisioning.package.ImportBaseError: Base VM is already exists. Delete existing Base VM using command. 
 See more 'cloudlet --help'
 
+【由base img 产生overlay的原理？下载啥东西了？】
 【root@cloudlet:~# cloudlet overlay /var/lib/libvirt/images/cirros-0.3.3-x86_64-disk.img
 INFO     QEMU access file : /tmp/cloudlet-qemu-CLqb0z/qemu-trim-log
 INFO     start monitoring at /var/tmp/cloudletfs-uNzi9h/disk/streams/chunks_modified
