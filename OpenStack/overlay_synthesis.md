@@ -1,5 +1,8 @@
 参考
 http://forum.openedgecomputing.org/t/a-failure-in-creating-a-vm-overlay/15/4?u=linuix
+
+自己下载的小镜像可以跑通参考中的内容
+
 ```
 自己下载的小镜像
 【root@cloudlet:~# source admin-openrc.sh  
@@ -27,9 +30,11 @@ hash value                                      path
 6bd9268b1b4539b21443a702b23987a6a164c6db199ef72e6f30f0fdc674bbd5        /var/lib/libvirt/images/cirros-0.3.3-x86_64-disk.img
 ------------------------------------------------------------------------------------------
 
-【root@cloudlet:~# cloudlet export-base /var/lib/libvirt/images/cirros-0.3.3-x86_64-disk.img my_create_basevm.zip
+【root@cloudlet:~# cloudlet export-base /var/lib/libvirt/images/cirros-0.3.3-x86_64-disk.img   my_create_basevm
 INFO     Start compressing
-INFO     zip -j -9 ./my_create_basevm.zip.zip /var/lib/libvirt/images/cirros-0.3.3-x86_64-disk.img /var/lib/libvirt/images/cirros-0.3.3-x86_64-disk.base-mem /var/lib/libvirt/images/cirros-0.3.3-x86_64-disk.base-img-meta /var/lib/libvirt/images/cirros-0.3.3-x86_64-disk.base-mem-meta
+INFO     zip -j -9 ./my_create_basevm.zip.zip /var/lib/libvirt/images/cirros-0.3.3-x86_64-disk.img /var/lib/libvirt/images/
+cirros-0.3.3-x86_64-disk.base-mem /var/lib/libvirt/images/cirros-0.3.3-x86_64-disk.base-img-meta /var/lib/libvirt/images/
+cirros-0.3.3-x86_64-disk.base-mem-meta
   adding: cirros-0.3.3-x86_64-disk.img (deflated 12%)
   adding: cirros-0.3.3-x86_64-disk.base-mem (deflated 100%)
   adding: cirros-0.3.3-x86_64-disk.base-img-meta (deflated 16%)
@@ -38,9 +43,9 @@ INFO     zip -j -9 ./my_create_basevm.zip.zip /var/lib/libvirt/images/cirros-0.3
 【root@cloudlet:~# ls
 admin-openrc.sh      glancedb.sql    keystonedb.sql            novadb.sql  视频  下载
 elijah-openstack     heatdb.sql      l-clet                    公共的      图片  音乐
-elijah-provisioning  heat-domain.sh  my_create_basevm.zip.zip  模板        文档  桌面
+elijah-provisioning  heat-domain.sh  my_create_basevm.zip      模板        文档  桌面
 
-【root@cloudlet:~# cloudlet import-base my_create_basevm.zip.zip
+【root@cloudlet:~# cloudlet import-base my_create_basevm.zip
 Traceback (most recent call last):
   File "/usr/local/bin/cloudlet", line 376, in <module>
     status = main(sys.argv)
@@ -48,7 +53,8 @@ Traceback (most recent call last):
     PackagingUtil.import_basevm(import_file)
   File "/usr/local/lib/python2.7/dist-packages/elijah/provisioning/package.py", line 626, in import_basevm
     raise ImportBaseError(msg)
-elijah.provisioning.package.ImportBaseError: Base VM is already exists. Delete existing Base VM using command. See more 'cloudlet --help'
+elijah.provisioning.package.ImportBaseError: Base VM is already exists. Delete existing Base VM using command. 
+See more 'cloudlet --help'
 
 【root@cloudlet:~# cloudlet overlay /var/lib/libvirt/images/cirros-0.3.3-x86_64-disk.img
 INFO     QEMU access file : /tmp/cloudlet-qemu-CLqb0z/qemu-trim-log
@@ -117,7 +123,8 @@ blob file : (580) bytes (overlay-blob_1.xz)
 zip overhead : (251) bytes
 overlay file at : /tmp/cloudlet-overlay-YR7U76/overlay.zip
 
-【root@cloudlet:~# cloudlet synthesis /var/lib/libvirt/images/cirros-0.3.3-x86_64-disk.img /tmp/cloudlet-overlay-YR7U76/overlay.zip
+【root@cloudlet:~# cloudlet synthesis /var/lib/libvirt/images/cirros-0.3.3-x86_64-disk.img 
+/tmp/cloudlet-overlay-YR7U76/overlay.zip
 DEBUG    ==========================================
 DEBUG    file:///tmp/cloudlet-overlay-YR7U76/overlay.zip
 INFO     Decompression time : 0.000756 (s)
@@ -138,7 +145,8 @@ INFO     [Delta] Handle dangling DeltaItem (0)
 DEBUG    Delta metrics: 
 DEBUG    ==================================================
 DEBUG    Counter({32: 8, 'sha': 8})
-DEBUG    Counter({'sha': 0.0006613731384277344, 'unpack': 0.0006473064422607422, 32: 0.00042724609375, 'seekwrite': 4.100799560546875e-05, 'dict': 2.6941299438476562e-05, 'flush': 2.1696090698242188e-05})
+DEBUG    Counter({'sha': 0.0006613731384277344, 'unpack': 0.0006473064422607422, 32: 0.00042724609375, 
+'seekwrite': 4.100799560546875e-05, 'dict': 2.6941299438476562e-05, 'flush': 2.1696090698242188e-05})
 DEBUG    Total captured time: 0
 INFO     [Delta] : (1533638587.27)-(1533638587.27)=(0.00764179229736), delta 8 chunks
 INFO     [FUSE] : (1533638587.27)-(1533638587.27)=(0.00485587120056)
