@@ -21,7 +21,8 @@ INFO     Get hash list of memory page
 DEBUG    FREE Memory Counter: 0(0)
 INFO     Finish Base VM Memory hashing
 INFO     Start Base VM Disk hashing
-[================================================================================>] 100%INFO     Finish Base VM Disk hashing
+[================================================================================>] 100%
+INFO     Finish Base VM Disk hashing
 Base VM is created from /var/lib/libvirt/images/cirros-0.3.3-x86_64-disk.img
 Disk: /var/lib/libvirt/images/cirros-0.3.3-x86_64-disk.img
 Mem: /var/lib/libvirt/images/cirros-0.3.3-x86_64-disk.base-mem
@@ -29,14 +30,17 @@ Mem: /var/lib/libvirt/images/cirros-0.3.3-x86_64-disk.base-mem
 【root@cloudlet:~# cloudlet list-base
 hash value                                      path
 ------------------------------------------------------------------------------------------
-6bd9268b1b4539b21443a702b23987a6a164c6db199ef72e6f30f0fdc674bbd5        /var/lib/libvirt/images/cirros-0.3.3-x86_64-disk.img
+6bd9268b1b4539b21443a702b23987a6a164c6db199ef72e6f30f0fdc674bbd5        
+/var/lib/libvirt/images/cirros-0.3.3-x86_64-disk.img
 ------------------------------------------------------------------------------------------
 
-【root@cloudlet:~# cloudlet export-base /var/lib/libvirt/images/cirros-0.3.3-x86_64-disk.img   my_create_basevm
+【root@cloudlet:~# cloudlet export-base /var/lib/libvirt/images/cirros-0.3.3-x86_64-disk.img   
+my_create_basevm
+
 INFO     Start compressing
-INFO     zip -j -9 ./my_create_basevm.zip.zip /var/lib/libvirt/images/cirros-0.3.3-x86_64-disk.img /var/lib/libvirt/images/
-cirros-0.3.3-x86_64-disk.base-mem /var/lib/libvirt/images/cirros-0.3.3-x86_64-disk.base-img-meta /var/lib/libvirt/images/
-cirros-0.3.3-x86_64-disk.base-mem-meta
+INFO     zip -j -9 ./my_create_basevm.zip.zip /var/lib/libvirt/images/cirros-0.3.3-x86_64-disk.img 
+/var/lib/libvirt/images/cirros-0.3.3-x86_64-disk.base-mem /var/lib/libvirt/images
+/cirros-0.3.3-x86_64-disk.base-img-meta /var/lib/libvirt/images/cirros-0.3.3-x86_64-disk.base-mem-meta
   adding: cirros-0.3.3-x86_64-disk.img (deflated 12%)
   adding: cirros-0.3.3-x86_64-disk.base-mem (deflated 100%)
   adding: cirros-0.3.3-x86_64-disk.base-img-meta (deflated 16%)
