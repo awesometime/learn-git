@@ -154,7 +154,7 @@ Mysql语句                     以；结束。Exit退出
 . (source)  文件名                     ？加载/执行文件
 
 /etc/network/interfaces           网络
-/etc/apt/source.list               修改更新、文件下载源
+/etc/apt/sources.list               修改更新、文件下载源
 /etc/ssh/sshd_config              PermitRootLogin=yes
 /etc/hosts
 /etc/nova/nova.conf              配置my_ip=192.168.20.131
