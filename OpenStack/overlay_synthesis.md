@@ -1,3 +1,5 @@
+如何打开   合成的VM 控制台  进行下一步操作？？
+
 参考
 http://forum.openedgecomputing.org/t/a-failure-in-creating-a-vm-overlay/15/4?u=linuix
 
