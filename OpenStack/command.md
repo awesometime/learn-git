@@ -7,7 +7,10 @@
 # nova floating-ip-associate e9dccc8d-bf7c-45a6-86a7-c6ed77ab8f81 192.168.71.153
 # grep -rn "connectCompareCPU" ./src/
 # tail -f
+# ps -aux |grep glance
+# awk “样式” 文件： 把符合样式的数据行显示出来。
 # cat  /proc/cpuinfo | grep vmx --color
+# cat  /proc/meminfo
 ## KVM关于CPU型号的定义
    libvirt 对CPU的定义提炼出标准的几种类型在 /usr/share/libvirt/cpu_map.xml 可以查到
 ##
@@ -51,8 +54,13 @@ nova-manage service list
 nova image-show id号或image名
 nova floating-ip-bulk-create
 nova floating-ip-bulk-delete
+
 service nova-compute status
 service nova-compute start
+
+glance image-list
+glance image-show id号
+
 cloudlet list-base
 cloudlet overlay [path to base VM]
 
