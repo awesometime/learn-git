@@ -158,7 +158,24 @@ INFO     close File monitoring thread
 
 ```
 乐高镜像
-root@cloudlet:~# cloudlet synthesis /root/.cloudlet/a8157d3eb1155ec13b80615afc883b5f01f99362214f72f2b6444854498d7b17/trusty-server-raw.img /root/lx/overlay.zip
+【root@cloudlet:~# cloudlet import-base /root/lx/ubuntu-trusty-lego-base.zip
+INFO     create directory for base VM
+INFO     Decompressing Base VM to temp directory at /tmp/cloudlet-base-PW3_hp
+INFO     Place base VM to a right directory
+INFO     Register New Base to DB
+INFO     ID for the new Base VM: a8157d3eb1155ec13b80615afc883b5f01f99362214f72f2b6444854498d7b17
+INFO     Success
+
+【root@cloudlet:~# cloudlet list-base
+hash value                                      path
+------------------------------------------------------------------------------------------
+a8157d3eb1155ec13b80615afc883b5f01f99362214f72f2b6444854498d7b17        
+/root/.cloudlet/a8157d3eb1155ec13b80615afc883b5f01f99362214f72f2b6444854498d7b17/trusty-server-raw.img
+------------------------------------------------------------------------------------------
+
+【root@cloudlet:~# cloudlet synthesis /root/.cloudlet/a8157d3eb1155ec13b80615afc883b5f01f99362214f72f2b6444854498d7b17/
+trusty-server-raw.img    /root/lx/overlay.zip
+
 DEBUG    ==========================================
 DEBUG    file:///root/lx/overlay.zip
 INFO     Decompression time : 41.311197 (s)
@@ -175,12 +192,13 @@ INFO     start monitoring at /var/tmp/cloudletfs-NYpdAe/disk/streams/chunks_modi
 INFO     start monitoring at /var/tmp/cloudletfs-NYpdAe/disk/streams/chunks_accessed
 INFO     start monitoring at /var/tmp/cloudletfs-NYpdAe/memory/streams/chunks_accessed
 INFO     start monitoring at /tmp/cloudlet-overlay-bq8LYR/qemu-trim-log
-ls
-^[INFO     [Delta] Handle dangling DeltaItem (0)
+INFO     [Delta] Handle dangling DeltaItem (0)
 DEBUG    Delta metrics: 
 DEBUG    ==================================================
 DEBUG    Counter({'sha': 427089, 32: 164516, 48: 144128, 16: 59044, 80: 49869, 64: 8304, 96: 1228})
-DEBUG    Counter({32: 1711.0312843322754, 80: 118.52115035057068, 64: 104.98860192298889, 'unpack': 35.44292974472046, 'sha': 20.44668459892273, 'dict': 4.128907203674316, 'seekwrite': 1.6258974075317383, 'flush': 0.8647711277008057, 48: 0.6096794605255127, 16: 0.09760212898254395, 96: 0.0017435550689697266})
+DEBUG    Counter({32: 1711.0312843322754, 80: 118.52115035057068, 64: 104.98860192298889, 'unpack': 35.44292974472046, 
+'sha': 20.44668459892273, 'dict': 4.128907203674316, 'seekwrite': 1.6258974075317383, 'flush': 0.8647711277008057,
+48: 0.6096794605255127, 16: 0.09760212898254395, 96: 0.0017435550689697266})
 DEBUG    Total captured time: 1997
 INFO     [Delta] : (1533647921.51)-(1533650262.78)=(2341.27055907), delta 427089 chunks
 INFO     [FUSE] : (1533647921.51)-(1533650262.78)=(2341.26941895)
