@@ -64,6 +64,31 @@ This password is entirely numeric.
 Bypass password validation and create user anyway? [y/N]: y
 Superuser created successfully.
 ```
+
+### 编写你的第一个 Django 应用，第 5 部分
+```
+G:\PyCharm\PythonProjects\Django>py manage.py test polls
+
+Creating test database for alias 'default'...
+System check identified no issues (0 silenced).
+F
+======================================================================
+FAIL: test_was_published_recently_with_future_question (polls.tests.QuestionModelTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "G:\PyCharm\PythonProjects\Django\polls\tests.py", line 18, in test_was_published_recently_with_future_question
+    self.assertIs(future_question.was_published_recently(), False)
+AssertionError: True is not False
+
+----------------------------------------------------------------------
+Ran 1 test in 0.080s
+
+FAILED (failures=1)
+Destroying test database for alias 'default'...
+
+
+```
+
 ### python命令创建 模型对象
 ```
 G:\PyCharm\PythonProjects\Django>python manage.py shell
