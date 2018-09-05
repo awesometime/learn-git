@@ -64,3 +64,19 @@ This password is entirely numeric.
 Bypass password validation and create user anyway? [y/N]: y
 Superuser created successfully.
 ```
+### python命令创建 模型对象
+```
+G:\PyCharm\PythonProjects\Django>python manage.py shell
+Python 3.6.5 (v3.6.5:f59c0932b4, Mar 28 2018, 17:00:18) [MSC v.1900 64 bit (AMD64)]
+Type 'copyright', 'credits' or 'license' for more information
+IPython 6.4.0 -- An enhanced Interactive Python. Type '?' for help.
+
+>>> from polls.models import Question
+>>> q = Question.objects.get(pk=1)
+>>> q.choice_set.create(choice_text='Not much', votes=0)
+<Choice: Choice object>
+>>> q.choice_set.create(choice_text='The sky', votes=0)
+<Choice: Choice object>
+>>> q.choice_set.create(choice_text='Just hacking again', votes=0)
+<Choice: Choice object>
+```
