@@ -4,7 +4,7 @@
 
 -[Django-MySQL数据库使用](https://www.cnblogs.com/demo-deng/p/7801966.html)
 
-## 顺序
+## 1 顺序
 ```
 G:\PyCharm\PythonProjects\Django> python manage.py runserver
 
@@ -105,3 +105,69 @@ IPython 6.4.0 -- An enhanced Interactive Python. Type '?' for help.
 >>> q.choice_set.create(choice_text='Just hacking again', votes=0)
 <Choice: Choice object>
 ```
+## 项目
+
+```
+一、在 pycharm 中建立虚拟环境
+结果是：
+在目录中 G:\PyCharm\PythonProjects\python_virtualenv_for_django  隔离出最基本的 python 环境，和干净的基本没有第三方库在site-packages中。
+
+
+二、安装django
+cmd 下 在 G:\PyCharm\PythonProjects\python_virtualenv_for_django\Scripts 运行 activate 命令，激活该虚拟环境，
+之后的命令行提示符将以(python_virtualenv_for_django)开头
+
+(python_virtualenv_for_django) G:\PyCharm\PythonProjects\python_virtualenv_for_django\Scripts>pip install django
+Collecting django
+  Cache entry deserialization failed, entry ignored
+  Downloading https://files.pythonhosted.org/packages/ca/7e/fc068d164b32552ae3a8f8d5d0280c083f2e8d553e71ecacc21927564561/Django-2.1.1-py3-none-any.whl (7.3MB)
+    100% |████████████████████████████████| 7.3MB 80kB/s
+Collecting pytz (from django)
+  Cache entry deserialization failed, entry ignored
+  Cache entry deserialization failed, entry ignored
+  Downloading https://files.pythonhosted.org/packages/30/4e/27c34b62430286c6d59177a0842ed90dc789ce5d1ed740887653b898779a/pytz-2018.5-py2.py3-none-any.whl (510kB)
+    100% |████████████████████████████████| 512kB 74kB/s
+Installing collected packages: pytz, django
+Successfully installed django-2.1.1 pytz-2018.5
+You are using pip version 9.0.1, however version 18.0 is available.
+You should consider upgrading via the 'python -m pip install --upgrade pip' command.
+
+退出虚拟环境，可以使用deactive命令
+
+
+三、创建工程
+进入Pycharm，File->new Project 创建 django 新工程，此时 create virtual env 也行
+Location  G:\PyCharm\PythonProjects\mysite，与python解释器 G:\PyCharm\PythonProjects\python_virtualenv_for_django在
+同级目录下
+建好后会自动出现manage.py等django需要的包和环境
+
+四、创建app
+在cmd 终端需要 activate 
+
+在pycharm 的终端里直接start app
+(python_virtualenv_for_django) G:\PyCharm\PythonProjects\mysite>python manage.py startapp login
+
+
+五、设置settings 时区 语言
+六、启动一下开发服务器
+设置127.0.0.1:8000 ，>>>py manage.py runserver 
+
+
+```
+
+问题解决
+
+```
+一、
+django.core.exceptions.ImproperlyConfigured: Error loading MySQLdb module.
+Did you install mysqlclient?
+
+pycharm 安装 mysqlclient
+报error: Microsoft Visual C++ 14.0 is required. Get it with "Microsoft Visual C++ Build Tools": 
+http://landinghub.visualstudio.com/visual-cpp-build-tools
+
+去官方下载 mysqlclient 相关文件，并自行百度下载后如何使其可用 
+或者从系统python site-packages 包(前提是已经有mysqlclient包及相关py文件)中复制mysqlclient包及相关py文件到当前目录下
+
+```
+
