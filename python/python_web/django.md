@@ -26,6 +26,22 @@ Bottle： 比较简单；
 
 如果追求性能可以考虑Tornado；
 
+### 一些思想
+
+django的设计专注于代码的高度可重用，信奉DRY原则，一切面向对象。
+
+网站程序基本有三部分组成，业务逻辑代码(Python),静态文件(js/css),模板(Python中的 jinja,mako,nodejs中有jade), 
+
+用户向webserver发起请求之后，server程序找到当前url对应的模板，填充模板变量(输出成字符串形式的html源码),返回给浏览器，
+
+浏览器渲染页面。一般模板语言都有继承(extend),插入(include)等特性，来提高页面的复用率。
+
+　   django将页面上所有元素模块化，网页中一些常见元素，表单，表格，标签页，全部封装成Python类，每个组件有自己 
+
+对应的一小块html模板.当渲染整个页面的时候,Horizon先找到当前页面有多少组件，将各个组件分别进行渲染变成一段html片段，
+
+最后拼装成一 个完整的html页面，返回浏览器。
+
 ## 1 顺序
 ```
 G:\PyCharm\PythonProjects\Django> python manage.py runserver
