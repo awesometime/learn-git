@@ -5,9 +5,8 @@
 学习计划：
 
 - python 数据结构 标准库
-
 - python框架 django flask tornado
-
+- Bootstrap
 - Mysql MongoDB Redis 分布式
 - Spark 大数据
 - Scrapy
