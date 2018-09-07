@@ -1,5 +1,7 @@
 
--[深度实践OpenStack   基于Python的OpenStack组件开发 - 喻涛 机械工业出版社](https://read.douban.com/reader/ebook/49007537/)
+-[深度实践 OpenStack   基于Python的OpenStack组件开发 - 喻涛 机械工业出版社](https://read.douban.com/reader/ebook/49007537/)
+
+-[阅读 openstack 源码](http://www.cnblogs.com/liujiacai/p/9232316.html)
 
 #### install 
 ```
