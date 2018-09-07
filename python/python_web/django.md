@@ -8,13 +8,15 @@
 
 -[python web 框架](https://wiki.python.org/moin/WebFrameworks)
 
-Django:  1个重武器，包含了web开发中常用的功能、组件的框架；（ORM、Session、Form、Admin、分页、中间件、信号、缓存、ContenType....）；
+Django:    1个重武器，包含了web开发中常用的功能、组件的框架；（ORM、Session、Form、Admin、分页、中间件
 
-Tornado: 2大特性就是异步非阻塞、原生支持WebSocket协议；
+、信号、缓存、ContenType....）；
 
-Flask：  功能和性能虽然不及Django和Tornado，但是Flask的第三方开源组件比丰富；http://flask.pocoo.org/extensions/
+Tornado:   2大特性就是异步非阻塞、原生支持WebSocket协议；
 
-Bottle： 比较简单；
+Flask：    功能和性能虽然不及Django和Tornado，但是Flask的第三方开源组件比丰富；http://flask.pocoo.org/extensions/
+
+Bottle：   比较简单；
 
 总结：
 
@@ -28,19 +30,21 @@ Bottle： 比较简单；
 
 ### 一些思想
 
-django的设计专注于代码的高度可重用，信奉DRY原则，一切面向对象。
+    django的设计专注于代码的高度可重用，信奉DRY原则，一切面向对象。
 
-网站程序基本有三部分组成，业务逻辑代码(Python),静态文件(js/css),模板(Python中的 jinja,mako,nodejs中有jade), 
+网站程序基本有三部分组成，业务逻辑代码(Python),静态文件(js/css),模板(Python中的 jinja,mako,nodejs
 
-用户向webserver发起请求之后，server程序找到当前url对应的模板，填充模板变量(输出成字符串形式的html源码),返回给浏览器，
+中有jade), 用户向webserver发起请求之后，server程序找到当前url对应的模板，填充模板变量(输出成字符串
 
-浏览器渲染页面。一般模板语言都有继承(extend),插入(include)等特性，来提高页面的复用率。
+形式的html源码),返回给浏览器，浏览器渲染页面。一般模板语言都有继承(extend),插入(include)等特性，
 
-　   django将页面上所有元素模块化，网页中一些常见元素，表单，表格，标签页，全部封装成Python类，每个组件有自己 
+来提高页面的复用率。
 
-对应的一小块html模板.当渲染整个页面的时候,Horizon先找到当前页面有多少组件，将各个组件分别进行渲染变成一段html片段，
+　   django将页面上所有元素模块化，网页中一些常见元素，表单，表格，标签页，全部封装成Python类，
+    
+每个组件有自己对应的一小块html模板.当渲染整个页面的时候,Horizon先找到当前页面有多少组件，将各个
 
-最后拼装成一 个完整的html页面，返回浏览器。
+组件分别进行渲染变成一段html片段，最后拼装成一 个完整的html页面，返回浏览器。
 
 ## 1 顺序
 ```
