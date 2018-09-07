@@ -4,6 +4,26 @@
 
 -[Django-MySQL数据库使用](https://www.cnblogs.com/demo-deng/p/7801966.html)
 
+### 写在前边
+
+Django:  1个重武器，包含了web开发中常用的功能、组件的框架；（ORM、Session、Form、Admin、分页、中间件、信号、缓存、ContenType....）；
+
+Tornado: 2大特性就是异步非阻塞、原生支持WebSocket协议；
+
+Flask：  功能和性能虽然不及Django和Tornado，但是Flask的第三方开源组件比丰富；http://flask.pocoo.org/extensions/
+
+Bottle： 比较简单；
+
+总结：
+
+都不是我写的！！！不论优劣，不同的工具而已；
+
+小型web应用设计的功能点不多使用Flask；
+
+大型web应用设计的功能点比较多使用的组件也会比较多，使用Django（自带功能多不用去找插件）；
+
+如果追求性能可以考虑Tornado；
+
 ## 1 顺序
 ```
 G:\PyCharm\PythonProjects\Django> python manage.py runserver
