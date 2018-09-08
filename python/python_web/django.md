@@ -150,7 +150,7 @@ IPython 6.4.0 -- An enhanced Interactive Python. Type '?' for help.
 ## 项目
 
 ```
-一、在 pycharm 中建立虚拟环境
+一、在 pycharm 中建立虚拟环境virtualenv
 
 C:\Users\lx>pip install virtualenv
 Requirement already satisfied: virtualenv in g:\python\python-3.6.5\lib\site-packages (16.0.0)
@@ -199,16 +199,23 @@ Location  填 G:\PyCharm\PythonProjects\mysite，(与要用的python Iterpreter 
 建好后会自动出现manage.py等django需要的包和环境
 
 四、创建app
+
 在cmd 终端需要 activate 
 
 在pycharm 的终端里直接start app
-(python_virtualenv_for_django) G:\PyCharm\PythonProjects\mysite>python manage.py startapp login
-
+(python_virtualenv_for_django) G:\PyCharm\PythonProjects\mysite>py manage.py startapp app_name
+注意G:\PyCharm\PythonProjects\mysite目录里才有manage.py文件，才能执行py manage.py startapp app_name
 
 五、设置settings 时区 语言
-六、启动一下开发服务器
-设置127.0.0.1:8000 ，>>>py manage.py runserver 
 
+六、启动一下开发服务器
+
+在Pycharm的Run-->Edit Configurations...--> Run/Debug Configurations配置界面里，将HOST设置为127.0.0.1，Port保持原样的8000，
+确定后，点击OK
+设置127.0.0.1:8000 ，>>>py manage.py runserver 
+写好models等文件后
+$ python manage.py makemigrations app_name      
+$ python manage.py migrate   
 
 ```
 
