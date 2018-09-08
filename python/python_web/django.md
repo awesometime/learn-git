@@ -51,32 +51,111 @@ Bottle：   比较简单；
 G:\PyCharm\PythonProjects\Django> python manage.py runserver
 
 $ python manage.py runserver          # 启动开发服务器
-$ python manage.py startapp polls     # 创建投票应用(app)
+$ python manage.py startapp app_name     # 创建投票应用(app)
 $ models.py
 $ views.py
 $ urls.py
 $ templates
+
+以上写好轮廓以后修改settings
 $ settings.py
+主要修改  INSTALLED_APPS   TEMPLATES_DIR  DATABASES
 
-$ app_polls/admin.py文件，加入下面的内容：
+$ app_name/admin.py文件，加入下面的内容：
 from django.contrib import admin
-from .models import Question
+from .models import name_of_class_in_models
 
-admin.site.register(Question) 
+admin.site.register(name_of_class_in_models) 
 # 在admin中注册投票应用
 
-$ python manage.py makemigrations app_polls      # 产生 migrations/0001_initial.py 文件
-Migrations for 'app_polls':
-  app_polls\migrations\0001_initial.py
-    - Create model Choice
-    - Create model Question
-    - Add field question to choice
+$ python manage.py makemigrations app_name      # 产生 migrations/0001_initial.py 文件
+Migrations for 'app_name':
+  app_name\migrations\0001_initial.py
+    - Create model CPU
+    - Create model Disk
+    - Create model EventLog
+    - Create model IDC
+    - Create model Manufacturer
+    - Create model NetworkDevice
+    - Create model NewAssetApprovalZone
+    - Create model NIC
+    - Create model RAM
+    - Create model SecurityDevice
+    - Create model Server
+    - Create model Software
+    - Create model StorageDevice
+    - Create model Tag
+    - Add field new_asset to eventlog
+    - Add field user to eventlog
+    - Add field business_unit to asset
+    - Add field contract to asset
+    - Add field idc to asset
+    - Add field manufacturer to asset
+    - Add field tags to asset
+    - Alter unique_together for ram (1 constraint(s))
+    - Alter unique_together for nic (1 constraint(s))
+    - Alter unique_together for disk (1 constraint(s))
+
     
 $ python manage.py migrate   
 Operations to perform:
-  Apply all migrations: admin, app1, app_polls, auth, contenttypes, sessions
+  Apply all migrations: admin, app_name, auth, contenttypes, sessions
 Running migrations:
-  Applying app_polls.0001_initial... OK
+  Applying contenttypes.0001_initial... OK
+  Applying auth.0001_initial... OK
+  Applying admin.0001_initial... OK
+  Applying admin.0002_logentry_remove_auto_add... OK
+  Applying admin.0003_logentry_add_action_flag_choices... OK
+  Applying assets.0001_initial... OK
+  Applying contenttypes.0002_remove_content_type_name... OK
+  Applying auth.0002_alter_permission_name_max_length... OK
+  Applying auth.0003_alter_user_email_max_length... OK
+  Applying auth.0004_alter_user_username_opts... OK
+  Applying auth.0005_alter_user_last_login_null... OK
+  Applying auth.0006_require_contenttypes_0002... OK
+  Applying auth.0007_alter_validators_add_error_messages... OK
+  Applying auth.0008_alter_user_username_max_length... OK
+  Applying auth.0009_alter_user_last_name_max_length... OK
+  Applying sessions.0001_initial... OK
+
+  
+$ py manage.py createsuperuser
+
+$ mysql> show tables;  # 数据库变化
++-----------------------------+
+| Tables_in_django_99         |
++-----------------------------+
+| assets_asset                |   # app assets 的
+| assets_asset_tags           |
+| assets_businessunit         |
+| assets_contract             |
+| assets_cpu                  |
+| assets_disk                 |
+| assets_eventlog             |
+| assets_idc                  |
+| assets_manufacturer         |
+| assets_networkdevice        |
+| assets_newassetapprovalzone |
+| assets_nic                  |
+| assets_ram                  |
+| assets_securitydevice       |
+| assets_server               |
+| assets_software             |
+| assets_storagedevice        |
+| assets_tag                  |
+| auth_group                  |        # django自己的
+| auth_group_permissions      |
+| auth_permission             |
+| auth_user                   |
+| auth_user_groups            |
+| auth_user_user_permissions  |
+| django_admin_log            |
+| django_content_type         |
+| django_migrations           |
+| django_session              |
++-----------------------------+
+28 rows in set (0.00 sec)
+
 ```
 ### Part 2：模型与管理后台------四、使用模型的API
 ```
