@@ -151,11 +151,23 @@ IPython 6.4.0 -- An enhanced Interactive Python. Type '?' for help.
 
 ```
 一、在 pycharm 中建立虚拟环境
+
+C:\Users\lx>pip install virtualenv
+Requirement already satisfied: virtualenv in g:\python\python-3.6.5\lib\site-packages (16.0.0)
+
+C:\Users\lx> 切换到想要存放虚拟环境的目录下
+
+G:\PyCharm\PythonProjects>virtualenv --no-site-packages python_virtualenv_for_django
+Using base prefix 'g:\\python\\python-3.6.5'
+New python executable in G:\PyCharm\PythonProjects\my_virtual_env\Scripts\python.exe
+Installing setuptools, pip, wheel...done.
+
 结果是：
-在目录中 G:\PyCharm\PythonProjects\python_virtualenv_for_django  隔离出最基本的 python 环境，和干净的基本没有第三方库在site-packages中。
+出现目录 G:\PyCharm\PythonProjects\python_virtualenv_for_django  其中隔离出最基本的 python 环境，和干净的基本没有第三方库在site-packages中。
 
 
 二、安装django
+
 cmd 下 在 G:\PyCharm\PythonProjects\python_virtualenv_for_django\Scripts 运行 activate 命令，激活该虚拟环境，
 之后的命令行提示符将以(python_virtualenv_for_django)开头
 
@@ -178,9 +190,12 @@ You should consider upgrading via the 'python -m pip install --upgrade pip' comm
 
 
 三、创建工程
-进入Pycharm，File->new Project 创建 django 新工程，此时 create virtual env 也行
-Location  G:\PyCharm\PythonProjects\mysite，与python解释器 G:\PyCharm\PythonProjects\python_virtualenv_for_django在
-同级目录下
+
+进入PyCharm，File->new Project 创建 django 新工程，此时 会用到前面create 好的virtual env 
+Location  填 G:\PyCharm\PythonProjects\mysite，(与要用的python Iterpreter  G:\PyCharm\PythonProjects\python_virtualenv_for_django在
+同级目录下)
+在Iterpreter 右侧点击三个点，选中G:\PyCharm\PythonProjects\python_virtualenv_for_django\Scripts\python.exe，然后就选定了虚拟好的python
+解释器
 建好后会自动出现manage.py等django需要的包和环境
 
 四、创建app
