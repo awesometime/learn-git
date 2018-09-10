@@ -16,7 +16,10 @@
 
 - [Read-only mirrors of a mix of official and unofficial projects hosted at https://git.openstack.org/cgit/openstack/ by the OpenStack community.](https://github.com/openstack)
 ```
-其中包含各组件的setup.cfg  setup.py文件
+OpenStack所有项目都是基于Python开发，都是标准的Python项目，通过setuptools工具管理项目，负责Python包的安装和分发。
+想知道一个项目有哪些服务组成，入口函数（main函数）在哪里，最直接的方式就是查看项目根目录下的setup.cfg文件。
+
+
 例如找到[openstack nova源码](https://github.com/openstack/nova)，其中setup.py如下
 >>>
 >>>
@@ -61,7 +64,7 @@ oslo.policy.policies =
 nova.compute.monitors.cpu =
     virt_driver = nova.compute.monitors.cpu.virt_driver:Monitor
 
-console_scripts =
+console_scripts =                                         # console_scripts就是所有服务组件的入口
     nova-api = nova.cmd.api:main
     nova-api-metadata = nova.cmd.api_metadata:main
     nova-api-os-compute = nova.cmd.api_os_compute:main
