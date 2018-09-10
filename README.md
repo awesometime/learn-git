@@ -4,6 +4,7 @@
 
 学习计划：
 
+- LeetCode
 - python 数据结构 标准库
 - python框架 django flask tornado
 - Bootstrap
@@ -13,6 +14,9 @@
 - Linux 
 - nginx WSGI 
 - 网络协议 TCP HTTP 
+
+- C++
+- vim YCM
 
 
 
