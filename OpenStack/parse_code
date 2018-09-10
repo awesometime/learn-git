@@ -1,0 +1,9 @@
+关闭虚拟机 ：
+
+API节点
+nova-api接收用户请求 -> 调用compute/api.py -> compute/rpcapi.py -> 向目标计算节点发起stop_instance()RPC请求
+
+计算节点
+收到stop_instance()请求 -> 调用compute/manager.py的callback方法stop_instance() -> 调用libvirt关机虚拟机
+
+
