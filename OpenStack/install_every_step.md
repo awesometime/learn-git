@@ -1,3 +1,18 @@
+#### 安装完以后
+```
+# source ~/admin-openrc.sh 
+
+# nova network-create vmprivate --fixed-range-v4 10.11.12.0/24 --fixed-cidr 10.11.12.0/24 --bridge br100 --bridge-interface eth1
+
+# nova network-list
+
+# nova network-show xxxx
+
+# nova floating-ip-bulk-create 192.168.x.xx/24
+
+```
+
+
 ```
 【137 】【纯环境】【】【】【】【6.21】
 【2.60】【物理机】【】【】【】【8.3 】【8.10】【9.10】【半小时】
