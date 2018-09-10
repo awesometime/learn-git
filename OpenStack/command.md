@@ -12,7 +12,92 @@
 
 为备以后用，已将dist-packages包备份到百度云，使用时将dist-packages 1234合到一起，合成一个文件夹，放到/usr/local/lib/python2.7/下
 ```
+#### 源码分析之setup.cfg文件
 
+- [Read-only mirrors of a mix of official and unofficial projects hosted at https://git.openstack.org/cgit/openstack/ by the OpenStack community.](https://github.com/openstack)
+```
+其中包含各组件的setup.cfg  setup.py文件
+例如找到[openstack nova源码](https://github.com/openstack/nova)，其中setup.py如下
+>>>
+>>>
+>>>openstack/nova/setup.py
+import setuptools
+
+# In python < 2.7.4, a lazy loading of package `pbr` will break
+# setuptools if some other modules registered functions in `atexit`.
+# solution from: http://bugs.python.org/issue15881#msg170215
+try:
+    import multiprocessing  # noqa
+except ImportError:
+    pass
+
+setuptools.setup(
+    setup_requires=['pbr>=2.0.0'],
+    pbr=True)
+
+>>>
+>>>
+>>>openstack/nova/setup.cfg          # 详见具体网址
+
+[entry_points]
+oslo.config.opts =
+    nova.conf = nova.conf.opts:list_opts
+
+oslo.config.opts.defaults =
+    nova.conf = nova.common.config:set_middleware_defaults
+
+oslo.policy.enforcer =
+    nova = nova.policy:get_enforcer
+    placement = nova.api.openstack.placement.policy:get_enforcer
+
+oslo.policy.policies =
+    # The sample policies will be ordered by entry point and then by list
+    # returned from that entry point. If more control is desired split out each
+    # list_rules method into a separate entry point rather than using the
+    # aggregate method.
+    nova = nova.policies:list_rules
+    placement = nova.api.openstack.placement.policies:list_rules
+
+nova.compute.monitors.cpu =
+    virt_driver = nova.compute.monitors.cpu.virt_driver:Monitor
+
+console_scripts =
+    nova-api = nova.cmd.api:main
+    nova-api-metadata = nova.cmd.api_metadata:main
+    nova-api-os-compute = nova.cmd.api_os_compute:main
+    nova-cells = nova.cmd.cells:main
+    nova-compute = nova.cmd.compute:main
+    nova-conductor = nova.cmd.conductor:main
+    nova-console = nova.cmd.console:main
+    nova-consoleauth = nova.cmd.consoleauth:main
+    nova-dhcpbridge = nova.cmd.dhcpbridge:main
+    nova-manage = nova.cmd.manage:main
+    nova-network = nova.cmd.network:main
+    nova-novncproxy = nova.cmd.novncproxy:main
+    nova-policy = nova.cmd.policy:main
+    nova-rootwrap = oslo_rootwrap.cmd:main
+    nova-rootwrap-daemon = oslo_rootwrap.cmd:daemon
+    nova-scheduler = nova.cmd.scheduler:main
+    nova-serialproxy = nova.cmd.serialproxy:main
+    nova-spicehtml5proxy = nova.cmd.spicehtml5proxy:main
+    nova-status = nova.cmd.status:main
+    nova-xvpvncproxy = nova.cmd.xvpvncproxy:main
+wsgi_scripts =
+    nova-placement-api = nova.api.openstack.placement.wsgi:init_application
+    nova-api-wsgi = nova.api.openstack.compute.wsgi:init_application
+    nova-metadata-wsgi = nova.api.metadata.wsgi:init_application
+
+nova.ipv6_backend =
+    rfc2462 = nova.ipv6.rfc2462
+    account_identifier = nova.ipv6.account_identifier
+
+nova.scheduler.driver =
+    filter_scheduler = nova.scheduler.filter_scheduler:FilterScheduler
+    caching_scheduler = nova.scheduler.caching_scheduler:CachingScheduler
+    fake_scheduler = nova.tests.unit.scheduler.fakes:FakeScheduler
+
+
+```
 #### openstack 源代码经过 编译后的文件的位置
 ```
 1 horizon
