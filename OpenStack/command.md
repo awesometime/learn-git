@@ -225,3 +225,8 @@ ssh root@ip
 ssh 普通用户@ip             没试过，估计不能
 
 ```
+
+
+#### 通过demo学习OpenStack开发所需的基础知识 -- 软件包管理
+- [通过demo学习OpenStack开发所需的基础知识 -- 软件包管理](https://segmentfault.com/a/1190000002940724)
+这部分扯远了，开发！！！
