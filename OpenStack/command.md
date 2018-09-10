@@ -212,8 +212,16 @@ nova floating-ip-list
 nova service-list
 nova-manage service list
 nova image-show id号或image名
-nova floating-ip-bulk-create
-nova floating-ip-bulk-delete
+
+nova floating-ip-associate       Associate a floating IP address to a server.
+nova floating-ip-bulk-create     Bulk create floating IPs by range.
+     floating-ip-bulk-delete     Bulk delete floating IPs by range.
+     floating-ip-bulk-list       List all floating IPs.
+     floating-ip-create          Allocate a floating IP for the current tenant.
+     floating-ip-delete          De-allocate a floating IP.
+     floating-ip-disassociate    Disassociate a floating IP address from a server.
+     floating-ip-list            List floating IPs.
+     floating-ip-pool-list       List all floating IP pools.
 
 service nova-compute status
 service nova-compute start
