@@ -36,6 +36,20 @@ Type "help", "copyright", "credits" or "license" for more information.
 >>> exit()
 ```
 ### 2 pip相关问题   【重要】改pip源为豆瓣源【 http://pypi.douban.com/simple 】
+
+```
+1 修改配置文件  ~/.pip/pip.conf，添加内容如下：
+
+[global]
+index-url = https://pypi.doubanio.com/simple
+trusted-host = pypi.doubanio.com
+
+2 命令行选项  使用 pip 命令安装扩展包时指定源：
+
+$ pip install flask -i https://pypi.doubanio.com/simple
+
+```
+
 python是可以安装到C盘以外的盘的
 
 pip是一个安装和管理 Python 包的工具
@@ -108,6 +122,7 @@ General Options:
   --no-color                  Suppress colored output
 ```
 ```
+pip log文件位置          /root/.pip/pip.log
 pip安装的包位置,一般默认在/usr/lib/python2.7/dist-packages/
                           /usr/local/lib/python2.7/dist-packages
 
