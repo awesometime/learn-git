@@ -66,7 +66,61 @@ delattr(obj,'name')
 print(obj.name)                      # 报错
 
 ```
+```python
+#!/usr/bin/env python
+#coding=utf-8
+__author__ = 'lx'
 
+#1.py           注意  1.py 2.py 在同一目录下
+class Foo:
+    def __init__(self,name):
+        temp = "xxx"
+        self.name = name
+ 
+    def show(self):
+        print('show wo')
+        
+#!/usr/bin/env python
+#coding=utf-8
+__author__ = 'lx'
+
+#2.py
+#导入模块
+print('0')
+m = __import__("1",fromlist=True)
+print(m)
+
+#去模块中找类
+class_name = getattr(m,"Foo")
+print(class_name)
+#根据类创建对象
+obj = class_name("Yj")
+print(obj)
+#去对象中找方法
+ret = getattr(obj,'show')
+print('1')
+r = ret()
+print(r)
+
+#去对象中找name对应的值
+print('2')
+val = getattr(obj,'name')
+print('3')
+print(val)
+
+结果
+0
+<module '1' from 'C:/Users/li/Desktop\\1.py'>
+<class '1.Foo'>
+<1.Foo object at 0x000001BD3AEDDB00>
+1
+show wo
+None
+2
+3
+Yj
+
+```
 ### 3 sys.stdout sys.stdin
 
 
