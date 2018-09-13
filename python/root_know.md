@@ -5,7 +5,7 @@
    * [Python基础知识](#python基础知识)
       * [1 yield 函数](#1-yield-函数)
       * [2 Python 中的反射](#2-python-中的反射)
-      * [3 @staticmethod和@classmethod](#3-staticmethod和classmethod)
+      * [3 sys.stdout sys.stdin](#3-sys.stdout-sys.stdin)
       * [4 类变量和实例变量](#4-类变量和实例变量)
       * [16 单例模式](#16-单例模式)
          * [1 使用__new__方法](#1-使用__new__方法)
@@ -64,5 +64,30 @@ print(obj.name)                      # 19
 print(obj.name)                      # 19
 delattr(obj,'name')
 print(obj.name)                      # 报错
+
+```
+
+### 3 sys.stdout-sys.stdin
+```python
+# 在python中调用print时，事实上调用了sys.stdout.write(obj+'\n')
+# print 将需要的内容打印到控制台，然后追加一个换行符
+# 以下两行代码等价：
+
+sys.stdout.write('hello' + '\n')
+print('hello')
+
+# sys.stdin与input
+
+import sys
+h1 = input()               # lin
+h2 = sys.stdin.readline()  # lin
+print(len(h1))  # 3
+print(len(h2))  # 4
+
+# sys.stdin.readline( )会将标准输入全部获取，包括末尾的'\n'，因此用len计算长度时是把换行符'\n'算进去了的，
+# 但是input( )获取输入时返回的结果是不包含末尾的换行符'\n'的。
+
+# 因此如果在平时使用sys.stdin.readline( )获取输入的话，不要忘了去掉末尾的换行符，可以用strip( )函数
+#（sys.stdin.readline( ).strip('\n')）或sys.stdin.readline( )[:-1]这两种方法去掉换行。
 
 ```
