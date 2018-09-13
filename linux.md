@@ -408,6 +408,13 @@ List                                    extend / append / +
 
 #### 8 ubuntu 物理机备份 恢复
 
-Ubuntu全盘备份与恢复，亲自总结，实测可靠 https://blog.csdn.net/sinat_27554409/article/details/78227496
-tar cvpzf backup913.tgz --exclude=/proc --exclude=/lost+found --exclude=/backup913.tgz --exclude=/sys --exclude=/media /
+- [Ubuntu全盘备份与恢复，亲自总结，实测可靠](https://blog.csdn.net/sinat_27554409/article/details/78227496)
+- [Ubuntu14.04如何备份和恢复系统](https://blog.csdn.net/liuzane/article/details/79715914)
+
+root@cloudlet:~# cd /
+root@cloudlet:/# ls
+bin   etc         initrd.img.old  lib64       mnt   root  srv  usr      vmlinuz.old
+boot  home        lib             lost+found  opt   run   sys  var
+dev   initrd.img  lib32           media       proc  sbin  tmp  vmlinuz
+root@ubuntu:/# tar cvpzf backup913.tgz --exclude=/proc --exclude=/lost+found --exclude=/backup913.tgz --exclude=/sys --exclude=/media /
 
