@@ -66,7 +66,9 @@ delattr(obj,'name')
 print(obj.name)                      # 报错
 
 ```
+
 ### 3 sys.stdout sys.stdin
+
 
 ```python
 # 在python中调用print时，事实上调用了sys.stdout.write(obj+'\n')
