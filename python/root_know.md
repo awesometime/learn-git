@@ -66,7 +66,6 @@ delattr(obj,'name')
 print(obj.name)                      # 报错
 
 ```
-
 ### 3 sys.stdout sys.stdin
 
 ```python
