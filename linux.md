@@ -405,3 +405,9 @@ List                                    extend / append / +
 类            具有属性和方法
 对象
 ```
+
+#### 8 ubuntu 物理机备份 恢复
+
+Ubuntu全盘备份与恢复，亲自总结，实测可靠 https://blog.csdn.net/sinat_27554409/article/details/78227496
+tar cvpzf backup913.tgz --exclude=/proc --exclude=/lost+found --exclude=/backup913.tgz --exclude=/sys --exclude=/media /
+
