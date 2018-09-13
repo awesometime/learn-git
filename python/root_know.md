@@ -22,7 +22,9 @@
 
 ### 2 Python 中的反射
 
-- 反射  基于反射实现类Web框架的路由系统 [详见79行](https://github.com/awesometime/CMDB/blob/master/assets/asset_handler.py)
+- 反射  getattr hasattr setattr delattr
+
+基于反射实现类Web框架的路由系统 [详见79行](https://github.com/awesometime/CMDB/blob/master/assets/asset_handler.py)
  
 
 ```python
