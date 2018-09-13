@@ -68,6 +68,7 @@ print(obj.name)                      # 报错
 ```
 
 ### 3 sys.stdout-sys.stdin
+
 ```python
 # 在python中调用print时，事实上调用了sys.stdout.write(obj+'\n')
 # print 将需要的内容打印到控制台，然后追加一个换行符
