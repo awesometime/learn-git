@@ -3,8 +3,8 @@
 
 
    * [Python基础知识](#python基础知识)
-      * [1 yield 函数](#1-yield函数递)
-      * [2 Python 中的反射](#2-Python中的反射)
+      * [1 yield 函数](#1-yield 函数)
+      * [2 Python 中的反射](#2-Python 中的反射)
       * [3 @staticmethod和@classmethod](#3-staticmethod和classmethod)
       * [4 类变量和实例变量](#4-类变量和实例变量)
       * [16 单例模式](#16-单例模式)
