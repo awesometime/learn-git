@@ -324,3 +324,34 @@ http://landinghub.visualstudio.com/visual-cpp-build-tools
 
 ```
 ## 2 django具体知识model
+```
+"""
+   1 模型
+   
+   查看生成sql语句 用>python manage.py sqlmigrate
+"""
+
+"""
+   2 字段
+
+    ForeignKey
+    ManyToManyField
+    OneToOneField
+"""
+
+"""
+   3 字段参数
+
+    choices=
+    default
+    max_length
+    verbose_name 为字段设置一个人类可读，更加直观的别名
+    unique 独一无二
+    null=True 数据库填NULL
+    blank
+    on_delete=models.CASCADE  模拟SQL语言中的ON DELETE CASCADE约束，将定义有外键的模型对象同时删除
+    related_name='用于关联对象反向引用模型的名称'
+    auto_now_add=True
+    auto_now=True
+"""
+```
