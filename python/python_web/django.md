@@ -1,10 +1,18 @@
+
+* [1 django部署实践](#1-django部署实践)
+        * [1.1 写在前边](#1.1-写在前边)
+* [2 django具体知识model](#2-django具体知识model)
+
+
+
+
 -[Django2.1 官方中文文档](https://docs.djangoproject.com/zh-hans/2.1/)
 
 -[Django2.1 新手图文入门教程](http://www.liujiangblog.com/blog/36/)
 
 -[Django-MySQL数据库使用](https://www.cnblogs.com/demo-deng/p/7801966.html)
 
-### 写在前边
+### 1.1 写在前边
 
 -[python web 框架](https://wiki.python.org/moin/WebFrameworks)
 
@@ -226,7 +234,7 @@ IPython 6.4.0 -- An enhanced Interactive Python. Type '?' for help.
 >>> q.choice_set.create(choice_text='Just hacking again', votes=0)
 <Choice: Choice object>
 ```
-## 项目
+### 项目
 
 ```
 一、在 pycharm 中建立虚拟环境virtualenv
@@ -313,4 +321,4 @@ http://landinghub.visualstudio.com/visual-cpp-build-tools
 或者从系统python site-packages 包(前提是已经有mysqlclient包及相关py文件)中复制mysqlclient包及相关py文件到当前目录下
 
 ```
-
+### django具体知识model
