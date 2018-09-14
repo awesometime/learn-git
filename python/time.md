@@ -29,7 +29,7 @@ timestamp1 = time.mktime(time.localtime())
 print(timestamp1)
 # 1536909477.0
 
-timestamp2 = time.mktime((2018,9,14,15,15,50,4,257,-1))
+timestamp2 = time.mktime((2018,9,14,15,15,50,4,257,-1))  # 不能传入time.struct_time(tm_year=2018, tm_mon=9, tm_mday=14, ...),只能传元组
 print(timestamp2)
 # 1536909350.0
 ```
