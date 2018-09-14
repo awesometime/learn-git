@@ -1,3 +1,25 @@
+```
+try try try
+import time
+
+def func():
+    while True:
+        try:
+            print('try 没有碰到异常正常执行')
+            with open('b.txt','r') as f:
+                print('读文件到b')
+            print('try语句中发生异常后的语句 不会执行') # 该句不会打印
+            break
+        except Exception as e:
+            print(e)
+            print('不存在b')
+            # time.sleep(3)
+            break   # 不加break会一直运行下去
+                
+func()
+
+```
+
 ```python
 # -*- encoding:utf-8 -*-
 from selenium import webdriver
@@ -74,10 +96,13 @@ def submitOrder(driver, user):
 def goToBuy(driver, user):
     driver.get(BUY_URL)  # 自动登录BUY_URL页面
     print(user + ' 正在打开某一指定商品购买页面......')
-    # 转换成抢购时间戳
+   
+    # 把一个格式化时间字符串转化为struct_time。实际上它和strftime()是逆操作
     timeArray = time.strptime(BEGIN_GO, "%Y-%m-%d %H:%M:%S")
 
     timestamp = time.mktime(timeArray)
+    # 将一个struct_time元组(共有9个元素)转化为时间戳timestamp
+    
     # 未发现购买按钮
     no_found_buy = True
     while True:
@@ -124,7 +149,7 @@ def goToBuy(driver, user):
     submitOrder(driver, user)
 
 
-# 登录商城,登陆成功后跳转至抢购页面
+# 登录商城,登陆成功后跳转至购买页面
 def loginMall(user, pwd):
     driver = webdriver.Chrome()
     driver.get(LOGIN_URL)            # 打开LOGIN_URL页面
