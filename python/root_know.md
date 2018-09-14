@@ -6,7 +6,7 @@
       * [1 yield 函数](#1-yield-函数)
       * [2 Python 中的反射](#2-python-中的反射)
       * [3 sys.stdout sys.stdin](#3-sys.stdout-sys.stdin)
-      * [4 类变量和实例变量](#4-类变量和实例变量)
+      * [4 sys.argv](#4-sys.argv)
       * [16 单例模式](#16-单例模式)
          * [1 使用__new__方法](#1-使用__new__方法)
          * [2 共享属性](#2-共享属性)
@@ -149,4 +149,53 @@ print(len(h2))  # 4
 # 因此如果在平时使用sys.stdin.readline( )获取输入的话，不要忘了去掉末尾的换行符，可以用strip( )函数
 #（sys.stdin.readline( ).strip('\n')）或sys.stdin.readline( )[:-1]这两种方法去掉换行。
 
+```
+
+### 4 sys.argv
+
+[参考Python中 sys.argv[]的用法简明解释](http://www.cnblogs.com/aland-1415/p/6613449.html)
+```python
+# 假如 G:/PyCharm/PythonProjects/cmdb/Client/bin下有一个main.py文件，里面有a_func b_func 方法
+# main.py
+if __name__ == '__main__':
+    handler.ArgvHandler(sys.argv)
+def a_func():
+   pass
+def b_func():
+   pass  
+print(sys.argv)
+for i in range(len(sys.argv)):
+    print(sys.argv[i])
+
+# 在G:/PyCharm/PythonProjects/cmdb/Client/bin/执行 
+G:/PyCharm/PythonProjects/cmdb/Client/bin>main.py a_func b_func
+['main.py', 'a_func', 'b_func', 't', 't', 'u', 'i', 'gik']
+main.py
+a_func
+b_func
+t
+t
+u
+i
+gik
+```
+```python
+class ArgvHandler(object):  # 继承
+
+    def __init__(self, args):  
+        self.args = args
+        self.parse_args()
+
+    def parse_args(self):
+        """
+        分析参数，如果有参数指定的功能，则执行该功能，如果没有，打印帮助说明。
+        :return:
+        """
+        if len(self.args) > 1 and hasattr(self, self.args[1]):
+            func = getattr(self, self.args[1])
+            func()
+        else:
+            self.b_func()
+# G:/PyCharm/PythonProjects/cmdb/Client/bin>main.py a_func b_func
+# 就会把a_func b_func当参数传给 self.args
 ```
