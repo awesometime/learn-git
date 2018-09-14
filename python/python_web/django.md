@@ -12,6 +12,8 @@
 
 -[Django-MySQL数据库使用](https://www.cnblogs.com/demo-deng/p/7801966.html)
 
+## 1 django部署实践
+
 ### 1.1 写在前边
 
 -[python web 框架](https://wiki.python.org/moin/WebFrameworks)
@@ -321,4 +323,4 @@ http://landinghub.visualstudio.com/visual-cpp-build-tools
 或者从系统python site-packages 包(前提是已经有mysqlclient包及相关py文件)中复制mysqlclient包及相关py文件到当前目录下
 
 ```
-### django具体知识model
+## 2 django具体知识model
