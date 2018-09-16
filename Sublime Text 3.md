@@ -5,10 +5,26 @@
 - [Sublime Text 3 配置Python3开发环境](https://www.cnblogs.com/leopython/p/7589181.html)
 - [Sublime text 3 搭建Python开发环境](https://blog.csdn.net/sinat_32596537/article/details/78156562)
 
-插件
+各种插件 (https://packagecontrol.io/)
 
-- [Colorsublime](https://packagecontrol.io/packages/Colorsublime)
-- [Boxy Theme](https://packagecontrol.io/packages/Boxy%20Theme)
+- [1 Colorsublime](https://packagecontrol.io/packages/Colorsublime)
+
+Installing
+```
+With Package Control (recommended)
+Install Package Control
+Run “Package Control: Install Package” command
+Find and install the Colorsublime plugin.
+Restart Sublime Text if there are issues.
+```
+Usage
+```
+Press ctl+shift+p (Windows/Linux) or ⇧+⌘+p (OSX) to open up Sublime Text's command menu
+Select Colorsublime: Install Theme
+Use the arrow keys to run through the themes (“color schemes”) and see your current tab change in realtime!
+```
+
+- [2 Boxy Theme](https://packagecontrol.io/packages/Boxy%20Theme)
 #### 1.安装Package Control（插件管理器）
 
 Sublime Text支持大量插件，如何找到并管理这些插件就成了一个问题，Package Control正是为了解决这个问题而出现的，
