@@ -231,194 +231,207 @@ git clone git@github.com:自己账号/bootstrap.git
 # git实践
 - [git 教程](https://www.yiibai.com/git/git_push.html)
 - [通过pycharm使用git[图文详解]](http://www.cnblogs.com/caseast/p/6085837.html)
-####
-要有本地仓库  和 远程仓库  两个概念
-本地有master分支   远程有origin/master分支
-如 master  ->origin/master   表示本地master分支上传到远程origin/master分支
-####
+
+要有**本地仓库**和**远程仓库**两个概念
+
+本地有master分支                 对应远程有origin/master分支
+
+如 master  -> origin/master     表示本地master分支上传到远程origin/master分支
+
 
 **@linuix MINGW64 ~
 $ cd /G:/PyCharm/PythonProjects/cmdb**
 
 **@linuix MINGW64 /G/PyCharm/PythonProjects/cmdb (master|MERGING)
 $ git status**
-On branch master
-Your branch and 'origin/master' have diverged,
-and have 1 and 9 different commits each, respectively.
-  (use "git pull" to merge the remote branch into yours)
+    
+    On branch master
+    Your branch and 'origin/master' have diverged,
+    and have 1 and 9 different commits each, respectively.
+      (use "git pull" to merge the remote branch into yours)
 
-All conflicts fixed but you are still merging.
-  (use "git commit" to conclude merge)
+    All conflicts fixed but you are still merging.
+      (use "git commit" to conclude merge)
 
-Changes to be committed:
+    Changes to be committed:
 
-        modified:   README.md
-        new file:   cmdb/settings.py
-        new file:   cmdb_dashboard.png
+            modified:   README.md
+            new file:   cmdb/settings.py
+            new file:   cmdb_dashboard.png
 
-Untracked files:
-  (use "git add <file>..." to include in what will be committed)
+    Untracked files:
+      (use "git add <file>..." to include in what will be committed)
 
-        Client/__pycache__/
-        Client/bin/__pycache__/
-        Client/conf/__pycache__/
-        Client/core/__pycache__/
-        Client/plugins/__pycache__/
-        Client/plugins/windows/__pycache__/
-        assets/__pycache__/
-        assets/migrations/__pycache__/
+            Client/__pycache__/
+            Client/bin/__pycache__/
+            Client/conf/__pycache__/
+            Client/core/__pycache__/
+            Client/plugins/__pycache__/
+            Client/plugins/windows/__pycache__/
+            assets/__pycache__/
+            assets/migrations/__pycache__/
 
 
 **@linuix MINGW64 /G/PyCharm/PythonProjects/cmdb (master|MERGING)
 $ git log**
-commit 061c1b12c6c7946e3f63d31bbf2687924e81ced9 (HEAD -> master)
-Author: awesometime <31882243+awesometime@users.noreply.github.com>
-Date:   Mon Sep 17 11:28:13 2018 +0800
+    
+    commit 061c1b12c6c7946e3f63d31bbf2687924e81ced9 (HEAD -> master)
+    Author: awesometime <31882243+awesometime@users.noreply.github.com>
+    Date:   Mon Sep 17 11:28:13 2018 +0800
 
-    add some annotations
+        add some annotations
 
-commit d47c87973692f62be228dae500b3d8afdb25ee24
-Author: awesometime <31882243+awesometime@users.noreply.github.com>
-Date:   Wed Sep 12 13:13:41 2018 +0800
+    commit d47c87973692f62be228dae500b3d8afdb25ee24
+    Author: awesometime <31882243+awesometime@users.noreply.github.com>
+    Date:   Wed Sep 12 13:13:41 2018 +0800
 
-    Initial commit
+        Initial commit
 
 **@linuix MINGW64 /G/PyCharm/PythonProjects/cmdb (master|MERGING)
 $ git branch**
-* master
+    
+    * master
 
 **@linuix MINGW64 /G/PyCharm/PythonProjects/cmdb (master|MERGING)
 $ git pull origin master**
-error: You have not concluded your merge (MERGE_HEAD exists).
-hint: Please, commit your changes before merging.
-fatal: Exiting because of unfinished merge.
-####
-如果之前已经正确clone后，可以通过git pull进行同步代码，可指定分支
-git pull                     # 是pull当前分支的最新代码
-git pull origin dev          # 表示fetch origin 的dev分支到当前目录,并与当前分支合并,相当于git fetch origin dev
-&& git merge origin dev,取下来再合并
-git pull origin dev:master   # 表示从远端origin dev取下代码，并与本地的master分支合并（非当前分支）
-git branch                   # 查看当前分支
-git reset --hard 08b07fd34cba9c8a69f72da09d142409baf81cee  # 回滚代码到08b..这个版本（此版本可从gitlab获取到）
-####
+
+    error: You have not concluded your merge (MERGE_HEAD exists).
+    hint: Please, commit your changes before merging.
+    fatal: Exiting because of unfinished merge.
+
+    如果之前已经正确clone后，可以通过git pull进行同步代码，可指定分支
+
+    git pull                     # 是pull当前分支的最新代码
+
+    git pull origin dev          # 表示fetch origin 的dev分支到当前目录,并与当前分支合并,相当于git fetch origin dev
+
+    && git merge origin dev,取下来再合并
+
+    git pull origin dev:master   # 表示从远端origin dev取下代码，并与本地的master分支合并（非当前分支）
+
+    git branch                   # 查看当前分支
+
+    git reset --hard 08b07fd34cba9c8a69f72da09d142409baf81cee  # 回滚代码到08b..这个版本（此版本可从gitlab获取到）
+
 
 **@linuix MINGW64 /G/PyCharm/PythonProjects/cmdb (master|MERGING)
 $ git commit**          
-[master da554bc] Merge remote-tracking branch 'remotes/origin/master'
-####
-git commit                  将暂存区里的改动给提交到**本地的版本库**
-git commit -m “message”     这种是比较常见的用法，-m 参数表示可以直接输入后面的“message”，如果不加 -m参数，
-那么是不能直接输入message的，而是**会调用一个编辑器一般是vim**来让你输入这个message，
-message即是我们用来简要说明这次提交的语句
-####
+
+    [master da554bc] Merge remote-tracking branch 'remotes/origin/master'
+
+    git commit                  将暂存区里的改动给提交到**本地的版本库**
+    git commit -m “message”     这种是比较常见的用法，-m 参数表示可以直接输入后面的“message”，如果不加 -m参数，
+    那么是不能直接输入message的，而是**会调用一个编辑器一般是vim**来让你输入这个message，
+    message即是我们用来简要说明这次提交的语句
+
 
 **@linuix MINGW64 /G/PyCharm/PythonProjects/cmdb (master)
 $ git status**
-On branch master
-Your branch is ahead of 'origin/master' by 2 commits.
-  (use "git push" to publish your local commits)
+    
+    On branch master
+    Your branch is ahead of 'origin/master' by 2 commits.
+      (use "git push" to publish your local commits)
 
-Untracked files:
-  (use "git add <file>..." to include in what will be committed)
+    Untracked files:
+      (use "git add <file>..." to include in what will be committed)
 
-        Client/__pycache__/
-        Client/bin/__pycache__/
-        Client/conf/__pycache__/
-        Client/core/__pycache__/
-        Client/plugins/__pycache__/
-        Client/plugins/windows/__pycache__/
-        assets/__pycache__/
-        assets/migrations/__pycache__/
+            Client/__pycache__/
+            Client/bin/__pycache__/
+            Client/conf/__pycache__/
+            Client/core/__pycache__/
+            Client/plugins/__pycache__/
+            Client/plugins/windows/__pycache__/
+            assets/__pycache__/
+            assets/migrations/__pycache__/
 
-nothing added to commit but untracked files present (use "git add" to track)
+    nothing added to commit but untracked files present (use "git add" to track)
 
 **@linuix MINGW64 /G/PyCharm/PythonProjects/cmdb (master)
 $ git log**
-commit da554bc4c4314e7ec94aac53dbaf7002a6c71f12 (HEAD -> master)
-Merge: 061c1b1 9c3a780
-Author: awesometime <31882243+awesometime@users.noreply.github.com>
-Date:   Mon Sep 17 13:31:33 2018 +0800
 
-    Merge remote-tracking branch 'remotes/origin/master'
+    commit da554bc4c4314e7ec94aac53dbaf7002a6c71f12 (HEAD -> master)
+    Merge: 061c1b1 9c3a780
+    Author: awesometime <31882243+awesometime@users.noreply.github.com>
+    Date:   Mon Sep 17 13:31:33 2018 +0800
 
-commit 061c1b12c6c7946e3f63d31bbf2687924e81ced9
-Author: awesometime <31882243+awesometime@users.noreply.github.com>
-Date:   Mon Sep 17 11:28:13 2018 +0800
+        Merge remote-tracking branch 'remotes/origin/master'
 
-    add some annotations
+    commit 061c1b12c6c7946e3f63d31bbf2687924e81ced9
+    Author: awesometime <31882243+awesometime@users.noreply.github.com>
+    Date:   Mon Sep 17 11:28:13 2018 +0800
 
-commit 9c3a7801e13d567fa773f8f7a97c0b1b921d14e5 (origin/master)
-Author: awesometime <31882243+awesometime@users.noreply.github.com>
-Date:   Fri Sep 14 21:38:31 2018 +0800
+        add some annotations
 
-    Update info_collection.py
+    commit 9c3a7801e13d567fa773f8f7a97c0b1b921d14e5 (origin/master)
+    Author: awesometime <31882243+awesometime@users.noreply.github.com>
+    Date:   Fri Sep 14 21:38:31 2018 +0800
 
-commit a3db96bd23bfaf4e8cc5043cc082592e36e3df4a
-Author: awesometime <31882243+awesometime@users.noreply.github.com>
-Date:   Fri Sep 14 21:13:08 2018 +0800
+        Update info_collection.py
 
-    Update main.py
+    commit a3db96bd23bfaf4e8cc5043cc082592e36e3df4a
+    Author: awesometime <31882243+awesometime@users.noreply.github.com>
+    Date:   Fri Sep 14 21:13:08 2018 +0800
 
-commit 7e99012d2152e727417df53c82daa54690d21ad2
-Author: awesometime <31882243+awesometime@users.noreply.github.com>
-Date:   Fri Sep 14 21:11:32 2018 +0800
+        Update main.py
 
-    Update handler.py
+    commit 7e99012d2152e727417df53c82daa54690d21ad2
+    Author: awesometime <31882243+awesometime@users.noreply.github.com>
+    Date:   Fri Sep 14 21:11:32 2018 +0800
 
-commit ccace8878bfa78eb3c58d1cd29daa9df7c427f39
-Author: awesometime <31882243+awesometime@users.noreply.github.com>
-Date:   Fri Sep 14 21:10:53 2018 +0800
+        Update handler.py
 
-    Update handler.py
+    commit ccace8878bfa78eb3c58d1cd29daa9df7c427f39
+    Author: awesometime <31882243+awesometime@users.noreply.github.com>
+    Date:   Fri Sep 14 21:10:53 2018 +0800
 
-commit a57fa8b6b84900cd7e01db3de2ed77e247e6362b
-Author: awesometime <31882243+awesometime@users.noreply.github.com>
-Date:   Fri Sep 14 21:05:32 2018 +0800
+        Update handler.py
 
-    Update handler.py
+    commit a57fa8b6b84900cd7e01db3de2ed77e247e6362b
+    Author: awesometime <31882243+awesometime@users.noreply.github.com>
+    Date:   Fri Sep 14 21:05:32 2018 +0800
 
-commit a96e39f3150d24a598ef3c97261aa0714078f85f
-Author: awesometime <31882243+awesometime@users.noreply.github.com>
-Date:   Wed Sep 12 13:27:48 2018 +0800
+        Update handler.py
 
-    Add files via upload
+    commit a96e39f3150d24a598ef3c97261aa0714078f85f
+    Author: awesometime <31882243+awesometime@users.noreply.github.com>
+    Date:   Wed Sep 12 13:27:48 2018 +0800
+
+        Add files via upload
 
 
 **@linuix MINGW64 /G/PyCharm/PythonProjects/cmdb (master)
 $ git push origin master**
-Enumerating objects: 70, done.
-Counting objects: 100% (55/55), done.
-Delta compression using up to 4 threads.
-Compressing objects: 100% (24/24), done.
-Writing objects: 100% (26/26), 7.52 KiB | 145.00 KiB/s, done.
-Total 26 (delta 15), reused 0 (delta 0)
-remote: Resolving deltas: 100% (15/15), completed with 14 local objects.
-To https://github.com/awesometime/CMDB.git
-   9c3a780..da554bc  master -> master
-####
-git push origin master       将**本地的master分支**推送到**origin主机的master分支**。如果master不存在，则会被新建。
-####
+
+    Enumerating objects: 70, done.
+    Counting objects: 100% (55/55), done.
+    Delta compression using up to 4 threads.
+    Compressing objects: 100% (24/24), done.
+    Writing objects: 100% (26/26), 7.52 KiB | 145.00 KiB/s, done.
+    Total 26 (delta 15), reused 0 (delta 0)
+    remote: Resolving deltas: 100% (15/15), completed with 14 local objects.
+    To https://github.com/awesometime/CMDB.git
+       9c3a780..da554bc  master -> master
+
+    git push origin master       将**本地的master分支**推送到**origin主机的master分支**。如果master不存在，则会被新建。
+
 
 **@linuix MINGW64 /g/pycharm/pythonprojects/cmdb (master)
 $ git log --graph --pretty=oneline --abbrev-commit**
-*   da554bc (HEAD -> master, origin/master) Merge remote-tracking branch 'remotes/origin/master'
-|\
-| * 9c3a780 Update info_collection.py
-| * a3db96b Update main.py
-| * 7e99012 Update handler.py
-| * ccace88 Update handler.py
-| * a57fa8b Update handler.py
-| * a96e39f Add files via upload
-| * b79a87f Update settings.py
-| * bb58c8d Add files via upload
-| * 5ec097c Update README.md
-* | 061c1b1 add some annotations
-|/
-* d47c879 Initial commit
 
-@linuix MINGW64 /g/pycharm/pythonprojects/cmdb (master)
-$
-
+    *   da554bc (HEAD -> master, origin/master) Merge remote-tracking branch 'remotes/origin/master'
+    |\
+    | * 9c3a780 Update info_collection.py
+    | * a3db96b Update main.py
+    | * 7e99012 Update handler.py
+    | * ccace88 Update handler.py
+    | * a57fa8b Update handler.py
+    | * a96e39f Add files via upload
+    | * b79a87f Update settings.py
+    | * bb58c8d Add files via upload
+    | * 5ec097c Update README.md
+    * | 061c1b1 add some annotations
+    |/
+    * d47c879 Initial commit
 
 ```
 
