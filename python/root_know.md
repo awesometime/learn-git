@@ -5,9 +5,9 @@
    * [Python基础知识](#python基础知识)
       * [1 yield函数](#1-yield函数)
       * [2 Python中的反射](#2-python中的反射)
-      * [3 sys.stdout sys.stdin](#3-sys.stdout sys.stdin)
+      * [3 sys.stdout sys.stdin](#3-sys.stdout-sys.stdin)
       * [4 sys.argv](#4-sys.argv)
-      * [5 locals() globals()](#5-locals() globals())
+      * [5 locals() globals()](#5-locals()-globals())
          * [1 使用__new__方法](#1-使用__new__方法)
          * [2 共享属性](#2-共享属性)
          * [3 装饰器版本](#3-装饰器版本)
@@ -199,6 +199,7 @@ class ArgvHandler(object):  # 继承
 # G:/PyCharm/PythonProjects/cmdb/Client/bin>main.py a_func b_func
 # 就会把a_func b_func当参数传给 self.args
 ```
+
 ### 5 locals() globals()
 
  参考 https://yq.aliyun.com/ziliao/114421
