@@ -3,11 +3,11 @@
 
 
    * [Python基础知识](#python基础知识)
-      * [1 yield 函数](#1-yield-函数)
-      * [2 Python 中的反射](#2-python-中的反射)
-      * [3 sys.stdout sys.stdin](#3-sys.stdout-sys.stdin)
+      * [1 yield函数](#1-yield函数)
+      * [2 Python中的反射](#2-python中的反射)
+      * [3 sys.stdout sys.stdin](#3-sys.stdout sys.stdin)
       * [4 sys.argv](#4-sys.argv)
-      * [5 locals() globals()](#5-locals()-globals())
+      * [5 locals() globals()](#5-locals() globals())
          * [1 使用__new__方法](#1-使用__new__方法)
          * [2 共享属性](#2-共享属性)
          * [3 装饰器版本](#3-装饰器版本)
@@ -16,11 +16,11 @@
 
 ## Python基础知识
 
-### 1 yield 函数
+### 1 yield函数
 
 - [  yield 理解 ](https://blog.csdn.net/Ren_ger/article/details/81088903)
 
-### 2 Python 中的反射
+### 2 Python中的反射
 
 - 反射  getattr hasattr setattr delattr
 
