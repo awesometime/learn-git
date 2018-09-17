@@ -234,16 +234,18 @@ git clone git@github.com:自己账号/bootstrap.git
 
 要有**本地仓库**和**远程仓库**两个概念
 
-本地有master分支                 对应远程有origin/master分支
+本地有```master分支```                 对应远程有```origin/master分支```
 
-如 master  -> origin/master     表示本地master分支上传到远程origin/master分支
+如 ```master  -> origin/master```     表示本地master分支上传到远程origin/master分支
 
 
-**@linuix MINGW64 ~
-$ cd /G:/PyCharm/PythonProjects/cmdb**
+**@linuix MINGW64 ~**
 
-**@linuix MINGW64 /G/PyCharm/PythonProjects/cmdb (master|MERGING)
-$ git status**
+**$ cd /G:/PyCharm/PythonProjects/cmdb**
+
+**@linuix MINGW64 /G/PyCharm/PythonProjects/cmdb (master|MERGING)**
+
+**$ git status**
     
     On branch master
     Your branch and 'origin/master' have diverged,
@@ -272,8 +274,9 @@ $ git status**
             assets/migrations/__pycache__/
 
 
-**@linuix MINGW64 /G/PyCharm/PythonProjects/cmdb (master|MERGING)
-$ git log**
+**@linuix MINGW64 /G/PyCharm/PythonProjects/cmdb (master|MERGING)**
+
+**$ git log**
     
     commit 061c1b12c6c7946e3f63d31bbf2687924e81ced9 (HEAD -> master)
     Author: awesometime <31882243+awesometime@users.noreply.github.com>
@@ -287,13 +290,15 @@ $ git log**
 
         Initial commit
 
-**@linuix MINGW64 /G/PyCharm/PythonProjects/cmdb (master|MERGING)
-$ git branch**
+**@linuix MINGW64 /G/PyCharm/PythonProjects/cmdb (master|MERGING)**
+
+**$ git branch**
     
     * master
 
-**@linuix MINGW64 /G/PyCharm/PythonProjects/cmdb (master|MERGING)
-$ git pull origin master**
+**@linuix MINGW64 /G/PyCharm/PythonProjects/cmdb (master|MERGING)**
+
+**$ git pull origin master**
 
     error: You have not concluded your merge (MERGE_HEAD exists).
     hint: Please, commit your changes before merging.
@@ -314,8 +319,9 @@ $ git pull origin master**
     git reset --hard 08b07fd34cba9c8a69f72da09d142409baf81cee  # 回滚代码到08b..这个版本（此版本可从gitlab获取到）
 
 
-**@linuix MINGW64 /G/PyCharm/PythonProjects/cmdb (master|MERGING)
-$ git commit**          
+**@linuix MINGW64 /G/PyCharm/PythonProjects/cmdb (master|MERGING)**
+
+**$ git commit**          
 
     [master da554bc] Merge remote-tracking branch 'remotes/origin/master'
 
@@ -325,8 +331,9 @@ $ git commit**
     message即是我们用来简要说明这次提交的语句
 
 
-**@linuix MINGW64 /G/PyCharm/PythonProjects/cmdb (master)
-$ git status**
+**@linuix MINGW64 /G/PyCharm/PythonProjects/cmdb (master)**
+
+**$ git status**
     
     On branch master
     Your branch is ahead of 'origin/master' by 2 commits.
@@ -346,8 +353,9 @@ $ git status**
 
     nothing added to commit but untracked files present (use "git add" to track)
 
-**@linuix MINGW64 /G/PyCharm/PythonProjects/cmdb (master)
-$ git log**
+**@linuix MINGW64 /G/PyCharm/PythonProjects/cmdb (master)**
+
+**$ git log**
 
     commit da554bc4c4314e7ec94aac53dbaf7002a6c71f12 (HEAD -> master)
     Merge: 061c1b1 9c3a780
@@ -399,8 +407,9 @@ $ git log**
         Add files via upload
 
 
-**@linuix MINGW64 /G/PyCharm/PythonProjects/cmdb (master)
-$ git push origin master**
+**@linuix MINGW64 /G/PyCharm/PythonProjects/cmdb (master)**
+
+**$ git push origin master**
 
     Enumerating objects: 70, done.
     Counting objects: 100% (55/55), done.
@@ -415,8 +424,9 @@ $ git push origin master**
     git push origin master       将**本地的master分支**推送到**origin主机的master分支**。如果master不存在，则会被新建。
 
 
-**@linuix MINGW64 /g/pycharm/pythonprojects/cmdb (master)
-$ git log --graph --pretty=oneline --abbrev-commit**
+**@linuix MINGW64 /g/pycharm/pythonprojects/cmdb (master)**
+
+**$ git log --graph --pretty=oneline --abbrev-commit**
 
     *   da554bc (HEAD -> master, origin/master) Merge remote-tracking branch 'remotes/origin/master'
     |\
