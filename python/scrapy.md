@@ -9,6 +9,7 @@
 
 [Nodejs，不一样的爬虫实践](https://www.imooc.com/article/4731)
 
+- [ beautifulsoup 中文文档](https://beautifulsoup.readthedocs.io/zh_CN/v4.4.0/)
 
 学习方法
 
