@@ -1,10 +1,62 @@
 - [一千行 MySQL 学习笔记](https://shockerli.net/post/1000-line-mysql-note/)
 
+- [ mysql-5.1-zh ](http://tool.oschina.net/apidocs/apidoc?api=mysql-5.1-zh)
+
 MySQL语法   更多详细语法直接查[菜鸟教程](http://www.runoob.com/mysql/mysql-tutorial.html)
 
 注意库名  表名
 
 大小写不敏感？？
+
+### python 连接数据库
+```python
+
+    # 连接数据库
+    conn = pymysql.Connect(
+        host='localhost',  # mysql服务器地址
+        port=3306,  # mysql服务器端口号
+        user='root',  # 用户名
+        passwd='root',  # 密码
+        db='ip_test_628',  # 数据库名
+        charset='utf8'  # 连接编码
+    )
+    print('数据库已连接，对象为：{}'.format(conn))
+
+    # 获取游标
+    cursor = conn.cursor()
+
+    
+    # 创建表     *注意最好新建一个不存在的表
+    sql = """CREATE TABLE IF NOT EXISTS ip_my (
+             ip  CHAR(20) NOT NULL,
+             ip_num  CHAR(30)      
+             )"""
+    cursor.execute(sql)
+    print('已创建tabels')
+
+    
+    # SQL 表里插入
+    sql = """INSERT INTO ip_my(ip,ip_num)
+             VALUES ('ip', %s)"""
+    cursor.executemany(sql, finded_ip_and_port)
+    # 提交到数据库执行
+    conn.commit()
+    # 如果发生错误则回滚
+    # conn.rollback()
+    print('mysql数据表已插入')
+
+    
+    # 查询表里有啥
+    sql = """
+            select * FROM ip_my
+            """
+    cursor.execute(sql)
+    fetch_ip = cursor.fetchall()          # 返回元组
+    cursor.close()
+
+
+```
+
 
 ### 创建数据库
 ```
