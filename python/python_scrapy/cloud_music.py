@@ -21,7 +21,7 @@ sql = """CREATE TABLE ARTISTS (
          ARTIST_NAME  CHAR(40)
           )"""
 cursor.execute(sql)
-connection.commit()
+connection.commit()       # 切记 commit 不然 不能生效
 
 
 def insert_to_Mysql(find_arts):
@@ -70,4 +70,7 @@ for i in group_id:
         url = 'http://music.163.com/discover/artist/cat?id=' + str(i) + '&initial=' + str(j)
         save_artist(url)
 
+connection.close()        
+
 print('Ye------------- headers matters ')
+print('close mysql')
