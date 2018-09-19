@@ -8,6 +8,7 @@
       * [3 恩sys.stdout sys.stdin](#3-恩sys.stdout-sys.stdin)
       * [4 恩sys.argv](#4-恩sys.argv)
       * [5 恩locals() globals()](#5-恩locals()-globals())
+      * [6 break continue](#6-break-continue)
          * [1 使用__new__方法](#1-使用__new__方法)
          * [2 共享属性](#2-共享属性)
          * [3 装饰器版本](#3-装饰器版本)
@@ -203,3 +204,33 @@ class ArgvHandler(object):  # 继承
 ### 5 locals() globals()
 
  参考 https://yq.aliyun.com/ziliao/114421
+ 
+### 6 break continue
+
+```python
+#1   循环语句可以有一个 else 子句;
+#    当（for）循环迭代完整个列表或（while）循环条件变为假，而非由break语句终止时，就会执行这个else语句
+#    循环中的else子句  与   try语句的else子句有更多的共同点：   try语句的else子句在未出现异常时运行
+for n in range(2, 10):
+...     for x in range(2, n):
+...         if n % x == 0:
+...             print(n, 'equals', x, '*', n//x)
+...             break
+...     else:
+...         # loop fell through without finding a factor
+...         print(n, 'is a prime number')
+...     
+...     print('333')
+
+break  跳出for...else...  到 print('333')
+
+#2
+for num in range(2, 10):
+...     if num % 2 == 0:
+...         print("Found an even number", num)
+...         continue
+...     print("Found a number", num)
+print('333')
+continue  跳出for 到下一次循环！！！    而不是print('333')
+
+```
