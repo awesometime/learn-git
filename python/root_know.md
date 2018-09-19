@@ -5,10 +5,11 @@
    * [Python基础知识](#python基础知识)
       * [1 yield函数](#1-yield函数)
       * [2 Python中的反射](#2-python中的反射)
-      * [3 恩sys.stdout sys.stdin](#3-恩sys.stdout-sys.stdin)
-      * [4 恩sys.argv](#4-恩sys.argv)
-      * [5 恩locals() globals()](#5-恩locals()-globals())
+      * [3 sys.stdout sys.stdin](#3-sys.stdout-sys.stdin)
+      * [4 sys.argv](#4-sys.argv)
+      * [5 locals() globals()](#5-locals()-globals())
       * [6 break continue](#6-break-continue)
+      * [7 __str__ __repr__](#7-__str__-__repr__)
          * [1 使用__new__方法](#1-使用__new__方法)
          * [2 共享属性](#2-共享属性)
          * [3 装饰器版本](#3-装饰器版本)
@@ -234,3 +235,5 @@ print('333')
 continue  跳出for 到下一次循环！！！    而不是print('333')
 
 ```
+### 7 __str__ __repr__
+
