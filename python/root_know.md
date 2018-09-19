@@ -11,6 +11,7 @@
       * [6 break continue](#6-break-continue)
       * [7 str repr](#7-str-repr)
       * [8 and or](#8-and-or)
+      * [9 arg kwarg](#9-arg-kwarg)
       * [TODO](#TODO)
          * [1 使用__new__方法](#1-使用__new__方法)
          * [2 共享属性](#2-共享属性)
@@ -270,6 +271,16 @@ print(t[2])
 and:    遇假则假，所以前面为假就不执行和判断后面，前面为真则继续判断执行后面的;
 
 or:     遇真则真，所以前面为真就不执行和判断后面，前面为假则继续判断执行后面的。
+
+### 9 arg kwarg
+
+https://www.jianshu.com/p/e0d4705e8293
+
+
+
+
+
+
 
 ### TODO
 ```
