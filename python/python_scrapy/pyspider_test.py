@@ -40,6 +40,15 @@ class Handler(BaseHandler):
             #print (detail_url)
             self.crawl(detail_url, callback=self.detail_page,validate_cert=False)
 
+#   <div class="thumb">
+#	<a href="https://reeoo.com/skinfinity">
+#	<img class="lazy" src="https://media.langtze.com/Skinfinity.png!page" data-original
+#	="https://media.langtze.com/Skinfinity.png!page" width="300" height="200" alt="Skinfinity" tile="Skinfinity"></a>
+#   </div>
+	
+	
+	
+	
     @config(priority=2)
     def detail_page(self, response):
         header = response.doc('body > article > section > header')
