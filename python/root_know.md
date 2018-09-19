@@ -9,7 +9,8 @@
       * [4 sys.argv](#4-sys.argv)
       * [5 locals() globals()](#5-locals()-globals())
       * [6 break continue](#6-break-continue)
-      * [7 __str__ __repr__](#7-__str__-__repr__)
+      * [7 str repr](#7-str-repr)
+      * [8 and or](#8-and-or)
          * [1 使用__new__方法](#1-使用__new__方法)
          * [2 共享属性](#2-共享属性)
          * [3 装饰器版本](#3-装饰器版本)
@@ -235,5 +236,36 @@ print('333')
 continue  跳出for 到下一次循环！！！    而不是print('333')
 
 ```
-### 7 __str__ __repr__
+### 7 str repr
+```python
+#  __repr__和__str__这两个方法都是用于显示的，__str__是面向用户的，而__repr__面向程序员
+class A(object):
+    def __str__(self):
+	    return 'this is A'   # 用print输出具体的信息；用t为对象
 
+class B(object):
+	pass
+	    
+class C(object):	
+	def __repr__(self):
+	    return 'this is A'        # 用print用t输出具体的信息
+
+t = [A(),B(),C()]	
+
+print(t)
+# [<__main__.A object at 0x0000022149C58390>, <__main__.B object at 0x0000022149CB2B38>, this is A]
+
+print(t[0])
+print(t[1])
+print(t[2])
+
+# this is A      str  printt[0]时候才会显示
+# <__main__.B object at 0x0000022149CB2B38>
+# this is A      repr  任何时候都打印显示
+```
+
+### 8 and or
+
+and:    遇假则假，所以前面为假就不执行和判断后面，前面为真则继续判断执行后面的;
+
+or:     遇真则真，所以前面为真就不执行和判断后面，前面为假则继续判断执行后面的。
