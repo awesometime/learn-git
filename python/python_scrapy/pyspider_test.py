@@ -1,5 +1,7 @@
 ##############
 config.json    #貌似没用，不太需要
+
+# https://moshuqi.github.io/2016/08/12/Python%E7%88%AC%E8%99%AB-PySpider%E6%A1%86%E6%9E%B6/
 ##############
 {
 	"taskdb": "mysql+taskdb://127.0.0.1:3306/pyspider_taskdb",
