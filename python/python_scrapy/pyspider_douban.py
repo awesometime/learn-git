@@ -3,6 +3,17 @@
 # Created on 2018-09-19 19:35:44
 # Project: douban_movie
 
+################
+# 待解决：：：
+
+# 检测到有异常请求从你的 IP 发出，请 登录 使用豆瓣。
+# 排名No 与 页面不符
+# genre nation 抓取方法   英文名字分隔
+# url    return 加url
+# 存数据库
+################
+
+
 from pyspider.libs.base_handler import *
 import pymysql
 
@@ -25,7 +36,7 @@ class Handler(BaseHandler):
         for each in response.doc('#content > div > div.article > ol > li > div > div.info > div.hd > a').items():
             url = each.attr.href
             self.crawl(url, callback=self.detail_page,validate_cert=False)
-            return url
+            return url  # 未验证
         print('每一页的25个影片找到，继续调用detail_page()得到每一影片详情')
         
         
@@ -33,8 +44,8 @@ class Handler(BaseHandler):
     @config(priority=2)
     def detail_page(self, response, url):
         
-        mv_url = url
-        
+        mv_url = url  # 未验证
+         
         No= response.doc('#content > div.top250 > span.top250-no').text()
 
         Zh_name= response.doc('#content > h1 > span:nth-child(1)').text().split(' ')[0]
@@ -71,7 +82,7 @@ class Handler(BaseHandler):
             "rating_num":rating_num,
                 }
         
-        
+    # 未验证   
     def on_result(self, result):
             if not result:
                 return
@@ -90,9 +101,9 @@ class Handler(BaseHandler):
             conn = pymysql.Connect(
                     host='localhost',  
                     port=3306,  
-                    user='root',  
-                    passwd='root',  
-                    db='django_99',  
+                    user='',  
+                    passwd='',  
+                    db='99',  
                     charset='utf8'  
                          )
             cursor = conn.cursor()
