@@ -1,10 +1,3 @@
-…… 
-[TOC] 
-……
-
-
-    
-    
 [1 urllib.request](#1-urllib.request)
 [2 urllib.parse](#2-urllib.parse)
 [3 urllib.error](#3-urllib.error)
@@ -115,12 +108,19 @@ print(type(result), result)
 URL 的构造
 
 4 urllib.parse.urlsplit()
+
 5 urllib.parse.urlunsplit()
+
 6 urllib.parse.urljoin()
+
 7 urllib.parse.parse_qs()
+
 8 urllib.parse.parse_qsl()
+
 9  quote
+
 10 unquote
+
 11 urllib.robotparser
 
 
