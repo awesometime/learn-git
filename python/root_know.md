@@ -12,7 +12,7 @@
       * [7 str repr](#7-str-repr)
       * [8 and or](#8-and-or)
       * [9 arg kwarg](#9-arg-kwarg)
-      * [TODO](#TODO)
+      * [10 @修饰符](#10-@修饰符)
          * [1 使用__new__方法](#1-使用__new__方法)
          * [2 共享属性](#2-共享属性)
          * [3 装饰器版本](#3-装饰器版本)
@@ -283,9 +283,28 @@ https://www.jianshu.com/p/e0d4705e8293
 
 
 
+### @修饰符
 
+装饰符@类似于回调函数，把其它的函数（暂且称为目的函数）作为自己的入参，在目的函数执行前，执行一些自己的操作，
 
+比如：计数、打印一些提示信息等，然后返回目的函数。
 
+```python
+import time
+
+def time(func):     # 传入啥 返回啥  中间执行自己的小动作
+    print(time.ctime())
+    return func()    # 
+    
+@time  # 从这里可以看出@time 等价于 time(xxx()),但是这种写法你得考虑python代码的执行顺序
+def xxx():
+    print('Hello world!')
+
+运行结果：
+Wed Jul 26 23:01:21 2017
+Hello world!
+
+```
 ### TODO
 ```
 i = 5
