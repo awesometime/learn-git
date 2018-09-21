@@ -1,7 +1,7 @@
-[1 urllib.request](#1-urllib.request)
-[2 urllib.parse](#2-urllib.parse)
-[3 urllib.error](#3-urllib.error)
-[4 urllib.robotparse](#4-urllib.robotparse)
+* [1 urllib.request](#1-urllib.request)
+* [2 urllib.parse](#2-urllib.parse)
+* [3 urllib.error](#3-urllib.error)
+* [4 urllib.robotparse](#4-urllib.robotparse)
 []()
 
 
@@ -149,6 +149,9 @@ HTTP Error 异常，就会捕获URLError 异常，输出错误原因。最后，
 
 
 ```
+
+### 4 urllib.robotparse
+
 ### 附
 有些网站在打开时就会弹出提示框，直接提示你输入用户名和密码
 
