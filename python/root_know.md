@@ -159,6 +159,10 @@ print(len(h2))  # 4
 ### 4 sys.argv
 
 [参考Python中 sys.argv[]的用法简明解释](http://www.cnblogs.com/aland-1415/p/6613449.html)
+
+[Pycharm的传参 像cmd中执行一样 python 1.py arg1 arg2](http://www.mamicode.com/info-detail-2053390.html)
+
+Run“ ---  "Edit Configurations" --- "Script parameters"  参数之间用空格隔开
 ```python
 # 假如 G:/PyCharm/PythonProjects/cmdb/Client/bin下有一个main.py文件，里面有a_func b_func 方法
 # main.py
@@ -305,6 +309,25 @@ Wed Jul 26 23:01:21 2017
 Hello world!
 
 ```
+### 11 
+```python
+def aa(d, na=None, *kasd, **kassd):
+    pass
+class A(object):
+    def f(self):
+        return 1
+a = A()
+print '#### 各自方法描述 ####'
+print '## 函数     %s' % aa
+print '## 类方法   %s' % A.f
+print '## 实例方法 %s' % a.f
+
+#### 各自方法描述 ####
+## 函数   <function aa at 0x000000000262AB38>
+## 类方法   <unbound method A.f>
+## 实例方法 <bound method A.f of <__main__.A object at 0x0000000002633198>>
+```
+
 ### TODO
 ```
 i = 5
