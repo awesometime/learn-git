@@ -48,7 +48,7 @@ def set_cookie(headers, cookies):
     print(headers['Set-cookie'])
     for raw_cookie in headers['Set-Cookie'].split(','):
         # print(raw_cookie.strip())
-        # ue="2438529228@qq.com"; domain=.douban.com; expires=Wed
+        # ue="@qq.com"; domain=.douban.com; expires=Wed
         # 25-Sep-2019 07:49:20 GMT; httponly
         # dbcl2="185003410:Fu23NkM9cEU"; path=/; domain=.douban.com; httponly
         # as="deleted"; max-age=0; domain=.douban.com; expires=Thu
