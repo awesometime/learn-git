@@ -21,8 +21,8 @@ def pre_login():
 
 
 def login(captcha, captcha_id):
-    account = '2438529228@qq.com'
-    password = 'lx307826'
+    account = '2xxxxxqq.com'
+    password = 'xxxxx6'
     # 审查元素-->Network-->login-->Form Data
     data = {
         'source': 'index_nav',
