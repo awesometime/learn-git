@@ -1,4 +1,4 @@
-
+```
 ASCII编码
   |
   |
@@ -16,7 +16,7 @@ utf-8编码: 可变长            【encode】Unicode编码 --> utf-8
 python3 默认均为Unicode编码
 Windows 默认GB2312
 Linux   默认utf-8
-
+```
 ```python
 import sys
 sys.getdefaultencoding
