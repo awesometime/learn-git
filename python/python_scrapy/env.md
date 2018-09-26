@@ -12,10 +12,10 @@ You can start your first spider with:
 ```    
 ### 3 Debug 调试程序
 ```python
-G:\PyCharm\PythonProjects\Artical_spider>scrapy shell http://blog.jobbole.com/114407/
+#G:\PyCharm\PythonProjects\Artical_spider>scrapy shell http://blog.jobbole.com/114407/
 
-2018-09-26 16:17:23 [scrapy.utils.log] INFO: Scrapy 1.5.1 started (bot: Artical_spider)
-2018-09-26 16:17:23 [scrapy.utils.log] INFO: Versions: lxml 4.2.3.0, libxml2 2.9.5, cssselect 1.0.3, parsel 1.5.0, w3lib 1.19.0, Twisted 18.7.0, Python 3.6.5 (v3.6.5:f59c0932b4, Mar 28 2018, 17:00:18) [MSC v.1900 64 bit (AMD64)], pyOpenSSL 18.0.0 (OpenSSL 1.1.0h  27 Mar 2018), cryptography 2.2.2, Platform Windows-10-10.0.17134-SP0
+#2018-09-26 16:17:23 [scrapy.utils.log] INFO: Scrapy 1.5.1 started (bot: Artical_spider)
+#2018-09-26 16:17:23 [scrapy.utils.log] INFO: Versions: lxml 4.2.3.0, libxml2 2.9.5, cssselect 1.0.3, parsel 1.5.0, w3lib 1.19.0, Twisted 18.7.0, Python 3.6.5 (v3.6.5:f59c0932b4, Mar 28 2018, 17:00:18) [MSC v.1900 64 bit (AMD64)], pyOpenSSL 18.0.0 (OpenSSL 1.1.0h  27 Mar 2018), cryptography 2.2.2, Platform Windows-10-10.0.17134-SP0
 
 [s] Available Scrapy objects:
 [s]   scrapy     scrapy module (contains scrapy.Request, scrapy.Selector, etc)
