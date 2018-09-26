@@ -253,6 +253,9 @@ Using base prefix 'g:\\python\\python-3.6.5'
 New python executable in G:\PyCharm\PythonProjects\my_virtual_env\Scripts\python.exe
 Installing setuptools, pip, wheel...done.
 
+或者指定Python版本
+G:\PyCharm\PythonProjects>virtualenv --python=path of python.exe  python_virtualenv_for_django
+
 结果是：
 出现目录 G:\PyCharm\PythonProjects\python_virtualenv_for_django  其中隔离出最基本的 python 环境，和干净的基本没有第三方库在site-packages中。
 
@@ -262,7 +265,7 @@ Installing setuptools, pip, wheel...done.
 cmd 下 在 G:\PyCharm\PythonProjects\python_virtualenv_for_django\Scripts 运行 activate 命令，激活该虚拟环境，
 之后的命令行提示符将以(python_virtualenv_for_django)开头
 
-(python_virtualenv_for_django) G:\PyCharm\PythonProjects\python_virtualenv_for_django\Scripts>pip install django
+(python_virtualenv_for_django) G:\PyCharm\PythonProjects\python_virtualenv_for_django\Scripts>pip install django -i https://pypi.douban.com/simple/
 Collecting django
   Cache entry deserialization failed, entry ignored
   Downloading https://files.pythonhosted.org/packages/ca/7e/fc068d164b32552ae3a8f8d5d0280c083f2e8d553e71ecacc21927564561/Django-2.1.1-py3-none-any.whl (7.3MB)
