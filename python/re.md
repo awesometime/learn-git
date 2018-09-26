@@ -1,8 +1,40 @@
 import re
+
+```python
+# ^ 首  $ 尾  .任意字符    ?非贪婪匹配  * 0,1,多次  + 1,多次   | 或
+# ()()()子串 group(1)(2)(3)   由外到内排序
+# {2, }  {2} {2,5}
+# [abcd]匹配其中任意一个 [0-9]{3}出现三次   [^1]非 不为1  [.] 点号本身  [*]*号本身
+# \d  数字
+# \s  空格               \S不是空格
+# \w = [A-Za-z0-9_]     \W
+# [\u4E00-\u9FA5]    汉字
+# ?\d+ 通常要非贪婪模式
+line = 'boooooobrrrrbby134'
+# regex_str = '.*(b.*b).*'                # bb  反向匹配 贪婪
+# regex_str = '.*?(b.*?b).*'                # boooooob   非贪婪
+# regex_str = '.*(b.+b).*'                # brrrrbb   贪婪
+# regex_str = '.*(b.{2,5}b).*'                # brrrrbb   贪婪
+
+line2 = 'bobby123'
+# regex_str = '((bobby|boobby)123)'                # group(1)  bobby123
+# regex_str = '((bobby|boobby)123)'                # group(2)  bobby
+#regex_str = '((bobby|boobby)123)'                # group(2)  bobby
+
+
+line3 = 'xxx出生于2001年6月1日 '
+match_obj = re.match(regex_str, line3)
+if match_obj:
+    print(match_obj.group(2))
+
+
+```
+
+
 ```
 re.search
 大小写敏感，返回第一个匹配到的位置
-.  *                          出换行外任意字符
+.   出换行外任意字符          * 0,1,多次 
 \d                            任意数字
 [a-z]
 ab{3}c  ab{3,10}c
