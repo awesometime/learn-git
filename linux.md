@@ -67,7 +67,7 @@ root@controller                               用户名@虚拟机名
 # libvirtd --version
 # kvm --version
 # wget  URL 
-
+ps aux|grep mysqld                           查看mysql进程
 ```
 
 <p align="center">
@@ -129,6 +129,7 @@ Ctrl + i              进入下一级
 Ctrl + o             右边显示在总进度中的占比
 Ctrl + g/h/j/k         窗口间切换
 Vim(常用的命令)
+shift + g                                  跳到最后一行
 :wq                                         保存退出
 ：set nu/nonu                                vim中(不)设置行号
 ：60,120  w！  >>  文件名                   将60-120行追加到文件末尾
