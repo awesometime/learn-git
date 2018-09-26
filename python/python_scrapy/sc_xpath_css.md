@@ -26,12 +26,12 @@ class JobboleSpider(scrapy.Spider):
         praise_nums = int(response.xpath("//span[contains(@class, 'vote-post-up')]/h10/text()").extract()[0])
         
         fav_nums = response.xpath("//span[contains(@class, 'bookmark-btn')]/text()").extract()[0]
-        match_re = re.match(".*(\d+).*", fav_nums)
+        match_re = re.match(".*?(\d+).*", fav_nums)
         if match_re:
             fav_nums = match_re.group(1)
 
         comment_nums = response.xpath("//a[@href='#article-comment']/span/text()").extract()[0]
-        match_re = re.match(".*(\d+).*", comment_nums)
+        match_re = re.match(".*?(\d+).*", comment_nums)
         if match_re:
             comment_nums = match_re.group(1)
         
@@ -58,12 +58,12 @@ def parse(self, response):
 
     fav_nums = response.css("span.bookmark-btn::text").extract()[0]
     # fav_nums = ' 3 收藏'
-    match_re = re.match(".*(\d+).*", fav_nums)
+    match_re = re.match(".*?(\d+).*", fav_nums)
     if match_re:
         fav_nums = match_re.group(1)
 
     comment_nums = response.css("a[href='#article-comment'] span::text").extract()[0]
-    match_re = re.match(".*(\d+).*", comment_nums)
+    match_re = re.match(".*?(\d+).*", comment_nums)
     if match_re:
         comment_nums = match_re.group(1)
 
