@@ -221,6 +221,18 @@ Reboot the system to activate the changes     重启虚拟机
 
 以下两项可根据需要自行配置，非必须项
 vim  .bashrc 进去可以自定义配置  .(source)  ~/.bashrc生效
+
+if [ "$color_prompt" = yes ]; then
+   # PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]→  \[\033[01;34m\]\w\[\033[00m\] \$'
+else
+   # PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\u \w $'
+fi
+
+lx@ubuntu:~$ source .bashrc
+→  ~ $ls
+
 vim  .vimrc 进去可以自定义配置
 initial configuration完以后做个SnapShot
 ```
