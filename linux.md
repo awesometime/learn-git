@@ -430,3 +430,6 @@ root@ubuntu:/# tar cvpzf backup913.tgz --exclude=/proc --exclude=/lost+found --e
 5.安装好以后，对linux系统进行分区boot，swap，home，/。
 6.在Windows下用EasyBCD软件设置引导开机选项，添加Linux到开机项
 ```
+#### 10 Ubuntu 虚拟机 VMware Workstation Pro 15
+
+- [VMware Workstation Pro 15 密钥]http://www.sdbeta.com/mf/2018/0925/225895.html
