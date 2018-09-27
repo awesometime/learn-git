@@ -432,4 +432,4 @@ root@ubuntu:/# tar cvpzf backup913.tgz --exclude=/proc --exclude=/lost+found --e
 ```
 #### 10 Ubuntu 虚拟机 VMware Workstation Pro 15
 
-- [VMware Workstation Pro 15 密钥]http://www.sdbeta.com/mf/2018/0925/225895.html
+- [VMware Workstation Pro 15 密钥](http://www.sdbeta.com/mf/2018/0925/225895.html)
