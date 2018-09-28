@@ -82,13 +82,26 @@ Vi  进入命令模式，i进入输入模式，    vi进入，  ：wq保存退�
 
 底线命令模式  命令模式下按下:（英文冒号）就进入了底线命令模式。ESC键退出
 q 退出程序w 保存文件
+
 vim  .bashrc 进去可以自定义配置
+
+if [ "$color_prompt" = yes ]; then
+   # PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]→  \[\033[01;34m\]\w\[\033[00m\] \$'
+else
+   # PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\u \w $'
+fi
+
+lx@ubuntu:~$ source .bashrc
+→  ~ $ls
+alias  clion='/root/clion.path/bin/clion.sh'
 alias  cl="clear"
 alias  gh="cd ~"
 alias  ..="cd ../"
 alias  ...="cd ../.."
 alias  ....="cd ../../.."
-alias q="exit"
+alias  q="exit"
 
 Vim .vimrc 进去可以自定义配置
 参考资料https://github.com/VundleVim/Vundle.vim
