@@ -14,7 +14,8 @@ ifstream in(infile);//ifstream定义了一个输入流in(文件流)，它被初�
 if (in)//检查文件的读取是否成功,养成良好的习惯！
 {
     string buf;
-    while (getline(in,buf))//每行独立输入的方法，利用getline
+    while (getline(in,buf)) //每行独立输入的方法，利用getline
+    //while (in >> buf)    //每个单词作为一个元素 存储    
     {
         vec.push_back(buf);
     }
