@@ -1,3 +1,6 @@
+################   
+#   实现:读取文件内容并输出
+#################
 #include<iostream>
 #include<fstream>
 #include<sstream>
@@ -31,4 +34,29 @@ for (int i = 0;i < vec.size();++i)
 }
 
 return 0;
+}
+
+################   
+#   实现:读取文件内容存入到另一个文件
+#################
+#include <string>
+#include <string.h>
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main(){    
+	     
+	ifstream ifile("ten_data.txt",ios::in);        
+	ofstream ofile("outputdata.txt",ios::app);        
+	
+	char st[1000]; 
+	while(ifile.getline(st,sizeof(st),'\n')){            			           
+		ofile<<st<<endl;            
+		cout<<st<<endl;        
+	        }         
+	 	
+	ofile.close();        
+	ifile.close();    
+	
 }
