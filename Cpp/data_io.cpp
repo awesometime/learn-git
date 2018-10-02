@@ -78,7 +78,9 @@ int main()
     struct _finddata_t fileinfo;  // 存储文件信息的结构体对象  
     string file = "E:/c1/log/12/";      // 放置log文件的目录,路径最后的/一定要有
     string strFile = file + "*"; //* 指目录下所有文件
-
+    //将log目录输出到一个文件out_log_name.txt中
+    //ofstream ofile("out_log_name.txt",ios::app);
+	
     /***遍历目录系统函数要求先尝试寻找一个文件，看是否存在***/
     long handle;
     
@@ -91,16 +93,20 @@ int main()
     {
         strFile = file + fileinfo.name;
         cout << strFile << endl;   // 对第一个加载的文件处理，此处仅做输出处理
+        //将log目录输出到一个文件out_log_name.txt中
+	//ofile << strFile << endl;
         
-        /***一直遍历，直到所有文件得到加载与处理***/
+	/***一直遍历，直到所有文件得到加载与处理***/
         int i=1;       //统计文件数目
         while (!(_findnext(handle, &fileinfo)))
         {
             ++i;
             strFile = file + fileinfo.name;
-            cout << strFile << endl; // 对后续加载的文件处理           
-        }
-        
+            cout << strFile << endl; // 对后续加载的文件处理  
+	    //将log目录输出到一个文件out_log_name.txt中
+            //ofile << strFile << endl;
+	}
+        //ofile.close();
         _findclose(handle);  // 释放遍历目录的句柄
         cout << i-2 << endl;
     }
