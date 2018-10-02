@@ -1,5 +1,5 @@
 ################   
-#   实现:读取文件内容并输出
+#   1  实现:读取文件内容并输出
 #################
 #include<iostream>
 #include<fstream>
@@ -37,7 +37,7 @@ return 0;
 }
 
 ################   
-#   实现:读取文件内容存入到另一个文件
+#   2  实现:读取文件内容存入到另一个文件
 #################
 #include <string>
 #include <string.h>
@@ -59,4 +59,50 @@ int main(){
 	ofile.close();        
 	ifile.close();    
 	
+}
+
+
+################   
+#   3  实现:遍历某一文件夹目录
+#################
+#include<string>     // 字符串类
+#include<io.h>       // 遍历操作
+#include <iostream>  // cin、cout
+#include <fstream>   // 包含文件读取类与方法
+using namespace std;
+
+/*遍历某一文件夹目录*/
+int main()
+{
+
+    struct _finddata_t fileinfo;  // 存储文件信息的结构体对象  
+    string file = "E:/c1/log/12/";      // 放置log文件的目录,路径最后的/一定要有
+    string strFile = file + "*"; //* 指目录下所有文件
+
+    /***遍历目录系统函数要求先尝试寻找一个文件，看是否存在***/
+    long handle;
+    
+    //_findfirst( ,  )  找不到文件返回-1
+    if ((handle = _findfirst(strFile.c_str(), &fileinfo)) == -1L)
+    {
+        return 0;  // 如果查询log文件失败，直接返回
+    }
+    else
+    {
+        strFile = file + fileinfo.name;
+        cout << strFile << endl;   // 对第一个加载的文件处理，此处仅做输出处理
+        
+        /***一直遍历，直到所有文件得到加载与处理***/
+        int i=1;       //统计文件数目
+        while (!(_findnext(handle, &fileinfo)))
+        {
+            ++i;
+            strFile = file + fileinfo.name;
+            cout << strFile << endl; // 对后续加载的文件处理           
+        }
+        
+        _findclose(handle);  // 释放遍历目录的句柄
+        cout << i-2 << endl;
+    }
+    return 0;
 }
