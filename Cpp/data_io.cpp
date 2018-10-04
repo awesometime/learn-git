@@ -48,12 +48,14 @@ using namespace std;
 int main(){    
 	     
 	ifstream ifile("ten_data.txt",ios::in);        
-	ofstream ofile("outputdata.txt",ios::app);        
+	ofstream ofile("outputdata.csv",ios::app); 
+	//ofstream ofile("outputdata.txt",ios::app);        
 	
 	char st[1000]; 
-	while(ifile.getline(st,sizeof(st),'\n')){            			           
+	//while(ifile.getline(st,sizeof(st),' ')){       // 以空格为一行
+	while(ifile.getline(st,sizeof(st),'\n')){	 // 以换行符为一行
 		ofile<<st<<endl;            
-		cout<<st<<endl;        
+		//cout<<st<<endl;        
 	        }         
 	 	
 	ofile.close();        
