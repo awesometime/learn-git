@@ -114,3 +114,40 @@ int main()
     }
     return 0;
 }
+
+
+################   
+#   4  实现:正则匹配并捕获
+#################
+#include <iostream>
+#include <regex>
+#include <string>
+//#include <iostream>
+//#include <fstream>
+using namespace std;
+ 
+int main ()
+{ 
+  std::string s ("112.84.34.103 - - cnki.cdn.bcebos.com [12/Sep/2018:19:00:08 +0800] 68 \"GET /2018CUMCM-AB.rar HTTP/1.1\" 404 600 117 \"http://cumcm.cnki.net/cumcm//studentHome/studentHome\" \"-\" \"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.221 Safari/537.36 SE 2.X MetaSr 1.0\" \"220.195.66.7,116.95.27.55\" 5547950 \"MISS\" 58.216.2.35");
+  std::regex e ("(.*) - - (.*) (\\[.*\\]) (.*) \"(.*)\" (.*) (.*) (.*) \"(.*)\" \"(.*)\" \"(.*)\" \"(.*)\" (.*) \"(.*)\" (.*)");
+  //std::cout << s <<endl;
+  
+  
+  if (std::regex_match (s,e))
+    std::cout << "string object matched\n";
+  
+  
+  std::smatch sm;    // same as std::match_results<string::const_iterator> sm;
+  std::regex_match (s,sm,e);
+  std::cout << "string object with " << sm.size() << " matches\n";
+
+  
+  std::cout << "the matches were: ";
+  for (unsigned i=1; i<sm.size(); ++i) {
+    std::cout  << sm[i] << endl;
+    
+  }
+
+  return 0;
+}
+
