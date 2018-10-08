@@ -117,7 +117,7 @@ int main()
 
 
 ################   
-#   4  实现:正则匹配并捕获
+#   4  实现:正则匹配并捕获    输出成csv
 #################
 #include <iostream>
 #include <regex>
@@ -142,11 +142,15 @@ int main ()
   std::cout << "string object with " << sm.size() << " matches\n";
 
   
+  ofstream ofile("outTest.csv",ios::app); 
   std::cout << "the matches were: ";
-  for (unsigned i=1; i<sm.size(); ++i) {
-    std::cout  << sm[i] << endl;
-    
+  for (unsigned i=1; i<sm.size()-1; ++i) {
+    //std::cout << sm[i] << endl;
+    ofile<< sm[i] << ',';//<< sm[i] << ','<< sm[i] << ','<< sm[i] <<endl;
   }
+  ofile<< sm[sm.size()-1] << endl;
+
+  ofile.close();
 
   return 0;
 }
