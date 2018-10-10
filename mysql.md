@@ -27,10 +27,20 @@ MySQL语法   更多详细语法直接查[菜鸟教程](http://www.runoob.com/my
 
     
     # 创建表     *注意最好新建一个不存在的表
-    sql = """CREATE TABLE IF NOT EXISTS ip_my (
-             ip  CHAR(20) NOT NULL,
-             ip_num  CHAR(30)      
-             )"""
+    sql = """CREATE TABLE IF NOT EXISTS jobbole_article (
+                 TITLE  VARCHAR(200) NOT NULL,
+                 CREATE_DATE  DATE,
+                 URL VARCHAR(300) NOT NULL,
+                 URL_OBJECT_ID  VARCHAR(50)  NOT NULL  PRIMARY KEY,
+                 FRONT_IMAGE_URL VARCHAR(300), 
+                 FRONT_IMAGE_PATH VARCHAR(200), 
+                 COMMENT_NUMS INT(11), 
+                 FAV_NUMS  INT(11), 
+                 PRAISE_NUMS  INT(11), 
+                 TAGS  varchar(200), 
+                 CONTENT LONGTEXT
+            )"""
+    
     cursor.execute(sql)
     print('已创建tabels')
 
