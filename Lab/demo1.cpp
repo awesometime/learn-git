@@ -97,7 +97,7 @@ bool parseFile(string filename) {
         //}
         
         //ips.insert(results[0]);     //：set
-        tables[results[0]] += 1;
+        tables[results[0]] += 1;     //results[0]取出ip字段，设置table["10.12.13.14"] +=1     
       }
     }
     
@@ -108,9 +108,11 @@ bool parseFile(string filename) {
     // for (auto it = ips.begin();it != ips.end();it++) {      //：set
     //   cout << *it << "  occurred ... times"<< endl;
     // }  
+    
     for (auto it = tables.begin();it != tables.end();it++) {
         cout <<"["<< it->first << "] =  " << it->second << endl;
     } 
+  
   } else {
     string msg = "error occurred when parseFile --> open file(";
     msg += filename + ")";
