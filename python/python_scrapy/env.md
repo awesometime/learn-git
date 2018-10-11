@@ -11,6 +11,13 @@ You can start your first spider with:
     scrapy genspider example example.com
 ```    
 ### 3 Debug 调试程序
+
+`G:\PyCharm\PythonProjects\Artical_spider>scrapy shell http://blog.jobbole.com/114407/`
+
+shell中加请求头
+
+`G:\PyCharm\PythonProjects\Article_spider>scrapy shell -s USER_AGENT="Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Mobile Safari/537.36" https://www.zhihu.com/`
+
 ```python
 #G:\PyCharm\PythonProjects\Artical_spider>scrapy shell http://blog.jobbole.com/114407/
 
