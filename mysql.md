@@ -40,15 +40,22 @@ MySQL语法   更多详细语法直接查[菜鸟教程](http://www.runoob.com/my
                  TAGS  varchar(200), 
                  CONTENT LONGTEXT
             )"""
+    # Mysql中经常用来存储日期的数据类型有三种：Date、Datetime、Timestamp。
+    # Date      数据类型：用来存储没有时间的日期。Mysql获取和显示这个类型的格式为“YYYY-MM-DD”。支持的时间范围为“1000-00-00”到“9999-12-31”。
+    # Datetime  类型：存储既有日期又有时间的数据。存储和显示的格式为 “YYYY-MM-DD HH:MM:SS”。支持的时间范围是“1000-00-00 00:00:00”到“9999-12-31 23:59:59”。
+    # Timestamp 类型：也是存储既有日期又有时间的数据。存储和显示的格式跟Datetime一样。支持的时间范围是“1970-01-01 00:00:01”到“2038-01-19 03:14:07”。
+    
+    
     
     cursor.execute(sql)
     print('已创建tabels')
 
     
     # SQL 表里插入
-    sql = """INSERT INTO ip_my(ip,ip_num)
-             VALUES ('ip', %s)"""
-    cursor.executemany(sql, finded_ip_and_port)
+    sql = """INSERT INTO jobbole_article(title, url, tags, content)
+             VALUES ('ip', %s, %s, %s)"""
+    cursor.execute(sql, (url, tags, content))
+    cursor.executemany(sql, (url, tags, content))
     # 提交到数据库执行
     conn.commit()
     # 如果发生错误则回滚
