@@ -103,6 +103,8 @@ mysql> describe 'table-name'；                查看表头及其参数的类型
 mysql> INSERT INTO 'table-name'(id,name,sex,birthday) VALUES ( 1,'小明', '男', '2015-11-02');        
 ```
 mysql> select * from 'table-name';                查看数据
+mysql> select count(列名) from 表名;               统计某列有多少数据
+
 
 mysql> truncate table 'table-name';               清空数据
 
