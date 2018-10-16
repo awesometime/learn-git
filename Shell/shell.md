@@ -16,7 +16,7 @@
 
 #### 1 获取随机字符串或数字
 
-
+```
 获取随机8位字符串：
 
 
@@ -46,11 +46,11 @@ ed9e032c
 
 cksum：打印CRC效验和统计字节
 
+```
 
+#### 2 定义一个颜色输出字符串函数
 
-2 定义一个颜色输出字符串函数
-
-
+```
 方法1：
 function echo_color() {
     if [ $1 == "green" ]; then
@@ -76,12 +76,12 @@ function echo_color() {
 
 
 function关键字定义一个函数，可加或不加。
+```
 
 
+#### 3 批量创建用户
 
-3 批量创建用户
-
-
+```
 #!/bin/bash
 DATE=$(date +%F_%T)
 USER_FILE=user.txt
@@ -110,30 +110,30 @@ for USER in user{1..10}; do
         echo_color red "$USER User already exists!"
     fi
 done
+```
+#### 4 检查软件包是否安装
 
-4 检查软件包是否安装
-
-
+```
 #!/bin/bash
 if rpm -q sysstat &>/dev/null; then
     echo "sysstat is already installed."
 else
     echo "sysstat is not installed!"
 fi
+```
+#### 5 检查服务状态
 
-5 检查服务状态
-
-
+```
 #!/bin/bash
 PORT_C=$(ss -anu |grep -c 123)
 PS_C=$(ps -ef |grep ntpd |grep -vc grep)
 if [ $PORT_C -eq 0 -o $PS_C -eq 0 ]; then
     echo "内容" | mail -s "主题" dst@example.com
 fi
+```
+#### 6 检查主机存活状态
 
-6 检查主机存活状态
-
-
+```
 方法1：将错误IP放到数组里面判断是否ping失败三次
 
 
@@ -195,10 +195,10 @@ for IP in $IP_LIST; do
     ping_success_status
     echo "$IP Ping is failure!"
 done
+```
+#### 7 监控CPU、内存和硬盘利用率
 
-7 监控CPU、内存和硬盘利用率
-
-
+```
 1）CPU
 
 
@@ -268,10 +268,10 @@ for i in $PART_USE; do
         " | mail -s "Disk Monitor" $MAIL
     fi
 done
+```
+#### 8 批量主机磁盘利用率监控
 
-8 批量主机磁盘利用率监控
-
-
+```
 前提监控端和被监控端SSH免交互登录或者密钥登录。
 
 
@@ -296,10 +296,10 @@ for IP in $(awk '/^[^#]/{print $1}' $HOST_INFO); do
         fi
     done
 done
+```
+#### 9 检查网站可用性
 
-9 检查网站可用性
-
-
+```
 1）检查URL可用性
 
 
@@ -381,9 +381,9 @@ for URL in $URL_LIST; do
         unset FAIL_COUNT[*]    #清空数组
     fi
 done
-
-10 检查MySQL主从同步状态
-
+```
+#### 10 检查MySQL主从同步状态
+```
 
 #!/bin/bash  
 USER=bak
@@ -396,3 +396,4 @@ for i in $IO_SQL_STATUS; do
         echo "Error: MySQL Master-Slave $THREAD_STATUS_NAME status is $THREAD_STATUS!"
     fi
 done
+```
