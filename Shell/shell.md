@@ -21,26 +21,26 @@
 
 
 方法1：
-# echo $RANDOM |md5sum |cut -c 1-8
+ echo $RANDOM |md5sum |cut -c 1-8
 471b94f2
 方法2：
-# openssl rand -base64 4
+ openssl rand -base64 4
 vg3BEg==
 方法3：
-# cat /proc/sys/kernel/random/uuid |cut -c 1-8
+ cat /proc/sys/kernel/random/uuid |cut -c 1-8
 ed9e032c
 
 获取随机8位数字：
 
 
 方法1：
-# echo $RANDOM |cksum |cut -c 1-8
+ echo $RANDOM |cksum |cut -c 1-8
 23648321
 方法2：
-# openssl rand -base64 4 |cksum |cut -c 1-8
+ openssl rand -base64 4 |cksum |cut -c 1-8
 38571131
 方法3：
-# date +%N |cut -c 1-8
+ date +%N |cut -c 1-8
 69024815
 
 
@@ -81,7 +81,7 @@ function关键字定义一个函数，可加或不加。
 
 #### 3 批量创建用户
 
-```
+```shell
 #!/bin/bash
 DATE=$(date +%F_%T)
 USER_FILE=user.txt
@@ -113,7 +113,7 @@ done
 ```
 #### 4 检查软件包是否安装
 
-```
+```shell
 #!/bin/bash
 if rpm -q sysstat &>/dev/null; then
     echo "sysstat is already installed."
@@ -123,7 +123,7 @@ fi
 ```
 #### 5 检查服务状态
 
-```
+```shell
 #!/bin/bash
 PORT_C=$(ss -anu |grep -c 123)
 PS_C=$(ps -ef |grep ntpd |grep -vc grep)
@@ -133,7 +133,7 @@ fi
 ```
 #### 6 检查主机存活状态
 
-```
+```shell
 方法1：将错误IP放到数组里面判断是否ping失败三次
 
 
@@ -198,7 +198,7 @@ done
 ```
 #### 7 监控CPU、内存和硬盘利用率
 
-```
+```shell
 1）CPU
 
 
@@ -271,7 +271,7 @@ done
 ```
 #### 8 批量主机磁盘利用率监控
 
-```
+```shell
 前提监控端和被监控端SSH免交互登录或者密钥登录。
 
 
@@ -299,7 +299,7 @@ done
 ```
 #### 9 检查网站可用性
 
-```
+```shell
 1）检查URL可用性
 
 
@@ -383,7 +383,7 @@ for URL in $URL_LIST; do
 done
 ```
 #### 10 检查MySQL主从同步状态
-```
+```shell
 
 #!/bin/bash  
 USER=bak
@@ -396,4 +396,47 @@ for i in $IO_SQL_STATUS; do
         echo "Error: MySQL Master-Slave $THREAD_STATUS_NAME status is $THREAD_STATUS!"
     fi
 done
+```
+## 10 个方便的 Bash 别名
+```shell
+#1、 你有几次遇到需要解压 .tar 文件但无法记住所需的确切参数？别名可以帮助你！只需将以下内容添加到 .bash_profile 中，然后使用 untar FileName 解压缩任何 .tar 文件。
+
+alias untar='tar -zxvf '
+
+#2、 想要下载的东西，但如果出现问题可以恢复吗？
+
+alias wget='wget -c '
+
+#3、 是否需要为新的网络帐户生成随机的 20 个字符的密码？没问题。
+
+alias getpass="openssl rand -base64 20"
+
+#4、 下载文件并需要测试校验和？我们也可做到。
+
+alias sha='shasum -a 256 '
+
+#5、 普通的 ping 将永远持续下去。我们不希望这样。相反，让我们将其限制在五个 ping。
+
+alias ping='ping -c 5'
+
+#6、 在任何你想要的文件夹中启动 Web 服务器。
+
+alias www='python -m SimpleHTTPServer 8000'
+
+#7、 想知道你的网络有多快？只需下载 Speedtest-cli 并使用此别名即可。你可以使用 speedtest-cli --list 命令选择离你所在位置更近的服务器。
+
+alias speed='speedtest-cli --server 2406 --simple'
+
+#8、 你有多少次需要知道你的外部 IP 地址，但是不知道如何获取？我也是。
+
+alias ipe='curl ipinfo.io/ip'
+
+#9、 需要知道你的本地 IP 地址？
+
+alias ipi='ipconfig getifaddr en0'
+
+#10、 最后，让我们清空屏幕。
+
+alias c='clear'
+
 ```
