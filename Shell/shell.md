@@ -14,6 +14,14 @@
 
 6）写脚本一定先测试再到生产上。
 
+#### 前言
+```
+num=$(echo "scale=2; 10 / 3" | bc)
+echo $num
+# 3.33
+```
+
+
 #### 1 获取随机字符串或数字
 
 ```shell
@@ -51,7 +59,7 @@ cksum：打印CRC效验和统计字节
 #### 2 定义一个颜色输出字符串函数
 
 ```shell
-方法1：
+#方法1：
 function echo_color() {
     if [ $1 == "green" ]; then
         echo -e "\033[32;40m$2\033[0m"
@@ -59,7 +67,7 @@ function echo_color() {
         echo -e "\033[31;40m$2\033[0m"
     fi
 }
-方法2：
+#方法2：
 function echo_color() {
     case $1 in
         green)
@@ -72,10 +80,11 @@ function echo_color() {
             echo "Example: echo_color red string"
     esac
 }
-使用方法：echo_color green "test"
+echo_color green "output this str in green color or red color"
+echo_color red   "output this str in green color or red color"
 
 
-function关键字定义一个函数，可加或不加。
+# function关键字定义一个函数，可加或不加。
 ```
 
 
