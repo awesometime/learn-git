@@ -8,7 +8,7 @@ from PIL import Image
 
 """
 登录流程 :xsrf验证  验证码(需要timestamp)    不知道为啥没用signature hmac 也能登录
-  
+TODO   新版知乎  xsrf  不知道在哪里获取      此代码注释掉get_xsrf()也可以登录成功
 运行zhihu_login("xxx", "xxx") 之后会生成captcha.jpg /cookies.txt 并不是开始就有cookies.txt
 """
 
