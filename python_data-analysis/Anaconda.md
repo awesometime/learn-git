@@ -109,19 +109,15 @@ Scikits 以 Scipy 为基础，提供如 scikits-learn 机器学习和scikits-ima
 ### 4  Jupyter notebook 单独安装(不基于Anaconda) 
 >>>python -m pip install upgrade pip 
 
->>>pip3 install jupyter
+>>>pip install jupyter
 
-报错tornado缺少  
+>>>jupyter notebook   # 安装完打开notebook
 
->>>pip3 install tornado
-
->>>pip3 install jupyter  继续
-
-安装好以后修改配置文件  C:\Users\linuix\.jupyter\jupyter_notebook_config.py  中大概第214行的
+安装好以后修改配置文件  C:\Users\linuix\.jupyter\jupyter_notebook_config.py  中大概第261行的
 
 c.NotebookApp.notebook_dir = ' '   把路径改成自己的工作目录
 
-c.NotebookApp.notebook_dir = 'G:\Python\Jupyter Notebook'
+c.NotebookApp.notebook_dir = 'G:\\Python\\JupyterNotebookDir'
 
 或者在cmd窗口输入jupyter-notebook –generate-config会返回一个文件的路径，打开该文件，找到下面所示的代码,修改
 ```
