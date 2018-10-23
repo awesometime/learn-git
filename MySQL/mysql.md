@@ -213,7 +213,9 @@ default-character-set=utf8
 
 以**管理员身份** 切到 `C:\lxinstall\MySQL\mysql\bin` 否则会出[安装mysql Install/Remove of the Service Denied!错误的解决办法](https://blog.csdn.net/lxpbs8851/article/details/14161935/)打开 cmd 命令行工具，切换到目录G:\MySQL\mysql5.7\bin下：
 
- ` mysqld install`         如果提示成功，说明安装成功了
+ ` mysqld install`         如果提示成功，说明安装成功了，若提示找不到msvcp140.dll
+ 
+ [原因是没有安装VC++2015的版本库。下载地址：](https://www.microsoft.com/en-us/download/details.aspx?id=53587)
 
  `mysqld --initialize`    注意: 在 5.7 需要初始化 data 目录,否则会出现[mysql服务无法启动 服务没有报告任何错误解决方法](https://blog.csdn.net/liyangyang0528/article/details/54233632)
 
