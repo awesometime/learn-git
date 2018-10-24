@@ -231,6 +231,7 @@ git clone git@github.com:自己账号/bootstrap.git
 # git实践
 - [git 教程](https://www.yiibai.com/git/git_push.html)
 - [通过pycharm使用git[图文详解]](http://www.cnblogs.com/caseast/p/6085837.html)
+- [Git安装和初次使用](https://www.cnblogs.com/ximiaomiao/p/7140456.html)
 
 要有**本地仓库**和**远程仓库**两个概念
 
