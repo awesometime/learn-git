@@ -113,16 +113,17 @@ Scikits 以 Scipy 为基础，提供如 scikits-learn 机器学习和scikits-ima
 
 >>>jupyter notebook   # 安装完打开notebook
 
-安装好以后修改配置文件  C:\Users\linuix\.jupyter\jupyter_notebook_config.py  中大概第261行的
+>>>jupyter-notebook –generate-config   会返回一个文件的路径，打开该文件
+
+Writing default config to: C:\Users\xxx\.jupyter\jupyter_notebook_config.py
+
+
+修改配置文件  C:\Users\linuix\.jupyter\jupyter_notebook_config.py  中大概第261行的
 
 c.NotebookApp.notebook_dir = ' '   把路径改成自己的工作目录
 
-c.NotebookApp.notebook_dir = 'G:\\Python\\JupyterNotebookDir'
+c.NotebookApp.notebook_dir = 'f:\\Python\\JupyterNotebookDir'
 
-或者在cmd窗口输入jupyter-notebook –generate-config会返回一个文件的路径，打开该文件，找到下面所示的代码,修改
-```
-## The directory to use for notebooks and kernels.
-#c.NotebookApp.notebook_dir = u''
-```
+
 配置文件修改完成后， 以后在 jupyter notebook 中写的代码等都会保存在自己创建的目录中。
 
