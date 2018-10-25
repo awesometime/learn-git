@@ -1,14 +1,28 @@
+### CrawlSpiders
+- [Scrapy框架CrawlSpiders的介绍以及使用详解](https://www.jb51.net/article/129351.htm)
+
+
 ### 1  创建虚拟环境,参考Django   下载好scrapy相关依赖包   新建工程
 
 ### 2  不利用虚拟环境,直接在g:\\python\\python-3.6.5\\lib\\site-packages下载好相关依赖包   新建工程
 ```
-G:\PyCharm\PythonProjects>scrapy startproject Artical_spider
-New Scrapy project 'Artical_spider', using template directory 'g:\\python\\python-3.6.5\\lib\\site-packages\\scrapy\\templates\\project', created in:
-    G:\PyCharm\PythonProjects\Artical_spider
+F:\Python\projects>            scrapy startproject tencent
+New Scrapy project 'tencent', using template directory 'c:\\linuix\\python37\\lib\\site-packages\\scrapy\\templates\\project', created in:
+    F:\Python\projects\tencent
 
 You can start your first spider with:
-    cd Artical_spider
+    cd tencent
     scrapy genspider example example.com
+
+F:\Python\projects>cd tencent
+F:\Python\projects\tencent>     scrapy genspider --list
+
+F:\Python\projects\tencent>     scrapy genspider -t crawl tencent hr.tencent.com
+Cannot create a spider with the same name as your project
+
+F:\Python\projects\tencent>      scrapy genspider -t crawl tencentjob hr.tencent.com
+Created spider 'tencentjob' using template 'crawl' in module:
+  tencent.spiders.tencentjob
 ```    
 ### 3 Debug 调试程序
 
