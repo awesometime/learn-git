@@ -1,9 +1,11 @@
-[The Python Standard Library] (https://docs.python.org/3/library/index.html)
+- [The Python Standard Library] (https://docs.python.org/3/library/index.html)
+- [collections 文档中文](https://yiyibooks.cn/xx/python_352/library/collections.html)
 
 » 8. Data Types 
 
 » 8.3. collections — Container datatypes
 
+### collections.namedtuple
 » 8.3.5. namedtuple() Factory Function for Tuples with Named Fields
 
 collections.namedtuple(typename, field_names, *, verbose=False, rename=False, module=None)
@@ -26,3 +28,7 @@ for i in range(5):
 5
 6
 ```
+### collections.deque  双向队列
+### collections.defaultdict
+### collections.OrderedDict  有序字典
+### collections.Counter  计数器
