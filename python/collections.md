@@ -1,4 +1,4 @@
-- [The Python Standard Library] (https://docs.python.org/3/library/index.html)
+- [collections 文档](https://docs.python.org/3/library/collections.html)
 - [collections 文档中文](https://yiyibooks.cn/xx/python_352/library/collections.html)
 
 » 8. Data Types 
