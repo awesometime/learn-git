@@ -7,7 +7,108 @@ MySQL语法   更多详细语法直接查[菜鸟教程](http://www.runoob.com/my
 注意库名  表名
 
 大小写不敏感？？
+### 规范点
+```python
+import pymysql
 
+
+class Mysql(object):
+
+    def __init__(self):
+        self.get_connect()
+
+
+    def get_connect(self):
+        try:
+            self.conn = pymysql.Connect(
+                host='localhost',  # mysql服务器地址
+                port=3306,  # mysql服务器端口号
+                user='',  # 用户名
+                passwd='',  # 密码
+                db='',  # 数据库名
+                charset='utf8'  # 连接编码
+            )
+            # print('数据库已连接，对象为：{}'.format(self.conn))
+        except pymysql.Error as e:
+            print("Error:  {}".format(e))
+
+
+    def close_connect(self):
+        try:
+            if self.conn:
+                self.conn.close()
+        except pymysql.Error as e:
+            print("Error:  {}".format(e))
+
+
+    def get_one_data(self):
+        sql = """select * from table1;"""
+        cursor = self.conn.cursor()
+        cursor.execute(sql)
+        # self.conn.commit()  # 查询的话不需要commit
+        # print(dir(cursor))
+        # print(cursor.rowcount)
+        # print(cursor.description)
+        # result = cursor.fetchone()
+        result = dict(zip([k[0] for k in cursor.description], cursor.fetchone()))
+        # print(result)
+        cursor.close()
+        self.close_connect()
+        return result
+
+
+    def get_more_data(self):
+        sql = """select * from table1;"""
+        cursor = self.conn.cursor()
+        cursor.execute(sql)
+        
+        # for row in cursor.fetchall():
+        #     print(row)
+        # ('li', 12, '男', None)
+        # ('sk', 14, None, 'ibm')
+        # ('ajjd', 34, '女', 'core')
+        # ('fhh', 12, None, None)
+        # ('wwe', 3, None, 'school')
+
+        result = [dict(zip([k[0] for k in cursor.description], row))
+                 for row in cursor.fetchall()]
+        # print(result)
+        cursor.close()
+        self.close_connect()
+        return result
+
+
+    def get_more_by_page(self, page, page_size):
+        """分页查询数据
+        """
+        offset = (page - 1) * page_size
+
+        sql = """select * from table1 order by age asc limit %s, %s;"""
+        cursor = self.conn.cursor()
+        cursor.execute(sql, (offset, page_size))
+        result = [dict(zip([k[0] for k in cursor.description], row))
+                 for row in cursor.fetchall()]
+        # print(result)
+        cursor.close()
+        self.close_connect()
+        return result
+
+
+def main():
+    obj = Mysql()
+    # result = obj.get_one_data()
+    # print(result)
+    
+    # result = obj.get_more_data()
+    # print(result)
+
+    result = obj.get_more_by_page(2, 3)   #  每页显示3个，查询第2页（页码从1开始，如果有7个数据，有123页，第三页只有1个数据）
+    for item in result: 
+        print(item)
+
+if __name__ == '__main__':
+    main()
+```
 ### python 连接数据库
 ```python
 
