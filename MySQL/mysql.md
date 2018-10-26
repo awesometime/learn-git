@@ -23,9 +23,9 @@ class Mysql(object):
             self.conn = pymysql.Connect(
                 host='localhost',  # mysql服务器地址
                 port=3306,  # mysql服务器端口号
-                user='',  # 用户名
-                passwd='',  # 密码
-                db='',  # 数据库名
+                user='root',  # 用户名
+                passwd='root',  # 密码
+                db='awesome',  # 数据库名
                 charset='utf8'  # 连接编码
             )
             # print('数据库已连接，对象为：{}'.format(self.conn))
@@ -42,6 +42,8 @@ class Mysql(object):
 
 
     def get_one_data(self):
+        """查询一条数据
+        """
         sql = """select * from table1;"""
         cursor = self.conn.cursor()
         cursor.execute(sql)
@@ -58,6 +60,8 @@ class Mysql(object):
 
 
     def get_more_data(self):
+        """查询多条数据
+        """
         sql = """select * from table1;"""
         cursor = self.conn.cursor()
         cursor.execute(sql)
@@ -94,6 +98,22 @@ class Mysql(object):
         return result
 
 
+    def insert_mysql(self):
+        """insert数据
+        """
+        try:
+            sql = """insert into table1 (name, age, gender, work) value (%s ,%s ,%s ,%s);"""
+            cursor = self.conn.cursor()
+            cursor.execute(sql, ('byr', 123, '男', 'station'))
+            cursor.execute(sql, ('descr', 53, '女', 'space'))
+            self.conn.commit()         # 别错写成self.cursor.commit()
+            cursor.close()
+        except:
+            print("Error")
+            self.cursor.callback()       
+        self.close_connect()
+
+
 def main():
     obj = Mysql()
     # result = obj.get_one_data()
@@ -102,9 +122,11 @@ def main():
     # result = obj.get_more_data()
     # print(result)
 
-    result = obj.get_more_by_page(2, 3)   #  每页显示3个，查询第2页（页码从1开始，如果有7个数据，有123页，第三页只有1个数据）
-    for item in result: 
-        print(item)
+    # result = obj.get_more_by_page(2, 3)   #  每页显示3个，查询第2页（页码从1开始，如果有7个数据，有123页，第三页只有1个数据）
+    # for item in result: 
+    #     print(item)
+
+    obj.insert_mysql()
 
 if __name__ == '__main__':
     main()
