@@ -29,6 +29,123 @@
 ### 1 yield函数
 
 - [  yield 理解 ](https://blog.csdn.net/Ren_ger/article/details/81088903)
+- [  yield用法总结  ](https://www.cnblogs.com/python-life/articles/4549996.html)
+
+```python
+def fun():
+    print('good')
+    yield 5
+
+# fun().__next__()  
+# fun().__next__()  
+# fun().__next__()  # 不会抛异常
+
+# good
+# good
+# good
+
+
+f = fun()
+print(f.__next__())
+# f.__next__()  # 由于之后没有yield,再次next()就会抛出错误
+
+try:
+    print(f.__next__())
+except StopIteration as e:
+    print("StopIteration")
+
+# good
+# 5
+# StopIteration
+```
+
+```python
+def fun():
+    for i in range(20):
+        x = yield i  #表达式(yield i)的返回值将赋值给x
+        print(x)
+        print('good', x)
+
+a = fun()
+print(a.__next__())
+# 0. 遇到yield就返回 相当于return     a.__next__()相当于a.send(None)
+# 1. 第一次调用时，请使用next()语句或是send(None)，不能使用send发送一个非None的值，否则会出错的
+# 2. send(msg) 和 next()是有返回值的，它们的返回值很特殊，返回的是下一个yield表达式的参数。
+#    比如yield 5，则返回 5
+print("---")
+print(a.__next__())   # 从上次离开的地方执行
+
+print("---")
+l = a.send(5)         # (yield i) 表达式被赋予了 5 ,即 x = (yield i) = 5
+print(l)              # 但是 a.send(5) 返回的是下一个yield表达式的参数 ,此处为2
+
+print("---")
+print(a.send(5))
+
+print("---")
+print(a.send('python :):):)'))
+
+
+# 0
+# ---
+# None       # 函数内的结果
+# good None  # 函数内的结果
+# 1          # print(a.__next__())的结果
+# ---
+# 5
+# good 5
+# 2
+# ---
+# 5
+# good 5
+# 3
+# ---
+# python :):):)
+# good python :):):)
+# 4
+```
+
+```python
+import time
+def func(n):
+    for i in range(0, n):
+        arg = yield i
+        print('func:', arg)
+
+
+f = func(10)
+while True:
+    print('next:', next(f))
+    print('send:', f.send(100))
+    time.sleep(1)
+
+# 输出
+# next: 0
+# func: 100
+# send: 1
+# func: None
+# next: 2
+# func: 100
+# send: 3
+# func: None
+# next: 4
+# func: 100
+# send: 5
+# func: None
+# next: 6
+# func: 100
+# send: 7
+# func: None
+# next: 8
+# func: 100
+# send: 9
+# func: None
+# Traceback (most recent call last):
+#   File "F:/Python/projects/yield.py", line 73, in <module>
+#     print('next:', next(f))
+# StopIteration
+
+```
 
 ### 2 Python中的反射
 
