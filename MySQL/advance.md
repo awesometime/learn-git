@@ -1,3 +1,17 @@
+```
+SELECT语句的完整语法为： 
+SELECT[ALL|DISTINCT|DISTINCTROW|TOP] 
+{*|talbe.*|[table.]field1[AS alias1][,[table.]field2[AS alias2][,…]]} 
+FROM tableexpression[,…][IN externaldatabase] 
+[WHERE…] 
+[GROUP BY…] 
+[HAVING…] 
+[ORDER BY…] 
+[WITH OWNERACCESS OPTION] 
+说明： 
+用中括号([])括起来的部分表示是可选的，用大括号({})括起来的部分是表示必须从中选择其中的一个。
+```
+
 ### group by
 
 ```
@@ -50,11 +64,34 @@ mysql> select product_size,count(product_size) from jd_bar group by product_colo
 +--------------+---------------------+
 8 rows in set (0.06 sec)
 
+```
+### order by
+```
+mysql> select * from table1 order by age asc limit 0,3;   # limit 偏移量，每页显示个数
++------+-----+--------+--------+
+| name | age | gender | work   |
++------+-----+--------+--------+
+| wwe  |   3 | NULL   | school |
+| li   |  12 | 男     | NULL   |
+| fhh  |  12 | NULL   | NULL   |
++------+-----+--------+--------+
+3 rows in set
 
+mysql> select * from table1 order by age asc limit 3,3;
++-------+-----+--------+-------+
+| name  | age | gender | work  |
++-------+-----+--------+-------+
+| sk    |  14 | NULL   | ibm   |
+| apple |  23 | NULL   | Apple |
+| ajjd  |  34 | 女     | core  |
++-------+-----+--------+-------+
+3 rows in set
 
-
-
-
-
-
+mysql> select * from table1 order by age asc limit 6,3;
++--------+-----+--------+------+
+| name   | age | gender | work |
++--------+-----+--------+------+
+| banaba |  67 | 男     | NULL |
++--------+-----+--------+------+
+1 row in set
 ```
