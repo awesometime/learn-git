@@ -1,3 +1,13 @@
+# 需要在 cmd 中
+# ipython
+# In [1]: from sql1 import Table2
+
+# In [2]: from sql1 import engine
+
+# In [3]: Table2.metadata.create_all(engine)
+
+
+
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
