@@ -13,6 +13,8 @@ cmd 中先执行   mongod --dbpath D:\MongoDB\data
 >>>use students
 >>>db
 students
+清屏
+>>>cls   
 >>>db.students.find()
 >>> db.students.insertMany(
 ... [{name : "lala", age : 13, gender : "male",   grade : 89},
