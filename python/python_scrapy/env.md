@@ -1,5 +1,17 @@
 ### CrawlSpiders
+
 - [Scrapy框架CrawlSpiders的介绍以及使用详解](https://www.jb51.net/article/129351.htm)
+
+### Scrapy框架
+
+-[Scrapy框架学习（四）----CrawlSpider、LinkExtractors、Rule及爬虫示例](https://blog.csdn.net/qq_33689414/article/details/78669514)
+
+-[scrapy——高级深度操作  Spider CrawlSpider完成数据深度爬取](https://www.jianshu.com/p/09e29b0a4b29)
+
+-[Scrapy 中文网](http://www.scrapyd.cn/)
+
+-[Scrapy 0.24 文档](https://scrapy-chs.readthedocs.io/zh_CN/0.24)
+
 
 
 ### 1  创建虚拟环境,参考Django   下载好scrapy相关依赖包   新建工程
