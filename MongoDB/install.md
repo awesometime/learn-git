@@ -1,3 +1,10 @@
+* [docs](#docs)
+      * [1 安装](#1-安装)
+      * [2 mongo shell 实战](#2-mongo-shell-实战)
+      * [3 pymongo    python 操作 mongo](#3-pymongo-python-操作-mongo)
+      * [4 MongoEngine   ODM   Object-Document Mapper   python 通过 ODM 操作 mongo](#4-MongoEngine-  ODM   Object-Document Mapper   python 通过 ODM 操作 mongo)
+     
+
 
 ### docs
 ```
@@ -5,7 +12,7 @@ https://api.mongodb.com/
 https://api.mongodb.com/python/3.7.1/ 
 ```
 
-### 安装
+### 1 安装
 
 添加\bin到环境变量
 
@@ -15,7 +22,7 @@ cmd 中先执行   mongod --dbpath D:\MongoDB\data
  
 另一cmd中执行  mongo
 
-### mongo shell 实战
+### 2 mongo shell 实战
 ```
 >>>use students
 >>>db
@@ -68,7 +75,7 @@ students
 
 ```
 
-### pymongo    python 操作 mongo
+### 3 pymongo    python 操作 mongo
 
 ```python
 from pymongo import MongoClient
@@ -185,7 +192,7 @@ if __name__ == "__main__":
 	main()
 ```
 
-### MongoEngine   ODM   Object-Document Mapper   python 通过 ODM 操作 mongo
+### 4 MongoEngine   ODM   Object-Document Mapper   python 通过 ODM 操作 mongo
 
 - [MongoEngine User Documentation](http://docs.mongoengine.org/)
 
