@@ -8,7 +8,7 @@
 - [redis 中文网](http://www.redis.cn/)
 - [redis 中文网 redis 知识树](http://www.redis.cn/map.html)
 - [github redis-py文档](https://github.com/andymccurdy/redis-py)
-- [redis-py文档](Welcome to redis-py’s documentation!)
+- [Welcome to redis-py’s documentation](https://redis-py.readthedocs.io/en/latest/)
 
 ### 2 redis 基础语法
 string
