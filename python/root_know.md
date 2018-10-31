@@ -17,7 +17,7 @@
       * [12 赋值引用 浅拷贝 深拷贝](#12-赋值引用-浅拷贝-深拷贝)
       * [13 字符 编码与二进制  序列化](#13-字符-编码与二进制--序列化)
       * [14 try except](#14-try-except)
-      * [15___new__ __init__ super 方法](#15-__new__ __init__ super 方法)
+      * [15 new init super 方法](#15-new-init-super-方法)
       * [17 try except](#15-try-except)
          * [1 使用__new__方法](#1-使用__new__方法)
          * [2 共享属性](#2-共享属性)
@@ -493,7 +493,7 @@ print( 'd = ', d )
 ### 14 try except
 [try except (异常捕获)](https://www.cnblogs.com/Keep-Ambition/p/7306074.html)
 
-### 15 __new__ __init__ super 方法
+### 15 new init super 方法
 [Python类与对象实例详解](https://www.imooc.com/article/18018?block_id=tuijian_wz)
 
 定义类IntTuple继承tuple,并实现new,修改实例化行为
@@ -503,12 +503,18 @@ new方法接受的参数虽然也是和init一样，但init是在类实例创建
 ```python
 class IntTuple(tuple):
     def __new__(cls, iterable):
-        g = (x for x in iterable if isinstance(x,int) and x > 0)
-        return super(IntTuple, cls).__new__(cls,g)
+        # 重写父类  new 方法 以满足自己需求
+ 	g = (x for x in iterable if isinstance(x,int) and x > 0)
+        print(cls)
+	return super(IntTuple, cls).__new__(cls,g)
+        
+	# 必须return init 才能接收到创建的实例
+	# 调用父类的__new__方法
         # 找到IntTuple的父类（tuple），然后把 类IntTuple 的 类对象cls 转换为 类tuple 的对象，然后转换后的 类tuple对象 调用自己的__new__方法
 	
     def __init__(self, iterable):
-        return super(IntTuple,self).__init__(iterable)
+        print(self)
+	super(IntTuple,self).__init__()
         # 找到IntTuple的父类（tuple），然后把 类IntTuple 的 对象self 转换为 类tuple 的对象，然后“被转换”的 类tuple对象 调用自己的__init__方法
 	
 t = IntTuple([1,-1,'abc',6,['x','y'],3])
