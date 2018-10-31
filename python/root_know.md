@@ -17,7 +17,7 @@
       * [12 赋值引用 浅拷贝 深拷贝](#12-赋值引用-浅拷贝-深拷贝)
       * [13 字符 编码与二进制  序列化](#13-字符-编码与二进制--序列化)
       * [14 try except](#14-try-except)
-      * [16 try except](#15-try-except)
+      * [15___new__ __init__ super 方法](#15-__new__ __init__ super 方法)
       * [17 try except](#15-try-except)
          * [1 使用__new__方法](#1-使用__new__方法)
          * [2 共享属性](#2-共享属性)
@@ -492,6 +492,72 @@ print( 'd = ', d )
 
 ### 14 try except
 [try except (异常捕获)](https://www.cnblogs.com/Keep-Ambition/p/7306074.html)
+
+### 15 __new__ __init__ super 方法
+[Python类与对象实例详解](https://www.imooc.com/article/18018?block_id=tuijian_wz)
+
+定义类IntTuple继承tuple,并实现new,修改实例化行为
+先执行new  再执行init
+new方法接受的参数虽然也是和init一样，但init是在类实例创建之后调用，而 new方法正是创建这个类实例的方法。new方法会返回所构造的对象，init则不会，在使用new返回对象的时候会隐式调用init函数。new函数必须以cls作为第一个参数，而init则以self作为其第一个参数
+
+```python
+class IntTuple(tuple):
+    def __new__(cls, iterable):
+        g = (x for x in iterable if isinstance(x,int) and x > 0)
+        return super(IntTuple, cls).__new__(cls,g)
+        # 找到IntTuple的父类（tuple），然后把 类IntTuple 的 类对象cls 转换为 类tuple 的对象，然后转换后的 类tuple对象 调用自己的__new__方法
+	
+    def __init__(self, iterable):
+        return super(IntTuple,self).__init__(iterable)
+        # 找到IntTuple的父类（tuple），然后把 类IntTuple 的 对象self 转换为 类tuple 的对象，然后“被转换”的 类tuple对象 调用自己的__init__方法
+	
+t = IntTuple([1,-1,'abc',6,['x','y'],3])
+print t
+
+#输出：
+(1, 6, 3)
+```
+**super**
+[super的使用详解](https://blog.csdn.net/brucewong0516/article/details/79121179)
+```python
+class Parent(object):
+    Value = "Hi, Parent value"
+    def fun(self):
+        print("This is from Parent")
+
+class Child(Parent):
+    Value = "Hi, Child  value"
+    def fun(self):
+        print("This is from Child")
+        Parent.fun(self)   #调用父类Parent的fun函数方法
+
+c = Child()    
+c.fun()
+
+# This is from Child
+# This is from Parent  #实例化子类Child的fun函数时，首先会打印上条的语句，再次调用父类的fun函数方法
+```
+```python
+class Parent(object):
+    Value = "Hi, Parent value"
+    def fun(self):
+        print("This is from Parent")
+
+class Child(Parent):
+    Value = "Hi, Child  value"
+    def fun(self):
+        print("This is from Child")
+        #Parent.fun(self)
+        super(Child,self).fun()  #相当于用super的方法与上一调用父类的语句置换
+
+c = Child()    
+c.fun()
+
+# This is from Child
+# This is from Parent  #实例化子类Child的fun函数时，首先会打印上条的语句，再次调用父类的fun函数方法
+
+```
+
 ### TODO
 ```
 i = 5
