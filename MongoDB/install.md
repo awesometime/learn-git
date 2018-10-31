@@ -2,8 +2,8 @@
    * [docs](#docs)
    * [1 安装](#1-安装)
    * [2 mongo shell 实战](#2-mongo-shell-实战)
-   * [3 pymongo    python 操作 mongo](#3-pymongo-python-操作-mongo)
-   * [4 MongoEngine   ODM   Object-Document Mapper   python 通过 ODM 操作 mongo](#4-MongoEngineODMObject-Document-Mapperpython通过ODM操作mongo)
+   * [3 pymongo python 操作 mongo](#3-pymongo-python-操作-mongo)
+   * [4 MongoEngine ODM Object-Document-Mapper python通过ODM操作mongo](#4-MongoEngine-ODM-Object-Document-Mapper-python通过ODM操作mongo)
      
 
 
@@ -76,7 +76,7 @@ students
 
 ```
 
-### 3 pymongo    python 操作 mongo
+### 3 pymongo python 操作 mongo
 
 ```python
 from pymongo import MongoClient
@@ -193,7 +193,7 @@ if __name__ == "__main__":
 	main()
 ```
 
-### 4 MongoEngine   ODM   Object-Document Mapper   python 通过 ODM 操作 mongo
+### 4 MongoEngine ODM Object-Document-Mapper python通过ODM操作mongo
 
 - [MongoEngine User Documentation](http://docs.mongoengine.org/)
 
