@@ -4,7 +4,7 @@
   
 ### 1 install and docs
 
-- [redis 安装配置](https://www.cnblogs.com/joyet/p/6103041.html)    redis 
+- [redis 安装配置](https://www.cnblogs.com/joyet/p/6103041.html)
 - [redis 中文网](http://www.redis.cn/)
 - [redis 中文网 redis 知识树](http://www.redis.cn/map.html)
 - [github redis-py文档](https://github.com/andymccurdy/redis-py)
