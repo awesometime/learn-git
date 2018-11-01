@@ -1,10 +1,12 @@
+- [8000 star Python的面试题](https://github.com/taizilongxu/interview_python)
+
 <!-- markdown-toc start - Don't edit this section. Run M-x markdown-toc-generate-toc again -->
 **Table of Contents**
 
 
    * [Python基础知识](#python基础知识)
       * [1 yield函数](#1-yield函数)
-      * [2 Python中的反射](#2-python中的反射)
+      * [2 Python中的反射 getattr hasattr setattr delattr](#2-python中的反射-getattr-hasattr-setattr-delattr)
       * [3 sys.stdout sys.stdin](#3-sys.stdout-sys.stdin)
       * [4 sys.argv](#4-sys.argv)
       * [5 locals() globals()](#5-locals()-globals())
@@ -18,7 +20,11 @@
       * [13 字符 编码与二进制  序列化](#13-字符-编码与二进制--序列化)
       * [14 try except](#14-try-except)
       * [15 new init super 方法](#15-new-init-super-方法)
-      * [17 try except](#15-try-except)
+      * [16 单双下划线](#16-单双下划线)
+      * [17 yeild iterator](#17-yeild-iterator)
+      * [18 单双下划线](#16-单双下划线)
+      * [16 单双下划线](#16-单双下划线)
+      * [16 单双下划线](#16-单双下划线)
          * [1 使用__new__方法](#1-使用__new__方法)
          * [2 共享属性](#2-共享属性)
          * [3 装饰器版本](#3-装饰器版本)
@@ -148,7 +154,7 @@ while True:
 
 ```
 
-### 2 Python中的反射
+### 2 Python中的反射 getattr hasattr setattr delattr
 
 - 反射  getattr hasattr setattr delattr
 
@@ -506,7 +512,9 @@ class IntTuple(tuple):
         # 重写父类  new 方法 以满足自己需求
  	g = (x for x in iterable if isinstance(x,int) and x > 0)
         print(cls)
-	return super(IntTuple, cls).__new__(cls,g)
+        # return super(IntTuple, cls).__new__(cls, g)
+        return super().__new__(cls, g)   # 可省略  必须return
+        # return tuple().__new__(cls, g)
         
 	# 必须return init 才能接收到创建的实例
 	# 调用父类的__new__方法
@@ -514,13 +522,16 @@ class IntTuple(tuple):
 	
     def __init__(self, iterable):
         print(self)
-	super(IntTuple,self).__init__()
+        # super(IntTuple,self).__init__()
+	super().__init__()
         # 找到IntTuple的父类（tuple），然后把 类IntTuple 的 对象self 转换为 类tuple 的对象，然后“被转换”的 类tuple对象 调用自己的__init__方法
 	
 t = IntTuple([1,-1,'abc',6,['x','y'],3])
 print t
 
-#输出：
+# 输出：
+<class '__main__.IntTuple'>
+(1, 6, 3)
 (1, 6, 3)
 ```
 **super**
@@ -563,7 +574,315 @@ c.fun()
 # This is from Parent  #实例化子类Child的fun函数时，首先会打印上条的语句，再次调用父类的fun函数方法
 
 ```
+### 16 单双下划线
+https://www.cnblogs.com/hester/articles/4936603.html
+```
+主要存在四种情形
 
+object # public
+__object__   # special, python system use, user should not define like it
+__object     # private (私有变量轧压（Private name mangling）during runtime)
+_object      # obey python coding convention, consider it as private
+
+In [13]: class A(object):
+    ...:        def __init__(self):
+    ...:               self.__private()
+    ...:               self.public()
+    ...:        def _private(self):             # _
+    ...:               print ('A.__private()')
+    ...:        def public(self):
+    ...:               print ('A.public()')
+    ...: class B(A):
+    ...:        def private(self):
+    ...:               print ('B.__private()')
+    ...:        def public(self):
+    ...:               print ('B.public()')
+    ...: b = B()
+---------------------------------------------------------------------------
+AttributeError                            Traceback (most recent call last)
+<ipython-input-13-542aaca0c968> in <module>
+     12        def public(self):
+     13               print ('B.public()')
+---> 14 b = B()
+
+<ipython-input-13-542aaca0c968> in __init__(self)
+      1 class A(object):
+      2        def __init__(self):
+----> 3               self.__private()
+      4               self.public()
+      5        def _private(self):
+
+AttributeError: 'B' object has no attribute '_A__private'
+私有变量会在代码生成之前被转换为长格式（变为公有）。转换机制是这样的：在变量前端插入类名，
+再在前端加入一个下划线字符。这就是所谓的私有变量轧压（Private name mangling）。
+如类 A里的__private标识符将被转换为_A__private，
+
+In [14]: class A(object):
+    ...:        def __init__(self):
+    ...:               self.__private()
+    ...:               self.public()
+    ...:        def __private(self):
+    ...:               print ('A.__private()')
+    ...:        def _public(self):
+    ...:               print ('A.public()')
+    ...: class B(A):
+    ...:        def private(self):
+    ...:               print ('B.__private()')
+    ...:        def public(self):
+    ...:               print ('B.public()')
+    ...: b = B()
+A.__private()
+B.public()
+
+In [15]: b._public()   #  "单下划线" 开始的类对象和子类对象自己能访问到这些变量
+A.public()
+
+In [16]: b.__private()
+---------------------------------------------------------------------------
+AttributeError                            Traceback (most recent call last)
+<ipython-input-16-e63e1c980c04> in <module>
+----> 1 b.__private()
+
+AttributeError: 'B' object has no attribute '__private'
+
+In [17]: A.__private()
+---------------------------------------------------------------------------
+AttributeError                            Traceback (most recent call last)
+<ipython-input-17-55946f8ae125> in <module>
+----> 1 A.__private()
+
+AttributeError: type object 'A' has no attribute '__private'
+
+In [20]: b._A__private()   # "双下划线" 开始的是私有成员，意思是只有类对象自己能访问，连子类对象也不能访问到这个数据
+A.__private()              # 前面加上“单下划线”+类名,eg：_Class__object）机制就可以访问private了
+
+```
+
+### 17 yeild iterator
+**Iterator  Iterable**
+```
+# In [27]: Iterator.__abstractmethods__
+# Out[27]: frozenset({'__next__'})
+
+
+# In [29]: Iterable.__abstractmethods__
+# Out[29]: frozenset({'__iter__'})
+
+# In [1]: l = [1,2,3,4,5]
+
+# In [3]: reversed(l)
+# Out[3]: <list_reverseiterator at 0x29d9d6aa390>
+
+# In [4]: iter(l)
+# Out[4]: <list_iterator at 0x29d9d74d860>
+
+# Iterable 如 list string      /Iterator 如 l = list 中的 l 有__next__()方法
+# Iterable 实现了__iter__ 方法  /Iterator 实现了__next__方法
+# 生成器 都是迭代器
+
+import requests
+from collections import Iterator, Iterable
+
+
+class WeatherIterator(Iterator):
+    def __init__(self, cities):
+        self.cities = cities
+        self.index = 0
+
+    def getWeather(self, city):
+        r = requests.get(u'http://wthrcdn.etouch.cn/weather_mini?city=' + city)
+        data = r.json()['data']['forecast'][0]
+        return '%s: %s, %s' % (city, data['low'], data['high'])
+
+    def __next__(self):
+        if self.index == len(self.cities):
+            raise StopIteration
+        city = self.cities[self.index]
+        self.index += 1
+        return self.getWeather(city)
+
+
+class WeathrerIterable(Iterable):  
+    def __init__(self, cities):
+        self.cities = cities
+
+    def __iter__(self):
+        return WeatherIterator(self.cities)
+
+for x in WeathrerIterable([u'北京', u'上海', u'西安', u'齐齐哈尔', u'厦门', u'广州', u'香港', u'深圳', u'呼和浩特']):
+    print(x)
+
+
+
+
+In [11]: dir(l)   # list 实现的方法    index  reversed  __iter__
+Out[13]:
+Out[11]:
+['__add__', '__class__', '__contains__', '__delattr__', '__delitem__', '__dir__', '__doc__', '__eq__', 
+'__format__', '__ge__', '__getattribute__', '__getitem__', '__gt__', '__hash__', '__iadd__', '__imul__',
+ '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__mul__', '__ne__', '__new__',
+  '__reduce__', '__reduce_ex__', '__repr__', '__reversed__', '__rmul__', '__setattr__', '__setitem__', '__sizeof__',
+   '__str__', '__subclasshook__', 'append', 'clear', 'copy', 'count', 'extend', 'index', 'insert',
+    'pop', 'remove', 'reverse', 'sort']
+
+
+In [13]: dir(ll)   # ll = iter(list)   Iterator 实现的方法   __iter__  __next__
+Out[13]:
+['__class__', '__delattr__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', 
+'__gt__', '__hash__', '__init__', '__init_subclass__', '__iter__', '__le__', '__length_hint__', '__lt__',
+ '__ne__', '__new__', '__next__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__setstate__',
+  '__sizeof__', '__str__', '__subclasshook__']
+
+
+In [22]: def fun():
+    ...:     for i in range(20):
+    ...:         x = yield i  #表达式(yield i)的返回值将赋值给x
+    ...:         print(x)
+    ...:         print('good', x)
+    ...:
+    ...: a = fun()
+
+In [23]: dir(a)   # 生成器实现的方法   __iter__  __next__
+Out[23]:
+['__class__', '__del__', '__delattr__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', 
+'__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__iter__', '__le__', 
+'__lt__', '__name__', '__ne__', '__new__', '__next__', '__qualname__', '__reduce__', '__reduce_ex__',
+ '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', 'close', 'gi_code', 'gi_frame', 
+ 'gi_running', 'gi_yieldfrom', 'send', 'throw']
+ 
+ print(a.__iter__() is a)   # true
+
+
+
+In [6]: l = range(20)
+
+In [7]: l
+Out[7]: range(0, 20)
+
+In [8]: print(l)
+range(0, 20)
+
+In [9]: for x in l:print(x)
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19
+
+
+In [11]: l.__str__
+Out[11]: <method-wrapper '__str__' of range object at 0x0000029D9D4B1FC0>
+
+In [12]: l.__str__()
+Out[12]: 'range(0, 20)'
+
+In [13]: print(l.__str__())
+range(0, 20)
+
+In [14]: print(l.__repr__())
+range(0, 20)
+
+In [15]: t = iter(l)
+
+In [17]: from itertools import islice
+
+In [18]: for x in islice(t, 5,10):
+    ...:     print(x)
+5 6 7 8 9
+
+In [20]: for x in t:
+    ...:     print(x)
+10 11 12 13 14 15 16 17 18 19  # 从10开始
+
+
+
+In [21]: from random  import randint
+
+In [22]: chinese = [randint(60, 100) for x in range(10)]
+
+In [23]: math = [randint(60, 100) for x in range(10)]
+
+In [24]: english = [randint(60, 100) for x in range(10)]
+
+In [26]: for ch, m, en in zip(chinese, math, english):
+    ...:     print(ch + m + en)
+229 261 216 189 256 237 212 242 246 237
+
+
+
+In [27]: from itertools import chain
+
+In [30]: for x in chain(chinese, math, english):
+    ...:     print(x)
+61 86 69 61 94 93 74 86 70 91 98 88 61 64 62 70 66 74 80 84 70 87 86 64 100 74 72 82 96 62
+
+
+
+set(dir(p1)) – set(dir(p2))
+```
+
+**反向迭代  __reversed__**
+```
+class FloatRange:
+    def __init__(self, start, end, step=0.1):
+        self.start = start
+        self.end = end
+        self.step = step
+
+    
+    # 正向迭代
+    def __iter__(self):
+
+        t = self.start
+        # while t <= self.end:
+        while round(t, 2) <= round(self.end, 2):
+            yield t
+            t += self.step
+    
+    
+    # 反向迭代
+    def __reversed__(self):
+        t = self.end
+        # while t >= self.start:
+        while round(t, 2) >= round(self.start, 2):
+            yield t
+            t -= self.step
+
+
+if __name__ == "__main__":
+    for x in FloatRange(1.0, 4.0, 0.5):
+        print(x)
+    print("")
+    for x in reversed(FloatRange(1.0, 4.0, 0.5)):  # __reversed__ 方法的调用?
+        print(x)
+
+```
+**使用生成器函数实现可迭代对象**
+```
+class PrimeNumbers:
+    def __init__(self, start, end):
+        self.start = start
+        self.end = end
+
+    
+    def isPrimeNum(self, k):
+        if k < 2:
+            return False
+
+        for i in range(2, k):
+            if k % i == 0:
+                return False
+        return True
+
+    
+    def __iter__(self):
+        for k in range(self.start, self.end + 1):
+            if self.isPrimeNum(k):
+                yield k     # 由于yield 有__next__方法，可当做Iterator，从而通过生成器函数yield实现 Iterable(对象)
+
+if __name__ == "__main__":
+    for x in PrimeNumbers(1, 100):
+        print(x)
+
+
+#2 3 5 7 11 13 17 19 23 29 31 37 41 43 47 53 59 61 67 71 73 79 83 89 97
+```
 ### TODO
 ```
 i = 5
