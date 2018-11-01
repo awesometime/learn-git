@@ -500,6 +500,44 @@ print( 'd = ', d )
 [try except (异常捕获)](https://www.cnblogs.com/Keep-Ambition/p/7306074.html)
 
 ### 15 new init super 方法
+**new init**
+```
+1、__new__至少要有一个参数cls，代表当前类，此参数在实例化时由Python解释器自动识别
+
+2、__new__必须要有返回值，返回实例化出来的实例，这点在自己实现__new__时要特别注意，可以return父类（通过super(当前类名, cls)）__new__出来的实例，或者直接是object的__new__出来的实例
+
+3、__init__有一个参数self，就是这个__new__返回的实例，__init__在__new__的基础上可以完成一些其它初始化的动作，__init__不需要返回值
+
+4、如果__new__创建的是当前类的实例，会自动调用__init__函数，通过return语句里面调用的__new__函数的第一个参数是cls来保证是当前类实例，
+如果是其他类的类名，(  ????? 找个例子  )；那么实际创建返回的就是其他类的实例，其实就不会调用当前类的__init__函数，也不会调用其他类的__init__函数。
+
+```
+
+```python
+class A(object):
+    def __init__(self):
+        print("init function invoked", self)
+
+    def __new__(cls):
+        print("cls  id", id(cls))
+        print("new function invoked", object.__new__(cls))
+        return object.__new__(cls)
+
+
+a = A()
+print("A  id", id(A))
+b = A()
+
+# cls  id 2722172060296
+# new function  <__main__.A object at 0x00000279D00D8438>
+# init function <__main__.A object at 0x00000279D00D8438>
+# A  id 2722172060296
+# cls  id 2722172060296
+# new function  <__main__.A object at 0x00000279D00D8358>
+# init function <__main__.A object at 0x00000279D00D8358>
+```
+
+
 [Python类与对象实例详解](https://www.imooc.com/article/18018?block_id=tuijian_wz)
 
 定义类IntTuple继承tuple,并实现new,修改实例化行为
