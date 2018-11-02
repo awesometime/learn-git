@@ -16,9 +16,21 @@ G:\PyCharm
 ```python
 
 import os
-root = "E:\\admin\\c0o3ao"
+root = "E:\\强力Django 和杀手级xadmin\\c0o3ao"
 
 for dirpath, dirnames, filenames in os.walk(root):
-    for filepath in filenames:
-        print(os.path.join(dirpath, filepath))
-```
+	for filepath in filenames:
+		if os.path.splitext(filepath)[1]=='.py':
+			print(os.path.join(dirpath, filepath))
+
+
+In [83]: import os
+
+In [84]: help(os.path.splitext)
+Help on function splitext in module ntpath:
+
+splitext(p)
+    Split the extension from a pathname.
+
+    Extension is everything from the last dot to the end, ignoring
+    leading dots.  Returns "(root, ext)"; ext may be empty.
