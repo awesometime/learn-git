@@ -328,6 +328,32 @@ http://landinghub.visualstudio.com/visual-cpp-build-tools
 或者从系统python site-packages 包(前提是已经有mysqlclient包及相关py文件)中复制mysqlclient包及相关py文件到当前目录下
 
 ```
+**virtualenvwrapper-win**
+```
+pip install virtualenvwrapper-win
+添加环境变量  WORK0N_HOME    想存放虚拟环境的目录
+cmd workon   显示你的环境变量中指定的虚拟环境的目录中的envs
+C:\Users\lx>workon
+
+Pass a name to activate one of the following virtualenvs:
+==============================================================================
+
+C:\Users\lx>mkvirtualenv django
+Using base prefix 'c:\\linuix\\python37'
+New python executable in F:\Python\virtualenvs\django\Scripts\python.exe
+Installing setuptools, pip, wheel...
+done.
+
+(django) C:\Users\lx>pip list
+Package    Version
+---------- -------
+pip        18.1
+setuptools 40.5.0
+wheel      0.32.2
+
+(django) C:\Users\lx>
+```
+
 ## 2 django具体知识model
 ```
 """
