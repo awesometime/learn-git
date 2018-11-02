@@ -1,4 +1,5 @@
 - [8000 star Python的面试题](https://github.com/taizilongxu/interview_python)
+- [100 python 面试题](https://blog.csdn.net/weixin_41666747/article/details/79942847)
 
 <!-- markdown-toc start - Don't edit this section. Run M-x markdown-toc-generate-toc again -->
 **Table of Contents**
@@ -24,7 +25,7 @@
       * [17 yeild iterator](#17-yeild-iterator)
       * [18 readline readlines](#18-readline-readlines)
       * [19 闭包](#19-闭包)
-      * [16 单双下划线](#16-单双下划线)
+      * [20 list sort](#20-list-sort)
          * [1 使用__new__方法](#1-使用__new__方法)
          * [2 共享属性](#2-共享属性)
          * [3 装饰器版本](#3-装饰器版本)
@@ -926,6 +927,28 @@ if __name__ == "__main__":
 
 ### 19 闭包
 [看完这篇文章还不懂Python中的闭包，请拍死小编](https://baijiahao.baidu.com/s?id=1601023189180094497&wfr=spider&for=pc)
+
+
+### 20 list sort
+
+**sort 无返回值**
+```python
+
+In [51]: d = ['j', 'd', 'f', 'l', 'a']
+
+In [52]: d.sort()
+
+In [53]: type(d.sort)
+Out[53]: builtin_function_or_method
+
+In [54]: type(d.sort())  # sort 无返回值  但是会对列表的对象进行排序
+Out[54]: NoneType
+
+In [55]: res = "".join(d)  # join 中必须是iterable
+
+In [56]: print(res)
+adfjl
+```
 
 ### TODO
 ```
