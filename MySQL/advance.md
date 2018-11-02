@@ -11,7 +11,10 @@ FROM tableexpression[,…][IN externaldatabase]
 说明： 
 用中括号([])括起来的部分表示是可选的，用大括号({})括起来的部分是表示必须从中选择其中的一个。
 ```
+### 去重
+数据表student有id,name,score,city字段，其中name中的名字可有重复，需要消除重复行
 
+select  distinct  name  from  student
 ### group by
 
 ```
