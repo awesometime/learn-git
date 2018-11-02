@@ -32,3 +32,12 @@ for i in range(5):
 ### collections.defaultdict
 ### collections.OrderedDict  有序字典
 ### collections.Counter  计数器
+
+```python
+In [73]: from collections import Counter
+
+In [74]: a = "kjalfj;ldsjafl;hdsllfdhg;lahfbl;hl;ahlf;h"
+
+In [76]: print(Counter(a))
+Counter({'l': 9, ';': 6, 'h': 6, 'f': 5, 'a': 4, 'j': 3, 'd': 3, 's': 2, 'k': 1, 'g': 1, 'b': 1})
+```
