@@ -25,7 +25,7 @@
       * [17 yeild iterator](#17-yeild-iterator)
       * [18 readline readlines](#18-readline-readlines)
       * [19 闭包](#19-闭包)
-      * [20 list sort](#20-list-sort)
+      * [20 list sort sorted](#20-list-sort-sorted)
          * [1 使用__new__方法](#1-使用__new__方法)
          * [2 共享属性](#2-共享属性)
          * [3 装饰器版本](#3-装饰器版本)
@@ -929,9 +929,9 @@ if __name__ == "__main__":
 [看完这篇文章还不懂Python中的闭包，请拍死小编](https://baijiahao.baidu.com/s?id=1601023189180094497&wfr=spider&for=pc)
 
 
-### 20 list sort
+### 20 list sort sorted
 
-**sort 无返回值**
+**sort 无返回值，将原列表改变    sorted 返回一个序后的新列表，原列表未改变**
 ```python
 
 In [51]: d = ['j', 'd', 'f', 'l', 'a']
@@ -948,6 +948,27 @@ In [55]: res = "".join(d)  # join 中必须是iterable
 
 In [56]: print(res)
 adfjl
+
+
+
+In [1]: list = [0,-1,3,-10,5,9]
+
+In [2]: list.sort()
+
+In [3]: list
+Out[3]: [-10, -1, 0, 3, 5, 9]
+
+
+
+In [4]: list1 = [0,-1,3,-10,5,9]
+
+In [6]: res = sorted(list1,reverse=False)
+
+In [7]: res
+Out[7]: [-10, -1, 0, 3, 5, 9]
+
+In [9]: list1
+Out[9]: [0, -1, 3, -10, 5, 9]
 ```
 
 ### TODO
