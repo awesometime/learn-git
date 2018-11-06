@@ -28,6 +28,7 @@
       * [20 list sort sorted](#20-list-sort-sorted)
       * [21 re正则表达式](#21-re正则表达式)
       * [22 python垃圾回收机制](#22-python垃圾回收机制)
+      * [23 lambda](#23-lambda)
          * [1 使用__new__方法](#1-使用__new__方法)
          * [2 共享属性](#2-共享属性)
          * [3 装饰器版本](#3-装饰器版本)
@@ -1049,6 +1050,19 @@ findall()：返回的就是所有groups的数组，就是group组成的元组的
 ### 22 python垃圾回收机制
 
 [python垃圾回收机制](https://www.cnblogs.com/Xjng/p/5128269.html)
+
+### 23 lambda
+
+```python
+In [1]: a = ["ab", "cd", "", "", "hg",""]
+
+In [3]: res = list(map(lambda x:"fill value" if x=="" else x, a))
+
+In [4]: res
+Out[4]: ['ab', 'cd', 'fill value', 'fill value', 'hg', 'fill value']
+
+
+```
 
 ### TODO
 ```
