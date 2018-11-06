@@ -26,6 +26,7 @@
       * [18 readline readlines](#18-readline-readlines)
       * [19 闭包](#19-闭包)
       * [20 list sort sorted](#20-list-sort-sorted)
+      * [21 re正则表达式](#21-re正则表达式)
          * [1 使用__new__方法](#1-使用__new__方法)
          * [2 共享属性](#2-共享属性)
          * [3 装饰器版本](#3-装饰器版本)
@@ -617,8 +618,8 @@ c.fun()
 ```
 ### 16 单双下划线
 https://www.cnblogs.com/hester/articles/4936603.html
-```
-主要存在四种情形
+```python
+#主要存在四种情形
 
 object # public
 __object__   # special, python system use, user should not define like it
@@ -701,7 +702,7 @@ A.__private()              # 前面加上“单下划线”+类名,eg：_Class__
 
 ### 17 yeild iterator
 **Iterator  Iterable**
-```
+```python
 # In [27]: Iterator.__abstractmethods__
 # Out[27]: frozenset({'__next__'})
 
@@ -859,7 +860,7 @@ set(dir(p1)) – set(dir(p2))
 ```
 
 **反向迭代  __reversed__**
-```
+```python
 class FloatRange:
     def __init__(self, start, end, step=0.1):
         self.start = start
@@ -895,7 +896,7 @@ if __name__ == "__main__":
 
 ```
 **使用生成器函数实现可迭代对象**
-```
+```python
 class PrimeNumbers:
     def __init__(self, start, end):
         self.start = start
@@ -970,6 +971,78 @@ Out[7]: [-10, -1, 0, 3, 5, 9]
 In [9]: list1
 Out[9]: [0, -1, 3, -10, 5, 9]
 ```
+### 20 re正则表达式
+1、match        re.match(pattern, string[, flags])  
+
+从```首字母```开始开始匹配，string如果包含pattern子串，则匹配成功，返回Match对象，失败则返回None，若要完全匹配，pattern要以$结尾。
+
+2、search
+
+        re.search(pattern, string[, flags])  
+若string中包含pattern子串，则返回Match对象，否则返回None，注意，如果string中存在多个pattern子串，```只返回第一个```。
+
+3、findall
+
+        re.findall(pattern, string[, flags])  
+返回string中所有与pattern相匹配的```全部子串```，返回形式为```列表```，```不需要group()```。
+
+4、finditer
+
+        re.finditer(pattern, string[, flags])  
+返回string中所有与pattern相匹配的```全部子串```，返回形式为```迭代器```。
+
+
+若匹配成功，match()/search()返回的是Match对象，finditer()返回的也是Match对象的迭代器，获取匹配结果需要```调用Match对象的group()、groups或group(index)方法```。
+group()、groups()与group(index)的区别，如下所示：
+
+```python
+>>> import re  
+>>> s = '23432werwre2342werwrew'  
+>>> p = r'(\d*)([a-zA-Z]*)'  
+>>> m = re.match(p,s)  
+>>> m.group()  
+'23432werwre'  
+>>> m.group(0)  
+'23432werwre'  
+>>> m.group(1)  
+'23432'  
+>>> m.group(2)  
+'werwre'  
+>>> m.groups()  
+('23432', 'werwre')  
+>>> m = re.findall(p,s)  
+>>> m  
+[('23432', 'werwre'), ('2342', 'werwrew'), ('', '')]  
+>>> p=r'(\d+)'  
+>>> m=re.match(p,s)  
+>>> m.group()  
+'23432'  
+>>> m.group(0)  
+'23432'  
+>>> m.group(1)  
+'23432'  
+>>> m.groups()  
+('23432',)  
+>>> m=re.findall(p,s)  
+>>> m  
+['23432', '2342']  
+```
+
+综上：
+
+group()：母串中与模式pattern匹配的子串；
+
+group(0)：结果与group()一样；
+
+groups()：所有group组成的一个元组，group(1)是与patttern中第一个group匹配成功的子串，group(2)是第二个，
+
+依次类推，如果index超了边界，抛出IndexError；
+
+findall()：返回的就是所有groups的数组，就是group组成的元组的数组，母串中的这一撮组成一个元组，那一措组成一个元组，
+
+这些元组共同构成一个list，就是findall()的返回结果。另，如果groups是只有一个元素的元组，findall的返回结果是子串的list，而不是元组的list了。
+
+
 
 ### TODO
 ```
@@ -981,4 +1054,5 @@ def f(arg=i):
 i = 6
 f()  # 5
 ```
+
 ### 
