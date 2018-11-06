@@ -27,6 +27,7 @@
       * [19 闭包](#19-闭包)
       * [20 list sort sorted](#20-list-sort-sorted)
       * [21 re正则表达式](#21-re正则表达式)
+      * [22 python垃圾回收机制](#22-python垃圾回收机制)
          * [1 使用__new__方法](#1-使用__new__方法)
          * [2 共享属性](#2-共享属性)
          * [3 装饰器版本](#3-装饰器版本)
@@ -1045,8 +1046,9 @@ findall()：返回的就是所有groups的数组，就是group组成的元组的
 这些元组共同构成一个list，就是findall()的返回结果。另，如果groups是只有一个元素的元组，findall的返回结果是子串的list，而不是元组的list了。
 
 
-### 22
+### 22 python垃圾回收机制
 
+[python垃圾回收机制](https://www.cnblogs.com/Xjng/p/5128269.html)
 
 ### TODO
 ```
