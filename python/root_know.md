@@ -972,27 +972,29 @@ In [9]: list1
 Out[9]: [0, -1, 3, -10, 5, 9]
 ```
 ### 21 re正则表达式
-1、match        re.match(pattern, string[, flags])  
+1、match        
+	
+	re.match(pattern, string[, flags])  
 
-从```首字母```开始开始匹配，string如果包含pattern子串，则匹配成功，返回Match对象，失败则返回None，若要完全匹配，pattern要以$结尾。
+从**首字母**开始开始匹配，string如果包含pattern子串，则匹配成功，返回Match对象，失败则返回None，若要完全匹配，pattern要以$结尾。
 
 2、search
 
         re.search(pattern, string[, flags])  
-若string中包含pattern子串，则返回Match对象，否则返回None，注意，如果string中存在多个pattern子串，```只返回第一个```。
+若string中包含pattern子串，则返回Match对象，否则返回None，注意，如果string中存在多个pattern子串，**只返回第一个**。
 
 3、findall
 
         re.findall(pattern, string[, flags])  
-返回string中所有与pattern相匹配的```全部子串```，返回形式为```列表```，```不需要group()```。
+返回string中所有与pattern相匹配的**全部子串**，返回形式为**列表**，**不需要group()**。
 
 4、finditer
 
         re.finditer(pattern, string[, flags])  
-返回string中所有与pattern相匹配的```全部子串```，返回形式为```迭代器```。
+返回string中所有与pattern相匹配的**全部子串**，返回形式为**迭代器**。
 
 
-若匹配成功，match()/search()返回的是Match对象，finditer()返回的也是Match对象的迭代器，获取匹配结果需要```调用Match对象的group()、groups或group(index)方法```。
+若匹配成功，match()/search()返回的是Match对象，finditer()返回的也是Match对象的迭代器，获取匹配结果需要**调用Match对象的group()、groups或group(index)方法**。
 group()、groups()与group(index)的区别，如下所示：
 
 ```python
@@ -1042,6 +1044,8 @@ findall()：返回的就是所有groups的数组，就是group组成的元组的
 
 这些元组共同构成一个list，就是findall()的返回结果。另，如果groups是只有一个元素的元组，findall的返回结果是子串的list，而不是元组的list了。
 
+
+### 22
 
 
 ### TODO
