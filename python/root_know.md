@@ -29,6 +29,8 @@
       * [21 re正则表达式](#21-re正则表达式)
       * [22 python垃圾回收机制](#22-python垃圾回收机制)
       * [23 lambda](#23-lambda)
+      * [24 python传参数是传址 引用](#24-python传参数是传址-引用)
+      
          * [1 使用__new__方法](#1-使用__new__方法)
          * [2 共享属性](#2-共享属性)
          * [3 装饰器版本](#3-装饰器版本)
@@ -1060,9 +1062,17 @@ In [3]: res = list(map(lambda x:"fill value" if x=="" else x, a))
 
 In [4]: res
 Out[4]: ['ab', 'cd', 'fill value', 'fill value', 'hg', 'fill value']
+```
+
+
+### 24 python传参数是传址 引用
+```
 
 
 ```
+
+
+
 
 ### TODO
 ```
