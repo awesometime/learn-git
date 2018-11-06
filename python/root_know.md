@@ -971,7 +971,7 @@ Out[7]: [-10, -1, 0, 3, 5, 9]
 In [9]: list1
 Out[9]: [0, -1, 3, -10, 5, 9]
 ```
-### 20 re正则表达式
+### 21 re正则表达式
 1、match        re.match(pattern, string[, flags])  
 
 从```首字母```开始开始匹配，string如果包含pattern子串，则匹配成功，返回Match对象，失败则返回None，若要完全匹配，pattern要以$结尾。
