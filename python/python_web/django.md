@@ -18,7 +18,7 @@
 
 ### 1.1 写在前边
 
--[python web 框架](https://wiki.python.org/moin/WebFrameworks)
+- [python web 框架](https://wiki.python.org/moin/WebFrameworks)
 
 Django:    1个重武器，包含了web开发中常用的功能、组件的框架；（ORM、Session、Form、Admin、分页、中间件
 
