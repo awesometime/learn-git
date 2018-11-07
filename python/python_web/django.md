@@ -1,9 +1,9 @@
 
-* [1 django部署实践](#1-django部署实践)
-    * [1.1 写在前边](#1.1-写在前边)
-    * [1.2 一些思想](#1.2-一些思想)
-    * [1.3 顺序](#1.3-顺序)
-* [2 django具体知识model](#2-django具体知识model)
+   * [1 django部署实践](#1-django部署实践)
+       * [1.1 写在前边](#1.1-写在前边)
+       * [1.2 一些思想](#1.2-一些思想)
+       * [1.3 顺序](#1.3-顺序)
+   * [2 django具体知识model](#2-django具体知识model)
 
 
 
@@ -60,6 +60,7 @@ Bottle：   比较简单；
 
 ### 1.3 顺序
 ```
+G:\PyCharm\PythonProjects\Django> django-admin startproject project_name
 G:\PyCharm\PythonProjects\Django> python manage.py runserver
 
 $ python manage.py runserver          # 启动开发服务器
