@@ -236,6 +236,13 @@ ssh root@ip
 ssh 普通用户@ip             没试过，估计不能
 
 ```
+#### navicat  连接192 mysql
+
+进入目标机器 192 的数据库
+
+mysql>>>grant all on *.*  to 'root'@'我的机器'  identified by 'password';
+
+打开我的机器上的navicat   新建连接选 ssh
 
 
 #### 通过demo学习OpenStack开发所需的基础知识 -- 软件包管理
