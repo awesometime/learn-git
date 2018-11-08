@@ -17,6 +17,8 @@ https://github.com/vip68/xadmin_bugfix 下载修复版，将其中的xadmin文�
 
 切换到xadmin.zip所在目录下pip install xadmin.zip 此方法将xadmin安装到了python3下dist-packages中
 
+(附)虚拟环境中安装时 直接找到python3下dist-packages中 **xadmin**  和 **xadmin-2.0.1-py3.7.egg-info**复制到虚拟环境中也行
+
 ```shell
 D:\>pip install xadmin.zip
 Processing d:\xadmin.zip
