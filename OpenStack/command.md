@@ -6,9 +6,11 @@
 #### install 
 ```
 由于国外资源下载问题，并且已经有一个机子已经下载成功。
-因为 elijah 通过脚本 pip 下载的文件都被安装于位置 /usr/local/lib/python2.7/dist-packages/下，
+因为通过 elijah github上的脚本 pip 下载的文件都被安装于位置 【/usr/local/lib/python2.7/dist-packages/】下，
 所以将成功了的机子上的/usr/local/lib/python2.7/dist-packages/中的文件复制到 windows，再复制到需要安装elijah 的 2.60机子上。
 搞定。
+
+( 附 OpenStack 手动部署 apt install 包【/usr/lib/python2.7/dist-packages/...】    pip list )
 
 为备以后用，已将dist-packages包备份到百度云，使用时将dist-packages 1234合到一起，合成一个文件夹，放到/usr/local/lib/python2.7/下
 ```
@@ -20,7 +22,7 @@ OpenStack所有项目都是基于Python开发，都是标准的Python项目，�
 想知道一个项目有哪些服务组成，入口函数（main函数）在哪里，最直接的方式就是查看项目根目录下的setup.cfg文件。
 
 
-例如找到[openstack nova源码](https://github.com/openstack/nova)，其中setup.py如下
+例如找到[openstack nova源码官网地址](https://github.com/openstack/nova)，其中setup.py如下
 >>>
 >>>
 >>>openstack/nova/setup.py
@@ -101,12 +103,12 @@ nova.scheduler.driver =
 
 
 ```
-#### openstack 源代码经过 编译后的文件的位置
+#### openstack 源代码文件的位置   /usr/lib/python2.7/dist-packages
 ```
 1 horizon
-Horizon项目核心的代码包有两个：openstack-dashboard和python-django-horizon。
-第一个包是控制台代码的具体实现，是一个基于Django框架的web应用，安装后主要文件在:路径下。
-第二个包是通用的一些Python类库，也包括一些静态文件，安装后在/usr/lib/python2.7/dist-packages/horizon/下。
+Horizon项目核心的代码包有两个：openstack-dashboard 和 python-django-horizon。
+第一个包是控制台代码的具体实现，是一个基于Django框架的web应用，安装后主要文件在【/usr/share/openstack-dashboard/】路径下。
+第二个包是通用的一些Python类库，也包括一些静态文件，安装后在【/usr/lib/python2.7/dist-packages/horizon/】下。
 定制化开发，主要是修改业务代码，基本不需要修改python-django-horizon，所以我们分析的重点放在openstack-dashboard这个包上。
 
 2 nova
@@ -169,6 +171,10 @@ nova-scheduler
 # awk “样式” 文件： 把符合样式的数据行显示出来。
 # cat  /proc/cpuinfo | grep vmx --color
 # cat  /proc/meminfo
+
+cat /var/log/nova/nova-compute.log |grep -E 'error|Error|ERROR|Err'
+cd /var/log/nova  文件夹下  grep -E 'error|Error|ERROR|Err' -r -n
+
 ## KVM关于CPU型号的定义
    libvirt 对CPU的定义提炼出标准的几种类型在 /usr/share/libvirt/cpu_map.xml 可以查到
 ##
