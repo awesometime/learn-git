@@ -1,3 +1,5 @@
+- [xadmin 官网](http://sshwsfc.github.io/xadmin/)
+- [xadmin 文档](https://xadmin.readthedocs.io/en/docs-chinese/index.html)
 - [Python3.6+Django2.0+Xadmin2.0环境搭建](https://www.cnblogs.com/v88v/p/8858853.html)
 
 基于原版xadmin修改，修复原版已知bug，适配Python3.X+Django2.1/2.0
