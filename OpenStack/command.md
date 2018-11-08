@@ -242,7 +242,11 @@ ssh 普通用户@ip             没试过，估计不能
 
 mysql>>>grant all on *.*  to 'root'@'我的机器'  identified by 'password';
 
-打开我的机器上的navicat   新建连接选 ssh
+打开我的机器上的navicat   新建连接
+
+常规中输入数据库的相关信息，主机名用localhost 3306  root  数据库passwd 
+
+ssh中输入服务器信息 ip port:22  root  root用户登录密码
 
 
 #### 通过demo学习OpenStack开发所需的基础知识 -- 软件包管理
