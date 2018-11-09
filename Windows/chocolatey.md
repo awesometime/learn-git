@@ -1,3 +1,4 @@
+### 1 chocolatey安装    管理员身份
 ```shell
 C:\Windows\system32>@"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
 Getting latest version of the Chocolatey package for download.
@@ -208,4 +209,143 @@ Default Options and Switches
 Chocolatey v0.10.11
 
 C:\Windows\system32>
+```
+### 2 C:\Windows\system32> choco install spf13-vim      管理员身份
+```shell
+Windows PowerShell
+版权所有 (C) Microsoft Corporation。保留所有权利。
+
+PS C:\Windows\system32> choco install spf13-vim
+Chocolatey v0.10.11
+Installing the following packages:
+spf13-vim
+By installing you accept licenses for the packages.
+Progress: Downloading vim 8.0.604... 100%
+Progress: Downloading spf13-vim 3.0.3... 100%
+Progress: Downloading curl 7.62.0... 100%
+Progress: Downloading git 2.19.1... 100%
+Progress: Downloading git.install 2.19.1... 100%
+Progress: Downloading chocolatey-core.extension 1.3.3... 100%
+Progress: Downloading ctags 5.8.1... 100%
+
+vim v8.0.604 [Approved]
+vim package files install completed. Performing other installation steps.
+The package vim wants to run 'chocolateyInstall.ps1'.
+Note: If you don't run this script, the installation will fail.
+Note: To confirm automatically next time, use '-y' or consider:
+choco feature enable -n allowGlobalConfirmation
+Do you want to run the script?([Y]es/[N]o/[P]rint): y
+
+Downloading vim
+  from 'https://sourceforge.net/projects/cream/files/Vim/8.0.604/gvim-8-0-604.exe/download'
+Progress: 100% - Completed download of C:\Users\lx\AppData\Local\Temp\chocolatey\vim\8.0.604\gvim-8-0-604.exe (9.22 MB).
+Download of gvim-8-0-604.exe (9.22 MB) completed.
+Installing vim...
+vim has been installed.
+Adding the vim installation directory to PATH …
+PATH environment variable does not have C:\Program Files (x86)\vim\vim80 in it. Adding...
+  vim may be able to be automatically uninstalled.
+Environment Vars (like PATH) have changed. Close/reopen your shell to
+ see the changes (or in powershell/cmd.exe just type `refreshenv`).
+ The install of vim was successful.
+  Software installed as 'exe', install location is likely default.
+
+curl v7.62.0 [Approved]
+curl package files install completed. Performing other installation steps.
+The package curl wants to run 'chocolateyInstall.ps1'.
+Note: If you don't run this script, the installation will fail.
+Note: To confirm automatically next time, use '-y' or consider:
+choco feature enable -n allowGlobalConfirmation
+Do you want to run the script?([Y]es/[N]o/[P]rint):
+
+Timeout or your choice of '' is not a valid selection.
+You must select an answer
+Do you want to run the script?([Y]es/[N]o/[P]rint): y
+
+Extracting 64-bit C:\ProgramData\chocolatey\lib\curl\tools\curl-7.62.0-win64-mingw.zip to C:\ProgramData\chocolatey\lib\curl\tools...
+C:\ProgramData\chocolatey\lib\curl\tools
+ ShimGen has successfully created a shim for curl.exe
+ The install of curl was successful.
+  Software installed to 'C:\ProgramData\chocolatey\lib\curl\tools'
+
+chocolatey-core.extension v1.3.3 [Approved]
+chocolatey-core.extension package files install completed. Performing other installation steps.
+ Installed/updated chocolatey-core extensions.
+ The install of chocolatey-core.extension was successful.
+  Software installed to 'C:\ProgramData\chocolatey\extensions\chocolatey-core'
+
+git.install v2.19.1 [Approved]
+git.install package files install completed. Performing other installation steps.
+The package git.install wants to run 'chocolateyInstall.ps1'.
+Note: If you don't run this script, the installation will fail.
+Note: To confirm automatically next time, use '-y' or consider:
+choco feature enable -n allowGlobalConfirmation
+Do you want to run the script?([Y]es/[N]o/[P]rint): y
+
+Using Git LFS
+Installing 64-bit git.install...
+git.install has been installed.
+git.install installed to 'C:\linuix\Git'
+  git.install can be automatically uninstalled.
+Environment Vars (like PATH) have changed. Close/reopen your shell to
+ see the changes (or in powershell/cmd.exe just type `refreshenv`).
+ The install of git.install was successful.
+  Software installed to 'C:\linuix\Git\'
+
+git v2.19.1 [Approved]
+git package files install completed. Performing other installation steps.
+ The install of git was successful.
+  Software install location not explicitly set, could be in package or
+  default install location if installer.
+
+ctags v5.8.1
+ctags package files install completed. Performing other installation steps.
+The package ctags wants to run 'ChocolateyInstall.ps1'.
+Note: If you don't run this script, the installation will fail.
+Note: To confirm automatically next time, use '-y' or consider:
+choco feature enable -n allowGlobalConfirmation
+Do you want to run the script?([Y]es/[N]o/[P]rint): y
+
+WARNING: Url has SSL/TLS available, switching to HTTPS for download
+Downloading ctags
+  from 'https://sourceforge.net/projects/ctags/files/ctags/5.8/ctags58.zip'
+Progress: 100% - Completed download of C:\Users\lx\AppData\Local\Temp\chocolatey\ctags\5.8.1\ctags58.zip (558.45 KB).
+Download of ctags58.zip (558.45 KB) completed.
+Extracting C:\Users\lx\AppData\Local\Temp\chocolatey\ctags\5.8.1\ctags58.zip to C:\Users\lx\AppData\Local\Temp\chocolatey\chocolatey\ctags...
+C:\Users\lx\AppData\Local\Temp\chocolatey\chocolatey\ctags
+ ShimGen has successfully created a shim for ctags.exe
+ The install of ctags was successful.
+  Software installed to 'C:\Users\lx\AppData\Local\Temp\chocolatey\chocolatey\ctags'
+
+spf13-vim v3.0.3 [Approved]
+spf13-vim package files install completed. Performing other installation steps.
+The package spf13-vim wants to run 'chocolateyInstall.ps1'.
+Note: If you don't run this script, the installation will fail.
+Note: To confirm automatically next time, use '-y' or consider:
+choco feature enable -n allowGlobalConfirmation
+Do you want to run the script?([Y]es/[N]o/[P]rint): y
+
+#< CLIXML
+<Objs Version="1.1.0.1" xmlns="http://schemas.microsoft.com/powershell/2004/04"><Obj S="progress" RefId="0"><TN RefId="0"><T>System.Management.Automation.PSCustomObject</T><T>System.Object</T></TN><MS><I64 N="SourceId">1</I64><PR N="Record"><AV>正在准备首次使用模块。</AV><AI>0</AI><Nil /><PI>-1</PI><PC>-1</PC><T>Completed</T><SR>-1</SR><SD> </SD></PR></MS></Obj><Obj S="progress" RefId="1"><TNRef RefId="0" /><MS><I64 N="SourceId">1</I64><PR N="Record"><AV>正在准备首次使用模块 。</AV><AI>0</AI><Nil /><PI>-1</PI><PC>-1</PC><T>Completed</T><SR>-1</SR><SD> </SD></PR></MS></Obj><S S="debug">Host version is 5.1.17763.1, PowerShell Version is '5.1.17763.1' and CLR Version is '4.0.30319.42000'.</S><S S="verbose">正在导 出函数“Format-FileSize”。</S><S S="verbose">正在导出函数“Get-ChecksumValid”。</S><S S="verbose">正在导出函数“Get-ChocolateyUnzip”。</S><S S="verbose">正在导出函数“Get-ChocolateyWebFile”。</S><S S="verbose">正在导出函数“Get-EnvironmentVariable”。</S><S S="verbose">正在导出函数“Get-EnvironmentVariableNames”。</S><S S="verbose">正在导出函数“Get-FtpFile”。</S><S S="verbose">正在导出函数“Get-OSArchitectureWidth”。</S><S S="verbose">正在导出函数“Get-PackageParameters”。</S><S S="verbose">正在导出函数“Get-PackageParametersBuiltIn”。</S><S S="verbose">正在导出函数“Get-ToolsLocation”。</S><S S="verbose">正在导出函数“Get-UACEnabled”。</S><S S="verbose">正在导出函数“Get-UninstallRegistryKey”。</S><S S="verbose">正在导出函数“Get-VirusCheckValid”。</S><S S="verbose">正在导出函数“Get-WebFile”。</S><S S="verbose">正在导出函数“Get-WebFileName”。</S><S S="verbose">正在导出函数“Get-WebHeaders”。</S><S S="verbose">正在导出函数“Install-BinFile”。</S><S S="verbose">正在导出函数“Install-ChocolateyDesktopLink”。</S><S S="verbose">正在导出函数“Install-ChocolateyEnvironmentVariable”。</S><S S="verbose">正在导出函数“Install-ChocolateyExplorerMenuItem”。</S><S S="verbose">正在导出函数“Install-ChocolateyFileAssociation”。</S><S S="verbose">正在导出函数“Install-ChocolateyInstallPackage”。</S><S S="verbose">正在导出函数“Install-ChocolateyPackage”。</S><S S="verbose">正在导出函数“Install-ChocolateyPath”。</S><S S="verbose">正在导出函数“Install-ChocolateyPinnedTaskBarItem”。</S><S S="verbose">正在导出函数“Install-ChocolateyPowershellCommand”。</S><S S="verbose">正在导出函数“Install-ChocolateyShortcut”。</S><S S="verbose">正在导 出函数“Install-ChocolateyVsixPackage”。</S><S S="verbose">正在导出函数“Install-ChocolateyZipPackage”。</S><S S="verbose">正在导出函数“Install-Vsix”。</S><S S="verbose">正在导出函数“Set-EnvironmentVariable”。</S><S S="verbose">正在导出函数“Set-PowerShellExitCode”。</S><S S="verbose">正在导出函数“Start-ChocolateyProcessAsAdmin”。</S><S S="verbose">正在导出函数“Test-ProcessAdminRights”。</S><S S="verbose">正在导出函数“Uninstall-BinFile”。</S><S S="verbose">正在导出函数“Uninstall-ChocolateyEnvironmentVariable”。</S><S S="verbose">正在导出函数“Uninstall-ChocolateyPackage”。</S><S S="verbose">正在导出函数“Uninstall-ChocolateyZipPackage”。</S><S S="verbose">正在导出函数“Update-SessionEnvironment”。</S><S S="verbose">正在导出函数“Write-ChocolateyFailure”。</S><S S="verbose">正在导出函数“Write-ChocolateySuccess”。</S><S S="verbose">正在导出函数“Write-FileUpdateLog”。</S><S S="verbose">正在导出函数“Write-FunctionCallLogMessage”。</S><S S="verbose">正在导出别名“Get-ProcessorBits”。</S><S S="verbose">正在导出别名“Get-OSBitness”。</S><S S="verbose">正在导出别名“Get-InstallRegistryKey”。</S><S S="verbose">正在导出别名“Generate-BinFile”。</S><S S="verbose">正在导出别名“Add-BinFile”。</S><S S="verbose">正在导出别名“Start-ChocolateyProcess”。</S><S S="verbose">正在导出别名“Invoke-ChocolateyProcess”。</S><S S="verbose">正在导出别名“Remove-BinFile”。</S><S S="verbose">正在导出别名“refreshenv”。</S><S S="debug">Loading community extensions</S><S S="debug">Importing 'C:\ProgramData\chocolatey\extensions\chocolatey-core\chocolatey-core.psm1'</S><S S="verbose">正在从路径“C:\ProgramData\chocolatey\extensions\chocolatey-core\chocolatey-core.psm1”加载模块。</S><S S="verbose">正在导出函数“Get-UninstallRegistryKey”。</S><S S="verbose">正在导出 函数“Get-AppInstallLocation”。</S><S S="verbose">正在导出函数“Get-AvailableDriveLetter”。</S><S S="verbose">正在导出函数“Get-EffectiveProxy”。</S><S S="verbose">正在导出函数“Get-PackageCacheLocation”。</S><S S="verbose">正在导出函数“Get-PackageParameters”。</S><S S="verbose">正在导出函数“Get-WebContent”。</S><S S="verbose">正在导出函数“Register-Application”。</S><S S="verbose">正在导入函数“Get-AppInstallLocation”。</S><S S="verbose">正在导入函数“Get-AvailableDriveLetter”。</S><S S="verbose">正在导入函数“Get-EffectiveProxy”。</S><S S="verbose">正在导入函数“Get-PackageCacheLocation”。</S><S S="verbose">正在导入函数“Get-PackageParameters”。</S><S S="verbose">正在导入函数“Get-UninstallRegistryKey”。</S><S S="verbose">正在导入函数“Get-WebContent”。</S><S S="verbose">正在导入函数“Register-Application”。</S><S S="verbose">正在导出函数“Format-FileSize”。</S><S S="verbose">正在导出函数“Get-ChecksumValid”。</S><S S="verbose">正在导出函数“Get-ChocolateyUnzip”。</S><S S="verbose">正在导出函数“Get-ChocolateyWebFile”。</S><S S="verbose">正 在导出函数“Get-EnvironmentVariable”。</S><S S="verbose">正在导出函数“Get-EnvironmentVariableNames”。</S><S S="verbose">正在导出函数“Get-FtpFile”。</S><S S="verbose">正在导出函数“Get-OSArchitectureWidth”。</S><S S="verbose">正在导出 函数“Get-PackageParameters”。</S><S S="verbose">正在导出函数“Get-PackageParametersBuiltIn”。</S><S S="verbose">正在 导出函数“Get-ToolsLocation”。</S><S S="verbose">正在导出函数“Get-UACEnabled”。</S><S S="verbose">正在导出函数“Get-UninstallRegistryKey”。</S><S S="verbose">正在导出函数“Get-VirusCheckValid”。</S><S S="verbose">正在导出函数“Get-WebFile”。</S><S S="verbose">正在导出函数“Get-WebFileName”。</S><S S="verbose">正在导出函数“Get-WebHeaders”。</S><S S="verbose">正在导出函数“Install-BinFile”。</S><S S="verbose">正在导出函数“Install-ChocolateyDesktopLink”。</S><S S="verbose">正在导出函数“Install-ChocolateyEnvironmentVariable”。</S><S S="verbose">正在导出函数“Install-ChocolateyExplorerMenuItem”。</S><S S="verbose">正在导出函数“Install-ChocolateyFileAssociation”。</S><S S="verbose">正在导出函数“Install-ChocolateyInstallPackage”。</S><S S="verbose">正在导出函数“Install-ChocolateyPackage”。</S><S S="verbose">正在导 出函数“Install-ChocolateyPath”。</S><S S="verbose">正在导出函数“Install-ChocolateyPinnedTaskBarItem”。</S><S S="verbose">正在导出函数“Install-ChocolateyPowershellCommand”。</S><S S="verbose">正在导出函数“Install-ChocolateyShortcut” 。</S><S S="verbose">正在导出函数“Install-ChocolateyVsixPackage”。</S><S S="verbose">正在导出函数“Install-ChocolateyZipPackage”。</S><S S="verbose">正在导出函数“Install-Vsix”。</S><S S="verbose">正在导出函数“Set-EnvironmentVariable”。</S><S S="verbose">正在导出函数“Set-PowerShellExitCode”。</S><S S="verbose">正在导出函数“Start-ChocolateyProcessAsAdmin”。</S><S S="verbose">正在导出函数“Test-ProcessAdminRights”。</S><S S="verbose">正在导出函数“Uninstall-BinFile”。</S><S S="verbose">正在导出函数“Uninstall-ChocolateyEnvironmentVariable”。</S><S S="verbose">正在导出函数“Uninstall-ChocolateyPackage”。</S><S S="verbose">正在导出函数“Uninstall-ChocolateyZipPackage”。</S><S S="verbose">正在导出函数“Update-SessionEnvironment”。</S><S S="verbose">正在导出函数“Write-ChocolateyFailure”。</S><S S="verbose">正在导出函数“Write-ChocolateySuccess”。</S><S S="verbose">正在导出函数“Write-FileUpdateLog”。</S><S S="verbose">正在导出函数“Write-FunctionCallLogMessage”。</S><S S="verbose">正在导出函数“Get-AppInstallLocation”。</S><S S="verbose">正在导出函数“Get-AvailableDriveLetter”。</S><S S="verbose">正在导出函数“Get-EffectiveProxy”。</S><S S="verbose">正在导出函数“Get-PackageCacheLocation”。</S><S S="verbose">正在导出函数“Get-WebContent”。</S><S S="verbose">正在导出函数“Register-Application”。</S><S S="verbose">正在导出别名“Get-ProcessorBits”。</S><S S="verbose">正在导出别名“Get-OSBitness”。</S><S S="verbose">正在导出别名“Get-InstallRegistryKey”。</S><S S="verbose">正在导出别名“Generate-BinFile”。</S><S S="verbose">正在导出别名“Add-BinFile”。</S><S S="verbose">正在导出别名“Start-ChocolateyProcess”。</S><S S="verbose"> 正在导出别名“Invoke-ChocolateyProcess”。</S><S S="verbose">正在导出别名“Remove-BinFile”。</S><S S="verbose">正在导出别名“refreshenv”。</S><Obj S="information" RefId="2"><TN RefId="1"><T>System.Management.Automation.InformationRecord</T><T>System.Object</T></TN><ToString>-= Installing spf13-vim =-</ToString><Props><Obj N="MessageData" RefId="3"><TN RefId="2"><T>System.Management.Automation.HostInformationMessage</T><T>System.Object</T></TN><ToString>-= Installing spf13-vim =-</ToString><Props><S N="Message">-= Installing spf13-vim =-</S><B N="NoNewLine">false</B><S N="ForegroundColor">DarkYellow</S><S N="BackgroundColor">DarkMagenta</S></Props></Obj><S N="Source">C:\ProgramData\chocolatey\lib\spf13-vim\tools\spf13-vim-windows-install.ps1</S><DT N="TimeGenerated">2018-11-09T14:24:02.8050678+08:00</DT><Obj N="Tags" RefId="4"><TN RefId="3"><T>System.Collections.Generic.List`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</T><T>System.Object</T></TN><LST><S>PSHOST</S></LST></Obj><S N="User">DESKTOP-32BH6EU\lx</S><S N="Computer">DESKTOP-32BH6EU</S><U32 N="ProcessId">10164</U32><U32 N="NativeThreadId">1972</U32><U32 N="ManagedThreadId">9</U32></Props></Obj><Obj S="information" RefId="5"><TNRef RefId="1" /><ToString>Checking for installation dependencies:</ToString><Props><Obj N="MessageData" RefId="6"><TNRef RefId="2" /><ToString>Checking for installation dependencies:</ToString><Props><S N="Message">Checking for installation dependencies:</S><B N="NoNewLine">false</B><S N="ForegroundColor">DarkYellow</S><S N="BackgroundColor">DarkMagenta</S></Props></Obj><S N="Source">C:\ProgramData\chocolatey\lib\spf13-vim\tools\spf13-vim-windows-install.ps1</S><DT N="TimeGenerated">2018-11-09T14:24:02.8315157+08:00</DT><Obj N="Tags" RefId="7"><TNRef RefId="3" /><LST><S>PSHOST</S></LST></Obj><S N="User">DESKTOP-32BH6EU\lx</S><S N="Computer">DESKTOP-32BH6EU</S><U32 N="ProcessId">10164</U32><U32 N="NativeThreadId">1972</U32><U32 N="ManagedThreadId">9</U32></Props></Obj><S S="warning">Could not install spf13-vim!</S><S S="warning">Git not found! The git commandline must be installed before running this script</S></Objs>
+0
+WARNING: Write-ChocolateySuccess is deprecated and will be removed in v2. If you are the maintainer, please remove it from your package file.
+Only an exit code of non-zero will fail the package by default. Set
+ `--failonstderr` if you want error messages to also fail a script. See
+ `choco -h` for details.
+ The install of spf13-vim was successful.
+  Software install location not explicitly set, could be in package or
+  default install location if installer.
+
+Chocolatey installed 7/7 packages.
+ See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log).
+
+Installed:
+ - spf13-vim v3.0.3
+ - chocolatey-core.extension v1.3.3
+ - ctags v5.8.1
+ - git.install v2.19.1
+ - vim v8.0.604
+ - curl v7.62.0
+ - git v2.19.1
+PS C:\Windows\system32>
 ```
