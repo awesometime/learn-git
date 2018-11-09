@@ -18,7 +18,7 @@
 </p>
 
 
-
+- [git 简明教程](http://rogerdudler.github.io/git-guide/index.zh.html)
 - [Git Internal(初探git的内部实现)](https://changchen.me/blog/20180315/git-internal/)
 - [test](#test)
 - [干货](#干货)
