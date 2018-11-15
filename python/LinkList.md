@@ -1,4 +1,10 @@
-### python 实现单链表 
+    * [1 python 实现单链表](#1-python-实现单链表)
+    * [2 python 实现循环单链表](#2-python-实现循环单链表)
+    * [3 python 实现双链表](#3-python-实现双链表)
+    * [4 python实现linklist](#4-python实现linklist)
+    * [5 leetcode题2](#5-leetcode题2)
+
+### 1 python 实现单链表 
 
 https://baagee.vip/index/article/id/100.html
 ```python
@@ -207,7 +213,7 @@ if __name__ == '__main__':
     print(single_link_list.length())
 
 ```
-### python 实现循环单链表
+### 2 python 实现循环单链表
 ```python
 class SingleNode(object):
     """节点"""
@@ -420,7 +426,7 @@ if __name__ == '__main__':
     # single_circle_link_list.travel()
     # print(single_circle_link_list.remove(3))
 ```
-### python 实现双链表
+### 3 python 实现双链表
 ```python
 class DoubleNode(object):
     """节点"""
@@ -600,11 +606,11 @@ if __name__ == '__main__':
     print(double_link_list.length())
 
 ```
-### http://www.cnblogs.com/yuanmingzhou/p/9661152.html
+### 4 python实现linklist
 
 [LISTNODE的PYTHON 实现](http://www.cnblogs.com/yuanmingzhou/p/9661152.html)
 
-### https://github.com/DinnerHowe/LeetCode/blob/master/2_Add_Two_Numbers.py
+### 5 leetcode题2
 ```python
 # -*- coding:utf-8 -*-
 """
