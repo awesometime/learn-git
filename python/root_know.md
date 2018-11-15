@@ -30,6 +30,7 @@
       * [22 python垃圾回收机制](#22-python垃圾回收机制)
       * [23 lambda](#23-lambda)
       * [24 python传参数是传址 引用](#24-python传参数是传址-引用)
+      * [25 if not](#25-if-not)
       
          * [1 使用__new__方法](#1-使用__new__方法)
          * [2 共享属性](#2-共享属性)
@@ -1070,7 +1071,10 @@ Out[4]: ['ab', 'cd', 'fill value', 'fill value', 'hg', 'fill value']
 
 
 ```
+### 25 if not
 
+if ture  才会执行
+[if not ](https://www.cnblogs.com/chenya/p/4218761.html)
 
 
 
