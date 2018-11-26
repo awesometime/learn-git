@@ -2,11 +2,16 @@ history    存在/root/.bash_history
 
 mount /dev/hda1 /mnt   把/dev/hda1挂在/mnt下
 
-df  disk free
+df      disk free
+
+find 
+
+/etc/passwd
 
 ### 
 ```
 生成文件的MD5、SHA、SHA256
+---------------------------------------------------
 Linux系统生成MD5、SHA、SHA256
 md5sum file1.zip  >> MD5.txt
 
