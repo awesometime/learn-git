@@ -107,16 +107,17 @@ Scikits 以 Scipy 为基础，提供如 scikits-learn 机器学习和scikits-ima
 
 
 ### 4  Jupyter notebook 单独安装(不基于Anaconda) 
+```
 >>>python -m pip install upgrade pip 
 
 >>>pip install jupyter
 
 >>>jupyter notebook   # 安装完打开notebook
 
->>>jupyter-notebook –generate-config   会返回一个文件的路径，打开该文件
+>>>jupyter-notebook --generate-config   会返回一个文件的路径，打开该文件
 
 Writing default config to: C:\Users\xxx\.jupyter\jupyter_notebook_config.py
-
+```
 
 修改配置文件  C:\Users\linuix\.jupyter\jupyter_notebook_config.py  中大概第261行的
 
