@@ -1,0 +1,14 @@
+2013-03-0917:05:42 TRACE nova return libvirt.openAuth(uri, auth, 0)
+2013-03-09 17:05:42 TRACE nova File “/usr/lib/python2.7/dist-packages/libvirt.py”, line 102, in openAuth
+2013-03-09 17:05:42 TRACE nova if ret is None:raise libvirtError(‘virConnectOpenAuth() failed’)
+2013-03-09 17:05:42 TRACE nova libvirtError: Failed to connect socket to ‘/var/run/libvirt/libvirt-sock’: No such file or directory
+2013-03-09 22:05:41.909+0000: 12466: info : libvirt version: 0.9.8
+2013-03-09 22:05:41.909+0000: 12466: error : virNetServerMDNSStart:460 : internal error Failed to create mDNS client: Daemon not running
+2013-03-09 17:58:08 TRACE nova raise exception.InstanceNotFound(instance_id=instance_name)
+2013-03-09 17:58:08 TRACE nova InstanceNotFound: Instance instance-00000002 could not be found.
+2013-03-09 17:58:08 TRACE nova
+2012-07-24 14:33:08 TRACE nova.rpc.amqp ProcessExecutionError: Unexpected error while running command.
+2012-07-24 14:33:08 TRACE nova.rpc.amqp Command: sudo nova-rootwrap iscsiadm -m node -T iqn.2010-10.org.openstack:volume-00000011 -p 192.168.0.23:3260 –rescan
+2012-07-24 14:33:08 TRACE nova.rpc.amqp Exit code: 255
+2012-07-24 14:33:08 TRACE nova.rpc.amqp Stdout: ”
+2012-07-24 14:33:08 TRACE nova.rpc.amqp Stderr: ‘iscsiadm: No portal found
