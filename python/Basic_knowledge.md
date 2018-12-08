@@ -7,6 +7,18 @@
 - [人工智能 机器学习 深度学习 入门及进阶资料](Python入门网络爬虫之精华版)
 - [Python入门网络爬虫之精华版](https://github.com/lining0806/PythonSpiderNotes)
 
+### python36 python37共存
+
+```
+将python36目录下的python.exe的名字改成python36.exe   python37目录下的python.exe仍然不变
+pyhton36 python37 都添加path  假设python37在path的靠前位置，则默认先识别到是python37
+cmd 中 输入python打开的是python37 python36打开的是python36
+cmd 中 输入pip3.6则下载到python36目录下pip则下载到python37下
+
+tensorflow 在jupyter notebook中的使用：由于tensorflow目前支持到python36：
+先将python37从path中删除，打开就是用的python36解释器
+使用结束需要用python37的话，再将python37添加到path（在python36前）
+```
 
 ### pip相关
 pip安装时指定清华源速度快,比如安装lxml  `pip install --index https://mirrors.ustc.edu.cn/pypi/web/simple/  lxml`
