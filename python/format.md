@@ -15,6 +15,19 @@ i am Zc
 ```
 ### 进度条
 ```python
+###############0
+# 模板 未验证
+inf = open(filename, "r")
+  
+count = 0
+for line in inf:
+    count += 1
+    if count % 100 == 0:
+      sys.stdout.write("\r ==> processed {}".format(count))
+      sys.stdout.flush()
+inf.close()
+  
+  
 ###############1
 import time
 import sys
