@@ -67,6 +67,7 @@ class LogKeyLabel(object):
                 line = re.sub('(\/((\d+)\.){3}(\d+)\:(\d+))|((\d+)\.){3}(\d+)\:(\d+)|\d+', '', line)
                 line = re.sub('\/.*', '', line)
                 line = re.sub('\:|,', '', line)
+                line = re.sub('java\..*', '', line)
                 outf.write(line + "\n")
         outf.close()
 
