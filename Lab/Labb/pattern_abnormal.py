@@ -32,7 +32,7 @@ class LogKeyLabel(object):
             for line in f:
                 line = line.strip()
                 line = re.sub('\(\.\*\)', '', line)
-                line = re.sub('\(\[-\]\?\[0-9]\+\)|\(\[-\]\?\[0-9]\+\)', '', line)
+                line = re.sub('\(\[-\]\?\[0-9\]\+\)|\(\[-\]\?\[0-9\]\+\)', '', line)
 
                 il = re.search('(\d+)(\.)(.*)', line).group(1)
                 index_list.append(il)
