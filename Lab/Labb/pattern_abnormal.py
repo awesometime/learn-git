@@ -1,6 +1,7 @@
 ##python3
 
 import re
+import sys
 import difflib
 import pandas as pd
 
@@ -18,8 +19,8 @@ class LogKeyLabel(object):
 
     def pattern_list(self, inpath, outpath):
         """
-        实现 ： 输入是 29行 n.pattern 
-        将 29个 pattern 存成 (index, pattern) 组成的列表  
+        实现 ： 输入是 29行 n.pattern
+        将 29个 pattern 存成 (index, pattern) 组成的列表
         :param inpath:
         :param outpath:
         :return:  list of tuple of sorted pattern dict
@@ -125,13 +126,13 @@ class AbnormityLabel(object):
         # 全部 57 万 blk_
         # dict以后 key 会去重
         blk_label_dict = dict(zip(blk_list, label_list))
-        # print(len(blk_label_dict))  # 575139
+        # print(len(blk_label_dict))  # 575138
 
         # 取label为1异常的(Abnormity)的blk_   {"blk_" :"1"}
         for key in list(blk_label_dict.keys()):
             if blk_label_dict[key] == "0":
                 del blk_label_dict[key]
-        # print(len(blk_label_dict))  # 16916
+        # print(len(blk_label_dict))  # 16915
         return blk_label_dict
 
     def fetch_blk(self, inpath, outpath):
@@ -180,14 +181,25 @@ class AbnormityLabel(object):
         implement : 每条log 的 blk 去匹配 blk_label_dict, 若匹配到则将log的label置为1(Abnormity),其余为0(nomal)
         :return:
         """
+        # check file is existed
         try:
             f = open(inpath, 'r')
             f.close()
         except FileNotFoundError:
             print("File is not found.")
+        # get blk_label_dict
         blk_label_dict = self.blk_label_dict(path6, path7)
+        # init var
         log_key_normal_label = []
+
+        # 打开 get, total = total line of file 关闭,否则readlines后读到内存里,文件就空了,后边打开内容为空
+        inf = open(inpath, 'r')
+        total = len(inf.readlines())
+        inf.close()
+
+        # 再次打开
         with open(inpath, 'r') as f:
+            match_num = 0
             for line in f:
                 line = line.strip()
                 blk_list = re.findall("blk_-\d+|blk_\d+", line)
@@ -197,9 +209,26 @@ class AbnormityLabel(object):
                     log_key_normal_label.append(self.match(blk_label_dict, blk_list)[0])
                 else:
                     log_key_normal_label.append(self.match(blk_label_dict, blk_list)[0])
+
+                # 打印进度条
+                match_num += 1
+                if match_num == total:
+                    percent = 100.0
+                    sys.stdout.write(
+                        '\r' + '当前进度 : {} [{}/{}] log_key_normal_label have been matched'.format(
+                            str(percent) + '%',
+                            match_num, total))
+                    sys.stdout.flush()
+                elif match_num % 100 == 0:
+                    percent = round(1.0 * match_num / total * 100, 2)
+                    sys.stdout.write(
+                        '\r' + '当前进度 : {} [{}/{}] log_key_normal_label have been matched'.format(
+                            str(percent) + '%',
+                            match_num, total))
         # print(log_key_normal_label)
         # print(len(log_key_normal_label))
         # return log_key_normal_label
+
         # log_key_normal_label   list 输出到文件中
         outf = open(outpath, 'w')
         for i in log_key_normal_label:
@@ -221,35 +250,36 @@ class AbnormityLabel(object):
 def main():
     lp = LogKeyLabel()
     pattern_list = lp.pattern_list(path1, path2)
-    print("get pattern list ok :)" + "\n")
+    print("1 get pattern list ok :)  please see in {}".format(path2) + "\n")
     lp.get_log_key(path3, path4)
-    print("get log key ok:)" + "\n")
+    print("2 get log key ok:)  please see in {}".format(path4) + "\n")
     lp.label(pattern_list, path4, path5)
-    print("put tag on every log key ok:)  please see in xxx-filename" + "\n")
+    print("3 put tag on every log key ok:)  please see in {}".format(path5) + "\n")
 
 
 def main2():
     al = AbnormityLabel()
     al.fetch_blk(path3, path8)
-    print("fetch blk of every line ok:)" + "\n")
+    print("4 fetch blk of every line ok:)  please see in {}".format(path8) + "\n")
     al.label(path8, path9)
-    print("label abnormal ok:)" + "\n")
+    print("\n" + "5 label abnormal ok:)  please see in {}".format(path9) + "\n")
     al.save_pattern_abnormal(path5, path9, path10)
-    print("save pattern and abnormal ok:)" + "\n")
+    print("6 save pattern and abnormal ok:)  please see in {}".format(path10) + "\n")
 
 
+    
 if __name__ == "__main__":
     # path1 path3 path6 path7 为事先存在的文件
     # path1 是29 个log key pattern
-    path1 = "F:/_data/200nodes/col.txt"
-    path2 = "F:/_data//200nodes/col_header_dict.txt"
-    path3 = "F:/_data/200nodes/sorted-10000.log"
-    path4 = "F:/_data/200nodes/sorted-10000_log_key.log"
-    path5 = "F:/_data/200nodes/log_key_label.log"
-    path6 = "F:/_data/200nodes/nameIndex.txt"
-    path7 = "F:/_data/200nodes/mlabel.txt"
-    path8 = "F:/_data/200nodes/sorted-10000_blk.log"
-    path9 = "F:/_data/200nodes/abnormal_label.log"
-    path10 = "F:/_data/200nodes/pattern_abnormal.log"
+    path1 = "D:/data analysis/200nodes/file/col_header.txt"
+    path2 = "D:/data analysis/200nodes/file/col_header_dict.txt"
+    path3 = "D:/data analysis/200nodes/file/sorted-10000.log"
+    path4 = "D:/data analysis/200nodes/file/sorted-10000_log_key.log"
+    path5 = "D:/data analysis/200nodes/file/log_key_label.log"
+    path6 = "D:/data analysis/200nodes/file/nameIndex.txt"
+    path7 = "D:/data analysis/200nodes/file/mlabel.txt"
+    path8 = "D:/data analysis/200nodes/file/sorted-10000_blk.log"
+    path9 = "D:/data analysis/200nodes/file/abnormal_label.log"
+    path10 = "D:/data analysis/200nodes/file/pattern_abnormal.log"
     main()
     main2()
