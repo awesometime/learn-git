@@ -17,7 +17,7 @@ cmd 中 输入pip3.6则下载到python36目录下pip则下载到python37下
 
 tensorflow 在jupyter notebook中的使用：由于tensorflow目前支持到python36：
 先将python37从path中删除，打开就是用的python36解释器
-使用结束需要用python37的话，再将python37添加到path（在python36前）
+使用结束需要用python37的话,比如Django的Xadmin，再将python37添加到path（在python36前）
 ```
 
 ### pip相关
