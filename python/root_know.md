@@ -31,7 +31,8 @@
       * [23 lambda](#23-lambda)
       * [24 python传参数是传址 引用](#24-python传参数是传址-引用)
       * [25 if not](#25-if-not)
-      * [26 __name__](#26-__name__)
+      * [26 name main](#26-name-main)
+      * [27 classmethod staticmethod](#27-classmethod-staticmethod)
       
          * [1 使用__new__方法](#1-使用__new__方法)
          * [2 共享属性](#2-共享属性)
@@ -1084,6 +1085,61 @@ __name__就是标识模块的名字的一个系统变量。这里分两种情况
 那么此模块名字就是__main__，通过if判断这样就可以执行“__mian__:”后面的主函数内容；
 
 假如此模块是被import的，则此模块名字为文件名字（不加后面的.py），通过if判断这样就会跳过“__mian__:”后面的内容。
+```
+### 27 classmethod staticmethod
+```python
+class A(object):
+    def foo(self, x): 
+        print("executing foo(%s,%s)" % (self, x))
+        print('self:', self)
+    @classmethod
+    def class_foo(cls, x):
+        print("executing class_foo(%s,%s)" % (cls, x))
+        print('cls:', cls)
+    @staticmethod
+    def static_foo(x):    # self cls 粉色显示  三个x白色显示
+        print("executing static_foo(%s)" % x)
+a = A()
+m = "ML"
+a.foo(m)
+a.class_foo(m)
+a.static_foo(m)
+
+>>>
+executing foo(<__main__.A object at 0x000001C7D0614588>,ML)
+self: <__main__.A object at 0x000001C7D0614588>
+executing class_foo(<class '__main__.A'>,ML)
+cls: <class '__main__.A'>
+executing static_foo(ML)
+
+```
+```python
+class A(object):
+    def foo(self, x):         # x白色显示
+        print("executing foo(%s,%s)" % (self, x))
+        print('self:', self)
+    # @classmethod 
+    def class_foo(cls, x):    # x白色显示
+        print("executing class_foo(%s,%s)" % (cls, x))
+        print('cls:', cls)
+    # @staticmethod
+    def static_foo(x):        # self cls 粉色显示  此处x粉色显示，默认传入自己 所以后面报错
+        print("executing static_foo(%s)" % x)
+a = A()
+m = "ML"
+a.foo(m)
+a.class_foo(m)
+a.static_foo(m)
+
+>>>
+executing foo(<__main__.A object at 0x0000029EC0C8B8D0>,ML)
+self: <__main__.A object at 0x0000029EC0C8B8D0>
+executing class_foo(<__main__.A object at 0x0000029EC0C8B8D0>,ML)
+cls: <__main__.A object at 0x0000029EC0C8B8D0>
+Traceback (most recent call last):
+  File "F:/hw_data/code/e.py", line 23, in <module>
+    a.static_foo(m)
+TypeError: static_foo() takes 1 positional argument but 2 were given
 ```
 ### TODO
 ```
