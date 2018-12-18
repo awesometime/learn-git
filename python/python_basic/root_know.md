@@ -1096,7 +1096,7 @@ class A(object):
     def class_foo(cls, x):
         print("executing class_foo(%s,%s)" % (cls, x))
         print('cls:', cls)
-    @staticmethod
+    @staticmethod  # 有@staticmethod (x)(self, x)效果一样
     def static_foo(x):    # self cls 粉色显示  三个x白色显示
         print("executing static_foo(%s)" % x)
 a = A()
@@ -1122,7 +1122,7 @@ class A(object):
     def class_foo(cls, x):    # x白色显示
         print("executing class_foo(%s,%s)" % (cls, x))
         print('cls:', cls)
-    # @staticmethod
+    # @staticmethod  不加@staticmethod 的话需要(self, x)
     def static_foo(x):        # self cls 粉色显示  此处x粉色显示，默认传入自己 所以后面报错
         print("executing static_foo(%s)" % x)
 a = A()
