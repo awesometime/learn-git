@@ -181,6 +181,11 @@ class AbnormityLabel(object):
             f.close()
         except FileNotFoundError:
             print("File is not found.")
+        #import os    
+        #if not os.path.exists(inpath3):
+        #    raise ValueError(
+        #"File not found! check your input path: {}".format(inpath3))
+        
         # get blk_label_dict
         blk_label_dict = self.blk_label_dict(inpath1, inpath2)
         # init var
