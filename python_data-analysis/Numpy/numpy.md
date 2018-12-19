@@ -12,7 +12,7 @@
 
 <p align="center"> Numpy 基础 </p> 
 
-```
+```python
 关于shape
 a = np.array([ 0,  1,  2])
 a.shape
@@ -46,8 +46,11 @@ array([[-0.1 ],
        
 
 ```
-```
-array和asarray都可以将结构数据转化为ndarray，但是主要区别就是当数据源是ndarray时，array仍然会copy出一个副本，占用新的内存，但asarray不会
+<p align="center"> array和asarray 区别 </p> 
+```python
+array和asarray都可以将结构数据转化为ndarray，但是主要区别就是
+当数据源不是ndarray时，array  asarray 都会copy出一个副本，占用新的内存
+当数据源是ndarray时，array仍然会copy出一个副本，占用新的内存，但asarray不会复制副本
 
 import numpy as np
  
@@ -100,9 +103,10 @@ arr3:
 ```
 
 
-<p align="center"> 花式索引 https://github.com/lijin-THU/notes-python/blob/master/03-numpy/03.03-numpy-arrays.ipynb</p> 
+<p align="center"> 花式索引 </p> 
+<p align="center"> https://github.com/lijin-THU/notes-python/blob/master/03-numpy/03.03-numpy-arrays.ipynb</p>
 
-```
+```python
 arr=np.arange(32).reshape((8,4))
 print(arr)
 
@@ -122,7 +126,7 @@ print(arr[[4,3,0,6]][:,[0,1,2]])
 ```
 <p align="center"> 03.17--choose 函数实现条件筛选 </p>  
     
-```
+```python
 ----------------------------------------------------------------
 control = np.array([[1,0,1],
                     [2,1,0],
@@ -211,7 +215,7 @@ choice算得 array([[1, 1, 1],
 
 <p align="center">03.18--Numpy 数组广播机制</p>
 
-```
+```python
 General Broadcasting Rules:
     对于 Numpy 来说，维度匹配当且仅当：
     - 维度相同
