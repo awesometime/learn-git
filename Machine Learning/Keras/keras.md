@@ -14,3 +14,7 @@ Iteration：迭代，可以理解为w和b的一次更新，就是一次Iteration
 
 Epoch：样本中的所有样本数据被计算一次就叫做一个Epoch。
 ```
+
+### Tokenizer 进行文本预处理
+
+[Tokenizer 进行文本预处理 ](https://blog.csdn.net/edogawachia/article/details/79446354)
