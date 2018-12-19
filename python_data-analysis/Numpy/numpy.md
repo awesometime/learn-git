@@ -43,7 +43,31 @@ array([[-0.1 ],
        [ 0.  ],
        [ 0.05],
        [ 0.1 ]])        
-       
+-----------------------------------------------
+from numpy.random import rand
+import numpy as np
+# 每次运行代码时设置相同的seed，则每次生成的随机数也相同，如果不设置seed，则每次生成的随机数都会不一样
+# 不使用seed
+a = rand(5)
+print('第一次列表a：',a)
+
+# In[2]:
+
+a = rand(5)
+print('第二次列表a：',a)
+
+# In[3]:
+
+# 使用seed
+np.random.seed(3)
+b = rand(5)
+print('第一次列表b：',b)
+
+# In[4]:
+
+np.random.seed(3)
+b = rand(5)
+print('第二次列表b：',b)
 ```
 
 <p align="center"> array和asarray 区别 </p> 
