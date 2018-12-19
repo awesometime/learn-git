@@ -33,7 +33,7 @@
       * [25 if not](#25-if-not)
       * [26 name main](#26-name-main)
       * [27 classmethod staticmethod](#27-classmethod-staticmethod)
-      
+      * [28 abstract class](#28-abstract-class)
          * [1 使用__new__方法](#1-使用__new__方法)
          * [2 共享属性](#2-共享属性)
          * [3 装饰器版本](#3-装饰器版本)
@@ -1140,6 +1140,11 @@ Traceback (most recent call last):
   File "F:/hw_data/code/e.py", line 23, in <module>
     a.static_foo(m)
 TypeError: static_foo() takes 1 positional argument but 2 were given
+```
+
+### 28 abstract class
+```
+抽象类，无法实例化任何对象。请使用它的子类
 ```
 ### TODO
 ```
