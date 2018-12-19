@@ -44,13 +44,14 @@ array([[-0.1 ],
        [ 0.05],
        [ 0.1 ]])        
        
-
 ```
+
 <p align="center"> array和asarray 区别 </p> 
+
 ```python
-array和asarray都可以将结构数据转化为ndarray，但是主要区别就是
-当数据源不是ndarray时，array  asarray 都会copy出一个副本，占用新的内存
-当数据源是ndarray时，array仍然会copy出一个副本，占用新的内存，但asarray不会复制副本
+#array和asarray都可以将结构数据转化为ndarray，但是主要区别就是
+#当数据源不是ndarray时，array  asarray 都会copy出一个副本，占用新的内存
+#当数据源是ndarray时，array仍然会copy出一个副本，占用新的内存，但asarray不会复制副本
 
 import numpy as np
  
@@ -100,7 +101,7 @@ arr3:
  [ 1.  1.  1.]]
 ```
 
-```
+
 
 
 <p align="center"> 花式索引 </p> 
