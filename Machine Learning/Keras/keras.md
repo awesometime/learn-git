@@ -1,4 +1,5 @@
 [Keras 中文文档](https://keras-cn.readthedocs.io/en/latest/)
+[Keras 官方中文文档](https://keras.io/zh/)
 ###  ML概念
 ```
 Batch Size：批尺寸。机器学习中参数更新的方法有三种：
