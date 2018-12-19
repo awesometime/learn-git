@@ -43,9 +43,83 @@ array([[-0.1 ],
        [ 0.  ],
        [ 0.05],
        [ 0.1 ]])        
+       
+
+```
+```
+array和asarray都可以将结构数据转化为ndarray，但是主要区别就是当数据源是ndarray时，array仍然会copy出一个副本，占用新的内存，但asarray不会
+
+import numpy as np
+ 
+#example 1:
+data1=[[1,1,1],[1,1,1],[1,1,1]]  # list
+arr2=np.array(data1)
+arr3=np.asarray(data1)
+data1[1][1]=2
+print ('data1:\n',data1)
+print 'arr2:\n',arr2
+print 'arr3:\n',arr3
+
+data1:
+[[1, 1, 1], [1, 2, 1], [1, 1, 1]]
+arr2:
+[[1 1 1]
+ [1 1 1]
+ [1 1 1]]
+arr3:
+[[1 1 1]
+ [1 1 1]
+ [1 1 1]]
+--------------------------------------
+
+import numpy as np
+ 
+#example 2:
+arr1=np.ones((3,3))
+arr2=np.array(arr1)
+arr3=np.asarray(arr1)
+arr1[1]=2
+print 'arr1:\n',arr1
+print 'arr2:\n',arr2
+print 'arr3:\n',arr3
+
+arr1:
+[[ 1.  1.  1.]
+ [ 2.  2.  2.]
+ [ 1.  1.  1.]]
+arr2:
+[[ 1.  1.  1.]
+ [ 1.  1.  1.]
+ [ 1.  1.  1.]]
+arr3:
+[[ 1.  1.  1.]
+ [ 2.  2.  2.]
+ [ 1.  1.  1.]]
+
+
 ```
 
 
+<p align="center"> 花式索引 https://github.com/lijin-THU/notes-python/blob/master/03-numpy/03.03-numpy-arrays.ipynb</p> 
+
+```
+arr=np.arange(32).reshape((8,4))
+print(arr)
+
+#以特定顺序选取子集,这里选取的就是第5，4,1,7行的子数组
+print(arr[[4,3,0,6]])
+
+#如果我们使用负数索引，则选取的从末尾开始-1为最后一行,-2为倒数第二行
+print(arr[[-1,-2]])
+
+#这里输出的分别是arr第5行的第一个数，第4行的第2个数，第1行的第3个数和第7行的第4个数组成的数组
+print(arr[[4,3,0,6],[0,1,2,3]])
+
+#这里输出分别为arr第5，4,1,7行的第1，2，3个数组成的数组
+#[[16 17 18] [12 13 14] [ 0  1  2] [24 25 26]]
+print(arr[[4,3,0,6]][:,[0,1,2]])
+
+```
 <p align="center"> 03.17--choose 函数实现条件筛选 </p>  
     
 ```
