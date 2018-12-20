@@ -16,7 +16,7 @@ Epoch：样本中的所有样本数据被计算一次就叫做一个Epoch。
 ```
 ### 
 [Keras学习笔记(完结)](https://www.cnblogs.com/limitlessun/p/9296614.html#_label0)
-
+```
 阅读目录
 
 基本概念
@@ -353,7 +353,7 @@ serialize_keras_object:将keras对象序列化
 deserialize_keras_object:从序列中恢复keras对象
 get_file:从给定的URL中下载文件
 multi_gpu_model:将模型在多个GPU上复制
-好文要顶 关注我 收藏该文    
+```  
 ### Tokenizer 进行文本预处理
 
 [Tokenizer 进行文本预处理 ](https://blog.csdn.net/edogawachia/article/details/79446354)
