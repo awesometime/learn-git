@@ -21,7 +21,7 @@ def process_data(data, seq_len, row, normalise_window=False):
         result = normalise_windows(result)
 
     result = np.array(result)
-
+    print(len(result))
     # row = round(split_rate * result.shape[0])
     # row = 100000
     train = result[:int(row), :]
