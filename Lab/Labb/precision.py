@@ -1,9 +1,10 @@
 import pandas as pd
 
+
 # read real_raw data 1000万
 df_real_raw = pd.read_csv(r'D:/data analysis/200nodes/file/pattern_abnormal.log', header=None, sep=' ',
                           names=['log_key', 'abnormal'])
-# 1000000+seq_len
+# 取 1000000+seq_len 之后的行  所有列
 df_real_bef_rm = df_real_raw.iloc[1000010:, :]
 print(df_real_bef_rm.shape)  # (    , 2)
 
@@ -11,22 +12,22 @@ df_real = df_real_bef_rm[~(df_real_bef_rm["log_key"].isin([30]) | df_real_bef_rm
                            df_real_bef_rm["log_key"].isin([32]) | df_real_bef_rm["log_key"].isin([33]) |
                            df_real_bef_rm["log_key"].isin([34]))]
 print(df_real.shape)  # (    , 2)
-
-seq_len = 10
-# 需要匹配的行数
-match_num = (df_real.shape[0] - (seq_len + 1))
-print(match_num)  # 289904
+# 重置索引 从0开始
 df_real_label = df_real.reset_index(drop=True)  # .iloc[:match_num,:][ "abnormal"]
 print(df_real_label.shape)  # (    , 2)
+#############################################
+seq_len = 10
+# 需要匹配的行数
+match_num = (df_real_label.shape[0] - (seq_len + 1))
+print("match_num"+ match_num)  # 289904
 ##############################################
 # read test result data
-# 测试模型时已经去掉了log_key 30-34
-df_result = pd.read_csv(r'D:/data analysis/DeepLog-master/result/anamoly_bsg.txt', header=None,
+# 测试模型时已经去掉了log_key 30-34 不需要处理
+# 跳过前几行 后几行 skiprows, skipfooter
+df_result_label = pd.read_csv(r'D:/data analysis/DeepLog-master/result/anamoly_bsg.txt', header=None,
                         names=["pattern", "top_1", "top_2", "top_3", "abnormal"],
                         index_col=None, skiprows=[0, 1], skipfooter=1,
                         engine='python')  # sep=r'(\d+)(.*)({.*})(.*)(\d))'
-print(df_result.shape)  # (289904, 5)
-df_result_label = df_result
 print(df_result_label.shape)  # (289904, 5)
 # print(df_result_label)
 ##############################################
@@ -39,6 +40,7 @@ rem = 0
 #
 for i in range(match_num):
     # tp
+    # .iloc[i, :]["abnormal"]   定位到某行某列
     if df_real_label.iloc[i, :]["abnormal"] == 1 and df_result_label.iloc[i, :]["abnormal"] == 1:
         tp += 1
     if df_real_label.iloc[i, :]["abnormal"] == 0 and df_result_label.iloc[i, :]["abnormal"] == 1:
@@ -48,14 +50,14 @@ for i in range(match_num):
     if df_real_label.iloc[i, :]["abnormal"] == 0 and df_result_label.iloc[i, :]["abnormal"] == 0:
         rem += 1
 
-print("tp  " + tp + "  fp  " + fp + "  fn  " + fn + "  rem  " + rem)
+print("tp  " + str(tp) + "  fp  " + str(fp) + "  fn  " + str(fn) + "  rem  " + str(rem))
 
 precision = round(tp / (tp + fp), 2)
-print("precision" + precision)
+print("precision" + str(precision))
 recall = round(tp / (tp + fn), 2)
-print("recall" + recall)
+print("recall" + str(recall))
 f_measure = 2 * precision * recall / (precision + recall)
-print("f_measure" + f_measure)
+print("f_measure" + str(f_measure))
 
 """
 (290000, 2)
