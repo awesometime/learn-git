@@ -51,6 +51,7 @@ for i in range(match_num):
         rem += 1
 
 print("tp  " + str(tp) + "  fp  " + str(fp) + "  fn  " + str(fn) + "  rem  " + str(rem))
+print("total  "+ str(tp + fp + fn + rem))
 
 precision = round(tp / (tp + fp), 2)
 print("precision  " + str(precision))
@@ -66,6 +67,7 @@ print("f_measure  " + str(f_measure))
 match_num  289904
 (289904, 5)
 tp  1704  fp  29625  fn  8375  rem  250200
+total  289904
 precision  0.05
 recal  0.17
 f_measure  0.07727272727272727
