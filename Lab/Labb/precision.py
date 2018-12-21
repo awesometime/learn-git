@@ -19,7 +19,7 @@ print(df_real_label.shape)  # (    , 2)
 seq_len = 10
 # 需要匹配的行数
 match_num = (df_real_label.shape[0] - (seq_len + 1))
-print("match_num"+ match_num)  # 289904
+print("match_num  "+ str(match_num))  # 289904
 ##############################################
 # read test result data
 # 测试模型时已经去掉了log_key 30-34 不需要处理
@@ -53,18 +53,20 @@ for i in range(match_num):
 print("tp  " + str(tp) + "  fp  " + str(fp) + "  fn  " + str(fn) + "  rem  " + str(rem))
 
 precision = round(tp / (tp + fp), 2)
-print("precision" + str(precision))
+print("precision  " + str(precision))
 recall = round(tp / (tp + fn), 2)
-print("recall" + str(recall))
+print("recall  " + str(recall))
 f_measure = 2 * precision * recall / (precision + recall)
-print("f_measure" + str(f_measure))
+print("f_measure  " + str(f_measure))
 
 """
 (290000, 2)
 (289915, 2)
-289904
 (289915, 2)
+match_num  289904
 (289904, 5)
-(289904, 5)
-1704 29625 8375 250200
+tp  1704  fp  29625  fn  8375  rem  250200
+precision  0.05
+recal  0.17
+f_measure  0.07727272727272727
 """
