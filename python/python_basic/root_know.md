@@ -8,7 +8,7 @@
    * [Python基础知识](#python基础知识)
       * [1 yield函数](#1-yield函数)
       * [2 Python中的反射 getattr hasattr setattr delattr](#2-python中的反射-getattr-hasattr-setattr-delattr)
-      * [3 sys.stdout sys.stdin](#3-sys.stdout-sys.stdin)
+      * [3 sys.stdout sys.stdin sys.stderr](#3-sys.stdout-sys.stdin-sys.stderr)
       * [4 sys.argv](#4-sys.argv)
       * [5 locals() globals()](#5-locals()-globals())
       * [6 break continue](#6-break-continue)
@@ -267,7 +267,7 @@ Yj
 
 ```
 
-### 3 sys.stdout sys.stdin
+### 3 sys.stdout sys.stdin sys.stderr
 
 
 ```python
@@ -292,6 +292,33 @@ print(len(h2))  # 4
 # 因此如果在平时使用sys.stdin.readline( )获取输入的话，不要忘了去掉末尾的换行符，可以用strip( )函数
 #（sys.stdin.readline( ).strip('\n')）或sys.stdin.readline( )[:-1]这两种方法去掉换行。
 
+```
+```python
+import sys
+import time
+
+############
+name = input("Please input your name: ")
+print(name)
+input = sys.stdin.readline()
+print(input)
+
+############
+print("some str")
+sys.stdout.write('some str\n')
+
+# \r 能实现重置到行首吗
+for i in range(5):
+    sys.stdout.write('\r'+ str(i) +'\n')
+    # print("\r"+str(i))
+    sys.stdout.flush()
+    time.sleep(1)
+
+############
+# 红色显示
+print("critical error\n", file=sys.stderr)  # Python 3
+sys.stderr.write('sf\n')
+sys.stdout.write('xf')
 ```
 
 ### 4 sys.argv
