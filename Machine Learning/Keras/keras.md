@@ -1,5 +1,37 @@
 [Keras 中文文档](https://keras-cn.readthedocs.io/en/latest/)
 [Keras 官方中文文档](https://keras.io/zh/)
+
+### 步骤
+```
+# Another way to build your neural net
+model = Sequential()
+
+# RNN cell
+model.add(SimpleRNN(
+    # for batch_input_shape, if using tensorflow as the backend, we have to put None for the batch_size.
+    # Otherwise, model.evaluate() will get error.
+    batch_input_shape=(None, TIME_STEPS, INPUT_SIZE),       # Or: input_dim=INPUT_SIZE, input_length=TIME_STEPS,
+    output_dim=CELL_SIZE,
+    unroll=True,
+))
+
+# Another way to define your optimizer
+rmsprop = RMSprop(lr=0.001, rho=0.9, epsilon=1e-08, decay=0.0)
+
+# We add metrics to get more results you want to see
+model.compile(optimizer=rmsprop,
+              loss='categorical_crossentropy',
+              metrics=['accuracy'])
+
+# Another way to train the model
+model.fit(X_train, y_train, epochs=2, batch_size=32)
+
+print('Testing ------------')
+cost = model.train_on_batch(X_batch, Y_batch)
+# Evaluate the model with the metrics we defined earlier
+loss, accuracy = model.evaluate(X_test, y_test)
+cost, accuracy = model.evaluate(X_test, y_test, batch_size=y_test.shape[0], verbose=False)
+```
 ###  ML概念
 ```
 Batch Size：批尺寸。机器学习中参数更新的方法有三种：
