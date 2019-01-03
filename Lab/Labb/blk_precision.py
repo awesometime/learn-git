@@ -74,7 +74,7 @@ class BlkPrecision():
         pat_blk_labelaftr = pd.concat([pat_blk_df, pat_labelaftr_df], axis=1)
         # 去掉重复的pattern列
         pat_blk_labelaftr = pat_blk_labelaftr.drop(columns=['pattern_n'])
-        print(pat_blk_labelaftr.shape)  # (11075640, 3)
+        print(pat_blk_labelaftr.shape)  # 100w (11075640, 3)     10w (10176197, 3) 
         print(pat_blk_labelaftr.head())
 
         # 4 save to
