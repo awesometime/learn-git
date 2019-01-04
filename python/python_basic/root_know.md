@@ -35,6 +35,7 @@
       * [27 classmethod staticmethod](#27-classmethod-staticmethod)
       * [28 abstract class](#28-abstract-class)
       * [29 函数参数有冒号 声明后有箭头](#29-函数参数有冒号-声明后有箭头)
+      * [30 unittest assert](#23-unittest-assert)
          * [1 使用__new__方法](#1-使用__new__方法)
          * [2 共享属性](#2-共享属性)
          * [3 装饰器版本](#3-装饰器版本)
@@ -1179,7 +1180,24 @@ TypeError: static_foo() takes 1 positional argument but 2 were given
 
 - [Python 函数参数有冒号 声明后有-> 箭头](https://www.cnblogs.com/Stitchez/p/10006519.html)
 
+### 30 unittest assert
 
+```
+https://www.cnblogs.com/zln1021/p/6964239.html
+import unittest
+
+
+class Assert(unittest.TestCase):
+    def f(self):
+        self.assertEqual(type("243"), str, "断言内容完全一样才可以")  # pass
+        self.assertEqual("243", "243", "断言内容完全一样才可以")  # pass
+        # self.assertEqual("243", "2413", "断言内容完全一样才可以")
+        self.assertEqual("243", str, "断言内容完全一样才可以")
+
+
+x = Assert()
+x.f()
+```
 
 ### TODO
 ```
