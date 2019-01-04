@@ -34,6 +34,7 @@
       * [26 name main](#26-name-main)
       * [27 classmethod staticmethod](#27-classmethod-staticmethod)
       * [28 abstract class](#28-abstract-class)
+      * [29 函数参数有冒号 声明后有-> 箭头](#29-函数参数有冒号-声明后有->-箭头)
          * [1 使用__new__方法](#1-使用__new__方法)
          * [2 共享属性](#2-共享属性)
          * [3 装饰器版本](#3-装饰器版本)
@@ -1173,6 +1174,13 @@ TypeError: static_foo() takes 1 positional argument but 2 were given
 ```
 抽象类，无法实例化任何对象。请使用它的子类
 ```
+
+### 29 函数参数有冒号 声明后有-> 箭头
+
+- [Python 函数参数有冒号 声明后有-> 箭头](https://www.cnblogs.com/Stitchez/p/10006519.html)
+
+
+
 ### TODO
 ```
 i = 5
