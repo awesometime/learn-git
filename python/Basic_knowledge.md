@@ -110,10 +110,10 @@ Python3 的六个标准数据类型中：
 | |1 |2 |3 |4|
 |-|-|-|-|-|
 |🐍不可变数据（四个）|Number（数字）|String（字符串）|Tuple（元组）|Sets（集合）|
-|🐼 可变数据（两个）  |List（列表）  |Dictionary（字典）
+|🐼 可变数据（两个）  |List（列表）  |Dictionary（字典）|||
 
-|🌳有序 |            List（列表）|String（字符串）|Tuple（元组）|
-|🎯无序|             Dictionary（字典）|Sets（集合）|
+|🌳有序 |            List（列表）|String（字符串）|Tuple（元组）||
+|🎯无序|             Dictionary（字典）|Sets（集合）|||
 
 
 
