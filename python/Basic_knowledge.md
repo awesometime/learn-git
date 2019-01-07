@@ -97,6 +97,7 @@ matplotlib_venn  文氏图的绘制
 我们装上Anaconda，就相当于把数十个第三方模块自动安装好了，非常简单易用。
 
 ### 3 Python3 中有六个标准的数据类型：
+- [内置的原子数据类型](https://github.com/facert/python-data-structure-cn/blob/master/1.%E4%BB%8B%E7%BB%8D/1.8.%E6%95%B0%E6%8D%AE%E5%85%A5%E9%97%A8/README.md)
 ```
 Number（数字）           整型(Int) 浮点型（Float）复数（Complex）
                         数字类型转换int(x)   float(x)   complex(x)   complex(x,y)
