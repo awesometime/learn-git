@@ -26,3 +26,6 @@ python
 |🐼 可变数据（两个）  |List（列表）  |Dictionary（字典）|||
 |🌳有序 |            List（列表）|String（字符串）|Tuple（元组）||
 |🎯无序|             Dictionary（字典）|Sets（集合）|||
+
+> **Note**
+pythonds 模块包含本书中讨论的所有数据结构的实现。它根据以下部分构造：基本数据类型，树和图。 该模块可以从 [pythonworks.org](http://www.pythonworks.org/pythonds)下载。
