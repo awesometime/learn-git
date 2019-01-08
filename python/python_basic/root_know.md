@@ -10,7 +10,7 @@
       * [2 Python中的反射 getattr hasattr setattr delattr](#2-python中的反射-getattr-hasattr-setattr-delattr)
       * [3 sys.stdout sys.stdin sys.stderr](#3-sys.stdout-sys.stdin-sys.stderr)
       * [4 sys.argv](#4-sys.argv)
-      * [5 locals() globals()](#5-locals()-globals())
+      * [5 locals globals global](#5-locals-globals-global)
       * [6 break continue](#6-break-continue)
       * [7 str repr](#7-str-repr)
       * [8 and or](#8-and-or)
@@ -376,9 +376,39 @@ class ArgvHandler(object):  # 继承
 # 就会把a_func b_func当参数传给 self.args
 ```
 
-### 5 locals() globals()
+### 5 locals globals global
 
  参考 https://yq.aliyun.com/ziliao/114421
+```python
+def outer(num):
+    global i
+    if num > 0:
+        outer(num - 1)
+        i += 1
+        inner()
+        outer(num - 1)
+
+
+i = 0
+
+
+def inner():
+    global i
+    i += 1
+    print(str(i) + "th  :)")
+
+
+outer(3)
+
+>>>
+2th  :)
+4th  :)
+6th  :)
+8th  :)
+10th  :)
+12th  :)
+14th  :)
+```
  
 ### 6 break continue
 
