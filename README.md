@@ -1,5 +1,6 @@
 
-## Less is more.
+## Less is more.    quick.
+## Data Structure and Algorithms.     Deep Learning.
 
 
 # 学习计划：
