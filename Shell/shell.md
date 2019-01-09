@@ -18,7 +18,7 @@
 6）写脚本一定先测试再到生产上。
 
 #### 前言
-```sh
+```shell
 num=$(echo "scale=2; 10 / 3" | bc)
 echo $num
 # 3.33
@@ -28,29 +28,29 @@ echo $num
 #### 1 获取随机字符串或数字
 
 ```shell
-获取随机8位字符串：
+#获取随机8位字符串：
 
 
-方法1：
+#方法1：
  echo $RANDOM |md5sum |cut -c 1-8
 471b94f2
-方法2：
+#方法2：
  openssl rand -base64 4
 vg3BEg==
-方法3：
+#方法3：
  cat /proc/sys/kernel/random/uuid |cut -c 1-8
 ed9e032c
 
-获取随机8位数字：
+#获取随机8位数字：
 
 
-方法1：
+#方法1：
  echo $RANDOM |cksum |cut -c 1-8
 23648321
-方法2：
+#方法2：
  openssl rand -base64 4 |cksum |cut -c 1-8
 38571131
-方法3：
+#方法3：
  date +%N |cut -c 1-8
 69024815
 
