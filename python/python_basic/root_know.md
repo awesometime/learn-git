@@ -10,7 +10,7 @@
       * [2 Python中的反射 getattr hasattr setattr delattr](#2-python中的反射-getattr-hasattr-setattr-delattr)
       * [3 sys.stdout sys.stdin sys.stderr](#3-sys.stdout-sys.stdin-sys.stderr)
       * [4 sys.argv](#4-sys.argv)
-      * [5 locals globals global](#5-locals-globals-global)
+      * [5 locals globals global 递归](#5-locals-globals-global-递归)
       * [6 break continue](#6-break-continue)
       * [7 str repr](#7-str-repr)
       * [8 and or](#8-and-or)
@@ -376,30 +376,53 @@ class ArgvHandler(object):  # 继承
 # 就会把a_func b_func当参数传给 self.args
 ```
 
-### 5 locals globals global
+### 5 locals globals global 递归
 
  参考 https://yq.aliyun.com/ziliao/114421
+ 
 ```python
+# 汉诺塔  递归  画树形分支图有助于理解递归次数统计
+def moveTower(height, fromPole, toPole, withPole):
+    if height >= 1:
+        moveTower(height - 1, fromPole, withPole, toPole)
+        moveDisk(fromPole, toPole)
+        moveTower(height - 1, withPole, toPole, fromPole)
+
+def moveDisk(fp, tp):
+    global i
+    i += 1
+    print(str(i) + " moving disk from", fp, "to", tp)
+
+
+i = 0
+moveTower(4, "1", "2", "3")
+print(i)
+```
+
+```python
+# 递归 recursion 画树形分支图有助于理解递归次数统计
 def outer(num):
-    # global count
+    global recursion_count
+    recursion_count += 1
     if num > 0:
         outer(num - 1)
         # count += 1
         inner()
         outer(num - 1)
 
-
-count = 0
-
+print_count = 0
+recursion_count = 0
 
 def inner():
-    global count
-    count += 1
-    print(str(count) + "th  :)")
+    global print_count
+    print_count += 1
+    print(str(print_count) + "th  :)")
 
 
 outer(3)
-print("count  " + str(count))
+print("print_count  " + str(print_count))   # 统计移动次数
+print("recursion_count  " + str(recursion_count))   # 统计递归次数
+# recursion_count = 2 * print_count + 1
 
 # 1th  :)
 # 2th  :)
@@ -408,9 +431,26 @@ print("count  " + str(count))
 # 5th  :)
 # 6th  :)
 # 7th  :)
-# count  7
+# print_count  7    # 2的n次-1
+# recursion_count  15
 ```
- 
+
+```python
+# 画树形分支图有助于理解递归次数统计
+def func(num):
+    global count
+    count += 1
+    if num <= 3:
+        return 1
+    else:
+        return func(num - 4) + func(num - 2) + 1
+
+# 统计递归次数
+count = 0
+print(func(func(8)))
+print(count)
+```
+
 ### 6 break continue
 
 ```python
