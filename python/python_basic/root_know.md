@@ -381,33 +381,34 @@ class ArgvHandler(object):  # 继承
  参考 https://yq.aliyun.com/ziliao/114421
 ```python
 def outer(num):
-    global i
+    # global count
     if num > 0:
         outer(num - 1)
-        i += 1
+        # count += 1
         inner()
         outer(num - 1)
 
 
-i = 0
+count = 0
 
 
 def inner():
-    global i
-    i += 1
-    print(str(i) + "th  :)")
+    global count
+    count += 1
+    print(str(count) + "th  :)")
 
 
 outer(3)
+print("count  " + str(count))
 
->>>
-2th  :)
-4th  :)
-6th  :)
-8th  :)
-10th  :)
-12th  :)
-14th  :)
+# 1th  :)
+# 2th  :)
+# 3th  :)
+# 4th  :)
+# 5th  :)
+# 6th  :)
+# 7th  :)
+# count  7
 ```
  
 ### 6 break continue
