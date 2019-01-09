@@ -1,6 +1,8 @@
 ## 资源
 [Linux命令行与shell脚本编程大全案例 fengyuhetao/shell ](https://github.com/fengyuhetao/shell)
 
+[qinjx Shell脚本编程30分钟入门 文末有其它资料链接](https://github.com/qinjx/30min_guides/blob/master/shell.md)
+
 ## 10 个实战及面试常用 Shell 脚本编写
 
 注意事项
