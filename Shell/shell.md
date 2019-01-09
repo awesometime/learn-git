@@ -1,3 +1,6 @@
+## 资源
+[Linux命令行与shell脚本编程大全案例 fengyuhetao/shell ](https://github.com/fengyuhetao/shell)
+
 ## 10 个实战及面试常用 Shell 脚本编写
 
 注意事项
