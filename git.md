@@ -7,8 +7,10 @@
     <br>   
     <a href="https://github.com/awesometime/">awesometime的github主页</a>    
     <br> 
+    <a href="https://git-scm.com/book/zh/v2"> Git - Book </a>
+    <br>
     <a href="http://git-scm.com/">git官网</a>
-    <br> 
+    <br>
     <a href="https://www.git-tower.com/blog/git-cheat-sheet/">国外Git Cheat Sheet网址</a>
     <br> 
     <a href="https://blog.igevin.info/posts/git-cheat-sheet/">国内一个人的Git Cheat Sheet网址</a>
