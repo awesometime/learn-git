@@ -78,20 +78,30 @@ except StopIteration as e:
 ```
 
 ```python
+# 0. 遇到yield就返回 相当于return,  a.__next__()返回值为yield表达式的参数
+# 1. a.__next__(此处不可有参数)相当于a.send(None) 即yield xxx ==None
+# 2. a.send("msg") 即yield xxx == value
+# 4. 第一次迭代时，必须用__next__()语句或是send(None)，即yield xxx ==None ,不能使用send发送一个非None的值，否则会出错的
+# 5. send("msg") 和 __next__()是有返回值的，它们的返回值很特殊，返回的是下一个yield表达式的参数。
+#    比如yield 5，则返回 5
+###
+# 【注意区别yield xxx和xxx】:
+# yield xxx 的值是 None 并非xxx, 除非a.send("msg") 则yield xxx == msg  （这个其实没啥用一般）
+# yield xxx 中的 xxx 是__next__()或者send("msg")的返回值（也就是我们常用到的）
+
+
 def fun():
     for i in range(20):
-        x = yield i  #表达式(yield i)的返回值将赋值给x
+        x = yield i        #表达式(yield i)的返回值将赋值给x  i作为__next__()的返回值
         print(x)
         print('good', x)
 
-a = fun()
-print(a.__next__())
-# 0. 遇到yield就返回 相当于return     a.__next__()相当于a.send(None)
-# 1. 第一次调用时，请使用next()语句或是send(None)，不能使用send发送一个非None的值，否则会出错的
-# 2. send(msg) 和 next()是有返回值的，它们的返回值很特殊，返回的是下一个yield表达式的参数。
-#    比如yield 5，则返回 5
+
+a = fun()   # 运行fun()
+print(a)    # <generator object fun at 0x000002720919B258>
+print(a.__next__()) # 第一次迭代时，i=0,遇到yield直接终止,并返回yield表达式的参数0
 print("---")
-print(a.__next__())   # 从上次离开的地方执行
+print(a.__next__())   # 从上次离开的地方先执行内部fun()函数,再返回yield表达式的参数
 
 print("---")
 l = a.send(5)         # (yield i) 表达式被赋予了 5 ,即 x = (yield i) = 5
@@ -101,7 +111,7 @@ print("---")
 print(a.send(5))
 
 print("---")
-print(a.send('python :):):)'))
+print(a.send("life is short,you need python"))
 
 
 # 0
@@ -112,14 +122,14 @@ print(a.send('python :):):)'))
 # ---
 # 5
 # good 5
-# 2
+# 2          # print(a.__next__())的结果
 # ---
 # 5
 # good 5
 # 3
 # ---
-# python :):):)
-# good python :):):)
+# life is short,you need python
+# good life is short,you need python
 # 4
 ```
 
