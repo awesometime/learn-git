@@ -50,23 +50,23 @@
 - [  yield用法总结  ](https://www.cnblogs.com/python-life/articles/4549996.html)
 
 ```python
-def fun():
+def fun(): # 只能迭代一次
     print('good')
     yield 5
 
+# fun().__next__()  # 这样调用每次是独立的方法对象
 # fun().__next__()  
-# fun().__next__()  
-# fun().__next__()  # 不会抛异常
+# fun().__next__()  # 所以不会抛异常
 
 # good
 # good
 # good
 
-
-f = fun()
+# 这样调用
+f = fun()  # 这句不会执行print('good')语句
 print(f.__next__())
-# f.__next__()  # 由于之后没有yield,再次next()就会抛出错误
-
+# f.__next__()  # 第二次由于之后没有yield,再次next()就会抛出错误
+print("---")
 try:
     print(f.__next__())
 except StopIteration as e:
@@ -74,6 +74,7 @@ except StopIteration as e:
 
 # good
 # 5
+# ---
 # StopIteration
 ```
 
