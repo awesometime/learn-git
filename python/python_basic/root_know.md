@@ -95,7 +95,7 @@ def fun():
     for i in range(20):
         x = yield i        #表达式(yield i)的返回值将赋值给x  i作为__next__()的返回值
         print(x)
-        print('good', x)
+        print('good', x)   # 疑问 ？ yield完 最后一次的print 如何执行打印
 
 
 a = fun()   # 运行fun()
