@@ -85,6 +85,7 @@ except StopIteration as e:
 # 4. 第一次迭代时，必须用__next__()语句或是send(None)，即yield xxx ==None ,不能使用send发送一个非None的值，否则会出错的
 # 5. send("msg") 和 __next__()是有返回值的，它们的返回值很特殊，返回的是下一个yield表达式的参数。
 #    比如yield 5，则返回 5
+# 6. send("msg") 和 __next__() 的作用 记住上次执行完的位置（状态）
 ###
 # 【注意区别yield xxx和xxx】:
 # yield xxx 的值是 None 并非xxx, 除非a.send("msg") 则yield xxx == msg  （这个其实没啥用一般）
