@@ -35,7 +35,8 @@
       * [27 classmethod staticmethod](#27-classmethod-staticmethod)
       * [28 abstract class](#28-abstract-class)
       * [29 函数参数有冒号 声明后有箭头](#29-函数参数有冒号-声明后有箭头)
-      * [30 unittest assert](#23-unittest-assert)
+      * [30 unittest assert](#30-unittest-assert)
+      * [31 双下划线开头的函数和变量](#31-双下划线开头的函数和变量)
          * [1 使用__new__方法](#1-使用__new__方法)
          * [2 共享属性](#2-共享属性)
          * [3 装饰器版本](#3-装饰器版本)
@@ -1284,6 +1285,9 @@ class Assert(unittest.TestCase):
 x = Assert()
 x.f()
 ```
+### 31 双下划线开头的函数和变量
+
+[双下划线开头的函数和变量](https://www.cnblogs.com/nkwy2012/p/6264031.html)
 
 ### TODO
 ```
