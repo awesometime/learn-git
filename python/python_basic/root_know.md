@@ -15,7 +15,7 @@
       * [7 str repr](#7-str-repr)
       * [8 and or](#8-and-or)
       * [9 arg kwarg](#9-arg-kwarg)
-      * [10 修饰符](#10-修饰符)
+      * [10 修饰符 装饰器 闭包](#10-修饰符-装饰器-闭包)
       * [11 函数 类方法 实例方法](#11-函数-类方法-实例方法)
       * [12 赋值引用 浅拷贝 深拷贝](#12-赋值引用-浅拷贝-深拷贝)
       * [13 字符 编码与二进制  序列化](#13-字符-编码与二进制--序列化)
@@ -24,7 +24,7 @@
       * [16 单双下划线](#16-单双下划线)
       * [17 yeild iterator](#17-yeild-iterator)
       * [18 readline readlines](#18-readline-readlines)
-      * [19 闭包](#19-闭包)
+      * [19 callback](#19-callback)
       * [20 list sort sorted](#20-list-sort-sorted)
       * [21 re正则表达式](#21-re正则表达式)
       * [22 python垃圾回收机制](#22-python垃圾回收机制)
@@ -537,13 +537,16 @@ https://www.jianshu.com/p/e0d4705e8293
 
 
 
-### 10 修饰符
+### 10 修饰符 装饰器 闭包
 
 装饰符(修饰符)@类似于 [回调函数](https://www.zhihu.com/question/19801131)，把其它的函数（暂且称为目的函数）作为自己的入参，在目的函数执行前，执行一些自己的操作，
 
 比如：计数、打印一些提示信息等，然后返回目的函数。
 
 [python中闭包和装饰器的理解（关于python中闭包和装饰器解释最好的文章）](https://www.cnblogs.com/3me-linux/p/6761635.html)
+[看完这篇文章还不懂Python中的闭包，请拍死小编](https://baijiahao.baidu.com/s?id=1601023189180094497&wfr=spider&for=pc)
+[较好理解  如何理解Python装饰器？刘志军](https://www.zhihu.com/question/26930016)
+[较全面    万字长文深度解析Python装饰器](https://zhuanlan.zhihu.com/p/53837833?utm_source=wechat_session&utm_medium=social&utm_oi=631526660110028800)
 
 ```python
 import time
@@ -1045,8 +1048,8 @@ if __name__ == "__main__":
 #2 3 5 7 11 13 17 19 23 29 31 37 41 43 47 53 59 61 67 71 73 79 83 89 97
 ```
 
-### 19 闭包
-[看完这篇文章还不懂Python中的闭包，请拍死小编](https://baijiahao.baidu.com/s?id=1601023189180094497&wfr=spider&for=pc)
+### 19 callback
+
 
 
 ### 20 list sort sorted
