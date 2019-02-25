@@ -4,7 +4,7 @@
 
 ### heapq 的使用
 ```python
-#heapq 的使用
+
 #创建堆有两个基本的方法： heappush() 和 heapify() ，取出堆顶元素用 heappop() 。
 
 #heappush() 是用来向已有的堆中添加元素，一般从空列表开始构建：
@@ -31,7 +31,9 @@ heapq.heapify(data)
 
 print('pop:', heapq.heappop(data)) # pop: 13
 print(data) # [27, 38, 49, 50, 76, 65, 97]
-```python
+```
+
+
 
 ### 堆排序算法
 
@@ -42,15 +44,15 @@ print(data) # [27, 38, 49, 50, 76, 65, 97]
 > 新添加元素和，如何调整堆？
 
 
-**注意**把目标元素放置列表最后，然后进行上浮。尽管它命名叫 down ,但这个过程是上浮的过程，这个命名也让我困惑，
+**注意**把目标元素放置列表最后，然后进行`上浮`。尽管它命名叫`_siftdown`,但这个过程是上浮的过程，
 
-后来我才知道它是因为元素的索引不断减小，所以命名 down 。下沉的过程它也就命名为 up 了
+这个命名也让我困惑，后来我才知道它是因为元素的索引不断减小，所以命名 down 。`下沉`的过程它也就命名为`_siftup`了
 
 ```python
 # 1
-# 新添加元素和，如何调整堆？上浮 索引down
+# 新添加元素和，如何调整堆？上浮 索引 _siftdown
 # 首先将新元素放置列表的最后，然后新元素与其父节点比较，若比父节点小，与父节点交换；
-# 重复过程直到比父节点大或到根节点。这个过程使得元素从底部不断上升，从下至上恢复堆的顺序，称为**上浮**
+# 重复过程直到比父节点大或到根节点。这个过程使得元素从底部不断上升，从下至上恢复堆的顺序，称为 上浮
 
 def heappush(heap, item):
     """Push item onto heap, maintaining the heap invariant."""
@@ -125,6 +127,11 @@ def _siftup(heap, pos):
 def heapify(x):
     """Transform list into a heap, in-place, in O(len(x)) time."""
     n = len(x)
+    # Transform bottom-up.  The largest index there's any point to looking at
+    # is the largest with a child index in-range, so must have 2*i + 1 < n,
+    # or i < (n-1)/2.  If n is even = 2*j, this is (2*j-1)/2 = j-1/2 so
+    # j-1 is the largest, which is n//2 - 1.  If n is odd = 2*j+1, this is
+    # (2*j+1-1)/2 = j so j-1 is the largest, and that's again n//2-1.
     for i in reversed(range(n//2)):
         _siftup(x, i)
 # 这部分就和理论上的一致，从最后一个非叶节点 (n // 2) 到根节点为止，进行下沉。
