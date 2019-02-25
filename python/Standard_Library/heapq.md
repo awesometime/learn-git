@@ -1,3 +1,5 @@
+[heapq 快速入门](https://www.cnblogs.com/xiaobingqianrui/p/8487840.html)
+
 [heapq — Heap queue algorithm 官方文档](https://docs.python.org/3.8/library/heapq.html)
 
 [heapq 源码分析](https://www.codercto.com/a/49843.html)
