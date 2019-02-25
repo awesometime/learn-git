@@ -2,7 +2,7 @@
 
 [heapq 源码分析](https://www.codercto.com/a/49843.html)
 
-### heapq 的使用
+### heapq 的基本使用
 ```python
 
 #创建堆有两个基本的方法： heappush() 和 heapify() ，取出堆顶元素用 heappop() 。
@@ -40,13 +40,17 @@ print(data) # [27, 38, 49, 50, 76, 65, 97]
 堆排序需要解决三个问题：
 
 > 如何由一个无序序列建立成一个堆？
+
 > 如何在输出堆顶元素之后，调整剩余元素，使之成为一个新的堆？
+
 > 新添加元素和，如何调整堆？
 
 
-**注意**把目标元素放置列表最后，然后进行`上浮`。尽管它命名叫`_siftdown`,但这个过程是上浮的过程，
+**注意**
 
-这个命名也让我困惑，后来我才知道它是因为元素的索引不断减小，所以命名 down 。`下沉`的过程它也就命名为`_siftup`了
+把目标元素放置列表最后，然后进行`上浮`。尽管它命名叫`_siftdown`,但这个过程是上浮的过程，
+
+这个命名也让我困惑，后来我才知道它是因为元素的索引不断减小，所以命名down。`下沉`的过程它也就命名为`_siftup`了
 
 ```python
 # 1
@@ -82,6 +86,8 @@ def _siftdown(heap, startpos, pos):
 ```python
 # 2
 # 输出堆顶元素的函数 heappop() :
+# 当输出堆顶元素之后，就将堆中最后一个元素代替之；然后将根结点值与左、右子树的根结点值进行比较 ，并与其中**小者**进行交换；
+# 重复上述操作，直至叶子结点，将得到新的堆，称这个从堆顶至叶子的调整过程为下沉。
 
 def heappop(heap):
     """Pop the smallest item off the heap, maintaining the heap invariant."""
@@ -92,7 +98,9 @@ def heappop(heap):
         _siftup(heap, 0)
         return returnitem
     return lastelt
+    
 # 通过 heap.pop() 获得列表中的最后一个元素，然后替换为堆顶 heap[0] = lastelt ，再进行下沉：
+
 
 def _siftup(heap, pos):
     endpos = len(heap)
@@ -113,6 +121,7 @@ def _siftup(heap, pos):
     # to its final resting place (by sifting its parents down).
     heap[pos] = newitem
     _siftdown(heap, startpos, pos)
+    
 # 这边的代码将准备要下沉的元素视为新元素 newitem ，将其当前的位置 pos 视为空位置，由其子节点中的小者进行取代，
 # 反复如此，最后会在叶节点留出一个位置，这个位置放入 newitem ，再让新元素进行上浮。
 
@@ -134,5 +143,6 @@ def heapify(x):
     # (2*j+1-1)/2 = j so j-1 is the largest, and that's again n//2-1.
     for i in reversed(range(n//2)):
         _siftup(x, i)
+        
 # 这部分就和理论上的一致，从最后一个非叶节点 (n // 2) 到根节点为止，进行下沉。
 ```
