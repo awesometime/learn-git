@@ -6,6 +6,7 @@
 
 
    * [Python基础知识](#python基础知识)
+      * [0 Python所有的内置函数](#0-Python所有的内置函数)
       * [1 yield函数](#1-yield函数)
       * [2 Python中的反射 getattr hasattr setattr delattr](#2-python中的反射-getattr-hasattr-setattr-delattr)
       * [3 sys.stdout sys.stdin sys.stderr](#3-sys.stdout-sys.stdin-sys.stderr)
@@ -45,6 +46,11 @@
 
 
 ## Python基础知识
+
+### 0 Python所有的内置函数
+
+[Python所有的内置函数](https://www.cnblogs.com/hongfei/p/3858256.html)
+
 
 ### 1 yield函数
 
