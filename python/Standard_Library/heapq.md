@@ -33,6 +33,11 @@ heapq.heapify(data)
 
 print('pop:', heapq.heappop(data)) # pop: 13
 print(data) # [27, 38, 49, 50, 76, 65, 97]
+
+
+def nsmallest()
+def nlargest()
+    # 其实底层还是sorted()方法
 ```
 
 
