@@ -5,9 +5,9 @@ If you feel bad, it must be the wrong way.
 
 > Data Structure and Algorithms.     Deep Learning.
 
->
+> 1
 
-### 
+### 11
 - LeetCode
 - python 设计模式 数据结构 标准库
 - python Web开发框架                Django Flask    并发    高性能网络服务框架 Tornado gevent/eventlet
@@ -26,16 +26,16 @@ If you feel bad, it must be the wrong way.
 
 - python spark hadoop 金融
 
-#### 
+#### 12
 - C++
 - vim 
 
-#### 
+#### 13
 - Docker
 - kubernetes
 
 
 
->
+> 2
 
 搭建个人博客
