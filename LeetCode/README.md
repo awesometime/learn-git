@@ -1,16 +1,18 @@
 > 目录
 
-| 11 | container_with_most_water | |
+|index|problem|tags|method|
+|-|-|-|-|
+| 11 | 🍒container_with_most_water |||
 
 > 链接
 
 ### doing...
 ```
 【深度学习  数据分析】
-【1月6-30日  ----->>】【搞定数据结构和Algorithms implement】
-【3月1-30日  ----->>】【搞定leetcode  *145道  *https://github.com/keon/algorithms/blob/master/README_CN.md
+【1月6-30日  ----->>】【数据结构和Algorithms implement】
+【3月1-30日  ----->>】【leetcode  *145道  *https://github.com/keon/algorithms/blob/master/README_CN.md
 *https://github.com/MisterBooo/LeetCodeAnimation *自己git】
-【4月-30日  ----->>】【搞定论文 + 深度学习算法】
+【4月-30日  ----->>】【论文 + 深度学习算法】
 
 --------------------------------- 
 leet官网
@@ -23,12 +25,8 @@ https://github.com/apachecn/awesome-algorithm【有讲解】 【1级参考】
 https://github.com/keon/algorithms/blob/master/README_CN.md【unittest leetcode题 自带测试代码】
 【技术面试必备基础知识---算法 操作系统 数据库 网络 面向对象】【https://github.com/CyC2018/CS-Notes】
 鸟哥linux  
+--------------------------------
 
-
-
----------------------------------
-```
-```
 https://github.com/keon/algorithms leetcode 【分类】
 https://github.com/apachecn/awesome-algorithm【有讲解】 【1级参考】 
 https://github.com/TheAlgorithms/Python【数据结构实现】【】
@@ -37,9 +35,7 @@ https://algorithm.yuanbin.me/zh-hans/part_i_basics/【数据结构实现 部分l
 【技术面试必备基础知识---算法 操作系统 数据库 网络 面向对象】【https://github.com/CyC2018/CS-Notes】
 鸟哥linux                            
 mysql必知必会
-下载几篇论文   确定工作方向
-
-
+下载几篇论文   
 ---------------------------------
 
 【黑客工具 - Ubuntu安装Kali工具集:Katoolin】
@@ -70,9 +66,13 @@ mysql必知必会
 
 
 ### AI
+
 [100-Days-Of-ML-Code](https://github.com/Avik-Jain/100-Days-Of-ML-Code)
+
 [100-Days-Of-ML-Code-ch](https://github.com/MLEveryday/100-Days-Of-ML-Code)
+
 [Algorithm_Interview_Notes-Chinese](https://github.com/imhuay/Algorithm_Interview_Notes-Chinese)
+
 [practicalAI](https://github.com/GokuMohandas/practicalAI)
 ```
 
