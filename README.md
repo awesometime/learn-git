@@ -1,6 +1,8 @@
 
 ## Less is more.    quick.
 ## Data Structure and Algorithms.     Deep Learning.
+## Importance of method
+If you feel bad, it must be the wrong way.
 
 
 # 学习计划：
@@ -13,10 +15,10 @@
 - Spark 大数据
 - Scrapy
 - Linux 下开发
-- NginX* tomcat Rabbitmq WSGI   缓存 消息
+- NginX* tomcat Rabbitmq WSGI   缓存  消息队列MQ   负载均衡LB
 - memcached
 - 网络协议 TCP HTTP 
-- 容器化与分布式 熟悉python web项目的自动化部署    Docker?
+- 容器化与分布式 熟悉python web项目的自动化部署    Docker
 - python  后台django + vue前台 +  bootsrapCSS界面 + nginx  +  linux部署
 
 
@@ -25,11 +27,11 @@
 
 #### 
 - C++
-- vim YCM
+- vim 
 
 #### 运维
 - Docker
-- Kubo
+- kubernetes
 
 
 
