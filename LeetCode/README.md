@@ -1,7 +1,14 @@
+> 目录
+
+| 11 | container_with_most_water | |
+
+> 链接
+
+### doing...
 ```
 【深度学习  数据分析】
 【1月6-30日  ----->>】【搞定数据结构和Algorithms implement】
-【3月-30日  ----->>】【搞定leetcode  *145道  *https://github.com/keon/algorithms/blob/master/README_CN.md
+【3月1-30日  ----->>】【搞定leetcode  *145道  *https://github.com/keon/algorithms/blob/master/README_CN.md
 *https://github.com/MisterBooo/LeetCodeAnimation *自己git】
 【4月-30日  ----->>】【搞定论文 + 深度学习算法】
 
@@ -38,11 +45,12 @@ mysql必知必会
 【黑客工具 - Ubuntu安装Kali工具集:Katoolin】
 【WebCMS】
 【数据集 KDD CUP 99、DARPA 2000、NSL-KDD】
+```
 
 
 
-
-【数据结构与算法网址】
+### 数据结构与算法网址
+```
 【github 1*】【billryan / algorithm-exercise】【https://algorithm.yuanbin.me/zh-hans/part_i_basics/】【gitbook 有leetcode题解】
 【doc中文文档】【python 有leet题】【http://ningning.today/python_data_structures_and_algorithms/】
 【github 2* 看完了】【facert/python-data-structure-cn 1.8k+】【https://facert.gitbooks.io/python-data-structure-cn/】【gitbook 偏数据结构知识内容讲解】
@@ -61,10 +69,11 @@ mysql必知必会
 ```
 
 
-```
-100-Days-Of-ML-Code
-Algorithm_Interview_Notes-Chinese
-practicalAI
+### AI
+[100-Days-Of-ML-Code](https://github.com/Avik-Jain/100-Days-Of-ML-Code)
+[100-Days-Of-ML-Code-ch](https://github.com/MLEveryday/100-Days-Of-ML-Code)
+[Algorithm_Interview_Notes-Chinese](https://github.com/imhuay/Algorithm_Interview_Notes-Chinese)
+[practicalAI](https://github.com/GokuMohandas/practicalAI)
 ```
 
 
