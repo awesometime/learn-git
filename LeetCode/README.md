@@ -1,5 +1,22 @@
 > 目录
 
+## Tags Abbreviated description
+
+- **A** : `Array`
+- **DP** : `Dynamic Programming`
+- **Str** : `String`
+- **M** : `Math`
+- **T** : `Tree`
+- **HT** : `Hash Table`
+- **DS** : `Depth-first Search`
+- **BS** : `Binary Search`
+- **TP** : `Two Pointers`
+- **B** : `Backtracking`
+- **LL** : `Linked List`
+- **D&C** : `Divide and Conquer`
+- **H** : `Heap`
+- **S** : `Sort`
+
 |index|problem|tags|method|
 |-|-|-|-|
 | 11 | 🍒container_with_most_water |||
