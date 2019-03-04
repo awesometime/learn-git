@@ -19,8 +19,9 @@
 
 |index|problem|tags|method|
 |-|-|-|-|
-| 11 | 🍒container_with_most_water |||
-
+| 0011 | 🍒container_with_most_water |||
+| 0053 | 🍒maximum_subarray |D&C||
+| 0121 | 🍒best time |D&C ||
 > 链接
 
 ### doing...
