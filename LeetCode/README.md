@@ -18,6 +18,7 @@
 - **D&C** : `Divide and Conquer`
 - **H** : `Heap`
 - **S** : `Sort`
+- **Recu** : `Recursion`
 
 |index|problem|tags|method|
 |-|-|-|-|
@@ -35,7 +36,6 @@
 |0012||||
 |0013||||
 | 0014 | container_with_most_water |||
-|0013||||
 |0015||||
 |0016||||
 |0017||||
@@ -43,7 +43,7 @@
 |0019||||
 |0020||||
 |0021| best time |🍒D&C ||
-|0022||||
+|0022| generate_parentheses |回溯 递归||
 |0023||||
 |0024||||
 |0025||||
