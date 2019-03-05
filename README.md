@@ -11,6 +11,7 @@ If you feel bad, it must be the wrong way.
 - LeetCode
 - python 设计模式 数据结构 标准库
 - python Web开发框架                Django Flask    并发    高性能网络服务框架 Tornado gevent/eventlet
+- WEB后端开发技术: 协议、架构、存储、缓存、安全
 - Bootstrap
 - MySQL MongoDB Redis*             分布式
 - Spark 大数据
