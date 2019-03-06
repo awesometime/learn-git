@@ -4,6 +4,10 @@
 
 [ Linux命令行与shell脚本编程大全案例 fengyuhetao/shell ](https://github.com/fengyuhetao/shell)
 
+[Advanced Bash-Scripting Guide
+An in-depth exploration of the art of shell scripting
+Mendel Cooper](http://tldp.org/LDP/abs/html/)，非常详细，非常易读，大量example，既可以当入门教材，也可以当做工具书查阅
+
 [ qinjx Shell脚本编程30分钟入门 文末有其它资料链接 ](https://github.com/qinjx/30min_guides/blob/master/shell.md)
 
 ## 10 个实战及面试常用 Shell 脚本编写
