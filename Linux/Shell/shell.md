@@ -10,6 +10,16 @@ Mendel Cooper](http://tldp.org/LDP/abs/html/)，非常详细，非常易读，�
 
 [ qinjx Shell脚本编程30分钟入门 文末有其它资料链接 ](https://github.com/qinjx/30min_guides/blob/master/shell.md)
 
+## IF 判断条件总结
+
+[IF 判断条件总结](https://www.jb51.net/article/56553.htm)
+```sh
+if [ -f file ]    # 如果 FILE 存在且是一个普通文件则为真
+if [-z $2]        # 判断脚本的第2个参数是否为空
+2>&1              # 2>&1  表示把 标准错误输出 重定向到 标准输出    https://yanbin.blog/linux-input-output-redirection/
+                  # 标准输入(stdin)	0	  标准输出(stdout)	1     标准错误输出(stderr)	2
+```
+
 ## 10 个实战及面试常用 Shell 脚本编写
 
 注意事项
