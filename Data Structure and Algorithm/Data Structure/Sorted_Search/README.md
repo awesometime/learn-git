@@ -5,34 +5,34 @@
 [其他排序 https://github.com/keon/algorithms/tree/master/algorithms/sort ](https://github.com/keon/algorithms/tree/master/algorithms/sort)
 
 
-选择排序
+- 选择排序
 
-插入排序
+- 插入排序
 
-冒泡排序
+- 冒泡排序
 
-   非优化版本
+   - 非优化版本
 
-   优化版本
+   - 优化版本
 
-希尔排序
+- 希尔排序
 
-归并排序
+- 归并排序
 
-   递归式归并排序
+   - 递归式归并排序
 
-   非递归式归并排序
+   - 非递归式归并排序
 
-快速排序
+- 快速排序
 
-堆排序
+- 堆排序
 
-基数排序
+- 基数排序
 
-   非优化版本
+   - 非优化版本
 
-   优化版本
+   - 优化版本
 
-桶排序
+- 桶排序
 
-基数排序
+- 基数排序
