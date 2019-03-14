@@ -72,6 +72,7 @@
 https://github.com/apachecn/awesome-algorithm【有讲解】 【1级参考】 
 https://github.com/keon/algorithms/blob/master/README_CN.md【unittest leetcode题 自带测试代码】
 
+https://github.com/Snailclimb/JavaGuide   据库那些是通用的 Jva学习+面试指南 一份涵盖大部分Java程序员所需要掌握的核心知识 
 https://github.com/InterviewMap/CS-Interview-Knowledge-Map【面试  数据结构  git 框架 网络 温习】   2周  25号
 http://ningning.today/python_data_structures_and_algorithms/  数据结构 温习                       2周
 https://github.com/imhuay/Algorithm_Interview_Notes-Chinese  公司真实场景
@@ -105,7 +106,7 @@ mysql必知必会
 【github 4*】【doing...】【keon/algorithms 13.8K+】【https://github.com/keon/algorithms/blob/master/README_CN.md】【unittest leetcode题 自带测试代码】【1，3结合】
 【github 5 】【doing...】【InterviewMap/CS-Interview-Knowledge-Map】【https://github.com/InterviewMap/CS-Interview-Knowledge-Map】【面试集合 不仅仅是数据结构】
 【github 6 】【doing...】【python 数据结构  有leet题】【http://ningning.today/python_data_structures_and_algorithms/】
-
+【github  】【但是数据库那些是通用的 java学习+面试指南 一份涵盖大部分Java程序员所需要掌握的核心知识】 【https://github.com/Snailclimb/JavaGuide】
 【github 7 】【JushuangQiao/Python-LeetCode】【50题一组】【https://github.com/JushuangQiao/Python-LeetCode】
 【github 8 】【python】【TheAlgorithms/Python 20k+】【Algorithms implemente 有一些示意图】【https://github.com/TheAlgorithms/Python】
 【github 9 】【java/c++】【MisterBooo/LeetCodeAnimation】 【用动画的形式呈现解LeetCode题目的思路】【https://github.com/MisterBooo/LeetCodeAnimation】
