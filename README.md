@@ -13,11 +13,11 @@ If you feel bad, it must be the wrong way.
 - python Web开发框架                Django Flask    并发    高性能网络服务框架 Tornado gevent/eventlet
 - WEB后端开发技术: 协议、架构、存储、缓存、安全
 - Bootstrap
-- MySQL MongoDB Redis*             分布式
-- Spark 大数据
+- MySQL MongoDB Redis*             
+- Spark Hive Hadoop Storm 大数据开发 分布式计算平台
 - Scrapy
 - Linux 下开发
-- NginX* tomcat Rabbitmq WSGI   缓存  消息队列MQ   负载均衡LB
+- NginX  tomcat  Rabbitmq  WSGI   缓存  消息队列MQ   负载均衡LB
 - memcached
 - 网络协议 TCP HTTP 
 - 容器化与分布式 熟悉python web项目的自动化部署    Docker
@@ -25,7 +25,7 @@ If you feel bad, it must be the wrong way.
 
 
 
-- python spark hadoop 金融
+- python 金融
 
 #### 12
 - C++
