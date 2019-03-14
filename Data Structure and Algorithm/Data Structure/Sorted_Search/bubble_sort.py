@@ -1,14 +1,17 @@
+# 时间复杂度：O(n2)  2、空间复杂度：O(1)  3、稳定排序  4、原地排序
+
 # 一次遍历后，最大的项在正确的地方
 
 def bubbleSort(alist):
     # range(start, stop, step)
     co = 0
     for passnum in range(len(alist) - 1, 0, -1):
-        #co +=1
+        # co +=1   统计进行了几次大循环
+        # print(passnum) 
         for i in range(passnum):
             if alist[i] > alist[i + 1]:
                 alist[i], alist[i + 1] = alist[i + 1], alist[i]
-                co +=1
+                co +=1    # 统计交换了几次
                 # temp = alist[i]
                 # alist[i] = alist[i+1]
                 # alist[i+1] = temp
@@ -19,9 +22,11 @@ def shortBubbleSort(alist):
     exchanges = True
     passnum = len(alist) - 1
     co = 0
-    while passnum > 0 and exchanges:
+    while passnum > 0 and exchanges:                 #【tricky】exchange 标志
+        # print(passnum)  统计进行了几次大循环
         co +=1
-        # 如果发现列表已排序，可以修改冒泡排序提前停止
+        # 第一次大循环完以后,列表已排序好，第二次进来以后没有发生交换,exchange=False,冒泡排序提前停止,后续不再循环
+        # 而第一种bubbleSort会傻乎乎的循环len(alist) - 1次
         exchanges = False
         for i in range(passnum):
             if alist[i] > alist[i + 1]:
