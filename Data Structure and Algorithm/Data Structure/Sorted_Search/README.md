@@ -4,14 +4,17 @@
 
 [十大经典排序算法动画与解析 微信](https://mp.weixin.qq.com/s/vn3KiV-ez79FmbZ36SX9lg)
 
-[其他排序 https://github.com/keon/algorithms/tree/master/algorithms/sort ](https://github.com/keon/algorithms/tree/master/algorithms/sort)
+[其他排序1 https://github.com/keon/algorithms/tree/master/algorithms/sort ](https://github.com/keon/algorithms/tree/master/algorithms/sort)
 
+[其他排序2 https://github.com/TheAlgorithms/Python/tree/master/sorts](https://github.com/TheAlgorithms/Python/tree/master/sorts)
 
-- 选择排序
+O()  O() 对比
+
+- 选择排序 :一次loop最小的到了最左边
 
 - 插入排序
 
-- 冒泡排序
+- 冒泡排序 :一次loop最大的到了最右边
 
    - 非优化版本
 
