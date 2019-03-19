@@ -1,5 +1,7 @@
 ## 资源
 
+[shell 入门](https://github.com/Snailclimb/JavaGuide/blob/master/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/Shell.md)
+
 [ C语言中文网 Linux学习教程，Linux入门教程（超详细）](http://c.biancheng.net/linux_tutorial/)
 
 [ Linux命令行与shell脚本编程大全案例 fengyuhetao/shell ](https://github.com/fengyuhetao/shell)
