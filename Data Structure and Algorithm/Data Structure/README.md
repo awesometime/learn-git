@@ -4,6 +4,6 @@
 
 > [https://github.com/facert/python-data-structure-cn](https://github.com/facert/python-data-structure-cn)
 
-> [ geeksforgeeks ](https://www.geeksforgeeks.org/)
+> [ geeksforgeeks  逻辑清晰清晰 ](https://www.geeksforgeeks.org/)
 
 [ algorithms ](https://algorithms.tutorialhorizon.com//)
