@@ -53,6 +53,12 @@ def postorder(tree):
         postorder(tree.getRightChild())
         print(tree.getRootVal())
 
+# 层序遍历
+# https://github.com/apachecn/awesome-algorithm/blob/master/docs/Leetcode_Solutions/Python/0102._binary_tree_level_order_traversal.md
+def levelorder(tree)：
+    pass
+
+
 
 r = BinaryTree('a')
 print(r.getRootVal())
