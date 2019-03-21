@@ -14,7 +14,7 @@ Mendel Cooper](http://tldp.org/LDP/abs/html/)，非常详细，非常易读，�
 
 ## IF 判断条件总结
 
-[IF 判断条件总结](https://www.jb51.net/article/56553.htm)
+> [IF 判断条件总结](https://www.jb51.net/article/56553.htm)
 ```sh
 if [ -f file ]    # 如果 FILE 存在且是一个普通文件则为真
 if [-z $2]        # 判断脚本的第2个参数是否为空
@@ -31,7 +31,107 @@ $*    是以一个单字符串显示所有向脚本传递的参数，与位置�
 $$    是脚本运行的当前进程ID号
 $?    是显示最后命令的退出状态，0表示没有错误，其他表示有错误
 
+1、字符串判断
 
+str1 = str2　　　　　　当两个串有相同内容、长度时为真 
+str1 != str2　　　　　 当串str1和str2不等时为真 
+-n str1　　　　　　　 当串的长度大于0时为真(串非空) 
+-z str1　　　　　　　 当串的长度为0时为真(空串) 
+str1　　　　　　　　   当串str1为非空时为真
+
+2、数字的判断
+
+int1 -eq int2　　　　两数相等为真 
+int1 -ne int2　　　　两数不等为真 
+int1 -gt int2　　　　int1大于int2为真 
+int1 -ge int2　　　　int1大于等于int2为真 
+int1 -lt int2　　　　int1小于int2为真 
+int1 -le int2　　　　int1小于等于int2为真
+
+3、文件的判断
+
+-r file　　　　　用户可读为真 
+-w file　　　　　用户可写为真 
+-x file　　　　　用户可执行为真 
+-f file　　　　　文件为正规文件为真 
+-d file　　　　　文件为目录为真 
+-c file　　　　　文件为字符特殊文件为真 
+-b file　　　　　文件为块特殊文件为真 
+-s file　　　　　文件大小非0时为真 
+-t file　　　　　当文件描述符(默认为1)指定的设备为终端时为真
+
+4、复杂逻辑判断
+
+-a 　 　　　　　 与 
+-o　　　　　　　 或 
+!　　　　　　　　非
+
+5 附 表：
+
+[ -a FILE ]  如果 FILE 存在则为真。  
+[ -b FILE ]  如果 FILE 存在且是一个块特殊文件则为真。  
+[ -c FILE ]  如果 FILE 存在且是一个字特殊文件则为真。  
+[ -d FILE ]  如果 FILE 存在且是一个目录则为真。  
+[ -e FILE ]  如果 FILE 存在则为真。  
+[ -f FILE ]  如果 FILE 存在且是一个普通文件则为真。  
+[ -g FILE ] 如果 FILE 存在且已经设置了SGID则为真。 [ -h FILE ]  如果 FILE 存在且是一个符号连接则为真。  
+[ -k FILE ]  如果 FILE 存在且已经设置了粘制位则为真。  
+[ -p FILE ]  如果 FILE 存在且是一个名字管道(F如果O)则为真。  
+[ -r FILE ]  如果 FILE 存在且是可读的则为真。  
+[ -s FILE ]  如果 FILE 存在且大小不为0则为真。  
+[ -t FD ]  如果文件描述符 FD 打开且指向一个终端则为真。  
+[ -u FILE ]  如果 FILE 存在且设置了SUID (set user ID)则为真。  
+[ -w FILE ]  如果 FILE 如果 FILE 存在且是可写的则为真。  
+[ -x FILE ]  如果 FILE 存在且是可执行的则为真。  
+[ -O FILE ]  如果 FILE 存在且属有效用户ID则为真。  
+[ -G FILE ]  如果 FILE 存在且属有效用户组则为真。  
+[ -L FILE ]  如果 FILE 存在且是一个符号连接则为真。  
+[ -N FILE ]  如果 FILE 存在 and has been mod如果ied since it was last read则为真。  
+[ -S FILE ]  如果 FILE 存在且是一个套接字则为真。  
+[ FILE1 -nt FILE2 ]  如果 FILE1 has been changed more recently than FILE2, or 如果 FILE1 exists and FILE2 does not则为真。  
+[ FILE1 -ot FILE2 ]  如果 FILE1 比 FILE2 要老, 或者 FILE2 存在且 FILE1 不存在则为真。  
+[ FILE1 -ef FILE2 ]  如果 FILE1 和 FILE2 指向相同的设备和节点号则为真。  
+[ -o OPTIONNAME ]  如果 shell选项 “OPTIONNAME” 开启则为真。  
+[ -z STRING ]  “STRING” 的长度为零则为真。  
+[ -n STRING ] or [ STRING ]  “STRING” 的长度为非零 non-zero则为真。  
+[ STRING1 == STRING2 ]  如果2个字符串相同。 “=” may be used instead of “==” for strict POSIX compliance则为真。  
+[ STRING1 != STRING2 ]  如果字符串不相等则为真。 
+[ STRING1 < STRING2 ]  如果 “STRING1” sorts before “STRING2” lexicographically in the current locale则为真。  
+[ STRING1 > STRING2 ]  如果 “STRING1” sorts after “STRING2” lexicographically in the current locale则为真。  
+[ ARG1 OP ARG2 ] “OP” is one of -eq, -ne, -lt, -le, -gt or -ge. These arithmetic binary operators return true if “ARG1” is equal to, not equal to, less than, less than or equal to, greater than, or greater than or equal to “ARG2”, respectively. “ARG1” and “ARG2” are integers.
+```
+
+> /dev/null 2>&1
+```sh
+0:表示键盘输入(stdin)
+1:表示标准输出(stdout),系统默认是1 
+2:表示错误输出(stderr)
+
+command >/dev/null 2>&1 &  == command 1>/dev/null 2>&1 &
+# > 代表重定向  &代表等于
+
+1)command:表示shell命令或者为一个可执行程序
+2)>:表示重定向到哪里 
+3)/dev/null:表示Linux的空设备文件 
+4)2:表示标准错误输出
+5)&1:&表示等同于的意思,2>&1,表示2的输出重定向等于于1
+6)&:表示后台执行,即这条指令执行在后台运行
+
+
+1>/dev/null:表示标准输出重定向到空设备文件,也就是不输出任何信息到终端,不显示任何信息。
+2>&1:表示标准错误输出重定向等同于标准输出,因为之前标准输出已经重定向到了空设备文件,所以标准错误输出也重定向到空设备文件。
+
+
+这条命令的意思就是【在后台执行这个程序,并将错误输出2重定向到标准输出1,然后将标准输出1全部放到/dev/null文件,也就是清空】
+所以可以看出" >/dev/null 2>&1 "常用来避免shell命令或者程序等运行中有内容输出。
+
+结合 wget使用的例子:
+wget -O /dev/null -o /dev/null example.com
+#Here -O sends the downloaded file to /dev/null and -o logs to /dev/null instead of stderr.
+```
+
+> ${ } 替换
+```sh
 假设我们定义了一个变量为：
 file=/dir1/dir2/dir3/my.file.txt
 我们可以用 ${ } 分别替换获得不同的值：
