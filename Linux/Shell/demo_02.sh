@@ -1,5 +1,5 @@
 #!/bin/bash
-OBS_URL=http://xxx.org
+S_URL=http://xxx.org
 RPM_TAR_PACKAGE161=xss_linux64_rpm.tar.gz
 DEB_TAR_PACKAGE161=xss_linux64_deb.tar.gz
 TAR_TAR_PACKAGE161=xss_linux64_tar.tar.gz
