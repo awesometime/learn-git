@@ -1,7 +1,8 @@
 ###  1  Anaconda
 
 - Anaconda Navigtor ：用于管理工具包和环境的图形用户界面，后续涉及的众多管理命令也可以在 Navigator 中手工实现。
-- [ jupyterlab ](https://github.com/jupyterlab/jupyterlab) : Jupyter notebook 升级版
+- [ jupyterlab ](https://github.com/jupyterlab/jupyterlab) : Jupyter notebook 升级版 本地打开编辑相关python文件
+- [ nbviewer of jupyter ](https://nbviewer.jupyter.org/) : 在线阅读ipynb文件
 - Jupyter notebook ：基于web的交互式计算环境，可以编辑易于人们阅读的文档，用于展示数据分析的过程。
 - qtconsole ：一个可执行 IPython 的仿终端图形界面程序，相比 Python Shell 界面，qtconsole 可以直接显示代码生成的图形，实现
   多行代码输入执行，以及内置许多有用的功能和函数。
