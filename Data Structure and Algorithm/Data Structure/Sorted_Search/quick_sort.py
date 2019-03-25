@@ -1,5 +1,6 @@
 """
-快速排序:
+https://www.geeksforgeeks.org/quick-sort/   快速排序:单向扫描
+快速排序:双向扫描
 
 """
 
