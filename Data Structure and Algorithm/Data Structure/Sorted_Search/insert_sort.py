@@ -1,3 +1,5 @@
+# https://www.geeksforgeeks.org/insertion-sort/
+
 def insertionSort(alist):
     #
     # 遍历 1-(n-1)
