@@ -2,6 +2,8 @@
 归并排序: recursive   https://www.geeksforgeeks.org/merge-sort/
          iterative   https://www.geeksforgeeks.org/iterative-merge-sort/
 
+iterative  https://www.jianshu.com/p/3f27384387c1
+
 如果列表有多个项，我们分割列表，并递归调用两个半部分的合并排序。
 一旦对这两半排序完成，就执行称为合并的基本操作。
 合并是获取两个较小的排序列表并将它们组合成单个排序的新列表的过程。
