@@ -86,6 +86,19 @@ class Quick():
         # 对low右边的列表执行快速排序
         self.quick_sort_bizhan(alist, low + 1, last)
 
+        
+        # recursive
+        def quicksort(self, arr):
+            if len(arr) <= 1:
+                return arr
+            pivot = arr[int(len(arr) / 2)]
+            left = [x for x in arr if x < pivot]
+            middle = [x for x in arr if x == pivot]
+            right = [x for x in arr if x > pivot]
+            return quicksort(left) + middle + quicksort(right)
+
+
+
 
 if __name__ == "__main__":
     # 第一种
@@ -111,3 +124,12 @@ if __name__ == "__main__":
     alist2 = [54, 26, 93, 17, 77, 31, 44, 55, 20]
     q.quick_sort_bizhan(alist2, 0, len(alist2) - 1)
     print(alist2)
+
+    #测试
+    alist3 = [54, 26, 93, 17, 77, 31, 44, 55, 20]
+    print(q.quicksort(alist3))
+
+    import numpy as np
+    x = np.random.randint(0, 100, 30)
+    print(x)
+    print(q.quicksort(x))
