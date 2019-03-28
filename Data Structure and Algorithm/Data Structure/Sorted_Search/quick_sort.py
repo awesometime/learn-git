@@ -1,7 +1,18 @@
 """
-https://www.geeksforgeeks.org/quick-sort/   快速排序:单向扫描
-快速排序:双向扫描
+https://www.geeksforgeeks.org/quick-sort/   
 
+快速排序:单向扫描  https://blog.csdn.net/k_koris/article/details/80585979  单 两 三路
+快速排序:双向扫描  本文
+
+优化：
+
+1 Pick a random element as pivot
+
+2 快速排序:三路快排 LeetCode75
+  在使用有序或者近乎有序的数组测试时，算法的执行时间大大增加，经过分析发现：
+  原来该算法O(nlogn)的复杂度会退化成为O(n^2)，这显然是和快排这个名称不想符的，
+  于是笔者又经过分析与查阅资料了解到了所谓三路快排，该算法应用更加广泛，
+  甚至Java将三路快排作为系统库中默认的排序算法
 """
 
 class Quick():
