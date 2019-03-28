@@ -139,89 +139,78 @@ class recursiveMergeSort():
         return result
 
 class iterativeMergeSort():
-    # Iterative Merge sort (Bottom Up) 
-
-    # Iterative mergesort function to 
-    # sort arr[0...n-1] 
-    def mergeSort(a): 
-
+    # Iterative Merge sort (Bottom Up)
+    
+    # Iterative mergesort function to
+    # sort arr[0...n-1]
+    def mergeSort(self ,a):
         current_size = 1
-
-        # Outer loop for traversing Each 
-        # sub array of current_size 
-        while current_size < len(a) - 1: 
-
+    
+        # Outer loop for traversing Each
+        # sub array of current_size
+        while current_size < len(a) - 1:
+            print('current_size -->' +str(current_size))
+            print('l m r ')
+            print('------')
             left = 0
-            # Inner loop for merge call 
-            # in a sub array 
-            # Each complete Iteration sorts 
-            # the iterating sub array 
-            while left < len(a)-1: 
-
-                # mid index = left index of 
-                # sub array + current sub 
-                # array size - 1 
-                mid = left + current_size - 1
-
-                # (False result,True result) 
-                # [Condition] Can use current_size 
-                # if 2 * current_size < len(a)-1 
-                # else len(a)-1 
-                right = ((2 * current_size + left - 1, 
-                        len(a) - 1)[2 * current_size 
-                            + left - 1 > len(a)-1]) 
-
-                # Merge call for each sub array 
-                merge(a, left, mid, right) 
-                left = left + current_size*2
-
-            # Increasing sub array size by 
-            # multiple of 2 
-            current_size = 2 * current_size 
-
-    # Merge Function 
-    def merge(a, l, m, r): 
+            # Inner loop for merge call
+            # in a sub array
+            # Each complete Iteration sorts
+            # the iterating sub array
+            while left < len(a) - 1:
+                # mid index = left index of
+                # sub array + current sub
+                # array size - 1
+                mid = min(left + current_size - 1, len(a) - 1)
+    
+                # (False result,True result)
+                # [Condition] Can use current_size
+                # if 2 * current_size < len(a)-1
+                # else len(a)-1
+                # right = ((2 * current_size + left - 1, len(a) - 1)[2 * current_size + left - 1 > len(a) - 1])
+                right = min(2 * current_size + left - 1, len(a) - 1)
+                print(left, mid, right)
+    
+                # Merge call for each sub array
+                self.merge(a, left, mid, right)
+                left = left + current_size * 2
+    
+            # Increasing sub array size by
+            # multiple of 2
+            current_size = 2 * current_size
+    
+        # Merge Function
+    
+    
+    def merge(self, a, l, m, r):
         n1 = m - l + 1
-        n2 = r - m 
-        L = [0] * n1 
-        R = [0] * n2 
-        for i in range(0, n1): 
-            L[i] = a[l + i] 
-        for i in range(0, n2): 
-            R[i] = a[m + i + 1] 
-
-        i, j, k = 0, 0, l 
-        while i < n1 and j < n2: 
-            if L[i] > R[j]: 
-                a[k] = R[j] 
+        n2 = r - m
+        L = [0] * n1
+        R = [0] * n2
+        for i in range(0, n1):
+            L[i] = a[l + i]
+        for i in range(0, n2):
+            R[i] = a[m + i + 1]
+    
+        i, j, k = 0, 0, l
+        while i < n1 and j < n2:
+            if L[i] > R[j]:
+                a[k] = R[j]
                 j += 1
-            else: 
-                a[k] = L[i] 
+            else:
+                a[k] = L[i]
                 i += 1
             k += 1
-
-        while i < n1: 
-            a[k] = L[i] 
+    
+        while i < n1:
+            a[k] = L[i]
             i += 1
             k += 1
-
-        while j < n2: 
-            a[k] = R[j] 
+    
+        while j < n2:
+            a[k] = R[j]
             j += 1
             k += 1
-
-
-    # Driver code 
-    a = [12, 11, 13, 5, 6, 7] 
-    print("Given array is ") 
-    print(a) 
-
-    mergeSort(a) 
-
-    print("Sorted array is ") 
-    print(a) 
-
-    # Contributed by Madhur Chhangani [RCOEM] 
 
    
 
@@ -229,16 +218,52 @@ if __name__ == "__main__":
     # recursiveMergeSort
     # 第一种
     alist = [54, 26, 93, 17, 77, 31, 44, 55, 20]
-    m = recursiveMergeSort()
-    m.mergeSort(alist)
+    r_m = recursiveMergeSort()
+    r_m.mergeSort(alist)
     print(alist)
 
     # 第二种
     alist2 = [54, 26, 93, 17, 77, 31, 44, 55, 20]
-    rst = m.merge_sort_bizhan(alist2)
+    rst = r_m.merge_sort_bizhan(alist2)
     print(alist2)
     print(rst)
-
-    # iterativeMergeSort
     
+    ########################
+    # iterativeMergeSort
+    a = [12, 11, 13, 4, 7, 8, 9, 1, 3, 2]
+    print("Given array is ")
+    print(a)
+    i_m = iterativeMergeSort()
+    i_m.mergeSort(a)
+
+    print("Sorted array is ")
+    print(a)
+
+# Given array is 
+# [12, 11, 13, 4, 7, 8, 9, 1, 3, 2]
+# current_size -->1
+# l m r 
+# ------
+# 0 0 1
+# 2 2 3
+# 4 4 5
+# 6 6 7
+# 8 8 9
+# current_size -->2
+# l m r 
+# ------
+# 0 1 3
+# 4 5 7
+# 8 9 9
+# current_size -->4
+# l m r 
+# ------
+# 0 3 7
+# 8 9 9
+# current_size -->8
+# l m r 
+# ------
+# 0 7 9
+# Sorted array is 
+# [1, 2, 3, 4, 7, 8, 9, 11, 12, 13]
     
