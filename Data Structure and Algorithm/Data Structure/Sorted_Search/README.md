@@ -30,9 +30,9 @@ https://zhuanlan.zhihu.com/p/58385984?utm_source=wechat_session&utm_medium=socia
 
    - 非递归式归并排序
 
-- `快速排序` : 一次排完以后pivot处于正确位置 而且pivot左边的都比pivot小 右边的都比pivot大
+- `快速排序` : 一次排完以后**pivot**处于正确位置 而且pivot左边的都比pivot小 右边的都比pivot大
 
-- `堆排序` ：堆排序构建堆的时间复杂度是N,而重调堆的时间复杂度是logN
+- `堆排序` ：堆排序**构建堆**的时间复杂度是N,而**重调堆**的时间复杂度是logN
 
 - `计数排序` ：
 
