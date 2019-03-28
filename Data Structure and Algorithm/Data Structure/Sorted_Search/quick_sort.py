@@ -1,5 +1,5 @@
 """
-https://www.geeksforgeeks.org/quick-sort/   
+https://www.geeksforgeeks.org/quick-sort/
 
 快速排序:单向扫描  https://blog.csdn.net/k_koris/article/details/80585979  单 两 三路
 快速排序:双向扫描  本文
@@ -8,29 +8,35 @@ https://www.geeksforgeeks.org/quick-sort/
 
 1 Pick a random element as pivot
 
-2 快速排序:三路快排 LeetCode75
+2 快速排序:三路快排  https://www.jianshu.com/p/9eff99d403fb
+    LeetCode75
   在使用有序或者近乎有序的数组测试时，算法的执行时间大大增加，经过分析发现：
   原来该算法O(nlogn)的复杂度会退化成为O(n^2)，这显然是和快排这个名称不想符的，
   于是笔者又经过分析与查阅资料了解到了所谓三路快排，该算法应用更加广泛，
   甚至Java将三路快排作为系统库中默认的排序算法
 """
 
+import random
+import numpy as np
+
+
 class Quick():
     def __init__(self):
         pass
 
+    # 两路快排
     def quickSort(self, alist):
         self.quickSortHelper(alist, 0, len(alist) - 1)
 
     def quickSortHelper(self, alist, first, last):
         if first < last:
-            splitpoint = self.partition(alist, first, last)
+            splitpoint = self.two_partition(alist, first, last)
             print(splitpoint)
 
             self.quickSortHelper(alist, first, splitpoint - 1)
             self.quickSortHelper(alist, splitpoint + 1, last)
 
-    def partition(self, alist, first, last):
+    def two_partition(self, alist, first, last):
         pivotvalue = alist[first]
 
         leftmark = first + 1
@@ -60,6 +66,7 @@ class Quick():
 
         return rightmark
 
+    # 两路快排 b站总结
     def quick_sort_bizhan(self, alist, first, last):
         if first >= last:
             return
@@ -86,22 +93,53 @@ class Quick():
         # 对low右边的列表执行快速排序
         self.quick_sort_bizhan(alist, low + 1, last)
 
-        
-        # recursive
-        def quicksort(self, arr):
-            if len(arr) <= 1:
-                return arr
-            pivot = arr[int(len(arr) / 2)]
-            left = [x for x in arr if x < pivot]
-            middle = [x for x in arr if x == pivot]
-            right = [x for x in arr if x > pivot]
-            return quicksort(left) + middle + quicksort(right)
+    # 三路快排 https://www.jianshu.com/p/9eff99d403fb
+    def quick_sort_three_partition(self, arr, left, right):  # right=len(arr)-1
+        # 只有left < right 排序
+        if left >= right:
+            return
+        # 在列表里随机选一个数来作为基准元素
+        random_index = random.randint(left, right)
+        # 把基准元素和第一个元素交换
+        arr[left], arr[random_index] = arr[random_index], arr[left]
 
+        pivot = arr[left]
+        # 定义lt：小于v部分元素 的下标，初始是空的，因为arr[left]是基准元素
+        lt = left  # arr[left+1...lt]  < v
 
+        # gt 大于v 部分开始的下标，初始为空
+        gt = right + 1  # arr[gt...right]   > v
+        i = left + 1  # arr[lt+1...i]    == v
+        # 终止条件：下标i 和gt 遇到一起，说明都排完了
+        while i < gt:
+            if arr[i] < pivot:
+                arr[i], arr[lt + 1] = arr[lt + 1], arr[i]
+                lt += 1
+                i += 1
+            elif arr[i] > pivot:
+                arr[i], arr[gt - 1] = arr[gt - 1], arr[i]
+                gt -= 1
+            else:
+                i += 1
+        # 最后把第一个元素（基准元素）放到等于v的部分
+        arr[left], arr[lt] = arr[lt], arr[left]
+        # 递归排序
+        self.quick_sort_three_partition(arr, left, lt - 1)
+        self.quick_sort_three_partition(arr, gt, right)
+
+    # 三路快排 recursive
+    def quick_sort_recursive(self, arr):
+        if len(arr) <= 1:
+            return arr
+        pivot = arr[int(len(arr) / 2)]
+        left = [x for x in arr if x < pivot]
+        middle = [x for x in arr if x == pivot]
+        right = [x for x in arr if x > pivot]
+        return self.quick_sort_recursive(left) + middle + self.quick_sort_recursive(right)
 
 
 if __name__ == "__main__":
-    # 第一种
+    # 第1种
     q = Quick()
     alist = [54, 26, 93, 17, 77, 31, 44, 55, 20]
     # alist = [26,20]
@@ -120,16 +158,35 @@ if __name__ == "__main__":
     # 7
     # [17, 20, 26, 31, 44, 54, 55, 77, 93]
 
-    # 第一种
+    # 第2种
     alist2 = [54, 26, 93, 17, 77, 31, 44, 55, 20]
     q.quick_sort_bizhan(alist2, 0, len(alist2) - 1)
     print(alist2)
 
-    #测试
-    alist3 = [54, 26, 93, 17, 77, 31, 44, 55, 20]
-    print(q.quicksort(alist3))
+    # 第3种
 
-    import numpy as np
+    y = np.random.randint(0, 100, 30)
+    print(y)
+    q.quick_sort_three_partition(y, 0, len(y)-1)
+    print(y)
+
+    # 第4种
+    alist4 = [54, 26, 93, 17, 77, 31, 44, 55, 20]
+    print(q.quick_sort_recursive(alist4))
+
     x = np.random.randint(0, 100, 30)
     print(x)
-    print(q.quicksort(x))
+    print(q.quick_sort_recursive(x))
+
+
+# [17, 20, 26, 31, 44, 54, 55, 77, 93]
+# [17, 20, 26, 31, 44, 54, 55, 77, 93]
+# [55 43 29 58 23 22  0  8 45 16 22 93 52 54 14 40 27 30  4  9 72 87 73 34
+#  68 50 32 28 60 60]
+# [ 0  4  8  9 14 16 22 22 23 27 28 29 30 32 34 40 43 45 50 52 54 55 58 60
+#  60 68 72 73 87 93]
+# [17, 20, 26, 31, 44, 54, 55, 77, 93]
+# [17 54 33  6 84 95 77 29 15 42 63 21 19 68 11 42 36 16  8 68 22 52 81 84
+#   1 52 39  6 10 63]
+# [1, 6, 6, 8, 10, 11, 15, 16, 17, 19, 21, 22, 29, 33, 36, 39, 42, 42, 52, 52, 54, 63, 63, 68, 68, 77, 81, 84, 84, 95]
+    
