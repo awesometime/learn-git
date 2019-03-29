@@ -95,6 +95,11 @@ class Quick():
 
     # 三路快排 https://www.jianshu.com/p/9eff99d403fb
     def quick_sort_three_partition(self, arr, left, right):  # right=len(arr)-1
+        """
+        arr= [left][left+1...lt][lt+1...i...gt-1][gt...right]
+                   [   <pivot  ][     =pivot    ][   >pivot ]
+        lt初始化为left,  gt初始化为right+1,  i从left+1开始,  pivot=arr[left]或者随机一个
+        """
         # 只有left < right 排序
         if left >= right:
             return
