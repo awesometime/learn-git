@@ -421,10 +421,13 @@ https://dev.mysql.com/downloads/mysql/
 [mysqld]
 # 设置3306端口
 port=3306
-# 设置mysql的安装目录
+
+# 设置mysql的安装目录                     # 注意修改这两处地方
 basedir=C:\lxinstall\MySQL\mysql
 # 设置mysql数据库的数据的存放目录
 datadir=C:\lxinstall\MySQL\mysql\data     # 此文件夹data 不用自己新建，后续初始化时自动建，不然会出错
+
+
 # 允许最大连接数
 max_connections=200
 # 允许连接失败的次数。这是为了防止有人从该主机试图攻击数据库系统
@@ -448,7 +451,7 @@ default-character-set=utf8
 
 ### 5 启动 MySQL 数据库
 
-以**管理员身份** 切到 `C:\lxinstall\MySQL\mysql\bin` 否则会出[安装mysql Install/Remove of the Service Denied!错误的解决办法](https://blog.csdn.net/lxpbs8851/article/details/14161935/)打开 cmd 命令行工具，切换到目录G:\MySQL\mysql5.7\bin下：
+以**管理员身份** 切到 `C:\lxinstall\MySQL\mysql\bin` 否则会出[安装mysql Install/Remove of the Service Denied!错误的解决办法](https://blog.csdn.net/lxpbs8851/article/details/14161935/)打开 cmd 命令行工具，切换到目录C:\lxinstall\MySQL\mysql\bin下：
 
  ` mysqld install`         如果提示成功，说明安装成功了，若提示找不到msvcp140.dll
  
