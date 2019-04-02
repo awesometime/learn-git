@@ -1,8 +1,8 @@
 ### todo 
 
-django + vue 前后端分离
+> django + [vue](https://vuejs.bootcss.com/) 前后端分离
 
-Django RESTFUL api
+> Django RESTful framework
   
 
 目录
