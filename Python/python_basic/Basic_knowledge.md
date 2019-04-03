@@ -268,7 +268,7 @@ echo.echofilter
 包定义文件 __init__.py 存在一个叫做 __all__ 的列表变量，那么在使用 from package import * 的时候就把这个列表中的所有名字作为包内容导入。
  
 ### 12 Python3   多进程 multiprocessing    多线程 threading     (参考廖雪峰)
-
+[multiprocessing  threading](https://mp.weixin.qq.com/s?__biz=MjM5OTMyODA4Nw==&mid=2247484084&idx=1&sn=573989b9526aef01a3d515ab09afe86a&chksm=a73c628c904beb9a39adef9b95a1ce6560245b7f4e2a39207a55abc1a293935be203a35bcb13&mpshare=1&scene=1&srcid=&pass_ticket=0QnHRl6v1Xkew4C5DrpSerNBri6BPOinWKKfydIySHIIQ%2BKJhsjSdnkU2wZYGdie#rd)
 ```
 进程 优先级于 线程  一个进程至少有一个线程
 
@@ -290,6 +290,8 @@ echo.echofilter
 只能用线程，不能用进程。
 
 ```
+
+```
 多进程和多线程最大的不同在于，
 
 **多进程**中，同一个变量，各自有一份拷贝存在于每个进程中，互不影响.
@@ -297,12 +299,57 @@ echo.echofilter
 **多线程**中，所有变量都由所有线程共享，所以，任何一个变量都可以被任何一个线程修改.
 
 因此，线程之间共享数据最大的危险在于多个线程同时改一个变量，把内容给改乱了。
+```
+
+```
+Python多进程和多线程哪个快?
+
+由于GIL的存在，很多人认为Python多进程编程更快，针对多核CPU，理论上来说也是采用多进程更能有效利用资源。网上很多人已做过比较，我直接告诉你结论吧。
+
+    对CPU密集型代码(比如循环计算) - 多进程效率更高
+
+    对IO密集型代码(比如文件操作，网络爬虫) - 多线程效率更高。
+
+为什么是这样呢？其实也不难理解。对于IO密集型操作，大部分消耗时间其实是等待时间，在等待时间中CPU是不需要工作的，
+
+那你在此期间提供双CPU资源也是利用不上的，相反对于CPU密集型代码，2个CPU干活肯定比一个CPU快很多。
+
+那么为什么多线程会对IO密集型代码有用呢？这时因为python碰到等待会释放GIL供新的线程使用，实现了线程间的切换。
+
+```
 
 
-
-> 12.1 多进程multiprocessing
+> 12.1 多进程 multiprocessing
 
 **12.1.1 启动一个子进程并等待其结束**   `os.getpid()  p.start()  p.join()`
+
+单进程代码
+```python3
+import time
+import os
+
+def long_time_task():
+    print('当前进程: {}'.format(os.getpid()))
+    time.sleep(2)
+    print("结果: {}".format(8 ** 20))
+
+if __name__ == "__main__":
+    print('当前母进程: {}'.format(os.getpid()))
+    start = time.time()
+    for i in range(2):
+        long_time_task()
+
+    end = time.time()
+    print("用时{}秒".format((end-start)))
+
+### 
+当前母进程: 14236
+当前进程: 14236
+结果: 1152921504606846976
+当前进程: 14236
+结果: 1152921504606846976
+用时4.01080060005188秒
+```
 
 multiprocessing模块（具有跨平台特性）提供了一个Process类来代表一个进程对象
 
@@ -315,19 +362,68 @@ def run_proc(name):                           # 定义一个执行函数run_proc
 
 if __name__=='__main__':
     print('Parent process %s.' % os.getpid())      # 打印当前进程(父进程)id
-    p=Process(target=run_proc, args=('test',))     # 传入参数，创建一个Process实例，即创建一个子进程；target为子进程函数，args中的test传给run_proc的参数
-    p.start()                                      # 开启一个进程
-    p.join()                                       # 等待该进程运行结束
+    start = time.time()
+    p1=Process(target=run_proc, args=('test',))     # 传入参数，创建一个Process实例，即创建一个子进程；target为子进程函数，args中的test传给run_proc的参数
+    p2=Process(target=run_proc, args=('test',))
+    print('等待所有子进程完成。')
+    p1.start()                                     # 开启一个进程
+    p2.start()
+    p1.join()                                      # 等待该进程运行结束
+    p2.join()                                      # 等待该进程运行结束
+    end = time.time()
+    print("总共用时{}秒".format((end - start)))
     
-# 在Windows 上实际并未看到子进程的输出，平台原因？？？
+# 在Windows 上实际并未看到子进程的输出，平台原因？？？ 
+# 输出不对应
+当前母进程: 6920
+等待所有子进程完成。
+子进程: 17020 - 任务1
+子进程: 5904 - 任务2
+结果: 1152921504606846976
+结果: 1152921504606846976
+总共用时2.131091356277466秒
 ```    
 
 另一种方法：创建一个类继承Process类，并重写run方法。[参考](https://www.cnblogs.com/hypnus-ly/p/8129205.html)
     
+
 **12.1.2 Pool  批量创建子进程**   `p.apply_async` 
 
 ```python3
-from multiprocessing import Pool
+下面介绍一下multiprocessing 模块下的Pool类的几个方法：
+
+1.apply_async
+
+函数原型：apply_async(func[, args=()[, kwds={}[, callback=None]]])
+
+其作用是向进程池提交需要执行的函数及参数， 各个进程采用非阻塞（异步）的调用方式，即每个子进程只管运行自己的，不管其它进程是否已经完成。
+
+2.map()
+
+函数原型：map(func, iterable[, chunksize=None])
+
+Pool类中的map方法，与内置的map函数用法行为基本一致，它会使进程阻塞直到结果返回。 注意：虽然第二个参数是一个迭代器，但在实际使用中，必须在整个队列都就绪后，程序才会运行子进程。
+
+3.map_async()
+
+函数原型：map_async(func, iterable[, chunksize[, callback]])
+与map用法一致，但是它是非阻塞的。其有关事项见apply_async。
+
+4.close()
+
+关闭进程池（pool），使其不在接受新的任务。
+
+5. terminate()
+
+结束工作进程，不在处理未处理的任务。
+
+6.join()
+
+主进程阻塞等待子进程的退出， join方法要在close或terminate之后使用。
+```
+
+```python3
+from multiprocessing import Pool, cpu_count
 import os, time, random
 
 def long_time_task(name):
@@ -338,17 +434,18 @@ def long_time_task(name):
     print('Task %s runs %0.2f seconds.' % (name, (end - start)))   # 用time.sleep结合随机函数来指定每个进程执行多长时间
 
 if __name__=='__main__':
-    
+    print("CPU内核数:{}".format(cpu_count()))
+    print('当前母进程: {}'.format(os.getpid()))
     p = Pool(4)                   # 同时跑4个进程，默认大小是CPU的核数
     for i in range(6):            # 总共6个进程，由于只能同时跑4个进程，需要等前边4个中某个结束才能加入一个新的进程
         p.apply_async(long_time_task, args=(i,))
     
-    p.close()
-    p.join()
+    p.close()  # 对Pool对象调用join()方法会等待所有子进程执行完毕，调用join()之前必须先调用close()或terminate()方法，让其不再接受新的Process了。
+    p.join()                                      # 等待该进程运行结束
     
 # 在Windows 上实际并未看到子进程的输出？？？
 ```
- **12.1.3 进程Process间通信**
+ **12.1.3 多进程间的数据共享与Process间通信**
  
 Python的multiprocessing模块包装了底层的机制，提供了`Queue、Pipes`等多种方式来交换数据。我们以``Queue``为例  
 ```python3
@@ -365,6 +462,7 @@ queue.Queue.get_nowait()
 queue.Queue.join()
 p = Process(target='xxx', args=('queue',))
 ```
+生产者和消费者模型 
 ```python3
 from multiprocessing import Process, Queue
 import os, time, random
@@ -479,7 +577,7 @@ thread LoopThread >>> 5
 thread LoopThread ended.
 thread MainThread ended.
 #####
-join()方法作用
+join()方法作用     
 MainThread在join之后一直停在join的地方，等待子线程 LoopThread 退出后才继续执行下去
 没有join()方法的结果
 ##### 
@@ -493,7 +591,177 @@ thread LoopThread >>> 4
 thread LoopThread >>> 5
 thread LoopThread ended.
 ```
-**12.2.2 Lock**
+
+```python3
+import threading
+import time
+
+
+def long_time_task(i):
+    print('当前子线程: {} - 任务{}'.format(threading.current_thread().name, i))
+    time.sleep(2)
+    print("结果: {}".format(8 ** 20))
+
+
+if __name__=='__main__':
+    start = time.time()
+    print('这是主线程：{}'.format(threading.current_thread().name))
+    t1 = threading.Thread(target=long_time_task, args=(1,))
+    t2 = threading.Thread(target=long_time_task, args=(2,))
+    t1.start()
+    t2.start()
+
+    end = time.time()
+    print("总共用时{}秒".format((end - start)))
+#
+这是主线程：MainThread
+当前子线程: Thread-1 - 任务1
+当前子线程: Thread-2 - 任务2
+总共用时0.0017192363739013672秒
+结果: 1152921504606846976
+结果: 1152921504606846976
+#
+#为什么总耗时居然是0秒? 我们可以明显看到主线程和子线程其实是独立运行的，主线程根本没有等子线程完成，而是自己结束后就打印了消耗时间。
+#主线程结束后，子线程仍在独立运行，这显然不是我们想要的
+```
+
+如果要实现主线程和子线程的同步，我们必需使用join方法
+
+```python3
+# 如果要实现主线程和子线程的同步，我们必需使用join方法
+import threading
+import time
+
+
+def long_time_task(i):
+    print('当前子线程: {} 任务{}'.format(threading.current_thread().name, i))
+    time.sleep(2)
+    print("结果: {}".format(8 ** 20))
+
+
+if __name__=='__main__':
+    start = time.time()
+    print('这是主线程：{}'.format(threading.current_thread().name))
+    thread_list = []
+    for i in range(1, 3):
+        t = threading.Thread(target=long_time_task, args=(i, ))
+        thread_list.append(t)
+
+    for t in thread_list:
+        t.start()
+
+    for t in thread_list:
+        t.join()     
+
+    end = time.time()
+    print("总共用时{}秒".format((end - start)))
+    
+#
+这是主线程：MainThread
+当前子线程: Thread - 1 任务1
+当前子线程: Thread - 2 任务2
+结果: 1152921504606846976
+结果: 1152921504606846976
+总共用时2.0166890621185303秒
+```
+
+当我们设置多线程时，主线程会创建多个子线程，在python中，默认情况下主线程和子线程独立运行互不干涉。
+
+如果希望让主线程等待子线程实现线程的同步，我们需要使用join()方法。如果我们希望一个主线程结束时不再执行子线程，
+
+我们应该怎么办呢? 我们可以使用t.setDaemon(True)
+
+```python3
+import threading
+import time
+
+
+def long_time_task():
+    print('当子线程: {}'.format(threading.current_thread().name))
+    time.sleep(2)
+    print("结果: {}".format(8 ** 20))
+
+
+if __name__=='__main__':
+    start = time.time()
+    print('这是主线程：{}'.format(threading.current_thread().name))
+    for i in range(5):
+        t = threading.Thread(target=long_time_task, args=())
+        t.setDaemon(True)
+        t.start()
+
+    end = time.time()
+    print("总共用时{}秒".format((end - start)))
+
+```
+**12.2.2 通过继承Thread类重写run方法创建新线程**
+
+除了使用Thread()方法创建新的线程外，我们还可以通过继承Thread类重写run方法创建新的线程，这种方法更灵活。
+
+下例中我们自定义的类为MyThread, 随后我们通过该类的实例化创建了2个子线程。
+
+```python3
+import threading
+import time
+
+
+def long_time_task(i):
+    time.sleep(2)
+    return 8**20
+
+
+class MyThread(threading.Thread):
+    def __init__(self, func, args , name='', ):
+        threading.Thread.__init__(self)
+        self.func = func
+        self.args = args
+        self.name = name
+        self.result = None
+
+    def run(self):
+        print('开始子线程{}'.format(self.name))
+        self.result = self.func(self.args[0],)
+        print("结果: {}".format(self.result))
+        print('结束子线程{}'.format(self.name))
+
+
+if __name__=='__main__':
+    start = time.time()
+    threads = []
+    for i in range(1, 3):
+        t = MyThread(long_time_task, (i,), str(i))
+        threads.append(t)
+
+    for t in threads:
+        t.start()
+    for t in threads:
+        t.join()
+
+    end = time.time()
+    print("总共用时{}秒".format((end - start)))
+
+
+# 输出结果如下所示:
+开始子线程1
+开始子线程2
+结果: 1152921504606846976
+结果: 1152921504606846976
+结束子线程1
+结束子线程2
+总共用时2.005445718765259秒
+```
+
+
+**12.2.3 不同线程间的数据共享 比较危险 通常需要加锁 threading.Lock**
+
+   一个进程所含的不同线程间共享内存，这就意味着任何一个变量都可以被任何一个线程修改，因此线程之间共享数据最大的危险在于多个线程同时改一个变量，
+
+把内容给改乱了。如果不同线程间有共享的变量，其中一个方法就是在修改前给其上一把锁lock，确保一次只有一个线程能修改它。
+
+threading.lock()方法可以轻易实现对一个共享变量的锁定，修改完后release供其它线程使用。比如下例中账户余额balance是一个共享变量，
+
+使用lock可以使其不被改乱。
+
 ```python3
 lock = threading.Lock()                # 创建一个锁
 def run_thread(n):
@@ -503,10 +771,118 @@ def run_thread(n):
             change_it(n)               # 执行一段代码
         finally:            
             lock.release()             # 执行代码完了一定要释放锁,try...finally 确保锁一定会被释放。
- ```   
+```
+```python3
+import threading
+
+
+class Account:
+    def __init__(self):
+        self.balance = 0
+
+    def add(self, lock):
+        # 获得锁
+        lock.acquire()
+        for i in range(0, 100000):
+            self.balance += 1
+        # 释放锁
+        lock.release()
+
+    def delete(self, lock):
+        # 获得锁
+        lock.acquire()
+        for i in range(0, 100000):
+            self.balance -= 1
+        # 释放锁
+        lock.release()
+
+
+if __name__ == "__main__":
+    account = Account()
+    lock = threading.Lock()
+    # 创建线程
+    thread_add = threading.Thread(target=account.add, args=(lock,), name='Add')
+    thread_delete = threading.Thread(target=account.delete, args=(lock,), name='Delete')
+
+    # 启动线程
+    thread_add.start()
+    thread_delete.start()
+
+    # 等待线程结束 
+    thread_add.join()
+    thread_delete.join()
+
+    print('The final balance is: {}'.format(account.balance))
+```
+另一种实现不同线程间数据共享的方法就是使用消息队列queue。不像列表，**queue是线程安全的，可以放心使用**，见下文
+ 
+**使用queue队列通信-经典的生产者和消费者模型**
+
+下例中创建了两个线程，一个负责生成，一个负责消费，所生成的产品存放在queue里，实现了不同线程间沟通。
+
+```python3
+from queue import Queue
+import random, threading, time
+
+
+# 生产者类
+class Producer(threading.Thread):
+    def __init__(self, name, queue):
+        threading.Thread.__init__(self, name=name)
+        self.queue = queue
+
+    def run(self):
+        for i in range(1, 5):
+            print("{} is producing {} to the queue!".format(self.getName(), i))
+            self.queue.put(i)
+            time.sleep(random.randrange(10) / 5)
+        print("%s finished!" % self.getName())
+
+
+# 消费者类
+class Consumer(threading.Thread):
+    def __init__(self, name, queue):
+        threading.Thread.__init__(self, name=name)
+        self.queue = queue
+
+    def run(self):
+        for i in range(1, 5):
+            val = self.queue.get()
+            print("{} is consuming {} in the queue.".format(self.getName(), val))
+            time.sleep(random.randrange(10))
+        print("%s finished!" % self.getName())
+
+
+def main():
+    queue = Queue()
+    producer = Producer('Producer', queue)
+    consumer = Consumer('Consumer', queue)
+
+    producer.start()
+    consumer.start()
+
+    producer.join()
+    consumer.join()
+    print('All threads finished!')
+
+
+if __name__ == '__main__':
+    main()
+```
+**队列queue的put方法**可以将一个对象obj放入队列中。如果队列已满，此方法将阻塞至队列有空间可用为止。
+
+**queue的get方法**一次返回队列中的一个成员。如果队列为空，此方法将阻塞至队列中有成员可用为止。
+
+queue同时还自带emtpy(), full()等方法来判断一个队列是否为空或已满，但是这些方法并不可靠，
+
+因为多线程和多进程，在返回结果和使用结果之间，队列中可能添加/删除了成员。
+
+
+
 > **12.3 ThreadLocal**
 
 一个ThreadLocal变量虽然是全局变量，但每个线程都只能读写自己线程的独立副本，互不干扰。ThreadLocal解决了参数在一个线程中各个函数之间互相传递的问题。
+
 ```python3
 import threading
    
@@ -530,6 +906,7 @@ t2.start()
 t1.join()
 t2.join()
 ```
+
 > **12.4 分布式进程**
 
 可以在多台机子上跑
