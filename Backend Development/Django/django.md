@@ -2,7 +2,13 @@
 
 > django + [vue](https://vuejs.bootcss.com/) 前后端分离
 
-> Django RESTful framework
+> Django RESTful framework     DRF
+
+  - [django-rest-framework.org](https://www.django-rest-framework.org/)
+  
+  - [Django RESTful framework 中文文档](https://www.django.cn/course/course-3.html)
+  
+  - [Django RESTful framework github](https://github.com/Q1mi/Django-REST-framework-documentation/tree/master/)
   
 
 目录
