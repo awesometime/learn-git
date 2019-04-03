@@ -268,7 +268,9 @@ echo.echofilter
 包定义文件 __init__.py 存在一个叫做 __all__ 的列表变量，那么在使用 from package import * 的时候就把这个列表中的所有名字作为包内容导入。
  
 ### 12 Python3   多进程 multiprocessing    多线程 threading     (参考廖雪峰)
+
 [multiprocessing  threading](https://mp.weixin.qq.com/s?__biz=MjM5OTMyODA4Nw==&mid=2247484084&idx=1&sn=573989b9526aef01a3d515ab09afe86a&chksm=a73c628c904beb9a39adef9b95a1ce6560245b7f4e2a39207a55abc1a293935be203a35bcb13&mpshare=1&scene=1&srcid=&pass_ticket=0QnHRl6v1Xkew4C5DrpSerNBri6BPOinWKKfydIySHIIQ%2BKJhsjSdnkU2wZYGdie#rd)
+
 ```
 进程 优先级于 线程  一个进程至少有一个线程
 
@@ -319,7 +321,7 @@ Python多进程和多线程哪个快?
 ```
 
 
-> 12.1 多进程 multiprocessing
+>>> **12.1 多进程 multiprocessing**
 
 **12.1.1 启动一个子进程并等待其结束**   `os.getpid()  p.start()  p.join()`
 
@@ -499,7 +501,7 @@ if __name__=='__main__':
 # 在Windows 上实际并未看到子进程的输出？？？
  ```
 
-> 12.2 多线程 Threading 
+>>> **12.2 多线程 Threading** 
 
 Python的线程是真正的Posix Thread，而不是模拟出来的线程。
 
@@ -879,7 +881,7 @@ queue同时还自带emtpy(), full()等方法来判断一个队列是否为空或
 
 
 
-> **12.3 ThreadLocal**
+>>> **12.3 ThreadLocal**
 
 一个ThreadLocal变量虽然是全局变量，但每个线程都只能读写自己线程的独立副本，互不干扰。ThreadLocal解决了参数在一个线程中各个函数之间互相传递的问题。
 
@@ -907,7 +909,7 @@ t1.join()
 t2.join()
 ```
 
-> **12.4 分布式进程**
+>>> **12.4 分布式进程**
 
 可以在多台机子上跑
 
