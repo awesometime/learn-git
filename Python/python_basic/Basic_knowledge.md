@@ -300,13 +300,13 @@ echo.echofilter
 
 
 
-#### 12.1 多进程multiprocessing
+> 12.1 多进程multiprocessing
 
 **12.1.1 启动一个子进程并等待其结束**   `os.getpid()  p.start()  p.join()`
 
 multiprocessing模块（具有跨平台特性）提供了一个Process类来代表一个进程对象
 
-```
+```python3
 from multiprocessing import Process
 import time,os
 
@@ -326,7 +326,7 @@ if __name__=='__main__':
     
 **12.1.2 Pool  批量创建子进程**   `p.apply_async` 
 
-```
+```python3
 from multiprocessing import Pool
 import os, time, random
 
@@ -351,7 +351,7 @@ if __name__=='__main__':
  **12.1.3 进程Process间通信**
  
 Python的multiprocessing模块包装了底层的机制，提供了`Queue、Pipes`等多种方式来交换数据。我们以``Queue``为例  
-```
+```python3
 from multiprocessing import Process, Queue
 queue 模块
 queue.Queue         class 
@@ -365,7 +365,7 @@ queue.Queue.get_nowait()
 queue.Queue.join()
 p = Process(target='xxx', args=('queue',))
 ```
-```
+```python3
 from multiprocessing import Process, Queue
 import os, time, random
 
@@ -401,7 +401,7 @@ if __name__=='__main__':
 # 在Windows 上实际并未看到子进程的输出？？？
  ```
 
-#### 12.2 多线程 Threading 
+> 12.2 多线程 Threading 
 
 Python的线程是真正的Posix Thread，而不是模拟出来的线程。
 
@@ -429,17 +429,17 @@ Python的标准库提供了两个**模块**：`_thread 和 threading`，`_thread
 
 **12.2.1 启动一个线程就是把一个函数传入并创建Thread实例，然后调用start()开始执行：** 
 
-```
-标准格式`t = threading.Thread(target= '子线程函数', args=('子线程函数所的参数列表',), name='子线程名')`
-threading.current_thread()           返回当前运行的线程实例
+```python3
+# 标准格式`t = threading.Thread(target= '子线程函数', args=('子线程函数所的参数列表',), name='子线程名')`
+threading.current_thread()           #返回当前运行的线程实例
 threading.Thread(group=None, target=None, name=None, args=(), kwargs={})          class
 threading.Thread.is_alive()   
 threading.Thread.start()
 threading.Thread.join()
-threading.Thread.setDaemon(True)         守护线程  主线程退出的时候，不管子线程运行到哪里，强行让子线程退出,需要注意的是 setDaemon(True) 在 start() 之前
+threading.Thread.setDaemon(True)         #守护线程  主线程退出的时候，不管子线程运行到哪里，强行让子线程退出,需要注意的是 setDaemon(True) 在 start() 之前
 threading.Lock().acquire()
 threading.Lock().release()
-threading.local()                       创建ThreadLocal对象
+threading.local()                      # 创建ThreadLocal对象
 Queue()              class
 ```
 由于任何**进程**默认就会启动一个**线程**，我们把该线程称为**主线程**，主线程又可以启动新的线程，
@@ -449,7 +449,7 @@ Python的`threading模块`有个`current_thread()函数`，它永远**返回当�
 子线程的**名字在创建时用name参数指定**，我们用LoopThread命名子线程。名字仅仅在打印时用来显示，完全没有其他意义，
 
 如果不起名字Python就自动给线程命名为Thread-1，Thread-2……
-```
+```python3
 import time, threading
 
 # 新线程执行的代码:
@@ -494,7 +494,7 @@ thread LoopThread >>> 5
 thread LoopThread ended.
 ```
 **12.2.2 Lock**
-```
+```python3
 lock = threading.Lock()                # 创建一个锁
 def run_thread(n):
     for i in range(100000):        
@@ -504,10 +504,10 @@ def run_thread(n):
         finally:            
             lock.release()             # 执行代码完了一定要释放锁,try...finally 确保锁一定会被释放。
  ```   
-**12.3 ThreadLocal**
+> **12.3 ThreadLocal**
 
 一个ThreadLocal变量虽然是全局变量，但每个线程都只能读写自己线程的独立副本，互不干扰。ThreadLocal解决了参数在一个线程中各个函数之间互相传递的问题。
-```
+```python3
 import threading
    
 local_school = threading.local()                      # 创建全局ThreadLocal对象
@@ -530,12 +530,12 @@ t2.start()
 t1.join()
 t2.join()
 ```
-**12.4 分布式进程**
+> **12.4 分布式进程**
 
 可以在多台机子上跑
 
 ##### task_master.py
-```
+```python3
 import random, time, queue                                                                    右侧为模块化的东西
 from multiprocessing.managers import BaseManager                                              managers为multiprocessing的子模块
 
@@ -573,7 +573,7 @@ manager.shutdown()                                                QueueManager.s
 print('master exit.')
 ```
 ##### task_worker.py  另一台机子
-```
+```python3
 import time, sys, queue
 from multiprocessing.managers import BaseManager
 
