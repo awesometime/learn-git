@@ -22,7 +22,7 @@
 
 
 
--[Django2.1 官方中文文档](https://docs.djangoproject.com/zh-hans/2.1/)
+-[Django2.2 官方中文文档](https://docs.djangoproject.com/zh-hans/2.2/)
 
 -[Django2.1 新手图文入门教程](http://www.liujiangblog.com/blog/36/)
 
