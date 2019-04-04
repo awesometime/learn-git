@@ -27,6 +27,7 @@
 - [干货](#干货)
 - [git学习目录](#git学习目录)
 - [git实践](#git实践)
+- [Git使用教程：最详细、最傻瓜、最浅显、真正手把手教](https://mp.weixin.qq.com/s?__biz=MzU4Mjc2NzU1Nw==&mid=2247483710&idx=1&sn=74ccdf966c8ecec7eb7b260ed317587e&chksm=fdb20794cac58e82a1776d618a3d7a47a6c95e122012639088450a4bf53f4516e7d208ac48eb&mpshare=1&scene=24&srcid=0305dNHAMiprncCb1jCNvC3I&pass_ticket=7e5Y8c%2BidFma4j%2BpEhRRiPIq1gcsxBH4Uav23q8oM668ZUTOln9bCzr1ycuFzNK4#rd)
 
 ## test
   三个网址如何换行显示
