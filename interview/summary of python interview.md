@@ -64,3 +64,6 @@ print f()
 [1]
 [1]
 ```
+[ 从输入 URL 到页面展示到底发生了什么？](https://mp.weixin.qq.com/s?__biz=MzUzMzk0NDc5Nw==&mid=2247486570&idx=1&sn=ad5cab1a16e5756e1c66f11f5297a6e5&chksm=fa9d0cd8cdea85cecef06f9a64cb190c2b21e567ed37243f9f418a09d359a201465fe1b4c602&mpshare=1&scene=1&srcid=04032oLBdBXfjIlwN1ROHgPz&pass_ticket=Sj1ytt%2Bvj6SmSFv5uejuICDR1WUmfkQC5bC9dnxsRCYAKrkvu8kqRrc8%2BHBWxJfn#rd)
+
+[前端经典面试题: 从输入URL到页面加载发生了什么？](https://segmentfault.com/a/1190000006879700)
