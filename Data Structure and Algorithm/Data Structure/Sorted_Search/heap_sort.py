@@ -1,4 +1,6 @@
 # https://www.geeksforgeeks.org/heap-sort/
+# 
+# 父节点的值大于子节点    大顶堆
 #
 # step1: 依次排好相当于建了一个堆 但是不满足root大于子节点的条件
 # step2: 从最后一个节点的父节点开始调整堆 heapify()
