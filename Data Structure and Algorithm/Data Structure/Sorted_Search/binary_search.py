@@ -8,7 +8,8 @@
 class Search():
     def __init__(self):
         pass
-
+    
+    # 任意序列  顺序查找
     def sequentialSearch(self, alist, item):
         pos = 0
         found = False
@@ -21,6 +22,7 @@ class Search():
 
         return found
 
+    # 有序序列  顺序查找
     def orderedSequentialSearch(self, alist, item):
         pos = 0
         found = False
@@ -36,6 +38,7 @@ class Search():
 
         return found
 
+    # 有序列表  二分查找
     def binarySearch(self, alist, item):
         first = 0
         last = len(alist) - 1
@@ -52,7 +55,21 @@ class Search():
                     first = midpoint + 1
 
         return found
-
+    
+    # 有序列表  二分查找 递归版本
+    def binarySearchRecursion(alist, item):
+        if len(alist) == 0:
+            return False
+        else:
+            midpoint = len(alist)//2
+            if alist[midpoint]==item:
+                return True
+            else:
+                if item<alist[midpoint]:
+                    return binarySearch(alist[:midpoint],item)
+                else:
+                    return binarySearch(alist[midpoint+1:],item)
+    
 
 if __name__ == "__main__":
     s = Search()
