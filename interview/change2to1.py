@@ -5,6 +5,15 @@
 #     InputList.append(list(map(int, line.split())))
 # # print("InputList=",InputList)
 
+# 输入输出
+# nums = int(input())
+# points = []
+# for i in range(0, nums):
+#     read_list = list(map(int, input().split()))
+#     # read_list = [int(i) for i in input().split()]
+#     points.append((read_list[0], read_list[1]))
+
+
 """
 题目描述
 公司的程序员不够用了，决定把产品经理都转变为程序员以解决开发时间长的问题。
