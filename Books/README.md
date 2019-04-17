@@ -2,6 +2,10 @@
 
 > 阅读书目
 
+- [《Intermediate Python》 中文译本](https://eastlakeside.gitbooks.io/interpy-zh/content/)
+
+- [《Python Cookbook》3rd Edition](https://python3-cookbook.readthedocs.io/zh_CN/latest/)
+
 > 阅读GitHub
 
 > 阅读公众号连载
