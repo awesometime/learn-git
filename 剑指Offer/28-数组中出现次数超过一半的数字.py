@@ -1,0 +1,192 @@
+### 1 Boyer-Moore Majority Vote Algorithm
+
+思路 https://www.jianshu.com/p/dfd676b71ef0   推广n/3位置的元素
+
+    出现次数超过一半的数，【它的出现次数比其他所有数字出现次数的总和还要多】，保存两个值，
+    数组中的数字和它的出现次数。如果下一个数字等于该数字，那么出现次数加一，如果不相等，次数减一，
+    当次数为0时，保存下一个数字，并重置出现次数为1，我们要找的数字就是最后一次把次数重置为1的时候，保存的数字。
+    最后要检查得到的元素出现次数是否超过一半。
+
+    使用 count 来统计一个元素出现的次数，当遍历到的元素和统计元素不相等时，令 count--。
+    如果前面查找了 i 个元素，且 count == 0 ，说明前 i 个元素没有 majority，或者有 majority，
+    但是出现的次数少于 i / 2 ，因为如果多于 i / 2 的话 count 就一定不会为 0 。
+    此时剩下的 n - i 个元素中，majority 的数目依然多于 (n - i) / 2，因此继续查找就能找出 majority。
+
+    【出现次数超过一半的数，它的出现次数比其他所有数字出现次数的总和还要多】
+    这个操作的思想:(自己猜的)
+    相当于将所有数分成两半 用最多的和其余每个抵消完 还有的话 这个数就是最多的
+    比如 有4个1 2个2  1个3
+    抵消完2个2,重新开始 抵消完1个3重新开始 剩1 就是最多
+
+    最后需要检查是因为:
+    比如 [1,2,3] (1,1)(1,0)(3,1) 最后一次把次数重置为1的时候的数字是3,但3并不是次数最多的
+
+
+```python3
+class Solution:
+    def MoreThanHalfNum_Solution(self, numbers):
+        # write code here
+        length = len(numbers)
+        if not numbers:
+            return 0
+        result = numbers[0]
+        times = 1
+        
+        for i in range(1,length):
+            if times == 0:
+                result = numbers[i]
+                times = 1
+            elif numbers[i] == result:
+                times += 1
+            else:
+                times -= 1
+                
+        if not self.CheckNoreThanHalf(numbers,length,result):
+            return 0
+        return result
+            
+    def CheckNoreThanHalf(self, numbers,length,number):
+        times = 0
+        for i in range(length):
+            if numbers[i] == number:
+                times += 1
+                
+        if times*2 <= length:
+            return False
+        return True
+        
+        
+alist = [1,2,3,2,2]         
+# alist = [1,2,3,2,2]  
+# alist = [1,2,3,2,2,2,5,4,2]  
+MoreThanHalfNum_Solution(alist)       
+```
+
+```python3
+def majorityElement(self, nums):
+    count,major=0,0
+    for n in nums:
+        if count==0:
+            major=n
+        if major==n:
+            count+=1
+        else:
+            count-=1
+    return major
+```
+
+
+### 排序 后次数最多的元素必然在下标n/2的位置
+
+```python3
+def majorityElement(self, nums):
+        return sorted(nums)[len(nums)//2]
+```
+
+### 字典
+```python3
+def MoreThanHalfNum_Solution(numbers):
+    dict = {}
+    for num in numbers:
+        dict[num] = 1 if num not in dict else dict[num]+1
+        if dict[num] > len(numbers)/2:
+            return num
+    return 0
+    
+    
+alist = [1,2,3,2,2,2,5,4,2]
+print(MoreThanHalfNum_Solution(alist))
+
+#
+dict={}
+dict['a']=1
+print(dict)  #  {'a': 1}
+# 不会报 keyerror  不需要collections.defaultdict 竟然
+```
+### 快速排序的Partition函数
+
+```python3
+# https://www.jianshu.com/p/3a3fba5cb6de
+def partition(num_list, start, end):
+    '''将num_list从start开始，到end结束的部分分组，以start位置的数字为基准，返回基准最后所在的位置'''
+    
+    pivot = num_list[start]
+    while start < end:
+        while start < end and num_list[end] >= pivot:end -= 1
+        if start < end:num_list[start] = num_list[end]
+        while start < end and num_list[start] <= pivot:start += 1
+        if start < end:num_list[end] = num_list[start]
+    num_list[start] = pivot
+    return start
+        
+def find_half_num_1(num_list):
+    '''返回num_list中间的数字'''
+    
+    if type(num_list) != type([]) or len(num_list) == 0:
+        return None
+    start = 0
+    end = len(num_list) - 1
+    middle = end / 2
+    
+    index = partition(num_list, start, end)
+    while index != middle:
+        if index > middle:
+            end = index - 1
+            index = partition(num_list, start, end)
+        else:
+            start = index + 1
+            index = partition(num_list, start, end)
+            
+    return num_list[middle]
+ 
+def find_half_num_2(num_list):
+    if type(num_list) != type([]):
+        return None
+    
+    result = None
+    time = 0
+    for i in range(0, len(num_list)):
+        if time == 0:
+            result = num_list[i]
+            time = 1
+        else:
+            if num_list[i] == result:
+                time += 1
+            else:
+                time -= 1
+    return result
+ 
+if __name__ == '__main__':
+    l_1 = [1,2,3,4,5,6,7,8,2,2,2,2,2,2,2,2,2,2,2,2]
+    l_2 = []
+    l_3 = [1,2,3,4,5,6,7,8,9,9,9,9,9,9,9,9,9,9,9,9]
+    l_4 = None
+    l_5 = [5]
+    print find_half_num_1(l_1)
+    print find_half_num_1(l_2)
+    print find_half_num_1(l_3)
+    print find_half_num_1(l_4)
+    print find_half_num_1(l_5)
+    print find_half_num_2(l_1)
+    print find_half_num_2(l_2)
+    print find_half_num_2(l_3)
+    print find_half_num_2(l_4)
+    print find_half_num_2(l_5)
+```
+
+### 位操作
+
+```java
+# https://www.jianshu.com/p/dfd676b71ef0
+public int majorityElement(int[] nums) {
+      int res=0,major=nums.length/2;
+      for (int i=31;i>=0;i--){
+          int pos=0;
+          for(int n:nums)
+              pos+=(n>>i)&1;
+          pos=pos>major? 1:0;
+          res|=pos<<i;
+        }
+      return res;
+    }
+```
