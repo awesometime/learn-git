@@ -1,3 +1,8 @@
+# 自己总结  heapq 库
+# heapq.heappush(res, -i)   
+# heapq.heappushpop  
+#【https://github.com/awesometime/learn-git/blob/c9edbb1ece42d3b2e4cae0ee44af0fc617933eb4/python/Standard_Library/heapq.md】
+
 # https://www.geeksforgeeks.org/heap-sort/
 # 
 # 父节点的值大于子节点    大顶堆
