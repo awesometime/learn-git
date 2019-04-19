@@ -1,0 +1,57 @@
+### 非递归
+引入一个队列，每次打印一个节点的时候，如果该节点有子节点，则把该节点的子节点放到一个队列的末尾，取出队列头部的最早进入队列的节点。
+```python3
+# -*- coding:utf-8 -*-
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+class Solution:
+    # 返回从上到下每个节点值列表，例：[1,2,3]
+    def PrintFromTopToBottom(self, root):
+        # write code here
+        if root is None:
+            return []
+        queue = []
+        result = []
+        
+        queue.append(root)
+        while len(queue) > 0:
+            currentRoot = queue.pop(0)
+            result.append(currentRoot.val)
+            if currentRoot.left:
+                queue.append(currentRoot.left)
+            if currentRoot.right:
+                queue.append(currentRoot.right)
+                
+        return result
+
+```
+
+
+### 递归
+
+Leetcode 102. Binary Tree Level Order Traversal
+
+https://github.com/awesometime/learn-git/blob/master/LeetCode/Tree/0102._binary_tree_level_order_traversal.md
+```python3
+class Solution:
+    def levelOrder(self, root):
+        """
+        :type root: TreeNode
+        :rtype: List[List[int]]
+        """
+        def dfs(node, level, res):
+            if not node:
+                return
+            if len(res) < level:
+                res.append([])               # 每次先append [] 否则报错 list index out of range
+            res[level-1].append(node.val)    # 在每一层res[level-1] 去append
+            dfs(node.left, level+1, res)
+            dfs(node.right, level+1, res)  
+                
+        res = []
+        dfs(root, 1, res)
+        return res
+```
