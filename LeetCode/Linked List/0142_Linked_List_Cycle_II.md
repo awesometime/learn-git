@@ -46,6 +46,25 @@ class Solution:
         
         return Slow
 ```
+
+
+```python3
+class Solution:
+    def EntryNodeOfLoop(self, pHead):
+        slow, fast = pHead, pHead
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+            if slow == fast:
+                slow = pHead
+                while slow != fast:
+                    slow = slow.next
+                    fast = fast.next
+                return slow
+
+```
+
+
 **while-else clause的用法**
 
 ```python3
