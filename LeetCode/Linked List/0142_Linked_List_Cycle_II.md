@@ -16,7 +16,8 @@ https://leetcode.com/problems/linked-list-cycle-ii/discuss/258948/%2B-python
 
     >                      H = nC -D
 
-    c. 这表明，当我们让Slow重新从q点处、Fast继续从相遇见的m点处，以相等的速度移动时，两个指针会在入口r点相遇。即Slow从q点移动H步，而Fast相当于会从m点移动n圈(会回到m处)，再后退D步。最终都在r点遇见。
+    c. 这表明，当我们让Slow重新从q点处、Fast继续从相遇见的m点处，以相等的速度移动时，两个指针会在入口r点相遇。
+    即Slow从q点移动H步，而Fast相当于会从m点移动n圈(会回到m处)，再后退D步。最终都在r点遇见。
 
 图片：
 
@@ -45,7 +46,7 @@ class Solution:
         
         return Slow
 ```
-while-else clause的用法
+**while-else clause的用法**
 
 ```python3
 class Solution(object):
@@ -60,11 +61,14 @@ class Solution(object):
             fast = fast.next.next
             if slow == fast:
                 break
-        else:
+        else:                             # while-else
             return None
+        
+        
         while head != slow:
             slow = slow.next
             head = head.next
+        
         return head
 ```
 ### 补充 for-else clause
