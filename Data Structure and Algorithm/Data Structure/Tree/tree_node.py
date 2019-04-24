@@ -55,11 +55,47 @@ def postorder(tree):
 
 # 层序遍历
 # https://github.com/apachecn/awesome-algorithm/blob/master/docs/Leetcode_Solutions/Python/0102._binary_tree_level_order_traversal.md
-def levelorder(tree)：
-    pass
 
+# 返回 [[8], [6, 10], [5, 7, 9, 11]]
+class Solution:
+    def level_order_traversal(self, root):
+        """层序递归"""
+        rst = []
+        self.level_order_traversal_helper(root, 0, rst)
+        return rst  
 
+    def level_order_traversal_helper(self, root, level, rst):
+        if not root:
+            return
+        if len(rst) < level + 1:
+            rst.append([])
+        rst[level].append(root.val)
+        self.level_order_traversal_helper(root.left, level + 1, rst)
+        self.level_order_traversal_helper(root.right, level + 1, rst)
 
+# 返回 [8, 6, 10, 5, 7, 9, 11] 
+class Solution:
+    def level_order_traversal(self, root):
+        """层序递归"""
+        rst = []
+        self.level_order_traversal_helper(root, 0, rst)
+        res = []
+        for every_level in rst:
+            for i in every_level:
+                res += [i]
+        return res
+
+    def level_order_traversal_helper(self, root, level, rst):
+        if not root:
+            return
+        if len(rst) < level + 1:
+            rst.append([])
+        rst[level].append(root.val)
+        self.level_order_traversal_helper(root.left, level + 1, rst)
+        self.level_order_traversal_helper(root.right, level + 1, rst)
+        
+        
+        
 r = BinaryTree('a')
 print(r.getRootVal())
 print(r.getLeftChild())
