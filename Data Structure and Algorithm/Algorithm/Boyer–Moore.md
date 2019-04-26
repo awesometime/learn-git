@@ -31,7 +31,8 @@ def Index_KMP(s1,s2,pos=0):
         return i - len(s2)
     else:
         return 0
- 
+        
+# next 函数
 def get_next(s2):
     i = 0
     next = [-1]
