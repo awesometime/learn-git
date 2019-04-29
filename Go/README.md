@@ -8,6 +8,8 @@
 
 - [快学 Go 语言 知乎](https://zhuanlan.zhihu.com/quickgo)
 
+- [b站视频 ](https://search.bilibili.com/all?keyword=GO%E8%AF%AD%E8%A8%80)
+
 [go ebook](https://github.com/dariubs/GoBooks)
 
 [今日头条Go建千亿级微服务的实践](https://www.jianshu.com/p/ea9ab1b67dce)
