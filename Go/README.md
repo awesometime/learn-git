@@ -1,1 +1,13 @@
+[Go 开发者学习路线图](https://github.com/Quorafind/golang-developer-roadmap-cn)
+
+[A curated list of awesome Go frameworks, libraries and software](https://github.com/avelino/awesome-go)
+
+[golang-open-source-project ch](https://github.com/hackstoic/golang-open-source-projects#%E7%9B%AE%E5%BD%95)
+
+- [《The Way to Go》中文译本，中文名《Go 入门指南》](https://github.com/Unknwon/the-way-to-go_ZH_CN/blob/master/eBook/preface.md)
+
+- [快学 Go 语言 知乎](https://zhuanlan.zhihu.com/quickgo)
+
+[go ebook](https://github.com/dariubs/GoBooks)
+
 [今日头条Go建千亿级微服务的实践](https://www.jianshu.com/p/ea9ab1b67dce)
