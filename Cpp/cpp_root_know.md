@@ -1,9 +1,9 @@
 ### 1 数组初始化
 
 	静态数组 int array[100]; //定义了数组array，但并未对数组初始化；
-    	静态数组 int array[100] = {0}; //定义了数组array，并将数组元素全部初始化为0；
-    	静态数组 int array[100] = {1}; //定义了数组array，并将数组第一个元素初始化为1，后面99个元素初始化为0；
-    	静态数组 int array[100] = {4,5}; //定义数组array，并初始化前两个元素为4,5，后面剩余元素初始化为0；
+	静态数组 int array[100] = {0}; //定义了数组array，并将数组元素全部初始化为0；
+	静态数组 int array[100] = {1}; //定义了数组array，并将数组第一个元素初始化为1，后面99个元素初始化为0；
+	静态数组 int array[100] = {4,5}; //定义数组array，并初始化前两个元素为4,5，后面剩余元素初始化为0；
 	初始化前几个为1 用循环
 ```cpp
 #include <iostream>
@@ -32,14 +32,14 @@ int main() {
 using namespace std;
 
 int main(){
-	map<string, int> table;
+  map<string, int> table;
 	
   table["wan"] += 5;
-	table["hello"] += 1;
-	table["wan"] += 1;
+  table["hello"] += 1;
+  table["wan"] += 1;
 	
   for (auto it = table.begin();it != table.end();it++) {
-		cout << it->first << ", " << it->second << endl;
+	cout << it->first << ", " << it->second << endl;
 	}
 }
 
