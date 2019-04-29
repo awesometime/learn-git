@@ -1,4 +1,6 @@
  
+- [Python-100-Days](https://github.com/jackfrued/Python-100-Days)
+
 - [李金老师 Python笔记 《自学Python——编程基础、科学计算及数据分析》github.io](http://lijin-thu.github.io/)
   
   [李金老师 Python笔记 《自学Python——编程基础、科学计算及数据分析》Jupyter Notebook Viewer](http://nbviewer.jupyter.org/github/lijin-THU/notes-python/blob/master/index.ipynb)
