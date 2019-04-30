@@ -1,3 +1,9 @@
+### 字符串匹配--Sunday算法
+
+[Sunday算法](https://www.jianshu.com/p/2594d312cefd)
+
+### Boyer-Moore 字符串匹配算法
+
 [ Boyer-Moore 字符串匹配算法 ](https://www.cnblogs.com/gaochundong/p/boyer_moore_string_matching_algorithm.html)
 
 
@@ -9,7 +15,7 @@
 
 > [KMP算法 python实现 leetcode 28题 ](https://github.com/apachecn/awesome-algorithm/blob/master/docs/Leetcode_Solutions/Python/0028._implement_strstr().md)
 
-> [KMP算法 python实现 的本质原理是什么]()
+> [从头到尾彻底理解KMP](https://blog.csdn.net/v_JULY_v/article/details/7041827)
 
 > [KMP算法 python实现 2 多一种思路](https://www.cnblogs.com/zrdm/p/8590670.html)
 
