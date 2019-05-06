@@ -2,6 +2,7 @@
 
 - Anaconda Navigtor ：用于管理工具包和环境的图形用户界面，后续涉及的众多管理命令也可以在 Navigator 中手工实现。
 - [ jupyterlab ](https://github.com/jupyterlab/jupyterlab) : Jupyter notebook 升级版 本地打开编辑相关python文件
+- [ Colaboratory ](https://colab.research.google.com/notebooks/welcome.ipynb?hl=zh-cn#scrollTo=xitplqMNk_Hc) : Colaboratory 是一个免费的 Jupyter 笔记本环境，不需要进行任何设置就可以使用，并且完全在云端运行。借助 Colaboratory，您可以编写和执行代码、保存和共享分析结果，以及利用强大的计算资源，所有这些都可通过浏览器免费使用。
 - [ nbviewer of jupyter ](https://nbviewer.jupyter.org/) : 在线阅读ipynb文件
 - Jupyter notebook ：基于web的交互式计算环境，可以编辑易于人们阅读的文档，用于展示数据分析的过程。
 - qtconsole ：一个可执行 IPython 的仿终端图形界面程序，相比 Python Shell 界面，qtconsole 可以直接显示代码生成的图形，实现
