@@ -1,9 +1,14 @@
- ```
- docker run --cap-add dac_read_search --name lxlxlx -it 100.125.5.235:20202/huyue/nginx:latest /bin/sh
- docker images
- docker ps|grep nginx|awk '{print $1}'
- docker exec
- 
+### 
+```
+docker version
+docker info
+docker run --cap-add dac_read_search --name lxlxlx -it 100.125.5.235:20202/huyue/nginx:latest /bin/sh
+docker images
+docker ps|grep nginx|awk '{print $1}'
+docker exec
+```
+
+```shell
 [root@test-fjm-nodelete-32994-47hy0 ~]# ls
 ContainerShieldInstall.sh  shocker  shocker.tgz  test  wget.log
 [root@test-fjm-nodelete-32994-47hy0 ~]# docker images
