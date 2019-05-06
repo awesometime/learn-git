@@ -9,7 +9,8 @@
   - [Django RESTful framework 中文文档](https://www.django.cn/course/course-3.html)
   
   - [Django RESTful framework github](https://github.com/Q1mi/Django-REST-framework-documentation/tree/master/)
-  
+> Docker
+  - [docker入门，如何部署Django uwsgi nginx应用](http://blog.xander-ye.com/hello-docker/)
 
 目录
 
