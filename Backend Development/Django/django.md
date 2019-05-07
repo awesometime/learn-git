@@ -13,6 +13,8 @@
   - [docker入门，如何部署Django uwsgi nginx应用](http://blog.xander-ye.com/hello-docker/)
 > nginx+uwsgi+django 部署
   - [django中文网  基于：centos7+nginx+uwsgi+python3+django 部署](https://www.django.cn/article/show-4.html)
+  
+  
 目录
 
   * [1 django部署实践](#1-django部署实践)
