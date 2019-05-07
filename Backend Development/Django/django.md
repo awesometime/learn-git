@@ -9,12 +9,42 @@
   - [Django RESTful framework 中文文档](https://www.django.cn/course/course-3.html)
   
   - [Django RESTful framework github](https://github.com/Q1mi/Django-REST-framework-documentation/tree/master/)
+  
+  
+### 部署
+
 > Docker 部署
-  - [docker入门，如何部署Django uwsgi nginx应用](http://blog.xander-ye.com/hello-docker/)
+  - [Django uwsgi nginx mysql最主要参考 github](https://github.com/xander-ye/docker_test)
+  
+    [Django uwsgi nginx mysql最主要参考 blog](http://blog.xander-ye.com/hello-docker/)
+    
+  - [Docker部署 - Django+MySQL+uWSGI+Nginx](https://zhuanlan.zhihu.com/p/29609591)
+  
+  - [2018 年不容错过的 Django 全栈项目  - 知乎 - 技术比较新 ](https://zhuanlan.zhihu.com/p/33903527):Django / DjangoRestFramework / Docker / Vue.JS / Celery / PostgreSQL / Redis / RabbitMQ
+  
+  
 > nginx+uwsgi+django 部署
   - [django中文网  基于：centos7+nginx+uwsgi+python3+django 部署](https://www.django.cn/article/show-4.html)
   
-  
+  - [b站视频](https://www.bilibili.com/video/av10247256)
+```  
+  【Setting up Django and your web server with uWSGI and nginx】
+ https://uwsgi-docs.readthedocs.io/en/latest/tutorials/Django_and_nginx.html?highlight=django
+
+【Docker Guide: Dockerizing Python Django Application】
+ https://www.howtoforge.com/tutorial/docker-guide-dockerizing-python-django-application/
+
+
+https://www.cnblogs.com/purpleraintear/p/6003645.html
+
+
+
+【可以参考】https://blog.csdn.net/u013282737/article/details/85233408
+
+https://dzone.com/articles/how-to-deploy-a-django-application-with-docker
+
+https://dev.to/joekreydt/deploy-django-in-a-docker-container--41n6
+``` 
 目录
 
   * [1 django部署实践](#1-django部署实践)
