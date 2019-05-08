@@ -11,6 +11,8 @@
 
 > [KMP youtube讲解](https://www.youtube.com/watch?v=GTJr8OvyEVQ)
 
+[b站讲解](https://www.bilibili.com/video/av11866460?from=search&seid=12464367446194013317)
+
 > [阮一峰 字符串匹配的KMP算法 原理](http://www.ruanyifeng.com/blog/2013/05/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm.html)
 
 > [KMP算法 python实现 leetcode 28题 ](https://github.com/apachecn/awesome-algorithm/blob/master/docs/Leetcode_Solutions/Python/0028._implement_strstr().md)
