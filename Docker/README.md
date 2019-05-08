@@ -10,6 +10,8 @@
 
 [阮一峰的日志  Docker 入门教程](http://www.ruanyifeng.com/blog/2018/02/docker-tutorial.html)
 
+[图片帮助理解](https://github.com/CyC2018/CS-Notes/blob/master/notes/Docker.md)
+
 ### 安装
 
 [windows下安装docker](https://blog.csdn.net/tina_ttl/article/details/51372604)
