@@ -2,6 +2,8 @@
 
 > 阅读书目
 
+- [流畅的python](https://github.com/silenove/python_ebook/blob/master/%E6%B5%81%E7%95%85%E7%9A%84python.pdf)
+
 - [《Intermediate Python》 中文译本](https://eastlakeside.gitbooks.io/interpy-zh/content/)
 
 - [《Python Cookbook》3rd Edition](https://python3-cookbook.readthedocs.io/zh_CN/latest/)
