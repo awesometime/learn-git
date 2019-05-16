@@ -2,6 +2,29 @@ pycharm  的一些快捷键 shortcut key
 
 IDEA主题下载(http://www.riaway.com/theme.php)
 
+> 自己用的快捷键
+
+```
+File->Settings->Editor->General->Smart Keys，找到Surround selection on typing quote or brace 点击即可
+ctrl 鼠标左键     代码跳转
+view  toolbar   <-   ->   代码跳转回退
+Ctrl r  当前文件中全局替换
+ctrl shift f  / shift shift   全目录查找
+Ctrl f     当前文件中全局查找
+alt  F7 /直接右键 Find Usages   查找哪里调用该函数了
+ctrl alt b 引用该类的列表
+Ctrl alt L                        格式化
+Ctrl  ]   [        跳到代码块尾 首
+Ctrl  home end     跳到文件开头 末尾
+Ctrl alt T         快速生成if_else/try_catch/try_except
+ctrl b           查看
+ctrl d   复制
+ctrl shift 上下键   移动
+shift enter 快速换行
+光标快速移动到括号外或行尾  () ""  例如 "Coupon",输入完Coupon后,再按一次"跳到"外边,例如 (Coupon),输入完Coupon后,再按一次) 
+```
+
+
 [pycharm快捷键及一些常用设置](https://www.2cto.com/os/201410/341542.html)
 
 官方文档
