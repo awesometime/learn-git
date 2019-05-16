@@ -1,6 +1,17 @@
+```
+假如我们装了一个zookeeper，我们每次开机到要求其自动启动该怎么办？
+
+新建一个脚本zookeeper
+为新建的脚本zookeeper添加可执行权限，命令是:chmod +x zookeeper
+把zookeeper这个脚本添加到开机启动项里面，命令是： chkconfig --add zookeeper
+如果想看看是否添加成功，命令是：chkconfig --list
+```
+
+
 linux常用命令总结
 
 **rpm**
+
 rpm -qal |grep mysql  查看mysql所有安装包的文件存储位置
 rpm -ql               列出软件包安装的文件
 
