@@ -2,6 +2,8 @@
 
 [A curated list of awesome Go frameworks, libraries and software](https://github.com/avelino/awesome-go)
 
+[go learning ... ](https://github.com/astaxie/build-web-application-with-golang/blob/master/zh/preface.md)
+
 [golang-open-source-project ch](https://github.com/hackstoic/golang-open-source-projects#%E7%9B%AE%E5%BD%95)
 
 - [《The Way to Go》中文译本，中文名《Go 入门指南》](https://github.com/Unknwon/the-way-to-go_ZH_CN/blob/master/eBook/preface.md)
