@@ -8,7 +8,15 @@
 
 同一目录里变量名不能相同
 
+# 变量
+
 > := 为一个新的变量完成声明以及初始化的工作
+
+```go
+var s int = 42
+var s = 42
+s := 42  // 自动类型推导 + 赋值
+```
 
 https://nanxiao.me/golang-short-variable-declarations-analysis/
 
@@ -30,8 +38,81 @@ func main() {
 }
 ```
 
+> 指针类型
 
-### 函数
+```go
+package main
+
+import "fmt"
+
+func main() {
+    var value int = 42
+    var p1 *int = &value
+    var p2 **int = &p1
+    var p3 ***int = &p2
+    fmt.Println(p1, p2, p3)
+    fmt.Println(*p1, **p2, ***p3)
+}
+
+----------
+0xc4200160a0 0xc42000c028 0xc42000c030
+42 42 42
+```
+指针符号 * 和取地址符 &
+* 操作符存在两次内存读写，第一次获取指针变量的值，也就是内存地址，然后再去拿这个内存地址所在的变量内容。
+
+> Go 语言基础类型大全
+```go
+package main
+
+import "fmt"
+
+func main() {
+    // 有符号整数，可以表示正负
+    var a int8 = 1 // 1 字节
+    var b int16 = 2 // 2 字节
+    var c int32 = 3 // 4 字节
+    var d int64 = 4 // 8 字节
+    fmt.Println(a, b, c, d)
+
+    // 无符号整数，只能表示非负数
+    var ua uint8 = 1
+    var ub uint16 = 2
+    var uc uint32 = 3
+    var ud uint64 = 4
+    fmt.Println(ua, ub, uc, ud)
+
+    // int 类型，在32位机器上占4个字节，在64位机器上占8个字节
+    var e int = 5
+    var ue uint = 5
+    fmt.Println(e, ue)
+
+    // bool 类型
+    var f bool = true
+    fmt.Println(f)
+
+    // 字节类型
+    var j byte = 'a'
+    fmt.Println(j)
+
+    // 字符串类型
+    var g string = "abcdefg"
+    fmt.Println(g)
+
+    // 浮点数
+    var h float32 = 3.14
+    var i float64 = 3.141592653
+    fmt.Println(h, i)
+}
+
+
+// 复数类型 complex64 和 complex128
+// unicode字符类型 rune
+// uintptr 指针类型
+```
+
+
+# 函数
 
 > max函数有两个参数，它们的类型都是int，那么第一个变量的类型可以省略（即 a,b int,而非 a int, b int)，默认为离它最近的类型，同理多于2个同类型的变量或者返回值。同时我们注意到它的返回值就是一个类型，这个就是省略写法。
 ```go
@@ -50,7 +131,7 @@ func max(a, b int) int {
 
 
 
-### struct
+# struct
 
 > struct的匿名字段
 
@@ -119,11 +200,20 @@ paul := person{"Paul", 43}
 
 
 
-### 方法 面向对象
+# 方法 面向对象
 
+#### 方法声明
 https://docs.hacknode.org/gopl-zh/ch6/ch6-01.html
 
-能够给任意类型定义方法
+能够给任意自定义类型定义方法 只要这个自定义类型的底层类型不是指针或者interface
+
+go中type:
+
+是用来定义类型的。首先定义一个自定义的类型，这类型不能是go内置的类型。然后将类型与函数绑定
+
+go中的对象:
+
+对象是你要处理的数据，与处理这个数据所需要的函数封装在一起
 ```go
 package main
 
@@ -222,8 +312,9 @@ func (b Box) Volume() float64 {
 	return b.width * b.height * b.depth
 }
 
-func (b *Box) SetColor(c Color) {
-	b.boxPropertyColor = c
+func (b *Box) SetColor(c Color) {     //指针作为receiver
+	//b.boxPropertyColor = c
+	(*b).boxPropertyColor = c
 }
 
 func (bl BoxList) BiggestColor() Color {
@@ -258,7 +349,7 @@ func main() {
 		Box{10, 30, 1, WHITE},
 		Box{20, 20, 20, YELLOW},
 	}
-    // 不换行
+        // Printf 不换行
 	fmt.Printf("We have %d boxes in our set", len(boxes))
 	fmt.Println("The volume of the first one is", boxes[0].Volume(), "cm³")
 	// fmt.Println("The color of the last one is",boxes[len(boxes)-1].boxPropertyColor)    byte
@@ -276,3 +367,11 @@ func main() {
 }
 
 ```
+#### 基于指针对象的方法
+
+```go
+
+```
+
+
+#### 封装
