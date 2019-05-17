@@ -6,6 +6,8 @@
 
 读者请尝试在任意目录下创建 main.go 文件，将代码贴进去。执行 go run main.go 命令观察输出结果是否是期望的 hello world!。
 
+同一目录里变量名不能相同
+
 > := 为一个新的变量完成声明以及初始化的工作
 
 https://nanxiao.me/golang-short-variable-declarations-analysis/
@@ -122,7 +124,7 @@ paul := person{"Paul", 43}
 https://docs.hacknode.org/gopl-zh/ch6/ch6-01.html
 
 能够给任意类型定义方法
-```gp
+```go
 package main
 
 import (
@@ -160,5 +162,37 @@ func main() {
 调用的是Point类下声明的Point.Distance方法。
 
 ```go
+package main
 
+import (
+	"fmt"
+	"math"
+)
+
+type Point struct{ X, Y float64 }
+
+type Path []Point
+
+func (p Point) Distance(q Point) float64 {
+	return math.Hypot(q.X-p.X, q.Y-p.Y)
+}
+
+func (path Path) Distance() float64 {
+	sum := 0.0
+	for i := range path {
+		if i > 0 {
+			sum += path[i-1].Distance(path[i])
+		}
+	}
+	return sum
+}
+func main() {
+	perim := Path{
+		{1, 1},
+		{5, 1},
+		{5, 4},
+		{1, 1},
+	}
+	fmt.Println(perim.Distance()) // "12"
+}
 ```
