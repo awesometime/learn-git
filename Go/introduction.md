@@ -1,3 +1,11 @@
+> 在哪里写代码？
+
+如果你只是跑一下 demo ，写一个 main 方法，那么你可以在任意路径编写 main.go 文件，然后执行 go run main.go 就可以运行代码了。如果你要自己编写一个 package，那么就必须在 GOPATH 里面的指定路径来编写代码。
+
+在基础学习阶段，大部分代码都是一个简单的 main 函数，所以对于源码路径没有限制。到了高级阶段，我们免不了要自己编写 package，这时候就必须在 GOPATH 目录下面工作了。
+
+读者请尝试在任意目录下创建 main.go 文件，将代码贴进去。执行 go run main.go 命令观察输出结果是否是期望的 hello world!。
+
 > := 为一个新的变量完成声明以及初始化的工作
 
 https://nanxiao.me/golang-short-variable-declarations-analysis/
