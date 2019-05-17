@@ -4,6 +4,9 @@
 
 [build-web-application-with-golang  30k](https://github.com/astaxie/build-web-application-with-golang/blob/master/zh/preface.md)
 
+[Go语言圣经（中文版）在线阅读](https://docs.hacknode.org/gopl-zh/)
+
+[Go语言圣经（中文版） 源码](https://github.com/adonovan/gopl.io)
 
 > 嗯
  
@@ -11,17 +14,11 @@
 
 [A curated list of awesome Go frameworks, libraries and software](https://github.com/avelino/awesome-go)
 
-
-
 [golang-open-source-project ch](https://github.com/hackstoic/golang-open-source-projects#%E7%9B%AE%E5%BD%95)
 
+[快学 Go 语言 知乎](https://zhuanlan.zhihu.com/quickgo)
 
-
-- [Go语言圣经（中文版）在线阅读](https://docs.hacknode.org/gopl-zh/)
-
-- [快学 Go 语言 知乎](https://zhuanlan.zhihu.com/quickgo)
-
-- [b站视频 ](https://search.bilibili.com/all?keyword=GO%E8%AF%AD%E8%A8%80)
+[b站视频 ](https://search.bilibili.com/all?keyword=GO%E8%AF%AD%E8%A8%80)
 
 [go ebook](https://github.com/dariubs/GoBooks)
 
