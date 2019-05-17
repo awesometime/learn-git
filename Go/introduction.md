@@ -331,7 +331,8 @@ func (bl BoxList) BiggestColor() Color {
 
 func (bl BoxList) PaintItBlack() {
 	for i := range bl {
-		bl[i].SetColor(BLACK)
+		// bl[i].SetColor(BLACK)
+		(&bl[i]).SetColor(BLACK)
 	}
 }
 
