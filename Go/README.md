@@ -1,8 +1,8 @@
 > 置顶
 
-[《The Way to Go》中文译本，中文名《Go 入门指南》](https://github.com/Unknwon/the-way-to-go_ZH_CN/blob/master/eBook/preface.md)
+[《The Way to Go》中文译本，中文名《Go 入门指南》 15k](https://github.com/Unknwon/the-way-to-go_ZH_CN/blob/master/eBook/directory.md)
 
-[go 学习](https://github.com/astaxie/build-web-application-with-golang/blob/master/zh/preface.md)
+[build-web-application-with-golang  30k](https://github.com/astaxie/build-web-application-with-golang/blob/master/zh/preface.md)
 
 
 > 嗯
