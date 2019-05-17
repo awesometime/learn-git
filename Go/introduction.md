@@ -416,6 +416,106 @@ func main() {
 }
 ```
 
+[6.3. 通过嵌入结构体来扩展类型](https://docs.hacknode.org/gopl-zh/ch6/ch6-03.html)
+```go
+/*
+   方法重写
+*/
+package main
+
+import (
+	"fmt"
+	"image/color"
+	"math"
+)
+
+
+
+type Point struct{ X, Y float64 }
+
+type ColoredPoint struct {
+	Point
+	Color color.RGBA
+}
+
+
+func (p Point) Distance(q Point) float64 {
+	dX := q.X - p.X
+	dY := q.Y - p.Y
+	return math.Sqrt(dX*dX + dY*dY)
+}
+
+func (p *Point) ScaleBy(factor float64) { // p是一个地址  p.ScaleBy()     *p取到地址里的Point对象,该对象有.X属性
+	p.X *= factor // 相乘后再赋值
+	// (*p).X *= factor
+	p.Y *= factor
+}
+
+// var value int = 42
+// var p1 *int = &value   *int   p1是一个int型地址
+// p1=0xc4200160a0   *p1=42
+
+func main() {
+	red := color.RGBA{255, 0, 0, 255}
+	blue := color.RGBA{0, 0, 255, 255}
+	var p = ColoredPoint{Point{1, 1}, red}
+	var q = ColoredPoint{Point{5, 4}, blue}
+	fmt.Println(p.Distance(q.Point)) // "5"
+	p.ScaleBy(2)
+	//(&p).ScaleBy(2)
+	//(&(p.Point)).ScaleBy(2)
+	q.ScaleBy(2)
+	fmt.Println(p.Distance(q.Point)) // "10"
+}
+
+/*
+//!+error
+	p.Distance(q) // compile error: cannot use q (ColoredPoint) as Point
+    一个ColoredPoint  not "is a Point", 但他"has a Point"
+//!-error
+*/
+
+func init() {
+	//!+methodexpr
+	p := Point{1, 2}
+	q := Point{4, 6}
+
+	distance := Point.Distance   // method expression
+	fmt.Println(distance(p, q))  // "5"
+	fmt.Printf("%T\n", distance) // "func(main.Point, main.Point) float64"  "func(接收者, 参数) 返回值类型"
+
+	scale := (*Point).ScaleBy    //*Point  标明 接收者 是一个Point型的地址
+	scale(&p, 2)   // &p 取p地址
+	fmt.Println(p)            // "{2 4}"
+	fmt.Printf("%T\n", scale) // "func(*main.Point, float64)"
+	//!-methodexpr
+}
+
+func init() {
+	red := color.RGBA{255, 0, 0, 255}
+	blue := color.RGBA{0, 0, 255, 255}
+
+	//!+indirect
+	type ColoredPoint struct {
+		*Point   //一个Point型的地址
+		Color color.RGBA
+	}
+
+	p := ColoredPoint{&Point{1, 1}, red}
+	q := ColoredPoint{&Point{5, 4}, blue}
+	fmt.Println(q.Point) // &{5 4}         // q.Point 【 ？？？？？】 q.*Point
+	fmt.Println(*q.Point) // {5 4}
+
+	fmt.Println(p.Distance(*q.Point)) // "5"
+	q.Point = p.Point                 // p and q now share the same Point
+	p.ScaleBy(2)
+	fmt.Println(*p.Point, *q.Point) // "{2 2} {2 2}"
+	//!-indirect
+}
+
+```
+
+
 #### 基于指针对象的方法
 
 ```go
