@@ -110,7 +110,8 @@ func main() {
 // unicode字符类型 rune
 // uintptr 指针类型
 ```
-
+# 运算符
+https://www.runoob.com/go/go-operators.html
 
 # 函数
 
@@ -423,3 +424,6 @@ func main() {
 
 
 
+# misc
+
+> Go语言fmt.Sprintf（格式化输出）http://c.biancheng.net/view/41.html
