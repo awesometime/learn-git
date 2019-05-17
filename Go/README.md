@@ -6,6 +6,7 @@
 
 
 > 嗯
+ 
 [Go 开发者学习路线图](https://github.com/Quorafind/golang-developer-roadmap-cn)
 
 [A curated list of awesome Go frameworks, libraries and software](https://github.com/avelino/awesome-go)
@@ -16,7 +17,7 @@
 
 
 
-- [Go语言圣经（中文版）](https://docs.hacknode.org/gopl-zh/)
+- [Go语言圣经（中文版）在线阅读](https://docs.hacknode.org/gopl-zh/)
 
 - [快学 Go 语言 知乎](https://zhuanlan.zhihu.com/quickgo)
 
