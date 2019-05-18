@@ -1,0 +1,115 @@
+```
+索引  锁  事务
+
+执行流程
+存储引擎
+视图
+
+
+
+
+
+-------------------------------------
+执行流程
+
+优化器
+选择索引是优化器
+-----------------------------
+存储引擎
+InnoDB
+在事务支持、并发能力还是在数据安全 支持行锁方面，InnoDB都优 
+
+
+
+
+InnoDB的redo log写满了。这时候系统会停止所有更新操作，把checkpoint往前推进，redo log留出空间可以继续写。我在第二讲画了一个redo log的示意图，这里我改成环形
+---------------------------
+索引
+
+
+MySql  InnoDB的数据是按数据页为单位来读写的。也就是说，当需要读一条记录的时候，并不是
+将这个记录本身从磁盘读出来，而是以页为单位，将其整体读入内存。在InnoDB中，每个
+数据页的大小默认是16KB。
+
+
+
+我们假设一个非页子节点是 16kb，每个索引，即主键是 bigint，即 8b，指针为 8b。那么每页能存储大约 1000 个索引（16kb/ 8b + 8b）.
+大约能够存储 10 亿个索引。通常 B+ 树的高度在 2-4 层，由于 MySql 在运行时，根节点是常驻内存的，因此每次查找只需要大约 2 -3 次 IO。
+可以说，B+ 树的设计，就是根据机械磁盘的特性来进行设计的。
+
+
+普通索引：最基本的索引，没有任何约束。
+唯一索引：与普通索引类似，但具有唯一性约束。
+主键索引：特殊的唯一索引，不允许有空值。
+复合索引：将多个列组合在一起创建索引，可以覆盖多个列。
+外键索引：只有InnoDB类型的表才可以使用外键索引，保证数据的一致性、完整性和实现级联操作。
+全文索引：MySQL 自带的全文索引只能用于 InnoDB、MyISAM ，并且只能对英文进行全文检索，一般使用全文索引引擎（ES，Solr）。
+
+
+
+唯一索引用不上change buffer的优化机制，因此如果业务可以接受，从性能角度出发我建议你优先考虑普通索引。
+
+主键 键 索引是自己指定的
+但使用哪个索引是由MySQL来确定的
+覆盖索引
+
+
+前缀索引
+直接创建完整索引，这样可能比较占用空间；
+
+创建前缀索引，节省空间，但会增加查询扫描次数，并且不能使用覆盖索引；
+
+倒序存储，再创建前缀索引，用于绕过字符串本身前缀的区分度不够的问题；
+
+创建hash字段索引，查询性能稳定，有额外的存储和计算消耗，跟第三种方式一样，都不支持范围扫描。
+------------------------------
+锁
+全局锁主要用在逻辑备份过程中
+
+
+------------------------------------------
+当内存数据页跟磁盘数据页内容不一致的时候，我们称这个内存页为“脏页”。内存数据写入到磁盘后，内存和磁盘上的数据页的内容就一致了，称为“干净页”。
+不论是脏页还是干净页，都在内存中。
+
+如果要收缩一个表，只是delete掉表里面不用的数据的话，表文件的大小是不会变的，你还要通过alter table命令重建表，才能达到表文件变小的目的。
+------------------------------
+建一个表，表里有a、b两个字段，并分别建上索引
+CREATE TABLE `table_3` (
+  `id` int(11) NOT NULL,
+  `a` int(11) DEFAULT NULL,
+  `b` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `a` (`a`),
+  KEY `b` (`b`)
+) ENGINE=InnoDB;
+
+用存储过程来插入数据
+delimiter ;;
+create procedure idata_001()
+begin
+  declare i int;
+  set i=1;
+  while(i<=100000)do
+    insert into table_3 values(i, i, i);
+    set i=i+1;
+  end while;
+end;;
+delimiter ;
+call idata_001();
+Query OK, 1 row affected (24 min 28.31 sec)
+
+
+select * from t where a between 10000 and 20000;
+explain select * from t where a between 10000 and 20000;
+
+show index from table;
+alter table SUser add index index1(email);
+
+select count(distinct email) as L from SUser;
+select 
+  count(distinct left(email,4)）as L4,
+  count(distinct left(email,5)）as L5,
+  count(distinct left(email,6)）as L6,
+  count(distinct left(email,7)）as L7,
+from SUser;
+```
