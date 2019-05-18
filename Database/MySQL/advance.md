@@ -69,6 +69,30 @@ mysql> select product_size,count(product_size) from jd_bar group by product_colo
 
 ```
 ### order by
+
+order by执行流程
+```
+CREATE TABLE `t` (
+  `id` int(11) NOT NULL,
+  `city` varchar(16) NOT NULL,
+  `name` varchar(16) NOT NULL,
+  `age` int(11) NOT NULL,
+  `addr` varchar(128) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `city` (`city`)
+) ENGINE=InnoDB;
+
+select city,name,age from t where city='杭州' order by name limit 1000  ;
+
+
+初始化sort_buffer，确定放入name、city、age这三个字段； # MySQL会给每个线程分配一块内存用于排序，称为sort_buffer。
+从索引city找到第一个满足city='杭州’条件的主键id，也就是图中的ID_X；
+到主键id索引取出整行，取name、city、age三个字段的值，存入sort_buffer中；
+从索引city取下一个记录的主键id；
+重复步骤3、4直到city的值不满足查询条件为止，对应的主键id也就是图中的ID_Y；
+对sort_buffer中的数据按照字段name做快速排序；
+按照排序结果取前1000行返回给客户端。
+```
 ```
 mysql> select * from table1 order by age asc limit 0,3;   # limit 偏移量，每页显示个数
 +------+-----+--------+--------+
