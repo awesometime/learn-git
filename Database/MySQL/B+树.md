@@ -1,5 +1,7 @@
 [知识清单](https://uule.iteye.com/blog/2429508)
 
+[MySql 三大知识点——索引、锁、事务](https://zhuanlan.zhihu.com/p/59764376?utm_source=wechat_session&utm_medium=social&utm_oi=631526660110028800)
+
 [硬盘基本知识（磁头、磁道、扇区、柱面）](https://www.jianshu.com/p/9aa66f634ed6)
 
 [从 MongoDB 及 Mysql 谈B/B+树 ](https://blog.csdn.net/wwh578867817/article/details/50493940)
