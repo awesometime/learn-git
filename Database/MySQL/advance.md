@@ -90,7 +90,7 @@ select city,name,age from t where city='杭州' order by name limit 1000  ;
 到主键id索引取出整行，取name、city、age三个字段的值，存入sort_buffer中；
 从索引city取下一个记录的主键id；
 重复步骤3、4直到city的值不满足查询条件为止，对应的主键id也就是图中的ID_Y；
-对sort_buffer中的数据按照字段name做快速排序；
+对sort_buffer中的数据按照字段name做快速排序；     全字段排序
 按照排序结果取前1000行返回给客户端。
 ```
 ```
