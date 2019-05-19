@@ -1,4 +1,5 @@
 - [一千行 MySQL 学习笔记](https://shockerli.net/post/1000-line-mysql-note/)
+- [一千行 MySQL 学习笔记 加目录](https://snailclimb.gitee.io/javaguide/#/./database/%E4%B8%80%E5%8D%83%E8%A1%8CMySQL%E5%91%BD%E4%BB%A4)
 
 - [ mysql-5.1-zh 中文文档](http://tool.oschina.net/apidocs/apidoc?api=mysql-5.1-zh)
 
