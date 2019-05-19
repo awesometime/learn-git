@@ -12,9 +12,19 @@
 
 ## 执行流程
 
-> 优化器
+> 架构
+[![架构](https://github.com/awesometime/learn-git/blob/master/Database/MySQL/mysql_architecture.png)](https://github.com/awesometime/learn-git/blob/master/Database/MySQL/mysql_architecture.png)
 
-选择索引是优化器的工作
+> Server层
+
+连接器
+查询缓存
+分析器
+优化器
+执行器  选择索引是优化器的工作
+
+> 存储引擎
+
 
 
 
@@ -23,7 +33,7 @@
 > InnoDB
 
 支持行锁，采用MVCC(Multi-Version Concurrency Control, 多版本并发控制)来支持高并发，有可能死锁
-支持事务(Transaction):ACID
+支持事务(Transaction):ACID(Atomicity、Consistency、Isolation、Durability, 即原子性、一致性、隔离性、持久性)
 支持外键
 支持崩溃后的安全恢复
 不支持全文索引
@@ -105,7 +115,7 @@ InnoDB的redo log写满了。这时候系统会停止所有更新操作，把che
 表经常进行INSERT/UPDATE/DELETE操作就不要建立索引了，换言之：索引会降低插入、删除、修改等维护任务的速度。
 Mysql索引使用的数据结构主要有**B+Tree索引**和**Hash索引** 
 在有大量重复键值情况下，哈希索引的效率也是极低的---->哈希碰撞问题
-(**二分查找**O(log2(n)(是以2为底，n的对数))要求被检索数据有序，而**二叉树查找**O(log2(n)(是以2为底，n的对数)只能应用于二叉查找树上)
+(**二分查找**O(log<sub>2</sub>n)要求被检索数据有序，而**二叉树查找**O(log<sub>2</sub>n)只能应用于二叉查找树上)
 
 > **B+Tree**
 
@@ -176,6 +186,8 @@ InnoDB数据文件本身就是索引文件,表数据文件本身就是按B+Tree�
 
 ## 锁
 
+[![锁分类](https://github.com/awesometime/learn-git/blob/master/Database/MySQL/mysql_lock.jpg)](https://github.com/awesometime/learn-git/blob/master/Database/MySQL/mysql_lock.jpg)
+
 > 全局锁
 
 主要用在逻辑备份过程中
@@ -189,7 +201,22 @@ Mysql的行锁和表锁（ 锁是计算机协调多个进程或纯线程并发�
 
 行级锁： 每次操作锁住一行数据。开销大，加锁慢；会出现死锁；锁定粒度最小，发生锁冲突的概率最低，并发度也最高；
 
+> 事务隔离级别
+SQL标准的事务隔离级别包括：读未提交（read uncommitted）、读提交（read committed）、可重复读（repeatable read）和串行化（serializable ）
+读未提交是指，一个事务还没提交时，它做的变更就能被别的事务看到。
+读提交是指，一个事务提交之后，它做的变更才会被其他事务看到。
+可重复读是指，一个事务执行过程中看到的数据，总是跟这个事务在启动时看到的数据是一致的。当然在可重复读隔离级别下，未提交变更对其他事务也是不可见的。
+串行化，顾名思义是对于同一行记录，“写”会加“写锁”，“读”会加“读锁”。当出现读写锁冲突的时候，后访问的事务必须等前一个事务执行完成，才能继续执行。
 
+> 不同事务级别带来的并发问题
+当数据库上有多个事务同时执行的时候，就可能出现脏读（dirty read）、不可重复读（non-repeatable read）、幻读（phantom read）的问题，
+为了解决这些问题，就有了“隔离级别”的概念。隔离得越严实，效率就会越低。因此很多时候，我们都要在二者之间寻找一个平衡点。
+
+||dirty read|non-repeatable read|phantom read|
+|read uncommitted|√|√|√|
+|read committed|×|√|√|
+|repeatable read|×|×|√|
+|serializable|×|×|×|
 
 
 当内存数据页跟磁盘数据页内容不一致的时候，我们称这个内存页为“脏页”。内存数据写入到磁盘后，内存和磁盘上的数据页的内容就一致了，称为“干净页”。
