@@ -4,6 +4,7 @@
       * [3 sys.stdout sys.stdin](#3-sys.stdout-sys.stdin)
       * [5 locals() globals()](#5-locals()-globals())
 
+[doctoc](https://github.com/thlorenz/doctoc)
 
 - [附： Markdown 语法说明 (简体中文版)](https://www.appinn.com/markdown/#p)
 
