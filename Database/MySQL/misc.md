@@ -46,14 +46,19 @@
 - binlog是逻辑日志，记录的是这个语句的原始逻辑，比如“ update tb_student A set A.age='19' where A.name=' 张三'; ”
 
 具体来说，当有一条记录需要更新的时候，InnoDB引擎就会先把记录写到redo log（粉板）里面，并更新内存，这个时候更新就算完成了。同时，InnoDB引擎会在适当的时候，将这个操作记录更新到磁盘里面，而这个更新往往是在系统比较空闲的时候做，这就像打烊以后掌柜做的事。
+
 如果今天赊账的不多，掌柜可以等打烊后再整理。但如果某天赊账的特别多，粉板写满了，又怎么办呢？这个时候掌柜只好放下手中的活儿，把粉板中的一部分赊账记录更新到账本中，然后把这些记录从粉板上擦掉，为记新账腾出空间。
+
 与此类似，InnoDB的redo log是固定大小的，比如可以配置为一组4个文件，每个文件的大小是1GB，那么这块“粉板”总共就可以记录4GB的操作。从头开始写，写到末尾就又回到开头循环写，如下面这个图所示。
 
 [![redo log 流程图](https://github.com/awesometime/learn-git/blob/master/Database/MySQL/redo_log.jpg)](https://github.com/awesometime/learn-git/blob/master/Database/MySQL/redo_log.jpg)
 
 write pos是当前记录的位置，一边写一边后移，写到第3号文件末尾后就回到0号文件开头。checkpoint是当前要擦除的位置，也是往后推移并且循环的，擦除记录前要把记录更新到数据文件。
+
 write pos和checkpoint之间的是“粉板”上还空着的部分，可以用来记录新的操作。如果write pos追上checkpoint，表示“粉板”满了，这时候不能再执行新的更新，得停下来先擦掉一些记录，把checkpoint推进一下。
+
 有了redo log，InnoDB就可以保证即使数据库发生异常重启，之前提交的记录都不会丢失，这个能力称为crash-safe。
+
 要理解crash-safe这个概念，可以想想我们前面赊账记录的例子。只要赊账记录记在了粉板上或写在了账本上，之后即使掌柜忘记了，比如突然停业几天，恢复生意后依然可以通过账本和粉板上的数据明确赊账账目。
 
 ## 存储引擎
@@ -84,11 +89,16 @@ write pos和checkpoint之间的是“粉板”上还空着的部分，可以用�
 
 > 常见对比
 
-1) count运算上的区别： 因为MyISAM缓存有表meta-data（行数等），因此在做COUNT(\*)
-时对于一个结构很好的查询是不需要消耗多少资源的。而对于InnoDB来说，则没有这种缓存。
+1) count运算上的区别： 
+
+因为MyISAM缓存有表meta-data（行数等），因此在做COUNT(\*)时对于一个结构很好的查询是不需要消耗多少资源的。
+
+InnoDB则没有这种缓存。
 
 2) 是否支持事务和崩溃后的安全恢复： 
+
 MyISAM 强调的是性能，每次查询具有原子性,其执行数度比InnoDB类型更快，但是不提供事务支持。
+
 InnoDB 提供事务支持事务，外部键等高级数据库功能。 具有事务(commit)、回滚(rollback)和崩溃修复能力(crash recovery capabilities)的事务安全(transaction-safe (ACID compliant))型表。
 
 3) 是否支持外键： MyISAM不支持，而InnoDB支持。
@@ -96,43 +106,63 @@ InnoDB 提供事务支持事务，外部键等高级数据库功能。 具有事
 4) MyISAM更适合读密集的表，而InnoDB更适合写密集的的表。 在数据库做主从分离的情况下，经常选择MyISAM作为主库的存储引擎。
 
 1) 存储结构 
+
 MyISAM：每个MyISAM在磁盘上存储成三个文件。第一个文件的名字以表的名字开始，扩展名指出文件类型。.frm文件存储表定义。数据文件的扩展名为.MYD (MYData)。索引文件的扩展名是.MYI (MYIndex)。 
+
 InnoDB：所有的表都保存在同一个数据文件中（也可能是多个文件，或者是独立的表空间文件），InnoDB表的大小只受限于操作系统文件的大小，一般为2GB。
 
 2) 存储空间 
+
 MyISAM：可被压缩，存储空间较小。支持三种不同的存储格式：静态表(默认，但是注意数据末尾不能有空格，会被去掉)、动态表、压缩表。 
+
 InnoDB：需要更多的内存和存储，它会在主内存中建立其专用的缓冲池用于高速缓冲数据和索引。
 
 3) 可移植性、备份及恢复 
+
 MyISAM：数据是以文件的形式存储，所以在跨平台的数据转移中会很方便。在备份和恢复时可单独针对某个表进行操作。 
+
 InnoDB：免费的方案可以是拷贝数据文件、备份 binlog，或者用 mysqldump，在数据量达到几十G的时候就相对痛苦了。
 
 4) 事务支持 
+
 MyISAM：强调的是性能，每次查询具有原子性,其执行速度比InnoDB类型更快，但是不提供事务支持。 
+
 InnoDB：提供事务支持事务，外部键等高级数据库功能。 具有事务(commit)、回滚(rollback)和崩溃修复能力(crash recovery capabilities)的事务安全(transaction-safe (ACID compliant))型表。
 
 5) AUTO_INCREMENT 
+
 MyISAM：可以和其他字段一起建立联合索引。引擎的自动增长列必须是索引，如果是组合索引，自动增长可以不是第一列，他可以根据前面几列进行排序后递增。 
+
 InnoDB：InnoDB中必须包含只有该字段的索引。引擎的自动增长列必须是索引，如果是组合索引也必须是组合索引的第一列。
 
 6) 表锁差异 
+
 MyISAM：只支持表级锁，用户在操作myisam表时，select，update，delete，insert语句都会给表自动加锁，如果加锁以后的表满足insert并发的情况下，可以在表的尾部插入新的数据。 
+
 InnoDB：支持事务和行级锁，是innodb的最大特色。行锁大幅度提高了多用户并发操作的新能。但是InnoDB的行锁，只是在WHERE的主键是有效的，非主键的WHERE都会锁全表的。
 
 7) 全文索引 
+
 MyISAM：支持 FULLTEXT类型的全文索引 
+
 InnoDB：不支持FULLTEXT类型的全文索引，但是innodb可以使用sphinx插件支持全文索引，并且效果更好。
 
 8) 表主键 
+
 MyISAM：允许没有任何索引和主键的表存在，索引都是保存行的地址。 
+
 InnoDB：如果没有设定主键或者非空唯一索引，就会自动生成一个6字节的主键(用户不可见)，数据是主索引的一部分，附加索引保存的是主索引的值。
 
 9) 表的具体行数 
+
 MyISAM：保存有表的总行数，如果select count(*) from table;会直接取出出该值。 
+
 InnoDB：没有保存表的总行数，如果使用select count(*) from table；就会遍历整个表，消耗相当大，但是在加了wehre条件后，myisam和innodb处理的方式都一样。
 
 10) CURD操作 
+
 MyISAM：如果执行大量的SELECT，MyISAM是更好的选择。 
+
 InnoDB：如果你的数据执行大量的INSERT或UPDATE，出于性能方面的考虑，应该使用InnoDB表。DELETE 从性能上InnoDB更优，但DELETE FROM table时，InnoDB不会重新建立表，而是一行一行的删除，在innodb上如果要清空保存有大量数据的表，最好使用truncate table这个命令。
 
 
@@ -309,17 +339,17 @@ Mysql的行锁和表锁（ 锁是计算机协调多个进程或纯线程并发�
 |repeatable read|×|×|√|
 |serializable|×|×|×|
 
-MyISAM采用表级锁(table-level locking)。
+- MyISAM采用表级锁(table-level locking)。
 
-InnoDB支持行级锁(row-level locking)和表级锁,默认为行级锁
+- InnoDB支持行级锁(row-level locking)和表级锁,默认为行级锁
 
-InnoDB存储引擎的锁的算法有三种：
+    InnoDB存储引擎的锁的算法有三种：
 
-- Record lock：单个行记录上的锁
+    - Record lock：单个行记录上的锁
 
-- Gap lock：间隙锁，锁定一个范围，不包括记录本身
+    - Gap lock：间隙锁，锁定一个范围，不包括记录本身
 
-- **Next-key lock**：record+gap 锁定一个范围，包含记录本身
+    - **Next-key lock**：record+gap 锁定一个范围，包含记录本身
 
 当内存数据页跟磁盘数据页内容不一致的时候，我们称这个内存页为“脏页”。内存数据写入到磁盘后，内存和磁盘上的数据页的内容就一致了，称为“干净页”。
 不论是脏页还是干净页，都在内存中。
