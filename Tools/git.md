@@ -7,7 +7,7 @@
     <br>   
     <a href="https://github.com/awesometime/">awesometime的github主页</a>    
     <br> 
-    <a href="https://git-scm.com/book/zh/v2"> Git - Book </a>
+    <a href="https://git-scm.com/book/zh/v2"> Git - Book 中文官方文档 </a>
     <br>
     <a href="http://git-scm.com/">git官网</a>
     <br>
