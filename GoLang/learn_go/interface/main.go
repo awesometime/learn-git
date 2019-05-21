@@ -1,12 +1,18 @@
 /*
+接口  实现者：只要实现Get方法即可     调用者download
+func download(r Retriever) string {
+	return r.Get(url)
+}
+
+
 接口变量里有什么 T v
 实现者的类型;实现者的值
 或者说是实现者的类型;实现者的指针 -->指向实现者
 
-查看接口变量
+查看接口变量的类型  https://github.com/Unknwon/the-way-to-go_ZH_CN/blob/master/eBook/11.4.md
 fmt.Printf("%T %v\n", r, r)
 Type assertion
-Type switch
+Type-switch
 
 任何类型
 interface{}
@@ -81,6 +87,7 @@ func main() {
 	//fmt.Println(download(r))
 
 	// Type assertion 【r.(*mock.Retriever)】
+	// 测试一个struct的值mock.Retriever  是否实现了某个接口r Retriever
 	if mockRetriever, ok := r.(*mock.Retriever); ok {
 		fmt.Println(mockRetriever.Contents)
 	} else {
