@@ -23,6 +23,8 @@
 > 嗯
 
 - [**Go 学习之路** developer-learning/learning-golang](https://github.com/developer-learning/learning-golang)
+
+- [Go 夜读](https://github.com/developer-learning/Reading-go)
  
 - [Go 开发者学习路线图](https://github.com/Quorafind/golang-developer-roadmap-cn)
 
