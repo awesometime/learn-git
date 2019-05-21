@@ -12,7 +12,7 @@ type Retriever struct {
 }
 
 // 实现了Retriever interface的Get方法就实现了Retriever interface
-// 不需要像Java一样用implement显式指明
+// 不需要使用Java 语言的 implements 关键字，结构体和接口就自动产生了关联
 func (r *Retriever) Get(url string) string {
 	resp, err := http.Get(url)
 	if err != nil {
