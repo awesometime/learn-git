@@ -21,8 +21,12 @@
 
 
 - [git 简明教程](http://rogerdudler.github.io/git-guide/index.zh.html)
-- [git 教程](https://mp.weixin.qq.com/s/iIZNynZFKDMcnXZPfx2iqA)
-- [Git Internal(初探git的内部实现)](https://changchen.me/blog/20180315/git-internal/)
+- [图解Git   |细致](http://marklodato.github.io/visual-git-guide/index-zh-cn.html)
+- [git教程   |微信](https://mp.weixin.qq.com/s/iIZNynZFKDMcnXZPfx2iqA)
+- [**Git Internal(初探git的内部实现)**](https://changchen.me/blog/20180315/git-internal/)
+
+
+本文目录
 - [test](#test)
 - [干货](#干货)
 - [git学习目录](#git学习目录)
