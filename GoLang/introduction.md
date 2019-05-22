@@ -134,6 +134,8 @@ func max(a, b int) int {
 
 # struct
 
+[Go Struct超详细讲解  掘金](https://juejin.im/post/5ca2f37ce51d4502a27f0539#heading-14)
+
 > struct的匿名字段
 
 ```go
@@ -522,7 +524,9 @@ func init() {
 
 ```
 
+# interface
 
+[浅析Go语言Interface类型的语法行为及用法](https://studygolang.com/articles/2652)
 
 # misc
 
