@@ -528,6 +528,13 @@ func init() {
 
 [浅析Go语言Interface类型的语法行为及用法](https://studygolang.com/articles/2652)
 
+
+# reflect
+
+[![reflect](https://pic4.zhimg.com/80/v2-5641dae0a8b8d4059e3782d8e92c204f_hd.jpg)](https://pic4.zhimg.com/80/v2-5641dae0a8b8d4059e3782d8e92c204f_hd.jpg)
+
+
+
 # misc
 
 > Go语言fmt.Sprintf（格式化输出）http://c.biancheng.net/view/41.html
