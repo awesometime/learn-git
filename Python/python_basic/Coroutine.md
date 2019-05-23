@@ -226,7 +226,7 @@ def take_potatos(num):
     count = 0
     while True:
         if len(all_potatos) == 0:
-            time.sleep(.1)
+            time.sleep(.1)              # ==0 以后只能够死等，而且在上面例子中等多长时间都不会有结果（因为一切都是同步的）
         else:
             potato = all_potatos.pop()
             yield potato
@@ -262,8 +262,8 @@ all_potatos = Potato.make(5)
 async def take_potatos(num):
     count = 0
     while True:
-        if len(all_potatos) == 0:
-            await ask_for_potato()
+        if len(all_potatos) == 0: 
+            await ask_for_potato()               # 
         potato = all_potatos.pop()
         yield potato
         count += 1
@@ -286,7 +286,6 @@ async def buy_potatos():
 def main():
     loop = asyncio.get_event_loop()
     res = loop.run_until_complete(buy_potatos())
-    res = loop.run_until_complete(asyncio.wait([buy_potatos(), buy_tomatos()]))
     loop.close()
     
 
@@ -353,16 +352,36 @@ main()
 
 ```
 Python 3.5
+import types
+
+@types.coroutine
+def function():
+
+
+-------------
+import asyncio
+
 async def function():
     await asyncio.sleep(1)
+    
+异步推导表达式  async for p in ...
+bucket = [p async for p in take_potatos(50)]
+
+上下文管理器
+async with lock:
+    ...
 ```
 
 
 ``` 
 Python 3.4 新增asyncio库 刚开始使用yield from 
-@types.coroutine 
+import asyncio
+@asyncio.coroutine
 def function():
     yield from
+    
+with (yield from lock):
+...
 ```
 
 完成异步的代码不一定要用async/await，使用了async/await的代码也不一定能做到异步，
@@ -372,6 +391,8 @@ async/await是协程的语法糖，使协程之间的调用变得更加清晰，
 一个协程对象，await只能放在async修饰的函数里面使用，await后面必须要跟着一个协程对象或Awaitable，
 
 await的目的是等待协程控制流的返回，而实现暂停并挂起函数的操作是yield。
+
+asyncio是使用async/await语法开发的协程库，而不是有asyncio才能用async/await
 
 > 再来一例
 
@@ -413,3 +434,5 @@ asyncio.sleep()也是一个coroutine，接着compute()就会被挂起，等待�
 return语句，结果会返回到print_sum()中的result中，最后打印result，事件队列中没有可以调度
 的任务了，此时loop.close()把事件队列关闭，程序结束。
 ```
+
+> asyncio 中 Future
