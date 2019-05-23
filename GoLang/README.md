@@ -12,7 +12,7 @@
 
 [Go by Example    |Go Sheet](https://gobyexample.com/)
 
-[Golang tutorial series in golangbot.com  |Go语言中文网翻译在公众号](https://golangbot.com/learn-golang-series/):源码(https://github.com/golangbot)
+[很好的资料  Golang tutorial series in golangbot.com  |Go语言中文网翻译在公众号](https://golangbot.com/learn-golang-series/):源码(https://github.com/golangbot)
 
 > 面试
 
@@ -46,6 +46,14 @@
 > 实践
 
 [今日头条Go建千亿级微服务的实践](https://www.jianshu.com/p/ea9ab1b67dce)
+
+> misc
+
+[「GCTT 出品」图解 Go 并发编程](https://mbd.baidu.com/newspage/data/landingshare?context=%7B%22nid%22%3A%22news_10061718063488657719%22%2C%22sourceFrom%22%3A%22bjh%22%2C%22url_data%22%3A%22bjhauthor%22%7D)
+
+[Go的CSP并发模型实现](https://www.cnblogs.com/sunsky303/p/9115530.html)
+
+[python协程与golang协程的区别](https://segmentfault.com/a/1190000019127902?utm_campaign=studygolang.com&utm_medium=studygolang.com&utm_source=studygolang.com)
 
 
 ```
