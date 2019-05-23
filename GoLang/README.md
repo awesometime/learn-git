@@ -12,6 +12,8 @@
 
 [Go by Example    |Go Sheet](https://gobyexample.com/)
 
+[Golang tutorial series in golangbot.com  |Go语言中文网翻译在公众号](https://golangbot.com/learn-golang-series/):源码(https://github.com/golangbot)
+
 > 面试
 
 
@@ -21,6 +23,8 @@
 [aQuaYi/LeetCode-in-Go](https://github.com/aQuaYi/LeetCode-in-Go)
 
 > 嗯
+
+- [The Go Programming Language 官方Documentation](https://golang.org/doc/)
 
 - [**Go 学习之路** developer-learning/learning-golang](https://github.com/developer-learning/learning-golang)
 
@@ -42,3 +46,73 @@
 > 实践
 
 [今日头条Go建千亿级微服务的实践](https://www.jianshu.com/p/ea9ab1b67dce)
+
+
+```
+Golang tutorial series in golangbot.com  |Go语言中文网翻译在公众号目录
+Golang tutorial series
+Introduction
+1 - Introduction and Installation 
+2 - Hello World
+
+Variables, Types and Constants
+3 - Variables 
+4 - Types 
+5 - Constants
+
+Functions and Packages
+6 - Functions 
+7 - Packages
+
+Conditional Statements and Loops
+8 - if else statement 
+9 - Loops 
+10 - Switch Statement
+
+Arrays, Slices and Variadic Functions
+11 - Arrays and Slices 
+12 - Variadic Functions
+
+More types
+13 - Maps 
+14 - Strings
+
+Pointers, Structures and Methods
+15 - Pointers 
+16 - Structures 
+17 - Methods
+
+Interfaces
+18 - Interfaces - I 
+19 - Interfaces - II
+
+Concurrency
+20 - Introduction to Concurrency 
+21 - Goroutines 
+22 - Channels 
+23 - Buffered Channels and Worker Pools 
+24 - Select 
+25 - Mutex
+
+Object Oriented Programming
+26 - Structs Instead of Classes 
+27 - Composition Instead of Inheritance 
+28 - Polymorphism
+
+Defer and Error Handling
+29 - Defer 
+30 - Error Handling 
+31 - Custom Errors 
+32 - Panic and Recover
+
+First Class Functions
+33 - First Class Functions
+
+Reflection
+34 - Reflection
+
+Filehandling
+35 - Reading Files 
+36 - Writing Files
+
+```
