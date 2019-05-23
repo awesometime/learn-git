@@ -201,6 +201,8 @@ def run(coroutine):
         return e.value   
 
 run(await_coroutine())
+
+1
 ``` 
 
 4. 异步生成器
@@ -386,13 +388,19 @@ async def print_sum(x, y):
     print("%s + %s = %s" % (x, y, result))
 
 loop = asyncio.get_event_loop()
-loop.run_until_complete(print_sum(1, 2))
+loop.run_until_complete(asyncio.wait([print_sum(1, 2), print_sum(11, 12),print_sum(111, 112)]))
 loop.close()
 
 
-# Compute 1 + 2 ...
-# 1 + 2 = 3
+Compute 11 + 12 ...
+Compute 111 + 112 ...
+Compute 1 + 2 ...
+11 + 12 = 23
+111 + 112 = 223
+1 + 2 = 3
 ```
+
+
 ```
 当事件循环开始运行时，它会在Task中寻找coroutine来执行调度，因为事件循环注册了print_sum()，
 因此print_sum()被调用，执行result = await compute(x, y)这条语句
