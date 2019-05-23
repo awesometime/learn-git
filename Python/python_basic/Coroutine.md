@@ -1,3 +1,27 @@
+```
+进程：
+每个人（cpu）都领一套工具（环境，上下文）去干活，人多（核多）就可以做的更快。
+一个cpu 一套环境就可以干活了
+
+线程：
+单线程 有一组 "计算 io 计算 io ..." 类似这样的任务 如果只有一个线程 碰到io耗时操作只能等io完成再去执行计算
+多线程 的话就可以在一个线程执行io耗时任务的时候 另一个线程拿到上下文相关环境信息去执行计算 但是线程切换会消耗较多资源
+
+协程：
+一个线程内由用户的主动调用  省去线程切换消耗的资源
+
+
+
+
+```
+
+
+
+
+
+
+
+
 协程，又称作Coroutine。
 
 从字面上来理解，即协同运行的例程，它是比是线程（thread）更细量级的用户态线程，特点是允许用户的主动调用和
@@ -12,6 +36,7 @@
 
    他的上下文，这些特性为coroutine的实现提供了底层的基础。
 
+# 第一部分
 
 > 普通函数
 
@@ -39,11 +64,16 @@ print(a)
 
 
 # <generator object fun at 0x0000000002433BF8>
-# a = consumer()，因为consumer函数中存在yield语句，python会把它当成一个generator（生成器），
-# 因此在运行这条语句后，python并不会像执行函数一样全部执行完返回一个值，而是返回了一个generator object
-# 想要启动函数consumer需要给他发送一个类似驱动指令的东西如  a.send(None)   a.__next__()   next(a)
-# 去激活它
 ```
+a = consumer()，因为consumer函数中存在yield语句，python会把它当成一个generator（生成器），
+
+因此在运行这条语句后，python并不会像执行函数一样全部执行完返回一个值，而是返回了一个generator object
+
+想要启动函数consumer需要给他发送一个类似驱动指令的东西如  a.send(None)   a.__next__()   next(a)
+
+去激活它
+
+参考 (https://zhuanlan.zhihu.com/p/25228075)
 
 > 生产者－消费者的协程
 
@@ -65,7 +95,7 @@ def producer(consumer):
     while n > 0:
         # yield给主程序返回消费者的状态
         
-        yield consumer.send(n)  # 让生产者发送1,2,3,4,5给消费者
+        yield consumer.send(n)             # 让生产者发送1,2,3,4,5给消费者
         
         # generator.send(n)的作用是：把n发送到consumer()的yield赋值语句中，同时返回consumer中yield的变量（status）。
         
@@ -73,15 +103,17 @@ def producer(consumer):
 
 
 if __name__ == '__main__':
-    c = consumer()  # 有yield的话实例化时候不会执行到函数内
-    c.send(None)  # 通过send(None)或__next__()初始化到第一个值的位置
+    c = consumer()              # 有yield的话实例化时候不会执行到函数内
+    c.send(None)                # 通过send(None)或__next__()初始化到第一个值的位置
     
     # c.send(None)，这条语句的作用是将consumer（即变量c，它是一个generator）中的语句推进到第一个
-    # yield语句出现的位置，那么在例子中，consumer中的status = True和while
-    # True: 都已经被执行了，程序停留在n = yield status的位置（注意：此时这条语句还没有被执行）
+    # yield语句出现的位置，那么在例子中，consumer中的status = True和while True:
+    # 都已经被执行了，程序停留在n = yield status的位置（【注意】：此时这条语句还没有被执行）
+    # 可以理解为yield status 执行了 因为它相当于return status 但是n = yield status这个没执行
+    # 这句执行需要send 发送过来东西
     
-    p = producer(c)  # 有yield的话实例化时候不会执行到函数内
-    for status in p:  # for in 应该是底层调用了__next__()初始化到第一个值的位置.然后依次遍历
+    p = producer(c)             # 有yield的话实例化时候不会执行到函数内
+    for status in p:            # for in 应该是底层调用了__next__()初始化到第一个值的位置.然后依次遍历
         if status == False:
             print("我只要3,4,5就行啦")
             break
@@ -113,23 +145,22 @@ while True:都已经被执行了，程序停留在n = yield status的位置（�
 第四句for status in p:，这条语句会循环地运行producer和获取它yield回来的状态。
 
 好了，进入正题，现在我们要让生产者发送1,2,3,4,5给消费者，消费者接受数字，返回状态给生产者，
-而我们的消费者只需要3,4,5就行了，
-当数字等于3时，会返回一个错误的状态。最终我们需要由主程序来监控生产者－消费者的过程状态，
-调度结束程序。
+而我们的消费者只需要3,4,5就行了，当数字等于3时，会返回一个错误的状态。最终我们需要由主程序
+来监控生产者－消费者的过程状态，调度结束程序。
 
 现在程序流进入了producer里面，我们直接看yield consumer.send(n)，生产者调用了消费者的
-send()方法，把n发送给consumer（即c），在consumer中的n = yield status，n拿到的是消费者发送的数字，
-同时，consumer用yield的方式把状态（status）返回给消费者，注意：
-这时producer（即消费者）的consumer.send()调用返回的就是consumer中yield的status！
-消费者马上将status返回给调度它的主程序，
-主程序获取状态，判断是否错误，若错误，则终止循环，结束程序。上面看起来有点绕，其实这里面
-generator.send(n)的作用是：把n发送
-generator(生成器)中yield的赋值语句中，同时返回generator中yield的变量（结果）。
+send()方法，把n发送给consumer（即c），在consumer中的n = yield status，n拿到的是消费者
+发送的数字，同时，consumer用yield的方式把状态（status）返回给消费者，注意：这时producer
+（即消费者）的consumer.send()调用返回的就是consumer中yield的status！消费者马上将status
+返回给调度它的主程序，主程序获取状态，判断是否错误，若错误，则终止循环，结束程序。上面看起
+来有点绕，其实这里面generator.send(n)的作用是：把n发送generator(生成器)中yield的赋值语
+句中，同时返回generator中yield的变量（结果）。
 
 于是程序便一直运作，直至consumer中获取的n的值变为3！此时consumer把status变为False，
 最后返回到主程序，主程序中断循环，程序结束。
 ```
 
+# 第二部分
 
 > Python Async/Await入门指南
 
