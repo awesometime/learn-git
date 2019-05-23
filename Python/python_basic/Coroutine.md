@@ -16,7 +16,7 @@
 > 普通函数
 
 ```python3
-def consumer():           # 只能迭代一次
+def consumer():           
     print('good')
     return 2
 
@@ -30,9 +30,9 @@ print(b)
 > yield 函数
 
 ```python3
-def consumer():           # 只能迭代一次
+def consumer():           
     print('good')   
-    yield 5
+    yield 5               # 只能迭代一次
 
 a = consumer()            # 实例化方法时不会执行print('good')
 print(a)
