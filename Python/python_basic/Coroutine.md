@@ -342,7 +342,7 @@ await的目的是等待协程控制流的返回，而实现暂停并挂起函数
 
 > 再来一例
 
-```
+```python3
 import asyncio
 
 async def compute(x, y):
