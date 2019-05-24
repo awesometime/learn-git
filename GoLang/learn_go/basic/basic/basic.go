@@ -45,6 +45,7 @@ func triangle() {
 	fmt.Println(calcTriangle(a, b))
 }
 
+// 强制类型转换 没有隐式转换
 func calcTriangle(a, b int) int {
 	var c int
 	c = int(math.Sqrt(float64(a*a + b*b)))
@@ -61,6 +62,7 @@ func consts() {
 	fmt.Println(filename, c)
 }
 
+// 枚举类型数值是从0开始  iota计数器  需要定义值 可以跳过_
 func enums() {
 	const (
 		cpp = iota
@@ -96,3 +98,13 @@ func main() {
 	consts()
 	enums()
 }
+
+/*
+bool string
+(u)int,(u)int8,(u)int16,(u)int32,(u)int64,uintptr    int不指明时在32位机器是32位,在64位机器是64位
+byte(8) rune(32)=int32          
+float32 float64 complex64 complex128
+
+// unicode 2字节
+// utf8 4字节
+*/
