@@ -1,3 +1,9 @@
+/*
+c cpp        值传递 引用传递 都有
+java python  大部分情况是引用传递
+go           值传递  即使是地址也是拷贝一份地址过去
+ */
+
 package main
 
 import (
@@ -28,6 +34,7 @@ func div(a, b int) (q, r int) {
 	return a / b, a % b
 }
 
+// 函数式编程
 func apply(op func(int, int) int, a, b int) int {
 	p := reflect.ValueOf(op).Pointer()
 	opName := runtime.FuncForPC(p).Name()
@@ -45,6 +52,11 @@ func sum(numbers ...int) int {
 	return s
 }
 
+func swap0(a, b *int) {
+	*a, *b = *b, *a
+}
+
+// 推荐
 func swap(a, b int) (int, int) {
 	return b, a
 }
@@ -68,6 +80,10 @@ func main() {
 	fmt.Println("1+2+...+5 =", sum(1, 2, 3, 4, 5))
 
 	a, b := 3, 4
-	a, b = swap(a, b)
+	swap0(&a, &b)
 	fmt.Println("a, b after swap is:", a, b)
+	
+	c, d := 5, 6
+	c, d = swap(c, d)
+	fmt.Println("c, d after swap is:", c, d)
 }
