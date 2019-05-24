@@ -14,6 +14,7 @@
   * [1 install and docs](#1-install-and-docs)
   * [2 redis 基础语法](#2-redis-基础语法)
   * [3 redis-py python 操作 redis](#3-redis-py-python-操作-redis)
+  * [4 ]
   
 ### 1 install and docs
 
@@ -22,6 +23,7 @@
 - [redis 中文网 redis 知识树](http://www.redis.cn/map.html)
 - [github redis-py文档](https://github.com/andymccurdy/redis-py)
 - [Welcome to redis-py’s documentation](https://redis-py.readthedocs.io/en/latest/)
+- [通过思维导图整理redis的重要知识点](https://github.com/Weiwf/redis-mindmap)
 
 ### 2 redis 基础语法
 string
