@@ -17,6 +17,7 @@ mockRetriever, ok := r.(*mock.Retriever);
 // https://github.com/awesometime/learn-git/blob/c36ca039a5/GoLang/learn_go/interface/main.go
 
 err, ok := r.(error);
+a.(b Type) 判断a是否是b所属的Type
 // GoLang/learn_go/errhandling/recover/recover.go
 userErr, ok := err.(userError)
 ```
