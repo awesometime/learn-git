@@ -1,3 +1,8 @@
+/*
+为函数实现接口
+ */
+
+
 package main
 
 import (
@@ -5,11 +10,21 @@ import (
 	"fmt"
 	"io"
 	"strings"
-
-	"imooc.com/ccmouse/learngo/functional/fib"
 )
 
+func Fibonacci() func() int {
+	a, b := 0, 1
+	return func() int {
+		a, b = b, a+b
+		return a
+	}
+}
+
 type intGen func() int
+// 实现了Reader interface
+//type Reader interface {
+//	Read(p []byte) (n int, err error)
+//}
 
 func (g intGen) Read(
 	p []byte) (n int, err error) {
@@ -32,6 +47,6 @@ func printFileContents(reader io.Reader) {
 }
 
 func main() {
-	var f intGen = fib.Fibonacci()
+	var f intGen = Fibonacci()
 	printFileContents(f)
 }
