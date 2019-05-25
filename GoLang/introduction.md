@@ -8,6 +8,19 @@
 
 同一目录里变量名不能相同
 
+> Type assertion 类型断言问题
+
+```
+Type assertion 【r.(*mock.Retriever)】
+测试一个struct的值mock.Retriever  是否实现了某个接口r Retriever
+mockRetriever, ok := r.(*mock.Retriever);
+// https://github.com/awesometime/learn-git/blob/c36ca039a5/GoLang/learn_go/interface/main.go
+
+err, ok := r.(error);
+// GoLang/learn_go/errhandling/recover/recover.go
+userErr, ok := err.(userError)
+```
+
 # 变量
 
 > := 为一个新的变量完成声明以及初始化的工作
