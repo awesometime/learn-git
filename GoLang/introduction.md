@@ -22,6 +22,12 @@ a.(b Type) 判断a是否是b所属的Type
 userErr, ok := err.(userError)
 ```
 
+> []byte(s) 类型转换问题
+```
+for _, b := range []byte(s) {
+		fmt.Printf("%X ", b)
+		
+```
 # 变量
 
 > := 为一个新的变量完成声明以及初始化的工作
