@@ -16,6 +16,8 @@
 
 [golang101 华人写的]()
 
+
+
 > 面试
 
 
@@ -23,6 +25,8 @@
 > LeetCode
 
 [aQuaYi/LeetCode-in-Go](https://github.com/aQuaYi/LeetCode-in-Go)
+
+
 
 > 嗯
 
@@ -45,9 +49,12 @@
 [go ebook](https://github.com/dariubs/GoBooks)
 
 
+
 > 实践
 
 [今日头条Go建千亿级微服务的实践](https://www.jianshu.com/p/ea9ab1b67dce)
+
+
 
 > 并发(concurrency)  goroutine channel
 
@@ -62,6 +69,14 @@
 [python协程与golang协程的区别](https://segmentfault.com/a/1190000019127902?utm_campaign=studygolang.com&utm_medium=studygolang.com&utm_source=studygolang.com)
 
 
+
+> Go对比其它语言
+
+[Go/Python/Erlang语言语法对比 图片](https://www.cnblogs.com/wahaha02/p/8876445.html#top)
+
+
+
+> 其它
 ```
 Golang tutorial series in golangbot.com  |Go语言中文网翻译在公众号目录
 Golang tutorial series
