@@ -1,11 +1,30 @@
 ### 
 ```
-docker version
-docker info
-docker run --cap-add dac_read_search --name lxlxlx -it 100.125.5.235:20202/huyue/nginx:latest /bin/sh
-docker images
 docker ps|grep nginx|awk '{print $1}'
-docker exec
+
+service docker restart
+docker info
+docker version
+docker search image_name
+docker list
+docker login -u usename -p password ip:port
+docker run --privileged=true -d -v /etc/localtime:/etc/localtime:ro -v /var/log:/usr/local/shield/log  --net=host --pid=host --cap-add=NET_ADMIN  --cap-add=SYS_ADMIN  --cap-add=SYS_PTRACE  --cap-add AUDIT_CONTROL  --cpu-period=100000 --cpu-quota=20000 --restart=always --env CSS_MASTER_ADDR="https://xxxxxxxxx100.31.33.243:443/ho/websocket" 10.15.8.12:20202/test/cty:1.0.0
+docker save -o /root/cgs-shield-1.0.9.tar 100.95.181.176:5300/op_svc_cgs_container0/cgs-shield:1.0.9
+docker load -i cgs-shield-1.0.9.tar 
+docker pull 100.95.181.176:5300/op_svc_cgs_container0/cgs-shield:1.0.9
+docker push
+docker exec -it docker_id /bin/sh          登录容器
+docker exec -it xxx pip install flask -i http://mirrors.tools.huawei.com/pypi/simple/ --trusted-host mirrors.tools.huawei.com
+docker build
+docker images
+docker rmi                                 删除镜像
+docker ps
+docker stop docker_id                      停止容器
+docker rm docker_id                        删除停止的docker
+docker rm -f docker_id                     删除运行的docker
+docker start  ea508b1c2440 /bin/sh
+docker inspect 62ba
+docker cp file_name docker_id:目录         在节点使用命令上传文件到容器
 ```
 
 ```shell
