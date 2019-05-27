@@ -102,9 +102,9 @@ func main() {
 /*
 bool string
 (u)int,(u)int8,(u)int16,(u)int32,(u)int64,uintptr    int不指明时在32位机器是32位,在64位机器是64位
-byte(8) rune(32)=int32          
+byte(8) rune(32)=int32
 float32 float64 complex64 complex128
 
-// unicode 2字节
-// utf8 4字节
+// unicode是一个标准   2字节
+// utf8               可变长 英文1字节 中文3字节
 */
