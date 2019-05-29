@@ -21,7 +21,17 @@ tensorflow 在jupyter notebook中的使用：由于tensorflow目前支持到pyth
 先将python37从path中删除，打开就是用的python36解释器
 使用结束需要用python37的话,比如Django的Xadmin，再将python37添加到path（在python36前）
 ```
+### python源码pass
+```
+python定义函数，必须有函数体，否则编译就会报错。函数体用一句pass占位是防止报错，并且不会有任何动作。
+这种只有pass的函数一般有以下几种可能：
 
+1 父类中声明函数，但不声明实现，由继承的子类进行实现，也就是说这就是一个空方法；
+        
+2 python是C语言实现的，尽管有很多标准库是由python代码实现，但是涉及到底层支撑架构的功能还是C代码。
+  一些IDE为了对这些进行友好代码提示，会弄和底层一样的访问接口，而其实现直接写 pass 略过。
+  源码在https://github.com/python/cpython
+```
 ### pip相关
 pip安装时指定清华源速度快,比如安装lxml  `pip install --index https://mirrors.ustc.edu.cn/pypi/web/simple/  lxml`
 ```
