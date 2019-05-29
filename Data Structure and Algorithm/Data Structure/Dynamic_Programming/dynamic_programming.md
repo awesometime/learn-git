@@ -1,14 +1,12 @@
 # 选
 # 不选
 
-### problem1 :
+### problem1 : 求一个数组中不相邻数字的最大和
+
+求一个数组中不相邻数字的最大和  arr = [1, 2, 4, 1, 7, 8, 3]
+
+> recursion method
 ```python3
-# 求一个数组中不相邻数字的最大和
-
-arr = [1, 2, 4, 1, 7, 8, 3]
-
-
-# recursion
 def rec_opt(arr, i):
     # 递归出口 i == 0  i == 1
     if i == 0:
@@ -22,8 +20,9 @@ def rec_opt(arr, i):
 print('---rec_opt')
 for index in range(len(arr)):
     print(rec_opt(arr, index))
-
-# Dynamic Programming
+```
+> Dynamic Programming method
+```python3
 import numpy as np
 
 
@@ -40,7 +39,9 @@ print('---dp_opt')
 print(dp_opt(arr))
 ```
 
-# problem2 :
+### problem2 : 返回数组中是否可以找到几个数使得 和为S
+
+> recursion method
 ```python3
 # 返回数组中是否可以找到几个数使得 和为S
 def rec_subset(arr, i, s):
@@ -58,8 +59,11 @@ def rec_subset(arr, i, s):
 arr2 = [3, 34, 4, 12, 5, 2]
 print('---rec_subset')
 print(rec_subset(arr2, len(arr2) - 1, 9))
+```
 
 
+> Dynamic Programming method
+```python3
 def dp_subset(arr, S):
     subset = np.zeros((len(arr), S + 1), dtype=bool)
     subset[:, 0] = True
