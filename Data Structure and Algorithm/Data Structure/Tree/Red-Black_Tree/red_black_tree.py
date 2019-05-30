@@ -1,3 +1,12 @@
+# https://juejin.im/post/5a27c6946fb9a04509096248#comment  漫画：什么是红黑树？
+# http://dandanlove.com/2018/03/18/red-black-tree/   寻找红黑树的操作手册（文章排版以及思路真的不错）  java
+
+# https://www.geeksforgeeks.org/red-black-tree-set-1-introduction-2/
+# https://www.geeksforgeeks.org/red-black-tree-set-2-insert/
+# https://www.geeksforgeeks.org/red-black-tree-set-3-delete-2/
+# 视频
+
+
 """
 Implementation of Red-Black tree.
 """
