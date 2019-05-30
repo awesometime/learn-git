@@ -7,7 +7,7 @@
 
 # Balance = left - right
 # height = 层数  叶节点height是1  root的height最大  是左右子树最大高度数字   (并不是root是1 root.left 是2,反着的)
-
+# 边插入边保证平衡   边删除边保证平衡
 
 # 向 标准BST 中插入节点
 # 从这个插入的节点开始 寻找不平衡的节点和相应子树
