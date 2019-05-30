@@ -1,6 +1,18 @@
+# 推导和视频质量都非常高
+# https://www.geeksforgeeks.org/avl-tree-set-1-insertion/
 # https://www.geeksforgeeks.org/avl-tree-set-2-deletion/
+
+# AVL Tree ppt
+# https://www.cs.purdue.edu/homes/ayg/CS251/slides/chap7b.pdf
+
 # Balance = left - right
-# height = 层数
+# height = 层数  叶节点height是1  root的height最大  是左右子树最大高度数字   (并不是root是1 root.left 是2,反着的)
+
+
+# 向 标准BST 中插入节点
+# 从这个插入的节点开始 寻找不平衡的节点和相应子树
+# 通过旋转使得子树平衡   【向上传递】  重复一样的步骤知道整个树平衡
+
 
 # Python code to delete a node in AVL tree
 # Generic tree node class
@@ -208,3 +220,47 @@ myTree.preOrder(root)
 print()
 
 # This code is contributed by Ajitesh Pathak
+
+a) y is left child of z and x is left child of y (Left Left Case)
+b) y is left child of z and x is right child of y (Left Right Case)
+c) y is right child of z and x is right child of y (Right Right Case)
+d) y is right child of z and x is left child of y (Right Left Case)
+
+a) Left Left Case
+T1, T2, T3 and T4 are subtrees.
+         z                                      y 
+        / \                                   /   \
+       y   T4      Right Rotate (z)          x      z
+      / \          - - - - - - - - ->      /  \    /  \ 
+     x   T3                               T1  T2  T3  T4
+    / \
+  T1   T2
+    
+    
+b) Left Right Case    
+      z                               z                           x
+    / \                            /   \                        /  \ 
+   y   T4  Left Rotate (y)        x    T4  Right Rotate(z)    y      z
+  / \      - - - - - - - - ->    /  \      - - - - - - - ->  / \    / \
+T1   x                          y    T3                    T1  T2 T3  T4
+    / \                        / \
+  T2   T3                    T1   T2
+    
+
+c) Right Right Case
+  z                                y
+ /  \                            /   \ 
+T1   y     Left Rotate(z)       z      x
+    /  \   - - - - - - - ->    / \    / \
+   T2   x                     T1  T2 T3  T4
+       / \
+     T3  T4
+        
+d) Right Left Case    
+    z                            z                            x
+  / \                          / \                          /  \ 
+T1   y   Right Rotate (y)    T1   x      Left Rotate(z)   z      y
+    / \  - - - - - - - - ->     /  \   - - - - - - - ->  / \    / \
+   x   T4                      T2   y                  T1  T2  T3  T4
+  / \                              /  \
+T2   T3                           T3   T4       
