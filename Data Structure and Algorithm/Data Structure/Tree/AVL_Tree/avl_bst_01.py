@@ -39,12 +39,12 @@ class AVL_Tree(object):
             root.right = self.insert(root.right, key)
 
         # Step 2 - Update the height of the
-        # ancestor node
+        # ancestor node            不是递归
         root.height = 1 + max(self.getHeight(root.left),
                               self.getHeight(root.right))
 
         # Step 3 - Get the balance factor
-        balance = self.getBalance(root)
+        balance = self.getBalance(root)         # 不是递归
 
         # Step 4 - If the node is unbalanced,
         # then try out the 4 cases
@@ -71,7 +71,7 @@ class AVL_Tree(object):
     # Recursive function to delete a node with
     # given key from subtree with given root.
     # It returns root of the modified subtree.
-    def delete(self, root, key): # 视频讲得挺好的
+    def delete(self, root, key):                         # 视频讲得挺好的
 
         # Step 1 - Perform standard BST delete
         if not root:
@@ -83,8 +83,8 @@ class AVL_Tree(object):
         elif key > root.val:
             root.right = self.delete(root.right, key)
 
-        else:
-            if root.left is None:
+        else:   # key > root.val
+            if root.left is None:        # 要删除的节点有一个子节点
                 temp = root.right
                 root = None
                 return temp
@@ -93,11 +93,11 @@ class AVL_Tree(object):
                 temp = root.left
                 root = None
                 return temp
-
+                                         # 要删除的节点有两个子节点
             temp = self.getMinValueNode(root.right)
             root.val = temp.val
             root.right = self.delete(root.right,
-                                     temp.val)
+                                     temp.val)      # 删除temp
 
         # If the tree has only one node,
         # simply return it
