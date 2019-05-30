@@ -1,3 +1,20 @@
+# 来源知乎 https://zhuanlan.zhihu.com/p/51987247
+# 博客 https://www.cnblogs.com/yangecnu/p/Introduce-Binary-Search-Tree.html
+"""
+二叉查找树  (Binary Search Tree, BST)
+特点  :  left < root < right
+        若任意节点的左子树不空，则左子树上所有结点的 值均小于它的根结点的值；
+        若任意节点的右子树不空，则右子树上所有结点的值均大于它的根结点的值；
+        任意节点的左、右子树也分别为二叉查找树；
+        没有键值相等的节点（no duplicate nodes）。
+缺点:   不平衡   所以引入平衡二叉树（常用实现方法有红黑树、AVL、替罪羊树、Treap、伸展树等）
+
+本代码实现了 BST
+查找 :  任意值 / 最大值 / 最小值      (查找所需最大次数等于高度)
+插入 (递归 迭代) : 插入结果一定是插成叶节点了
+删除 (递归 迭代):  当删除的节点没有子节点时  当删除的节点只有1个子节点时  当删除的节点有2个子节点时
+"""
+
 import logging
 import functools
 import time
@@ -42,11 +59,10 @@ class Node():
         self._right = value
 
 
-# todo 不理解
 def check_null(func):
     @functools.wraps(func)
     def wrapper(self, *args, **kw):
-        if self.__bool__():
+        if self.__bool__():  # check if the BinarySearchTree() object is None
             return func(self, *args, **kw)
         else:
             if func.__name__ in ['_insert', '_insert2']:
@@ -56,6 +72,13 @@ def check_null(func):
 
     return wrapper
 
+
+# class Ad():
+#     def nam(self):
+#         pass
+#
+# print(Ad().nam.__name__)
+# # nam
 
 class BinarySearchTree():
     """
@@ -78,8 +101,9 @@ class BinarySearchTree():
             return False
 
     @staticmethod
-    def _redirect(pre_node, is_left, target):
-        """将target节点赋值成 pre_node的is_left/right子节点
+    def _redirect(pre_node, is_left, target):  # staticmethod no need pass self 与类对象无关
+        """
+        将target节点赋值成 pre_node的is_left/right子节点
         :param is_left: 将target赋成父节点 pre_node 的 left 还是 right 子节点
         """
         if is_left:
@@ -100,7 +124,12 @@ class BinarySearchTree():
         """
         内部接口: 实现了基本的查找功能,并且实现了跟踪父节点和判断是否为左右子节点的功能
         思   路: 比较简单
-        :return: 找到的node, 该节点的父节点_pre_node, 该节点是_pre_node的左还是右节点bool(is_left)"""
+        :param value:
+        :param node:
+        :param alert:
+        :return: node, _pre_node, is_left
+                找到的node, 该节点的父节点_pre_node, 该节点是_pre_node的左还是右节点bool(is_left)
+        """
         # if you want the pre_node and is_left get the specific value, let the node=root
         is_left, _pre_node = None, None
         while node and value != node.data:
@@ -126,10 +155,11 @@ class BinarySearchTree():
         return result
 
     @check_null
-    def _insert(self, value, node):
+    def _insert(self, value, node):  # node 实际往往是root
         """
-        递归插入方法
-        :return:  插入的节点node
+        recursive insert method
+        :param node: 树中存在的某个节点
+        :return: node: 插入的节点node    这样其实插入的node(value) 是叶节点
         """
         # _insert函数最终结果是
         # 1 找到value==node.data的节点即已有这个节点,执行print(),再返回这个节点
@@ -138,31 +168,26 @@ class BinarySearchTree():
             node = Node(value)
         else:
             if value < node.data:
-                # _insert()返回待插入的节点
-                # 当前节点的左子节点 指向待插入的节点
+                # _insert()返回待插入的节点  当前节点的左子节点 指向待插入的节点
                 node.left = self._insert(value, node.left)
             elif value > node.data:
-                # _insert()返回待插入的节点
-                # 当前节点的右子节点 指向待插入的节点
+                # _insert()返回待插入的节点  当前节点的右子节点 指向待插入的节点
                 node.right = self._insert(value, node.right)
             else:
                 print('have the same value')
 
-        # 注意这种写法
-        return node
+        return node  # 注意将node返回
 
     @check_null
     def _insert2(self, value):
         """
-        非递归插入方法
-        先_metal_find()循环找value, 找到value说明已存在,没找到_redirect()赋值
+        Iterative insert method
+        先 _metal_find() 迭代找到 value, 找到 value说明已存在,没找到  _redirect() 新建节点
         """
-        result, pre_node, is_left = self._metal_find(value, self._root, False)
-        # 先找,没找到通过self._redirect() 赋值
-        if result is None:
+        result, pre_node, is_left = self._metal_find(value, self._root, False)  # 查找
+        if result is None:  # 没找到通过self._redirect() 赋值
             self._redirect(pre_node, is_left, Node(value))
-        # 找到说明已经存在
-        else:
+        else:  # 找到说明已经存在
             print('already have the value')
 
     # 默认走循环的实现, 递归的程序栈很容易爆掉，并且test_insert()测试了下循环比递归快很多
@@ -204,7 +229,7 @@ class BinarySearchTree():
         """
         if not node:
             print('can\'t find')
-        else:
+        else:  # step1
 
             # If the key to be deleted is smaller than the root's
             # key then it lies in left subtree
@@ -218,7 +243,7 @@ class BinarySearchTree():
 
             # If key is same as root's key, then this is the node
             # to be deleted
-            else:
+            else:  # step2
 
                 # Node with two children: Get the inorder successor 中序继承者
 
@@ -227,9 +252,10 @@ class BinarySearchTree():
                 ### 可以找左子树的最大值或者右子树的最小值作为successor
                 ### 而左子树的最大值或者右子树的最小值必然只有一个或零个节点
                 ### 所以转化成了前边 Node with only one child or no child 的情形
+
                 if node.left and node.right:
                     # find the largest in the left subtree as successor
-                    tmp = self._find_extremum(node.left)
+                    tmp = self._find_extremum(node.left)  # default by max
                     # Copy the inorder successor's content to this node
                     node.data = tmp.data
                     # Delete the inorder successor
@@ -241,7 +267,7 @@ class BinarySearchTree():
                         node = node.right
                     else:
                         node = node.left
-        return node
+        return node  # 最后层层返回
 
     @check_null
     def _delete2(self, value, node):
@@ -260,21 +286,20 @@ class BinarySearchTree():
             return
         # 有2个节点的情况
         if result.left and result.right:
-            # 再次: 找到result的successor
-            tmp = self._find_extremum(result.left)
-            # 再次: 删除result的successor 这步会走后边else里 "# 有1个或者没有" 的情形
-            self._delete2(tmp.data, result)
-            # 再将successor的data赋给要删除的节点result
-            result.data = tmp.data
+            tmp = self._find_extremum(result.left)  # 再次: 找到result的successor
+            self._delete2(tmp.data, result)  # 再次: 删除result的successor 这步会走后边else里 "# 有1个或者没有" 的情形
+            result.data = tmp.data  # 再将successor的data赋给要删除的节点result
         # 有1个或者没有
         else:
             if result.left is None:
+                # print('---')
+                # print(id(result),id(result.right)) # 46446408 1352705168
                 result = result.right
+                # print(id(result))  # 1352705168
             else:
-                # 将 result.left 赋给 result
                 result = result.left
-            # 将 result 赋成 pre_node 的 is_left节点
-            self._redirect(pre_node, is_left, result) # 对节点pre_node的子节点进行赋值
+            # 将 result 赋成 pre_node 的 is_left节点  维护
+            self._redirect(pre_node, is_left, result)  # 对节点pre_node的子节点进行赋值
 
     def delete(self, value, isrecursion=False):
         if isrecursion:
@@ -302,6 +327,7 @@ def main():
     nums = [7, 2, 9, 1, 4, 8, 10]
     for i in nums:
         tree.insert(i)
+
     print(tree)
     print(tree.find(4))
     tree.insert(3)
