@@ -8,7 +8,7 @@ Object Oriented Programming
 
 employee.go
 
-```py
+```go
 package employee
 
 import (  
@@ -34,7 +34,7 @@ func (e employee) LeavesRemaining() {
 ```
 
 main.go
-```py
+```go
 package main  
 
 import "oop/employee"
