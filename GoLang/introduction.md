@@ -23,11 +23,18 @@ userErr, ok := err.(userError)
 ```
 
 > []byte(s) 类型转换问题
+
 ```
 for _, b := range []byte(s) {
 		fmt.Printf("%X ", b)
-		
 ```
+
+
+> 为什么 Go 标准库中有些函数只有签名，没有函数体
+
+[为什么 Go 标准库中有些函数只有签名，没有函数体？](https://mp.weixin.qq.com/s?__biz=MzAxMTA4Njc0OQ==&mid=2651436552&idx=1&sn=6f038e546bdf0fcace133631b0247bc2&chksm=80bb68fab7cce1ecb0a60bfed973649cf0952476ca982fa07ba6293feb78c1d8ce4f7ddef7b9&mpshare=1&scene=1&srcid=&from=singlemessage&ascene=1&devicetype=android-28&version=2700043b&nettype=WIFI&abtest_cookie=BAABAAoACwASABMABgAjlx4AVpkeAL%2BZHgDcmR4A9ZkeAAOaHgAAAA%3D%3D&lang=zh_CN&pass_ticket=6NFrC%2BvqM1C%2Bzqy8DJVTshi3ylnKB54NSQOWmYt8atUz7rO%2BMkZjXfrQn6%2FoUc%2Be&wx_header=1)
+
+
 # 变量
 
 > := 为一个新的变量完成声明以及初始化的工作
