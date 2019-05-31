@@ -1,4 +1,12 @@
-// https://mp.weixin.qq.com/s/NW9zCVRG-CKslNZd9L4RnQ
+/*
+Concurrency
+20 - Introduction to Concurrency 
+21 - Goroutines 
+22 - Channels                                    https://mp.weixin.qq.com/s/NW9zCVRG-CKslNZd9L4RnQ
+23 - Buffered Channels and Worker Pools 
+24 - Select 
+25 - Mutex
+*/ 
 
 
 package main
