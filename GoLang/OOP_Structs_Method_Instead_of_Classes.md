@@ -1,3 +1,9 @@
+Object Oriented Programming
+ - Structs Instead of Classes 
+ - Composition Instead of Inheritance 
+ - Polymorphism
+
+
 [ 结构体+方法  取代类](https://mp.weixin.qq.com/s/My1sXXRZS4vxCZPCmbmqPA)
 
 employee.go
@@ -44,6 +50,7 @@ func main() {
     
     // 2 New() function instead of constructors
     e := employee.New("Sam", "Adolf", 30, 20)
+    
     e.LeavesRemaining()
 }
 ```
