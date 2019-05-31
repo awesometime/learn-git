@@ -6,9 +6,20 @@ import (
 )
 
 func worker(id int, c chan int) {
+	// 发送方close关闭之后 接收方需要判断一下 没有数据了 然后停止
+
+	// method one
+	//for {
+	//	n, ok := <-c
+	//	if !ok {
+	//		break
+	//	}
+	//	fmt.Printf("Worker %d received %c\n", id, n) // %c字符
+	//}
+
+	// method two
 	for n := range c {
-		fmt.Printf("Worker %d received %c\n",
-			id, n)
+		fmt.Printf("Worker %d received %c\n", id, n) // %c字符
 	}
 }
 
@@ -33,6 +44,8 @@ func chanDemo() {
 	}
 
 	time.Sleep(time.Millisecond)
+	// 此处没用close 但是time.Millisecond之后
+	// 主函数main退出 发送方退出  接收方也收不到了
 }
 
 func bufferedChannel() {
@@ -52,8 +65,8 @@ func channelClose() {
 	c <- 'b'
 	c <- 'c'
 	c <- 'd'
-	close(c)
-	time.Sleep(time.Millisecond)
+	close(c)                     //
+	time.Sleep(time.Millisecond) // deadlock
 }
 
 func main() {
@@ -64,3 +77,12 @@ func main() {
 	fmt.Println("Channel close and range")
 	channelClose()
 }
+
+/*
+var c chan int   // c == nil
+c := make(chan int)  // c == 0
+  <-ch 在箭头的右边  收数据
+ch<-   在箭头的左边  发数据
+deadlock
+in go function and channel  is first-class citizen
+*/
