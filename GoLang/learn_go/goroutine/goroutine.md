@@ -51,7 +51,10 @@ Go 协程的主要性质
 
 [![下面程序的理解图](https://golangbot.com/content/images/2017/07/Goroutines-explained.png)](https://golangbot.com/content/images/2017/07/Goroutines-explained.png)
 
-	     
+区别于Python协程:
+
+很多协程对应与一般是4个（4核机器的话）线程随机对应 的csp模型
+
 ```go
 package main
 
@@ -75,7 +78,9 @@ func alphabets() {
 func main() {  
     go numbers()
     go alphabets()
-    time.Sleep(3000 * time.Millisecond)
+    time.Sleep(3000 * time.Millisecond) 
+    // 在 Go 主协程中使用休眠，以便等待其他协程执行完毕，这种方法只是用于理解 Go 协程如何工作的技巧。
+    // 信道可用于在其他协程结束执行之前，阻塞 Go 主协程。
     fmt.Println("main terminated")
 }
 ```
@@ -119,7 +124,7 @@ func main() {
 		// 匿名函数 anonymous
 		go func(ig int) {  //拷一份传进来
 			for {
-				a[ig]++    // 协程不切换
+				a[ig]++    // 计算任务时  不涉及协程不切换
 				runtime.Gosched()
 			}
 		}(i)
