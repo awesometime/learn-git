@@ -76,7 +76,7 @@ class Quick():
 
         return rightmark
 
-    # 两路快排 b站总结
+    # 两路快排 b站总结  https://www.bilibili.com/video/av45137831/
     def quick_sort_bizhan(self, alist, first, last):
         if first >= last:
             return
@@ -87,12 +87,12 @@ class Quick():
             # high 左移
             while low < high and alist[high] >= mid_value:
                 high -= 1
-            alist[low] = alist[high]
+            alist[low] = alist[high]                            # 和第一种方法的区别在这里
 
             # low 右移
             while low < high and alist[low] < mid_value:
                 low += 1
-            alist[high] = alist[low]
+            alist[high] = alist[low]                            # 和第一种方法的区别在这里
 
         # 循环退出时 low==high
         alist[low] = mid_value
