@@ -14,6 +14,16 @@ https://www.geeksforgeeks.org/quick-sort/
   原来该算法O(nlogn)的复杂度会退化成为O(n^2)，这显然是和快排这个名称不想符的，
   于是笔者又经过分析与查阅资料了解到了所谓三路快排，该算法应用更加广泛，
   甚至Java将三路快排作为系统库中默认的排序算法
+
+
+快速排序
+
+我们从数组中选择一个元素，我们把这个元素称之为中轴元素吧，然后把数组中所有小于中轴元素的元素放在其左边，
+所有大于或等于中轴元素的元素放在其右边，显然，此时中轴元素所处的位置的是有序的。
+也就是说，我们无需再移动中轴元素的位置。
+
+从中轴元素那里开始把大的数组切割成两个小的数组(两个数组都不包含中轴元素)，接着我们通过递归的方式，
+让中轴元素左边的数组和右边的数组也重复同样的操作，直到数组的大小为1，此时每个元素都处于有序的位置。
 """
 
 import random
@@ -59,7 +69,7 @@ class Quick():
                 alist[leftmark] = alist[rightmark]
                 alist[rightmark] = temp
 
-        # 找到分裂点后 将枢轴点 与rightmark 交换
+        # 找到分裂点应该处的正确索引rightmark后 将枢轴点 与rightmark 交换
         temp = alist[first]
         alist[first] = alist[rightmark]
         alist[rightmark] = temp
