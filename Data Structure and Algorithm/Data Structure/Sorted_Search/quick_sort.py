@@ -104,6 +104,7 @@ class Quick():
         self.quick_sort_bizhan(alist, low + 1, last)
 
     # 三路快排 https://www.jianshu.com/p/9eff99d403fb
+    # 图片 https://upload-images.jianshu.io/upload_images/4703859-71526a975e5c443b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp
     def quick_sort_three_partition(self, arr, left, right):  # right=len(arr)-1
         """
         arr= [left][left+1...lt][lt+1...i...gt-1][gt...right]
@@ -136,8 +137,9 @@ class Quick():
                 gt -= 1
             else:
                 i += 1
-        # 最后把第一个元素（基准元素）放到等于v的部分
+        # 最后把第一个元素 pivot = arr[left]（基准元素）放到等于v的部分
         arr[left], arr[lt] = arr[lt], arr[left]
+        
         # 递归排序
         self.quick_sort_three_partition(arr, left, lt - 1)
         self.quick_sort_three_partition(arr, gt, right)
