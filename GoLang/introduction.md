@@ -210,11 +210,20 @@ func main() {
 ```
 
 > 声明一个struct 并初始化
+
 ```go
 type person struct {
-	name string
+	name string        // 成员变量 name  大小写有区别
 	age int
+	Sex string
+	Class *Class
 }
+type Class struct {
+	Name string        // 成员变量 Name
+	Grade int
+}
+
+
 // 赋值初始化
 var P person  // P现在就是person类型的变量了
 P.name = "Astaxie"  // 赋值"Astaxie"给P的name属性.
@@ -227,10 +236,15 @@ bob := person{age:25, name:"Bob"}
 // 按照struct定义顺序初始化值
 paul := person{"Paul", 43}
 
-//也可以通过new函数分配一个指针，此处P的类型为*person
-//P := new(person)
+//指针变量: 可以通过 new 函数分配一个指针，此处 P 的类型为 *person
+P := new(person)  // 相当于P := &person{}  是一个取地址操作 P是指针 更快且节省内存空间
+P.name = "qwer"
+P.age = 23
 ```
 
+> Go的json解析：Marshal与Unmarshal
+
+[值得一看](https://www.cnblogs.com/haiguixiansheng/articles/10718531.html)
 
 
 
