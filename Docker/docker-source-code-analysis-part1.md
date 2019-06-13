@@ -20,15 +20,15 @@ Docker 对使用者来讲是一个 C/S 模式的架构，而 Docker 的后端是
    
    用户是使用 Docker Client 与 Docker Daemon 建立通信，并发送请求给后者。
 
-2) **Docker Daemon**   (Docker 架构中的主体部分)
+2) **Docker Daemon**   (Docker 架构中的主体部分 Server Engine Job)
    
-   a) 首先 提供 Server 的功能使其可以接受 Docker Client 的请求；
+   a) 首先 提供 `Server` 的功能使其可以接受 Docker Client 的请求；
    
    b) 而后 `Engine` 执行 Docker 内部的一系列工作，每一项工作都是以一个 `Job` 的形式的存在。
 
 3) **Driver**   (graphdriver networkdriver execdriver)
   
-   Job 的运行过程中，
+   `Job` 的运行过程中，
    
    a) 当需要容器镜像时，则从 `Docker Registry` 中下载镜像，并通过**镜像管理驱动 graphdriver** 将下载镜像以 `Graph` 的形式存储；
    
