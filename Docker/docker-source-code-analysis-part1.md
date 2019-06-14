@@ -20,7 +20,13 @@ Docker的设计是单机的，不是分布式的
 
 1) **Docker Client**
    
-   用户是使用 Docker Client 与 Docker Daemon 建立通信，并发送请求给后者。
+   用户是使用 Docker Client 与 Docker Daemon 建立通信，并发送请求给后者。三种方式和Docker Daemon建立通信：
+   
+   tcp://host:port
+   
+   unix://path_to_socket
+   
+   fd://socketfd
 
 2) **Docker Daemon**   (Docker 架构中的主体部分 Server Engine Job)
    
@@ -36,7 +42,7 @@ Docker的设计是单机的，不是分布式的
    
    b) 当需要为 Docker 创建网络环境时，通过**网络管理驱动 networkdriver**创建并配置 Docker 容器网络环境；
    
-   c) 当需要限制 Docker 容器运行资源或执行用户指令等操作时，则通过 **execdriver** 来完成。
+   c) 当需要限制 Docker 容器运行资源或执行用户指令等操作时，则通过 **容器执行驱动 execdriver** 来完成。
 
 4) **libcontainer** (独立的容器管理包)
    
