@@ -58,11 +58,13 @@
 
 > 并发(concurrency)  goroutine channel
 
-[「GCTT 出品」图解 Go 并发编程](https://mbd.baidu.com/newspage/data/landingshare?context=%7B%22nid%22%3A%22news_10061718063488657719%22%2C%22sourceFrom%22%3A%22bjh%22%2C%22url_data%22%3A%22bjhauthor%22%7D)
+[GCTT 出品 | 在 Go 中实现并发性](https://mp.weixin.qq.com/s/cX9FTkBncjrwcN8y1EuGdQ) : 英文出处(https://medium.com/rungo/achieving-concurrency-in-go-3f84cbf870ca)
 
-[英文出处 Learning Go’s Concurrency Through Illustrations](https://medium.com/@trevor4e/learning-gos-concurrency-through-illustrations-8c4aff603b3)
+[GCTT 出品 | 图解 Go 并发编程](https://mbd.baidu.com/newspage/data/landingshare?context=%7B%22nid%22%3A%22news_10061718063488657719%22%2C%22sourceFrom%22%3A%22bjh%22%2C%22url_data%22%3A%22bjhauthor%22%7D)  : [英文出处 Learning Go’s Concurrency Through Illustrations](https://medium.com/@trevor4e/learning-gos-concurrency-through-illustrations-8c4aff603b3)
 
-[Go Concurrency Patterns   Rob Pike  Google](https://talks.golang.org/2012/concurrency.slide#1)
+https://medium.com/rungo
+
+[Go Concurrency Patterns PPT  Rob Pike  Google](https://talks.golang.org/2012/concurrency.slide#1)
 
 [Go的CSP并发模型实现](https://www.cnblogs.com/sunsky303/p/9115530.html)
 
