@@ -5,7 +5,7 @@ IDEA主题下载(http://www.riaway.com/theme.php)
 > 自己用的快捷键
 
 ```
-File->Settings->Editor->General->Smart Keys，找到Surround selection on typing quote or brace 点击即可
+同时添加左右括号   File->Settings->Editor->General->Smart Keys，找到Surround selection on typing quote or brace 点击即可
 ctrl 鼠标左键     代码跳转
 view  toolbar   <-   ->   代码跳转回退
 Ctrl r  当前文件中全局替换
