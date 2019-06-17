@@ -10,9 +10,93 @@
 
 ### 不懂就问
 
-> Type assertion 类型断言问题
+> Type assertion 检测和转换接口变量的类型
 
 golang中`x.(type)`只能在`switch`中使用
+
+```go
+package main
+
+import "fmt"
+
+type Shaper interface {
+	Area() float32
+}
+
+type Square struct {
+	side float32
+}
+
+func (sq *Square) Area() float32 {
+	return sq.side * sq.side
+}
+
+type Rectangle struct {
+	length, width float32
+}
+
+func (r Rectangle) Area() float32 {
+	return r.length * r.width
+}
+
+func main() {
+
+	r := Rectangle{5, 3} // Area() of Rectangle needs a value
+
+	q := &Square{5} // Area() of Square needs a pointer
+	// shapes := []Shaper{Shaper(r), Shaper(q)}
+	// or shorter
+	shapes := []Shaper{r, q}
+	fmt.Println("Looping through shapes for area ...")
+
+	// interface.(struct)    shapes[n].(*Square)
+	for n, _ := range shapes {
+	        // 如果没有报错，t 是 shapes[n] 转换到类型 *Square 的值
+		if t, ok := shapes[n].(*Square); ok {
+			fmt.Printf("The type of areaIntf is: %T\n", t)
+		}
+		if u, ok := shapes[n].(Rectangle); ok {
+			fmt.Printf("The type of areaIntf is: %T\n", u)
+		}
+		fmt.Println("Shape details: ", shapes[n])
+		fmt.Println("Area of this shape is: ", shapes[n].Area())
+	}
+
+	// interface.(type)  难道是将 Square Rectangle f分别替代type ???
+	fmt.Println("\ntype assertion ...")
+	for _, n := range shapes {
+		// n 必须是一个接口变量
+		// 变量 t 得到了 n 的值和类型  所有 case 语句中列举的类型（nil 除外）都必须实现对应的接口
+		switch t := n.(type) {
+		case *Square:
+			fmt.Printf("Type Square %T with value %v\n", t, t)
+		case Rectangle: // *Rectangle   Rectangle 是两个不一样的类型
+			fmt.Printf("Type Rectangle %T with value %v\n", t, t)
+		case nil:
+			fmt.Printf("nil value: nothing to check?\n")
+		default:
+			fmt.Printf("Unexpected type %T\n", t)
+		}
+	}
+}
+
+// fmt.Printf("Type Square %T with value %v\n", t, t)   为啥一个t 一会是类型 一会儿是值
+
+//Looping through shapes for area ...
+//The type of areaIntf is: main.Rectangle
+//Shape details:  {5 3}
+//Area of this shape is:  15
+//The type of areaIntf is: *main.Square
+//Shape details:  &{5}
+//Area of this shape is:  25
+//
+//type assertion ...
+//Type Rectangle main.Rectangle with value {5 3}
+//Type Square *main.Square with value &{5}
+
+```
+
+
 ```go
 // 知识
 // https://github.com/Unknwon/the-way-to-go_ZH_CN/blob/master/eBook/11.3.md
@@ -41,7 +125,7 @@ func MyPrintf(args ...interface{}) {
 ```
 
 ```go
-Type assertion 【r.(*mock.Retriever)】
+Type assertion 【r.(*mock.Retriever)】   interface.(struct) 
 测试一个struct的值mock.Retriever  是否实现了某个接口r Retriever
 mockRetriever, ok := r.(*mock.Retriever);
 // https://github.com/awesometime/learn-git/blob/c36ca039a5/GoLang/learn_go/interface/main.go
@@ -65,6 +149,8 @@ for _, b := range []byte(s) {
 switch nr, err := f.Read(buf[:]); true
 for t, err = p.Token(); err == nil; t, err = p.Token()
 if 语句并列好几个条件
+switch  fallthrough
+
 
 
 for t, err = p.Token(); err == nil; t, err = p.Token() {
