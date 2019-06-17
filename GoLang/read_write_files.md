@@ -1,7 +1,11 @@
-- [读取文件全部示例](#读取文件全部示例)
-- [读取用户输入键盘控制台](#读取用户输入键盘控制台)
-- [读取用户输入键盘控制台](#读取用户输入键盘控制台)
+学习接口一个比较好的方法是通过io包的例子
 
+- [读取文件全部示例](#读取文件全部示例)
+- [写文件全部示例](#写文件全部示例)
+- [4种读写方法解读](#4种读写方法解读)
+- [读取用户输入键盘控制台以及从命令行读取参数](#读取用户输入键盘控制台以及从命令行读取参数)
+- [JSON 数据格式](#JSON 数据格式)
+- [XML 数据格式](#XML 数据格式)
 
 ## 读取文件全部示例
 
@@ -41,6 +45,7 @@ func main() {
 // 3 将文件绑定在二进制文件中   安装 packr 包
 
 
+// ioutil.ReadFile
 func Ioutil(name string) {
     if contents,err := ioutil.ReadFile(name);err == nil {
         //因为contents是[]byte类型，直接转换成string类型后会多一行空格,需要使用strings.Replace替换换行符
@@ -49,6 +54,7 @@ func Ioutil(name string) {
         }
     }
 
+// 
 func OsIoutil(name string) {
       if fileObj,err := os.Open(name);err == nil {
       //if fileObj,err := os.OpenFile(name,os.O_RDONLY,0644); err == nil {
@@ -75,6 +81,7 @@ func FileRead(name string) {
     }
 }
 
+//带缓冲的读取
 func BufioRead(name string) {
     if fileObj,err := os.Open(name);err == nil {
         defer fileObj.Close()
@@ -274,14 +281,51 @@ func BufioRead(name string) {
 ```
 #### misc
 
-逐行读取
+> 逐行读取
 
 bufio/scan.go
+
 ```go
 // 在文件上新建一个 scanner 扫描文件并且逐行读取
 func NewScanner(r io.Reader) *Scanner
 
 func (s *Scanner) Scan() bool
+```
+
+> 按列读取文件中的数据
+```go
+// https://github.com/Unknwon/the-way-to-go_ZH_CN/blob/master/eBook/12.2.md
+func main() {
+    file, err := os.Open("products2.txt")
+    if err != nil {
+        panic(err)
+    }
+    defer file.Close()
+
+    var col1, col2, col3 []string
+    for {
+        var v1, v2, v3 string
+        _, err := fmt.Fscanln(file, &v1, &v2, &v3)
+        // scans until newline
+        if err != nil {
+            break
+        }
+        col1 = append(col1, v1)
+        col2 = append(col2, v2)
+        col3 = append(col3, v3)
+    }
+
+    fmt.Println(col1)
+    fmt.Println(col2)
+    fmt.Println(col3)
+}
+
+```
+> compress包：读取压缩文件
+
+```
+https://github.com/Unknwon/the-way-to-go_ZH_CN/blob/master/eBook/12.2.md#1222-compress%E5%8C%85%E8%AF%BB%E5%8F%96%E5%8E%8B%E7%BC%A9%E6%96%87%E4%BB%B6
+
 ```
 
 ## 写文件全部示例
@@ -522,6 +566,33 @@ func WriteWithBufio(name,content string) {
         }
 }
 ```
+#### misc
+
+> 文件拷贝
+
+```go
+func main() {
+	CopyFile("target.txt", "source.txt")
+	fmt.Println("Copy done!")
+}
+
+func CopyFile(dstName, srcName string) (written int64, err error) {
+	src, err := os.Open(srcName)
+	if err != nil {
+		return
+	}
+	defer src.Close()
+
+	dst, err := os.Create(dstName)
+	if err != nil {
+		return
+	}
+	defer dst.Close()
+
+	return io.Copy(dst, src)
+}
+```
+
 
 ## 4种读写方法解读
 
@@ -622,7 +693,7 @@ func (b *Reader) ReadLine() (line []byte, isPrefix bool, err error)
 //读取单个UTF-8字符并返回一个rune和字节大小
 func (b *Reader) ReadRune() (r rune, size int, err error)
 ```
-## 读取用户输入键盘控制台
+## 读取用户输入键盘控制台以及从命令行读取参数
 
 ```go
 package main
@@ -650,6 +721,7 @@ func main() {
 	fmt.Println("Please enter your full name: ")
 	// Scanln 扫描来自标准输入的文本，将空格分隔的值依次存放到后续的参数内，直到碰到换行
 	fmt.Scanln(&firstName, &lastName)
+	// fmt.Scanf("%s %s", &firstName, &lastName)
 	fmt.Printf("Hi %s %s!\n", firstName, lastName) // Hi
 
 	fmt.Println("Please enter your full age: ")
@@ -662,7 +734,9 @@ func main() {
 	fmt.Sscanf(input, format, &f, &i, &s)
 	fmt.Println("From the string we read: ", f, i, s)
 	// 输出结果: From the string we read: 56.12 5212 Go
-
+        
+	
+	// 3 bufio      bufio.NewReader(os.Stdin)
 	inputReader = bufio.NewReader(os.Stdin)
 	fmt.Println("Please enter your name:")
 
@@ -709,3 +783,108 @@ func main() {
 }
 
 ```
+从命令行读取参数`io包`和 `flag包`
+
+io
+```go
+func main() {
+	who := "Alice "
+	if len(os.Args) > 1 {
+		who += strings.Join(os.Args[1:], " ")
+	}
+	fmt.Println("Good Morning", who)
+}
+```
+flag
+```go
+
+package main
+
+import (
+	"flag" // command line option parser
+	"os"
+)
+
+var NewLine = flag.Bool("n", false, "print newline") // echo -n flag, of type *bool
+
+const (
+	Space   = " "
+	Newline = "\n"
+)
+
+func main() {
+	flag.PrintDefaults()
+	flag.Parse() // Scans the arg list and sets up flags
+	var s string = ""
+	for i := 0; i < flag.NArg(); i++ {
+		if i > 0 {
+			s += " "
+			if *NewLine { // -n is parsed, flag becomes true
+				s += Newline
+			}
+		}
+		s += flag.Arg(i)
+	}
+	os.Stdout.WriteString(s)
+}
+```
+
+> 命令行用切片读写文件
+
+```go
+package main
+
+import (
+	"flag"
+	"fmt"
+	"os"
+)
+
+func cat(f *os.File) {
+	const NBUF = 512
+	var buf [NBUF]byte
+	for {
+		switch nr, err := f.Read(buf[:]); true {
+		case nr < 0:
+			fmt.Fprintf(os.Stderr, "cat: error reading: %s\n", err.Error())
+			os.Exit(1)
+		case nr == 0: // EOF
+			return
+		case nr > 0:
+			if nw, ew := os.Stdout.Write(buf[0:nr]); nw != nr {
+				fmt.Fprintf(os.Stderr, "cat: error writing: %s\n", ew.Error())
+			}
+		}
+	}
+}
+
+func main() {
+	flag.Parse() // Scans the arg list and sets up flags
+	if flag.NArg() == 0 {
+		cat(os.Stdin)
+	}
+	for i := 0; i < flag.NArg(); i++ {
+		f, err := os.Open(flag.Arg(i))
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "cat: can't open %s: error %s\n", flag.Arg(i), err)
+			os.Exit(1)
+		}
+		cat(f)
+		f.Close()
+	}
+}
+
+```
+
+## JSON 数据格式
+
+json.Marshal()
+
+json.UnMarshal() 的函数签名是 
+```go
+func Marshal(v interface{}) ([]byte, error)
+func Unmarshal(data []byte, v interface{}) error
+https://github.com/Unknwon/the-way-to-go_ZH_CN/blob/master/eBook/12.9.md
+```
+
+## XML 数据格式
