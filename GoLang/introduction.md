@@ -8,9 +8,39 @@
 
 同一目录里变量名不能相同
 
+### 不懂就问
+
 > Type assertion 类型断言问题
 
+golang中`x.(type)`只能在`switch`中使用
+```go
+// 知识
+// https://github.com/Unknwon/the-way-to-go_ZH_CN/blob/master/eBook/11.3.md
+// https://github.com/Unknwon/the-way-to-go_ZH_CN/blob/master/eBook/11.4.md
+
+
+func MyPrintf(args ...interface{}) {  
+    for _, arg := range args {  
+        switch arg.(type) {  
+            case int:  
+                fmt.Println(arg, "is an int value.")  
+            case string:  
+                fmt.Println(arg, "is a string value.")  
+            case int64:  
+                fmt.Println(arg, "is an int64 value.")  
+            default:  
+                fmt.Println(arg, "is an unknown type.")  
+        }  
+    }  
+}  
+
+// another case
+// switch token := t.(type)
+// https://github.com/Unknwon/the-way-to-go_ZH_CN/blob/master/eBook/12.9.md
+// https://github.com/Unknwon/the-way-to-go_ZH_CN/blob/master/eBook/12.10.md
 ```
+
+```go
 Type assertion 【r.(*mock.Retriever)】
 测试一个struct的值mock.Retriever  是否实现了某个接口r Retriever
 mockRetriever, ok := r.(*mock.Retriever);
@@ -24,11 +54,27 @@ userErr, ok := err.(userError)
 
 > []byte(s) 类型转换问题
 
-```
+```go
 for _, b := range []byte(s) {
 		fmt.Printf("%X ", b)
 ```
+> for 语句 switch 语句 string.(type)
 
+
+```go
+switch nr, err := f.Read(buf[:]); true
+for t, err = p.Token(); err == nil; t, err = p.Token()
+if 语句并列好几个条件
+
+
+for t, err = p.Token(); err == nil; t, err = p.Token() {
+		switch token := t.(type) {
+		case xml.StartElement:
+			fmt.Printf("Token name")
+		case xml.EndElement:
+			fmt.Println("End of token")
+		case xml.CharData:
+```
 
 > 为什么 Go 标准库中有些函数只有签名，没有函数体
 
