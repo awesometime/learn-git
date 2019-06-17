@@ -1,11 +1,14 @@
 学习接口一个比较好的方法是通过io包的例子
 
 - [读取文件全部示例](#读取文件全部示例)
+  - [1 使用ioutil直接读取](#1-使用ioutil直接读取)
+  - [2 借助 os.Open 和 ioutil.ReadAll()进行读取文件](#2-借助-os.Open-和-ioutil.ReadAll()进行读取文件)
 - [写文件全部示例](#写文件全部示例)
 - [4种读写方法解读](#4种读写方法解读)
 - [读取用户输入键盘控制台以及从命令行读取参数](#读取用户输入键盘控制台以及从命令行读取参数)
 - [JSON 数据格式](#JSON-数据格式)
 - [XML 数据格式](#XML-数据格式)
+- [gob](#gob)
 
 ## 读取文件全部示例
 
@@ -888,3 +891,59 @@ https://github.com/Unknwon/the-way-to-go_ZH_CN/blob/master/eBook/12.9.md
 ```
 
 ## XML 数据格式
+
+## gob
+```go
+package main
+
+import (
+	"bytes"
+	"encoding/gob"
+	"fmt"
+	"log"
+)
+
+type P struct {
+	X, Y, Z int
+	Name    string
+}
+
+type Q struct {
+	X, Y *int32
+	Name string
+}
+
+func main() {
+	// Initialize the encoder and decoder.  Normally enc and dec would be
+	// bound to network connections and the encoder and decoder would
+	// run in different processes.
+	var network bytes.Buffer
+	// bytes.Buffer is a struct which implements io.Reader and io.Writer,
+	// Stand-in for a network connection
+
+	enc := gob.NewEncoder(&network) // Will write to network.
+	// NewEncoder returns a new encoder that will transmit on the io.Writer.
+	//func NewEncoder(w io.Writer) *Encoder {
+	//	enc := new(Encoder)
+	//	enc.w = []io.Writer{w}
+	//	enc.sent = make(map[reflect.Type]typeId)
+	//	enc.countState = enc.newEncoderState(new(encBuffer))
+	//	return enc
+	//}
+
+
+	dec := gob.NewDecoder(&network) // Will read from network.
+	// Encode (send) the value.
+	err := enc.Encode(P{3, 4, 5, "Pythagoras"})
+	if err != nil {
+		log.Fatal("encode error:", err)
+	}
+	// Decode (receive) the value.
+	var q Q
+	err = dec.Decode(&q)
+	if err != nil {
+		log.Fatal("decode error:", err)
+	}
+	fmt.Printf("%q: {%d,%d}\n", q.Name, *q.X, *q.Y)
+}
+```
