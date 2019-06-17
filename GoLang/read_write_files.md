@@ -1,3 +1,8 @@
+- [读取文件全部示例](#读取文件全部示例)
+- [读取用户输入键盘控制台](#读取用户输入键盘控制台)
+- [读取用户输入键盘控制台](#读取用户输入键盘控制台)
+
+
 ## 读取文件全部示例
 
 ```go
@@ -616,4 +621,91 @@ func (b *Reader) ReadLine() (line []byte, isPrefix bool, err error)
 
 //读取单个UTF-8字符并返回一个rune和字节大小
 func (b *Reader) ReadRune() (r rune, size int, err error)
+```
+## 读取用户输入键盘控制台
+
+```go
+package main
+
+import (
+	"bufio"
+	"fmt"
+	"os"
+)
+
+var (
+	firstName, lastName, s string
+	firstAge, lastAge      int
+	i                      int
+	f                      float32
+	input                  = "56.12 / 5212 / Go"
+	format                 = "%f / %d / %s"
+	inputReader            *bufio.Reader
+	input2                 string
+	err                    error
+)
+
+func main() {
+	// 1 从标准输入读取  Scanln   Scanf
+	fmt.Println("Please enter your full name: ")
+	// Scanln 扫描来自标准输入的文本，将空格分隔的值依次存放到后续的参数内，直到碰到换行
+	fmt.Scanln(&firstName, &lastName)
+	fmt.Printf("Hi %s %s!\n", firstName, lastName) // Hi
+
+	fmt.Println("Please enter your full age: ")
+	// Scanf 的第一个参数用作格式字符串，用来决定如何读取
+	fmt.Scanf("%d %d", &firstAge, &lastAge)
+	fmt.Printf("i am %d %d!\n", firstAge, lastAge) //
+
+	// 2 从字符串读取 Sscanf
+	// 将input 按format格式读取
+	fmt.Sscanf(input, format, &f, &i, &s)
+	fmt.Println("From the string we read: ", f, i, s)
+	// 输出结果: From the string we read: 56.12 5212 Go
+
+	inputReader = bufio.NewReader(os.Stdin)
+	fmt.Println("Please enter your name:")
+
+	// 从输入中读取内容，直到碰到 delim 指定的字符，然后将读取到的内容连同 delim 字符
+	// 一起放到缓冲区
+	input2, err = inputReader.ReadString('\n')
+	if err != nil {
+		fmt.Println("There were errors reading, exiting program.")
+		return
+	}
+
+	fmt.Printf("Your name is %s", input2)
+	// For Unix: test with delimiter "\n", for Windows: test with "\r\n"
+	switch input2 {
+	case "Philip\r\n":
+		fmt.Println("Welcome Philip!")
+	case "Chris\r\n":
+		fmt.Println("Welcome Chris!")
+	case "Ivo\r\n":
+		fmt.Println("Welcome Ivo!")
+	default:
+		fmt.Printf("You are not welcome here! Goodbye!")
+	}
+
+	// version 2:
+	switch input2 {
+	case "Philip\r\n":
+		fallthrough
+	case "Ivo\r\n":
+		fallthrough
+	case "Chris\r\n":
+		fmt.Printf("Welcome %s\n", input2)
+	default:
+		fmt.Printf("You are not welcome here! Goodbye!\n")
+	}
+
+	// version 3:
+	switch input2 {
+	case "Philip\r\n", "Ivo\r\n":
+		fmt.Printf("Welcome %s\n", input2)
+	default:
+		fmt.Printf("You are not welcome here! Goodbye!\n")
+	}
+}
+
 ```
