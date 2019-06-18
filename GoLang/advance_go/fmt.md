@@ -5,13 +5,13 @@
 
 ```
 写数据 print
-   写入到标准输出   print
-   写入到文件对象   Fprint
-   写入成字符串形式返回给变量  Sprint
+   写入到标准输出             print   printf   println       默认格式/指定format/换行
+   写入到文件对象             Fprint  Fprintf  Fprintln      默认格式/指定format/换行
+   写入成字符串形式返回给变量  Sprint  Sprintf  Sprintln
 读数据 scan
-   从标准输入中读取  Scan 
-   从文件对象中读取  Fscan
-   从字符串中读取    Sscan 
+   从标准输入中读取  Scan   Scanf    Scanln
+   从文件对象中读取  Fscan  Fscanf   Fscanln
+   从字符串中读取    Sscan  Sscanf   Sscanln
 ```
 
 
@@ -19,7 +19,7 @@
 func Errorf(format string, a ...interface{}) error
 
 
-// 1 任意对象读写
+// 1 文件对象读写
 
 // 将 参数列表 a 中的各个参数 按默认格式 写入 w 对象
 func Fprint(w io.Writer, a ...interface{}) (n int, err error)
@@ -44,7 +44,7 @@ func Scanf(format string, a ...interface{}) (n int, err error)
 func Scanln(a ...interface{}) (n int, err error)
 
 
-// 3 将转换结果以字符串形式返回(写) /或者从字符串中读入
+// 3 从字符串中读入 / 写到字符串并返回
 
 func Sprint(a ...interface{}) string
 func Sprintf(format string, a ...interface{}) string
