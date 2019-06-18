@@ -61,6 +61,30 @@ Go runtime scheduler
 			    
 Go 协程是与其他函数或方法一起并发运行的函数或方法。Go 协程可以看作是轻量级线程。与线程相比，创建一个 Go 协程的成本很小。因此在 Go 应用中，常常会看到有数以千计的 Go 协程并发地运行。
 
+什么是goroutine？ 它是一个独立执行的函数，由go语句启动。
+
+它有自己的调用堆栈，可根据需要增长和缩小。
+
+它很便宜。 拥有数千甚至数十万个goroutines是切实可行的。
+
+这不是一个主题。
+
+程序中可能只有一个线程有数千个goroutine。
+
+相反，goroutines会根据需要动态多路复用到线程上，以保持所有goroutine运行。
+
+但如果你认为它是一个非常便宜的线程，你就不会遥远。
+
+|-|-|
+|线程|	Goroutine|
+|Os 线程由内核管理，并具有硬件依赖性。	|Goroutine 由 Go 运行时管理，没有硬件依赖性。|
+|Os 线程通常具有 1-2 MB 的固定堆栈大小	|Goroutines 通常在较新版本的 Go 中具有 8KB 的堆栈大小|
+|堆栈大小在编译期间确定，不能增长	|Go 的堆栈大小在运行时进行管理，并且可以通过分配和释放堆存储来增长到 1GB|
+|线程之间没有简单的通信媒介。线程间通信之间存在巨大的延迟。	|Goroutine 使用 channel 与其他的低延迟 Goroutine 进行通信（阅读更多）。|
+|线程有标识。有一个 TID 标识进程中的每个线程。	|Goroutine 没有任何标识。go 实现了这个是因为 Go 没有 TLS（线程本地存储）。|
+|线程具有明显的启动和销毁成本，因为线程必须从 Os 请求大量资源并在完成后返回。	|Goroutines 由 Go 的运行时创建和释放。与线程相比，这些操作非常简便，因为运行时已经 Goroutine 维护了线程池。在这种情况下，Os 不知道 Goroutines。|
+|线程被预先安排（阅读更多）。由于调度程序需要保存 / 恢复 50 个以上的寄存器和状态，因此线程之间的切换成本很高。当线程之间需要快速切换时，这可能非常重要。	|Goroutines 是合作安排的（阅读更多）。当发生 Goroutine 切换时，只需要保存或恢复 3 个寄存器就可以了。|
+
 Go 协程相比于线程的优势
 			    
 - 相比线程而言，Go 协程的成本极低。堆栈大小只有若干 kb，并且可以根据应用的需求进行增减。而线程必须指定堆栈的大小，其堆栈是固定不变的。
@@ -205,7 +229,10 @@ M：Machine的简称，在linux平台上是用`clone` `系统调用`创建的，
 P：Processor的简称，`逻辑`处理器，主要作用是`管理`G对象（每个P都有一个G队列），并为G在M上的运行提供本地化资源。
 
 从2.3节介绍的两级线程模型来看，`似乎并不需要P的参与`，有G和M就可以了，那为什么要加入P这个东东呢？
-其实Go语言运行时系统早期(Go1.0)的实现中并没有P的概念，Go中的调度器直接将G分配到合适的M上运行。但这样带来了很多问题，例如，不同的G在不同的M上并发运行时可能都需向系统申请资源（如堆内存），由于资源是全局的，将会由于资源竞争造成很多系统性能损耗，为了解决类似的问题，后面的Go（Go1.1）运行时系统加入了P，让P去管理G对象，M要想运行G必须先与一个P绑定，然后才能运行该P管理的G。这样带来的好处是，我们可以在P对象中预先申请一些系统资源（本地资源），G需要的时候先向自己的本地P申请（无需锁保护），如果不够用或没有再向全局申请，而且从全局拿的时候会多拿一部分，以供后面高效的使用。就像现在我们去政府办事情一样，先去本地政府看能搞定不，如果搞不定再去中央，从而提供办事效率。
+
+其实Go语言运行时系统早期(Go1.0)的实现中并没有P的概念，Go中的调度器直接将G分配到合适的M上运行。
+
+但这样带来了很多问题，例如，不同的G在不同的M上并发运行时可能都需向系统申请资源（如堆内存），由于资源是全局的，将会由于资源竞争造成很多系统性能损耗，为了解决类似的问题，后面的Go（Go1.1）运行时系统加入了P，让P去管理G对象，M要想运行G必须先与一个P绑定，然后才能运行该P管理的G。这样带来的好处是，我们可以在P对象中预先申请一些系统资源（本地资源），G需要的时候先向自己的本地P申请（无需锁保护），如果不够用或没有再向全局申请，而且从全局拿的时候会多拿一部分，以供后面高效的使用。就像现在我们去政府办事情一样，先去本地政府看能搞定不，如果搞不定再去中央，从而提供办事效率。
 而且由于P解耦了G和M对象，这样即使M由于被其上正在运行的G阻塞住，其余与该M关联的G也可以随着P一起迁移到别的活跃的M上继续运行，从而让G总能及时找到M并运行自己，从而提高系统的并发能力。
 Go运行时系统通过构造G-P-M对象模型实现了一套用户态的并发调度系统，可以自己管理和调度自己的并发任务，所以可以说Go语言原生支持并发。自己实现的调度器负责将并发任务分配到不同的内核线程上运行，然后内核调度器接管内核线程在CPU上的执行与调度。
 
@@ -216,4 +243,77 @@ Go运行时系统通过构造G-P-M对象模型实现了一套用户态的并发�
 
 > 5 Go语言对网络IO的优化
 
-## 
+## Go Concurrency Patterns PPT  Rob Pike  Google学习笔记  没学完
+
+```
+1 time.Sleep()
+
+2 channel  会等待a receiver and sender 通道既可以通信又可以同步 synchronization  不要通过共享内存进行通信，通过通信共享内存。
+
+	当main函数执行<-c时，它将等待发送一个值。
+
+	类似地，当钻孔函数执行c < - 值时，它等待接收器准备好。
+
+	发送方和接收方都必须准备好在通信中发挥作用。 否则我们会等到他们。
+
+	因此，通道既可以通信又可以同步。
+
+3 Buffering removes synchronization. 牺牲同步了
+
+4 在 sync 包中的 锁 的基本操作
+
+```
+```go
+
+func main() {
+    c := make(chan string)
+    go boring("boring!", c)
+    for i := 0; i < 5; i++ {
+        fmt.Printf("You say: %q\n", <-c) // Receive expression is just a value.
+    }
+    fmt.Println("You're boring; I'm leaving.")
+}
+Run
+func boring(msg string, c chan string) {
+    for i := 0; ; i++ {
+        c <- fmt.Sprintf("%s %d", msg, i) // Expression to be sent can be any suitable value.
+        time.Sleep(time.Duration(rand.Intn(1e3)) * time.Millisecond)
+    }
+}
+
+当main返回时，程序退出并使用它来执行boring()。
+
+我们可以稍微闲逛一下，并且在路上显示main() 和boring()的 goroutine 都在运行通过.
+
+
+
+func main() {
+c := boring("boring!") // Function returning a channel.
+    for i := 0; i < 5; i++ {
+        fmt.Printf("You say: %q\n", <-c)
+    }
+    fmt.Println("You're boring; I'm leaving.")
+}
+
+
+func boring(msg string) <-chan string { // Returns receive-only channel of strings.
+    c := make(chan string)
+    go func() { // We launch the goroutine from inside the function.
+        for i := 0; ; i++ {
+            c <- fmt.Sprintf("%s %d", msg, i)
+            time.Sleep(time.Duration(rand.Intn(1e3)) * time.Millisecond)
+        }
+    }()
+    return c // Return the channel to the caller.
+}
+
+func main() {
+    joe := boring("Joe")
+    ann := boring("Ann")
+    for i := 0; i < 5; i++ {
+        fmt.Println(<-joe)
+        fmt.Println(<-ann)
+    }
+    fmt.Println("You're both boring; I'm leaving.")
+}
+```
