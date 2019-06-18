@@ -2,16 +2,35 @@ Go 是并发式语言    并发(concurrency)  goroutine channel
 
 > 资料
 
-[「GCTT 出品」图解 Go 并发编程](https://mbd.baidu.com/newspage/data/landingshare?context=%7B%22nid%22%3A%22news_10061718063488657719%22%2C%22sourceFrom%22%3A%22bjh%22%2C%22url_data%22%3A%22bjhauthor%22%7D)
+https://medium.com/rungo 系列
 
-[英文出处 Learning Go’s Concurrency Through Illustrations](https://medium.com/@trevor4e/learning-gos-concurrency-through-illustrations-8c4aff603b3)
+[GCTT 出品 | 在 Go 中实现并发性](https://mp.weixin.qq.com/s/cX9FTkBncjrwcN8y1EuGdQ) : [英文出处](https://medium.com/rungo/achieving-concurrency-in-go-3f84cbf870ca)
 
-[Go Concurrency Patterns   Rob Pike  Google](https://talks.golang.org/2012/concurrency.slide#1)
+[Anatomy解剖 of Channels in Go - Concurrency in Go](https://medium.com/rungo/anatomy-of-channels-in-go-concurrency-in-go-1ec336086adb)
+
+> 代码模板
+
+[GCTT 出品 | 图解 Go 并发编程 循序渐进 推荐先看](https://mbd.baidu.com/newspage/data/landingshare?context=%7B%22nid%22%3A%22news_10061718063488657719%22%2C%22sourceFrom%22%3A%22bjh%22%2C%22url_data%22%3A%22bjhauthor%22%7D)  : [英文出处 Learning Go’s Concurrency Through Illustrations](https://medium.com/@trevor4e/learning-gos-concurrency-through-illustrations-8c4aff603b3)
+
+[Go Concurrency Patterns PPT  Rob Pike  Google](https://talks.golang.org/2012/concurrency.slide#1)
+
+[Google I/O 2012 - Go Concurrency Patterns video](https://www.youtube.com/watch?v=f6kdp27TYZs)
+
+[Google I/O 2013 - Advanced Go Concurrency Patterns video](https://www.youtube.com/watch?v=QDDwwePbDtw)
+
+> 底层原理
+
+[Go语言通过Goroutine来支持并发编程，有关其原理可以看这篇Go并发机制](https://github.com/k2huang/blogpost/blob/master/golang/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/%E5%B9%B6%E5%8F%91%E6%9C%BA%E5%88%B6/Go%E5%B9%B6%E5%8F%91%E6%9C%BA%E5%88%B6.md)
 
 [Go的CSP并发模型实现](https://www.cnblogs.com/sunsky303/p/9115530.html)
 
+Go runtime scheduler
+
+[Analysis of the Go runtime scheduler 论文](http://www1.cs.columbia.edu/~aho/cs6998/reports/12-12-11_DeshpandeSponslerWeiss_GO.pdf)
+
 [python协程与golang协程的区别](https://segmentfault.com/a/1190000019127902?utm_campaign=studygolang.com&utm_medium=studygolang.com&utm_source=studygolang.com)
 
+[Go vs CPython: Visual comparison of concurrency and parallelism options](https://labs.getninjas.com.br/go-vs-cpython-visual-comparison-of-concurrency-and-parallelism-d29a1ebec20a)
 
 > 并发
 
