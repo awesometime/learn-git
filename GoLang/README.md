@@ -1,5 +1,7 @@
 > 置顶
 
+[go 中文官方文档](http://zh-golang.appspot.com/)
+
 [《The Way to Go》中文译本，中文名《Go 入门指南》 15k](https://github.com/Unknwon/the-way-to-go_ZH_CN/blob/master/eBook/directory.md)
 
 [build-web-application-with-golang  30k](https://github.com/astaxie/build-web-application-with-golang/blob/master/zh/preface.md)
