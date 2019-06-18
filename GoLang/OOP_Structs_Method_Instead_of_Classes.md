@@ -1,7 +1,8 @@
 Object Oriented Programming
  - Structs Instead of Classes 
+ - Encapsulation with uppercase/Lowercase letters
  - Composition Instead of Inheritance 
- - Polymorphism
+ - Polymorphism using interface
 
 
 [ 结构体+方法  取代类](https://mp.weixin.qq.com/s/My1sXXRZS4vxCZPCmbmqPA)
