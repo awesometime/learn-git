@@ -4,9 +4,13 @@ Go 是并发式语言    并发(concurrency)  goroutine channel
 
 https://medium.com/rungo 系列
 
+https://medium.com/@thatisuday 系列
+
 [GCTT 出品 | 在 Go 中实现并发性](https://mp.weixin.qq.com/s/cX9FTkBncjrwcN8y1EuGdQ) : [英文出处](https://medium.com/rungo/achieving-concurrency-in-go-3f84cbf870ca)
 
 [Anatomy解剖 of Channels in Go - Concurrency in Go](https://medium.com/rungo/anatomy-of-channels-in-go-concurrency-in-go-1ec336086adb)
+
+[Diving Deep Into The Golang Channels](https://codeburst.io/diving-deep-into-the-golang-channels-549fd4ed21a8)
 
 > 代码模板
 
@@ -38,9 +42,13 @@ Go runtime scheduler
 
 [并发编程中为什么需要锁](https://github.com/k2huang/blogpost/blob/master/golang/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B/%E7%94%A8Go%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E5%B9%B6%E5%8F%91%20-%201.%E9%94%81%E7%9A%84%E4%BD%9C%E7%94%A8.md)
 
-> go 语言思维 价值观
+> 其它
+
+go 语言思维 价值观
 
 [Go coding in go way](https://tonybai.com/2017/04/20/go-coding-in-go-way/?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io)
+
+[译文：Go 内存分配器可视化指南](https://www.linuxzen.com/go-memory-allocator-visual-guide.html)
 
 #### 并发 https://mp.weixin.qq.com/s/nqoRLVYIZmzgBBTSiIqkZg 学习笔记
 
