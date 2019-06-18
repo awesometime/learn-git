@@ -58,3 +58,5 @@ namespace
 unionFS   DEVICEMAPPER  AUFS overlay2
 ```
 [言简意赅讲解 Cgroup和Namespace](https://blog.csdn.net/xiangxianghehe/article/details/70569920)
+
+[Linux Namespace和Cgroup 详解](https://segmentfault.com/a/1190000009732550)
