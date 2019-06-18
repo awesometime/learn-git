@@ -20,7 +20,7 @@ https://medium.com/rungo 系列
 
 > 底层原理
 
-[Go语言通过Goroutine来支持并发编程，有关其原理可以看这篇Go并发机制](https://github.com/k2huang/blogpost/blob/master/golang/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/%E5%B9%B6%E5%8F%91%E6%9C%BA%E5%88%B6/Go%E5%B9%B6%E5%8F%91%E6%9C%BA%E5%88%B6.md)
+[好文  Go语言通过Goroutine来支持并发编程，有关其原理可以看这篇Go并发机制](https://github.com/k2huang/blogpost/blob/master/golang/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/%E5%B9%B6%E5%8F%91%E6%9C%BA%E5%88%B6/Go%E5%B9%B6%E5%8F%91%E6%9C%BA%E5%88%B6.md)
 
 [Go的CSP并发模型实现](https://www.cnblogs.com/sunsky303/p/9115530.html)
 
@@ -28,13 +28,22 @@ Go runtime scheduler
 
 [Analysis of the Go runtime scheduler 论文](http://www1.cs.columbia.edu/~aho/cs6998/reports/12-12-11_DeshpandeSponslerWeiss_GO.pdf)
 
+[goroutine调度器](https://tonybai.com/2017/06/23/an-intro-about-goroutine-scheduler/)
+
 [python协程与golang协程的区别](https://segmentfault.com/a/1190000019127902?utm_campaign=studygolang.com&utm_medium=studygolang.com&utm_source=studygolang.com)
 
 [Go vs CPython: Visual comparison of concurrency and parallelism options](https://labs.getninjas.com.br/go-vs-cpython-visual-comparison-of-concurrency-and-parallelism-d29a1ebec20a)
 
-> 并发
+> 并发编程中锁
 
-https://mp.weixin.qq.com/s/nqoRLVYIZmzgBBTSiIqkZg
+[并发编程中为什么需要锁](https://github.com/k2huang/blogpost/blob/master/golang/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B/%E7%94%A8Go%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E5%B9%B6%E5%8F%91%20-%201.%E9%94%81%E7%9A%84%E4%BD%9C%E7%94%A8.md)
+
+> go 语言思维 价值观
+
+[Go coding in go way](https://tonybai.com/2017/04/20/go-coding-in-go-way/?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io)
+
+#### 并发 https://mp.weixin.qq.com/s/nqoRLVYIZmzgBBTSiIqkZg 学习笔记
+
 
 - 并发是指立即处理多个任务的能力。
 
@@ -48,7 +57,7 @@ https://mp.weixin.qq.com/s/nqoRLVYIZmzgBBTSiIqkZg
 [![concurrency parallelism](https://mmbiz.qpic.cn/mmbiz_png/UWba2ryLMqlGWzyzqqeohYZr3yic7yFBfxDxrSrcyNVA2p5oA1c0UAbpBicdXFOyh19PWA1icpcuIAs68NcRvbpqw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)](https://mmbiz.qpic.cn/mmbiz_png/UWba2ryLMqlGWzyzqqeohYZr3yic7yFBfxDxrSrcyNVA2p5oA1c0UAbpBicdXFOyh19PWA1icpcuIAs68NcRvbpqw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)		       
 		       
 		       
-### Go 协程是什么？
+## Go 协程是什么？
 			    
 Go 协程是与其他函数或方法一起并发运行的函数或方法。Go 协程可以看作是轻量级线程。与线程相比，创建一个 Go 协程的成本很小。因此在 Go 应用中，常常会看到有数以千计的 Go 协程并发地运行。
 
@@ -152,4 +161,59 @@ func main() {
 	fmt.Println(a)
 }
 ```
+## Go并发机制学习笔记
 
+> 1 引入协程
+```
+多线程(OS线程)的方式：
+轻量，线程之间的通信简单但隔离性较差，任务一个线程挂掉都有可能把整个进程弄挂掉。
+
+多进程的方式：
+隔离性较好，但进程之间通信成本较大。
+
+用户态线程/协程：
+本质上是一种用户态线程(区别于OS线程，内核调度器只能看到OS线程)，协程的上下文切换不需要OS内核的参与，因此开销更小。
+用协程取代OS线程，并实现自己的调度器来管理的协程的切换，并将epoll技术融入自己的网络库和运行时系统中，让用户用容易理解和使
+用的传统的同步的编程思维去处理网络IO，并享受到异步网络IO带来的高性能
+
+异步
+主要用在网络IO方面，借助epoll/kqueue/iocp等技术，可以高效管理大量IO连接，是现在网络IO高并发编程中必不可少的一种手段了
+
+```
+> 2 线程实现模型
+
+线程的实现模型主要有3种：
+
+内核级线程模型
+
+用户级线程模型
+
+混合型线程模型
+
+> 3 Go并发调度: G-P-M模型
+
+3.1 G-P-M模型
+
+[![pic](https://github.com/k2huang/blogpost/raw/master/golang/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/%E5%B9%B6%E5%8F%91%E6%9C%BA%E5%88%B6/imgs/2.png)](https://github.com/k2huang/blogpost/raw/master/golang/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/%E5%B9%B6%E5%8F%91%E6%9C%BA%E5%88%B6/imgs/2.png)
+
+其图中的G, P和M都是Go语言`运行时系统`（其中包括内存分配器，并发调度器，垃圾收集器等组件，可以想象为Java中的JVM）抽象出来概念和数据结构对象：
+
+G：Goroutine的简称，上面用go关键字加函数调用的代码就是创建了一个G对象，是对一个要并发执行的任务的封装，也可以称作`用户态线程 go协程`。属于`用户级`资源，对OS透明，具备轻量级，可以大量创建，上下文切换成本低等特点。
+
+M：Machine的简称，在linux平台上是用`clone` `系统调用`创建的，其与用linux pthread库创建出来的`线程`本质上是一样的，都是利用`系统调用`创建出来的`OS线程实体`。`M的作用就是执行G中包装的并发任务`。`Go运行时系统`中的`调度器`的`主要职责`就是`将G公平合理的安排到多个M上去执行`。其属于`OS资源`，可创建的数量上也受限了OS，通常情况下G的数量都多于活跃的M的。
+
+P：Processor的简称，`逻辑`处理器，主要作用是`管理`G对象（每个P都有一个G队列），并为G在M上的运行提供本地化资源。
+
+从2.3节介绍的两级线程模型来看，`似乎并不需要P的参与`，有G和M就可以了，那为什么要加入P这个东东呢？
+其实Go语言运行时系统早期(Go1.0)的实现中并没有P的概念，Go中的调度器直接将G分配到合适的M上运行。但这样带来了很多问题，例如，不同的G在不同的M上并发运行时可能都需向系统申请资源（如堆内存），由于资源是全局的，将会由于资源竞争造成很多系统性能损耗，为了解决类似的问题，后面的Go（Go1.1）运行时系统加入了P，让P去管理G对象，M要想运行G必须先与一个P绑定，然后才能运行该P管理的G。这样带来的好处是，我们可以在P对象中预先申请一些系统资源（本地资源），G需要的时候先向自己的本地P申请（无需锁保护），如果不够用或没有再向全局申请，而且从全局拿的时候会多拿一部分，以供后面高效的使用。就像现在我们去政府办事情一样，先去本地政府看能搞定不，如果搞不定再去中央，从而提供办事效率。
+而且由于P解耦了G和M对象，这样即使M由于被其上正在运行的G阻塞住，其余与该M关联的G也可以随着P一起迁移到别的活跃的M上继续运行，从而让G总能及时找到M并运行自己，从而提高系统的并发能力。
+Go运行时系统通过构造G-P-M对象模型实现了一套用户态的并发调度系统，可以自己管理和调度自己的并发任务，所以可以说Go语言原生支持并发。自己实现的调度器负责将并发任务分配到不同的内核线程上运行，然后内核调度器接管内核线程在CPU上的执行与调度。
+
+
+3.2 Go运行时完整的调度过程
+
+> 4 Goroutine与`Channel`: `锁`之外的另一种同步机制
+
+> 5 Go语言对网络IO的优化
+
+## 
