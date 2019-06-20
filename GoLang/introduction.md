@@ -179,8 +179,9 @@ https://github.com/Unknwon/the-way-to-go_ZH_CN/blob/master/eBook/11.4.md
 
 [体验golang语言的风骚编程](https://zhuanlan.zhihu.com/p/46370444)
 
+# 第4章：基本结构和基本数据类型
 
-# 变量
+### 变量
 
 > := 为一个新的变量完成声明以及初始化的工作
 
@@ -282,10 +283,54 @@ func main() {
 // unicode字符类型 rune
 // uintptr 指针类型
 ```
-# 运算符
+### 运算符
+
 https://www.runoob.com/go/go-operators.html
 
-# 函数
+# 第5章：控制结构
+
+### switch 结构
+
+https://github.com/Unknwon/the-way-to-go_ZH_CN/blob/master/eBook/05.3.md
+
+```go
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+
+	switch {
+	case false:
+		fmt.Println("The integer was <= 4")
+		fallthrough
+	case true:
+		fmt.Println("The integer was <= 5")
+		fallthrough
+	case false:
+		fmt.Println("The integer was <= 6")
+		fallthrough
+	case true:
+		fmt.Println("The integer was <= 7")
+		fallthrough
+	case false:
+		fmt.Println("The integer was <= 8")
+	default:
+		fmt.Println("default case")
+	}
+}
+
+会标红  但能编译跑通
+The integer was <= 5    默认开始为true
+The integer was <= 6
+The integer was <= 7
+The integer was <= 8
+```
+# 第6章：函数（function）
+
+### 函数
 
 > max函数有两个参数，它们的类型都是int，那么第一个变量的类型可以省略（即 a,b int,而非 a int, b int)，默认为离它最近的类型，同理多于2个同类型的变量或者返回值。同时我们注意到它的返回值就是一个类型，这个就是省略写法。
 ```go
@@ -303,8 +348,9 @@ func max(a, b int) int {
 ```
 
 
+# 第10章：结构（struct）与方法（method）
 
-# struct
+### struct
 
 [Go Struct超详细讲解  掘金](https://juejin.im/post/5ca2f37ce51d4502a27f0539#heading-14)
 
@@ -383,13 +429,7 @@ P.name = "qwer"
 P.age = 23
 ```
 
-> Go的json解析：Marshal与Unmarshal
-
-[值得一看](https://www.cnblogs.com/haiguixiansheng/articles/10718531.html)
-
-
-
-# 方法 面向对象
+### 方法 面向对象
 
 #### 方法声明
 https://docs.hacknode.org/gopl-zh/ch6/ch6-01.html
@@ -709,15 +749,22 @@ func init() {
 ```go
 
 ```
+# 第11章：接口（interface）与反射（reflection）
 
-# interface
+### interface
 
 [浅析Go语言Interface类型的语法行为及用法](https://studygolang.com/articles/2652)
 
 
-# reflect
+### reflect
 
 [![reflect](https://pic4.zhimg.com/80/v2-5641dae0a8b8d4059e3782d8e92c204f_hd.jpg)](https://pic4.zhimg.com/80/v2-5641dae0a8b8d4059e3782d8e92c204f_hd.jpg)
+
+# 第12章：读写数据
+
+> Go的json解析：Marshal与Unmarshal
+
+[值得一看](https://www.cnblogs.com/haiguixiansheng/articles/10718531.html)
 
 
 
