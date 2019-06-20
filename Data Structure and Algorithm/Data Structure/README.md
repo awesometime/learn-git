@@ -7,3 +7,11 @@
 > [ geeksforgeeks  逻辑清晰清晰 ](https://www.geeksforgeeks.org/)
 
 [ algorithms ](https://algorithms.tutorialhorizon.com//)
+
+程序员小灰系列
+
+[程序员小灰 2019汇总](https://mp.weixin.qq.com/s/Ok5SjqhiQkG5sLUPNY02Mw)
+
+[程序员小灰 2018汇总](https://mp.weixin.qq.com/s/oFQHrCZvItgc8McrZSaovw)
+
+[程序员小灰 2017汇总](https://mp.weixin.qq.com/s/4kTtn_gLYQrX7JFlEJdsZg)
