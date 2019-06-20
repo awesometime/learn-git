@@ -1,5 +1,40 @@
 [小灰 什么是协程](https://mp.weixin.qq.com/s/57IERpGIlvRwYCh6vSbMDA)
 
+
+### 1 谈谈Python协程技术的演进
+
+[谈谈Python协程技术的演进](http://zhuanlan.51cto.com/art/201709/552465.htm#topx)
+
+EventLoop与协程的发展史
+
+就不同语言中面向并发设计的协程实现而言，Scala 与 Erlang 的 Actor 模型、Golang 中的 goroutine 都较 Python 更为成熟，
+
+不同的协程使用通信来共享内存，优化了竞态、冲突、不一致性等问题。然而，根本的理念没有区别，都是在用户态通过**事件循环**
+
+`驱动`实现调度。
+
+生成器的进化
+
+yield 关键字被加入到语法中，下一次从生成器中取值可以恢复到生成器上次 yield 执行的位置。
+
+在 Python2.5 中生成器还加入了 send 方法，与 yield 搭配使用。
+
+生成器不仅仅可以 yield 暂停到一个状态，还可以往它停止的位置通过 send 方法传入一个值改变其状态。
+
+yield from 实现了在生成器内调用另外生成器的功能  在生成器中从其他生成器 yield 一个值，这样不同的**生成器之间可以互相通信**
+
+每个协程都有独立的栈空间，即使它们是都工作在同一个线程中的
+
+短暂的asynico.coroutine 与yield from
+
+async/await
+
+await 的行为类似 yield from，但是它们异步等待的对象并不一致，yield from 等待的是一个生成器对象，而await接收的是定义了__await__
+
+方法的 awaitable 对象。
+
+
+
 ```
 进程：
 每个人（cpu）都领一套工具（环境，上下文）去干活，人多（核多）就可以做的更快。
