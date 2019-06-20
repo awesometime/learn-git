@@ -33,8 +33,38 @@ await 的行为类似 yield from，但是它们异步等待的对象并不一致
 
 方法的 awaitable 对象。
 
+### Python3.5 协程原理
 
+[Python3.5 协程原理](https://github.com/xitu/gold-miner/blob/master/TODO/how-the-heck-does-async-await-work-in-python-3-5.md)
+```
+https://juejin.im/post/5b3391a0518825748b56b42c
 
+Iterable   __iter__
+Iterator   __next__
+Generator  yield
+
+如何创建一个生成器，主要有如下两种方法
+
+使用列表生成式
+
+# 使用列表生成式，注意不是[]，而是()
+L = (x * x for x in range(10))
+print(isinstance(L, Generator))  # True
+复制代码
+
+实现yield的函数
+
+# 实现了yield的函数
+def mygen(n):
+    now = 0
+    while now < n:
+        yield now
+        now += 1
+
+if __name__ == '__main__':
+    gen = mygen(10)
+    print(isinstance(gen, Generator))  # True
+```
 ```
 进程：
 每个人（cpu）都领一套工具（环境，上下文）去干活，人多（核多）就可以做的更快。
