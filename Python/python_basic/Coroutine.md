@@ -513,3 +513,30 @@ return语句，结果会返回到print_sum()中的result中，最后打印result
 ```
 
 > asyncio 中 Future
+
+```py
+# https://juejin.im/post/5c13245ee51d455fa5451f33#heading-3
+import asyncio
+
+future = asyncio.Future()
+
+
+async def coro1():
+    print("wait 1 second")
+    await asyncio.sleep(1)
+    print("set_result")
+    future.set_result('data')
+
+
+async def coro2():
+    result = await future
+    print(result)
+
+
+loop = asyncio.get_event_loop()
+loop.run_until_complete(asyncio.wait([
+    coro1()
+    coro2()
+]))
+loop.close()
+```
