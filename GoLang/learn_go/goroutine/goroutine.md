@@ -34,6 +34,8 @@ Go runtime scheduler
 
 [goroutine调度器](https://tonybai.com/2017/06/23/an-intro-about-goroutine-scheduler/)
 
+[理解golang调度三部曲: 操作系统调度 / Go 调度器 / 并发](https://juejin.im/post/5cdeb6cdf265da1bd605727f)
+
 [python协程与golang协程的区别](https://segmentfault.com/a/1190000019127902?utm_campaign=studygolang.com&utm_medium=studygolang.com&utm_source=studygolang.com)
 
 [Go vs CPython: Visual comparison of concurrency and parallelism options](https://labs.getninjas.com.br/go-vs-cpython-visual-comparison-of-concurrency-and-parallelism-d29a1ebec20a)
