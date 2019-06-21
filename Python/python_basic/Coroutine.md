@@ -2,6 +2,9 @@
 
 [A Curious Course on Coroutines and Concurrency](http://dabeaz.com/coroutines/): [PDF](http://dabeaz.com/coroutines/Coroutines.pdf)
 
+[In practice, what are the main uses for the new “yield from” syntax in Python 3.3?
+](https://stackoverflow.com/questions/9708902/in-practice-what-are-the-main-uses-for-the-new-yield-from-syntax-in-python-3)
+
 > 疑问  
 
 **yield from 语句 如何实现 send 发消息**
