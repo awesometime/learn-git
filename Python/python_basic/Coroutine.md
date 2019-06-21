@@ -471,6 +471,8 @@ asyncio是使用async/await语法开发的协程库，而不是有asyncio才能�
 
 > 再来一例
 
+三个主要概念 EventLoop future对象 Task对象
+
 ```python3
 import asyncio
 
