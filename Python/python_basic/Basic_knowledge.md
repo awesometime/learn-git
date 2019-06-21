@@ -902,7 +902,7 @@ queue同时还自带emtpy(), full()等方法来判断一个队列是否为空或
 
 >>> **12.3 ThreadLocal**
 
-一个ThreadLocal变量虽然是全局变量，但每个线程都只能读写自己线程的独立副本，互不干扰。ThreadLocal解决了参数在一个线程中各个函数之间互相传递的问题。
+一个ThreadLocal变量虽然是**全局变量**，但**每个线程都只能读写自己线程的独立副本**，互不干扰。ThreadLocal解决了参数在一个线程中各个函数之间互相传递的问题。（有点像协程里 Future 的感觉）
 
 ```python3
 import threading
