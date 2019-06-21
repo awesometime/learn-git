@@ -47,6 +47,11 @@ await 的行为类似 yield from，但是它们异步等待的对象并不一致
 
 ### Python3.5 协程原理
 
+
+[可迭代、迭代器、生成器](https://juejin.im/post/5b3391a0518825748b56b42c#heading-4)
+
+[yield from语法 引入协程](https://juejin.im/post/5b3af9fb51882507d4487144)
+
 [Python3.5 协程原理](https://github.com/xitu/gold-miner/blob/master/TODO/how-the-heck-does-async-await-work-in-python-3-5.md)
 ```
 https://juejin.im/post/5b3391a0518825748b56b42c
