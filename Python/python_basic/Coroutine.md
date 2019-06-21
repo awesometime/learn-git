@@ -1,5 +1,10 @@
 [小灰 什么是协程](https://mp.weixin.qq.com/s/57IERpGIlvRwYCh6vSbMDA)
 
+[A Curious Course on Coroutines and Concurrency](http://dabeaz.com/coroutines/): [PDF](http://dabeaz.com/coroutines/Coroutines.pdf)
+
+> 疑问  
+
+**yield from 语句 如何实现 send 发消息**
 
 ### 1 谈谈Python协程技术的演进
 
