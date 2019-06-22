@@ -22,19 +22,29 @@ https://medium.com/@thatisuday 系列
 
 [Google I/O 2013 - Advanced Go Concurrency Patterns video](https://www.youtube.com/watch?v=QDDwwePbDtw)
 
-> 底层原理
+> 底层原理 Go语言运行时系统Go runtime（其中包括内存分配器，并发调度器scheduler，垃圾收集器等组件)
 
-[好文  Go语言通过Goroutine来支持并发编程，有关其原理可以看这篇Go并发机制](https://github.com/k2huang/blogpost/blob/master/golang/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/%E5%B9%B6%E5%8F%91%E6%9C%BA%E5%88%B6/Go%E5%B9%B6%E5%8F%91%E6%9C%BA%E5%88%B6.md)
+模型
 
-[Go的CSP并发模型实现](https://www.cnblogs.com/sunsky303/p/9115530.html)
+- [好文  Go语言通过Goroutine来支持并发编程，有关其原理可以看这篇Go并发机制](https://github.com/k2huang/blogpost/blob/master/golang/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/%E5%B9%B6%E5%8F%91%E6%9C%BA%E5%88%B6/Go%E5%B9%B6%E5%8F%91%E6%9C%BA%E5%88%B6.md)
 
-Go runtime scheduler
+- [Go的CSP并发模型实现](https://www.cnblogs.com/sunsky303/p/9115530.html)
 
-[Analysis of the Go runtime scheduler 论文](http://www1.cs.columbia.edu/~aho/cs6998/reports/12-12-11_DeshpandeSponslerWeiss_GO.pdf)
+Go runtime-scheduler
 
-[goroutine调度器](https://tonybai.com/2017/06/23/an-intro-about-goroutine-scheduler/)
+- [Analysis of the Go runtime scheduler 论文](http://www1.cs.columbia.edu/~aho/cs6998/reports/12-12-11_DeshpandeSponslerWeiss_GO.pdf)
 
-[理解golang调度三部曲: 操作系统调度 / Go 调度器 / 并发](https://juejin.im/post/5cdeb6cdf265da1bd605727f)
+- [goroutine调度器](https://tonybai.com/2017/06/23/an-intro-about-goroutine-scheduler/)
+
+- [理解golang调度三部曲: 操作系统调度 / Go 调度器 / 并发](https://juejin.im/post/5cdeb6cdf265da1bd605727f)
+
+- [Go调度器系列（1）起源](http://lessisbetter.site/2019/03/10/golang-scheduler-1-history/)
+
+- [Go调度器系列（2）宏观看调度器](http://lessisbetter.site/2019/03/26/golang-scheduler-2-macro-view/)
+
+- [Go调度器系列（3）图解调度原理](http://lessisbetter.site/2019/04/04/golang-scheduler-3-principle-with-graph/)
+
+- [Go调度器系列（4）源码阅读与探索](http://lessisbetter.site/2019/04/14/golang-scheduler-4-explore-source-code/)
 
 [python协程与golang协程的区别](https://segmentfault.com/a/1190000019127902?utm_campaign=studygolang.com&utm_medium=studygolang.com&utm_source=studygolang.com)
 
@@ -51,6 +61,11 @@ go 语言思维 价值观
 [Go coding in go way](https://tonybai.com/2017/04/20/go-coding-in-go-way/?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io)
 
 [译文：Go 内存分配器可视化指南](https://www.linuxzen.com/go-memory-allocator-visual-guide.html)
+
+[雨痕的Go源码剖析](https://github.com/qyuhen/book)
+
+[goroutine背后的系统知识](http://www.sizeofvoid.net/goroutine-under-the-hood/)
+
 
 #### 并发 https://mp.weixin.qq.com/s/nqoRLVYIZmzgBBTSiIqkZg 学习笔记
 
