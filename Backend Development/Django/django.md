@@ -1,5 +1,9 @@
 ### todo 
 
+[django面试题](https://www.kancloud.cn/hmoonmoon/django/738443)
+
+[WSGI 整明白了](https://juejin.im/post/5cff300a6fb9a07ef06f8a43?from=singlemessage)
+
 > django + [vue](https://vuejs.bootcss.com/) 前后端分离
 
 > Django RESTful framework     DRF
