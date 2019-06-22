@@ -1,7 +1,8 @@
 [Python多进程与多线程](https://mp.weixin.qq.com/s?__biz=MjM5OTMyODA4Nw==&mid=2247484084&idx=1&sn=573989b9526aef01a3d515ab09afe86a&chksm=a73c628c904beb9a39adef9b95a1ce6560245b7f4e2a39207a55abc1a293935be203a35bcb13&mpshare=1&scene=1&srcid=&pass_ticket=0QnHRl6v1Xkew4C5DrpSerNBri6BPOinWKKfydIySHIIQ%2BKJhsjSdnkU2wZYGdie#rd)
 
-[廖雪峰](https://github.com/awesometime/learn-git/blob/master/Python/python_basic/Basic_knowledge.md#12-python3---%E5%A4%9A%E8%BF%9B%E7%A8%8B-multiprocessing----%E5%A4%9A%E7%BA%BF%E7%A8%8B-threading-----%E5%8F%82%E8%80%83%E5%BB%96%E9%9B%AA%E5%B3%B0)
+[看了廖雪峰自己总结的](https://github.com/awesometime/learn-git/blob/master/Python/python_basic/Basic_knowledge.md#12-python3---%E5%A4%9A%E8%BF%9B%E7%A8%8B-multiprocessing----%E5%A4%9A%E7%BA%BF%E7%A8%8B-threading-----%E5%8F%82%E8%80%83%E5%BB%96%E9%9B%AA%E5%B3%B0)
 
+Python的线程是真正的Posix Thread，而不是模拟出来的线程  怎么理解
 
 > Python的多进程编程与multiprocess模块
 
