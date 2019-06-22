@@ -299,7 +299,15 @@ Processor的简称，`逻辑`处理器，主要作用是`管理`G对象（每个
 
 3.2 Go运行时完整的调度过程
 
-> 4 Goroutine与`Channel`: `锁`之外的另一种同步机制
+> 4 保证多线程之间共享数据安全性和一致性
+
+go也实现了: 锁，条件变量，信号量,原子操作
+
+go独有的同步机制: Goroutine 的`Channel`, 怎么感觉跟多进程多线程间通信的queue有点像 **todo**
+
+Channel，它在Go语言中是一个像int, float32等的基本类型，一个channel可以认为是一个能够在多个Goroutine之间传递某一类型的数据的管道。
+
+Go中的channel无论是实现机制还是使用场景都和Java中的BlockingQueue很接近。
 
 > 5 Go语言对网络IO的优化
 
