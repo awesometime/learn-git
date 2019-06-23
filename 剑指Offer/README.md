@@ -4,11 +4,13 @@
 
 - [剑指offer——python实现 包含思路](https://blog.csdn.net/sqiu_11/article/details/77657840)
 
+- [github.com/Jack-Lee-Hiter/AlgorithmsByPython](https://github.com/Jack-Lee-Hiter/AlgorithmsByPython/tree/master/Target%20Offer)
+
 - [Python实现《剑指offer》github](https://github.com/Jack-Lee-Hiter/AlgorithmsByPython/blob/master/Target%20Offer/README.md)
 
 - [剑指offer Edison Zhou](https://www.cnblogs.com/edisonchou/p/4752086.html)
 
-- [剑指offer总结](https://blog.csdn.net/wszy1301/article/details/80910626)
+- [剑指offer 分类 总结](https://blog.csdn.net/wszy1301/article/details/80910626)
 
 
 
