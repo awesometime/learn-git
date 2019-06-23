@@ -2,8 +2,6 @@
 
 [django面试题](https://www.kancloud.cn/hmoonmoon/django/738443)
 
-[WSGI 整明白了](https://juejin.im/post/5cff300a6fb9a07ef06f8a43?from=singlemessage)
-
 > django + [vue](https://vuejs.bootcss.com/) 前后端分离
 
 > Django RESTful framework     DRF
@@ -13,7 +11,17 @@
   - [Django RESTful framework 中文文档](https://www.django.cn/course/course-3.html)
   
   - [Django RESTful framework github](https://github.com/Q1mi/Django-REST-framework-documentation/tree/master/)
-  
+
+### WSGI
+
+[网关协议学习：CGI、FastCGI、WSGI
+2014-08-18   1 min read](https://www.biaodianfu.com/cgi-fastcgi-wsgi.html)
+
+[WSGI的理解（转载）](https://blog.csdn.net/sraing/article/details/8455242)
+
+[做python Web开发你要理解：WSGI & uwsgi 概念](https://www.jianshu.com/p/679dee0a4193)
+
+[WSGI 图片](https://juejin.im/post/5cff300a6fb9a07ef06f8a43?from=singlemessage)
   
 ### 部署
 
