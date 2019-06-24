@@ -1,7 +1,6 @@
-[![pic](https://images2015.cnblogs.com/blog/381412/201509/381412-20150902002211263-1563001427.jpg)](https://images2015.cnblogs.com/blog/381412/201509/381412-20150902002211263-1563001427.jpg)
-
-
 调用min、push及pop的时间复杂度都是O(1)。
+
+[![pic](https://images2015.cnblogs.com/blog/381412/201509/381412-20150902002211263-1563001427.jpg)](https://images2015.cnblogs.com/blog/381412/201509/381412-20150902002211263-1563001427.jpg)
 
 ```python3
 class Solution:
