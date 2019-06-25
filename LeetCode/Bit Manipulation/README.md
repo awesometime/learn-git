@@ -19,3 +19,7 @@ https://blog.csdn.net/qq_21275321/article/details/83008810
 > 判断一个数值是不是2得整数次方，如果是的话，这个数的二进制数中有且只有一个1，那么这个数n会有 n&(n-1) == 0。
 
 > 求两个整数m和n需要改变m二进制中的多少位才能得到n，可以先做 m^n 的异或运算，然后求这个数中有多少个1。
+
+
+不使用任何中间变量如何将a、b的值进行交换（三种方法）
+https://blog.csdn.net/sugarbliss/article/details/80323604
