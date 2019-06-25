@@ -19,9 +19,7 @@ https://leetcode.com/problems/linked-list-cycle-ii/discuss/258948/%2B-python
     c. 这表明，当我们让Slow重新从q点处、Fast继续从相遇见的m点处，以相等的速度移动时，两个指针会在入口r点相遇。
     即Slow从q点移动H步，而Fast相当于会从m点移动n圈(会回到m处)，再后退D步。最终都在r点遇见。
 
-图片：
-
-https://assets.leetcode.com/users/sucsliu34/image_1553086130.png
+[图片](https://assets.leetcode.com/users/sucsliu34/image_1553086130.png)
 
 
 ```python3
