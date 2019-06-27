@@ -2,4 +2,6 @@
 
 /fanqiang/
 
-/XX-net/   https://github.com/XndroidDev/Xndroid/releases
+/XX-net/   https://github.com/XX-net/XX-Net
+
+https://github.com/XndroidDev/Xndroid/releases
