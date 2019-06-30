@@ -1,6 +1,7 @@
 [背包问题](https://blog.csdn.net/huanghaocs/article/details/77920358)
 ```
-一个背包总容量为V, 现在有N个物品, 第i个物品容量为weight[i], 价值为value[i], 现在往背包里面装东西, 怎样装才能使背包内物品总价值最大.主要分为3类：
+一个背包总容量为V, 现在有N个物品, 第i个物品容量为weight[i], 价值为value[i], 现在往背包里面装东西,
+怎样装才能使背包内物品总价值最大.主要分为3类：
 
 0-1背包, 每个物品只能取0个,或者1个.
 f[i][j] = max{f[i-1][j], f[i-1][j-weight[i]]+value[i]}
