@@ -6,10 +6,13 @@
 
 [浅谈我对动态规划的一点理解](https://github.com/AngelKitty/Algorithm/blob/master/docs/Dynamic-programming/README.md)
 
-[最长公共子串  子序列 动态规划](https://www.cnblogs.com/yuling-chao/p/7383096.html?utm_source=itdadao&utm_medium=referral)
 
-[n-queens](https://github.com/awesometime/learn-git/blob/master/LeetCode/Backtracking/0051._n-queens.md)
+- 背包问题
 
-[leetcode 0300._longest_increasing_subsequence](https://github.com/awesometime/learn-git/blob/master/LeetCode/String/0300._longest_increasing_subsequence.md)
+- [最长公共子串  子序列 动态规划](https://www.cnblogs.com/yuling-chao/p/7383096.html?utm_source=itdadao&utm_medium=referral)
 
-[leetcode 0005._longest_palindromic_substring]()
+- [n-queens](https://github.com/awesometime/learn-git/blob/master/LeetCode/Backtracking/0051._n-queens.md)
+
+- [leetcode 0300._longest_increasing_subsequence](https://github.com/awesometime/learn-git/blob/master/LeetCode/String/0300._longest_increasing_subsequence.md)
+
+- [leetcode 0005._longest_palindromic_substring]()
