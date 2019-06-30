@@ -8,6 +8,8 @@
 
 [最长公共子串  子序列 动态规划](https://www.cnblogs.com/yuling-chao/p/7383096.html?utm_source=itdadao&utm_medium=referral)
 
-https://www.cnblogs.com/wangzaizhen/p/5168909.html
+[n-queens](https://github.com/awesometime/learn-git/blob/master/LeetCode/Backtracking/0051._n-queens.md)
 
-https://www.cnblogs.com/ider/p/longest-common-substring-problem-optimization.html
+[leetcode 0300._longest_increasing_subsequence](https://github.com/awesometime/learn-git/blob/master/LeetCode/String/0300._longest_increasing_subsequence.md)
+
+[leetcode 0005._longest_palindromic_substring]()
