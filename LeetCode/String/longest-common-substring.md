@@ -17,9 +17,11 @@
 如果 xm≠yn ，则 Zk 是 Xm 与 Yn−1 的 LCS ，或者是 Xm−1 与 Yn 的 LCS
 
 最长公共子串
+
 ![最长公共子串](https://github.com/AngelKitty/Algorithm/blob/master/docs/Dynamic-programming/figure/DP-solved-LCS-2.png)
 
 最长公共子序列
+
 ![最长公共子序列](https://github.com/AngelKitty/Algorithm/raw/master/docs/Dynamic-programming/figure/DP-solved-LCS-1.png)
 
 https://www.cnblogs.com/wangzaizhen/p/5168909.html
