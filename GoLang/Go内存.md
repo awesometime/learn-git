@@ -29,7 +29,7 @@ go命令 go build install run
 
 - [GCTT 出品 | Go 语言的内存管理](https://mp.weixin.qq.com/s/Rm5kILm1EgDGisk-L0LDIg)
 
-- [图解Golang的内存分配(https://mp.weixin.qq.com/s/pbwCYFEESkILGIJVqnNaLA)
+- [图解Golang的内存分配](https://mp.weixin.qq.com/s/pbwCYFEESkILGIJVqnNaLA)
 
 - [图解Go语言内存分配](https://mp.weixin.qq.com/s/Hm8egXrdFr5c4-v--VFOtg)
 
