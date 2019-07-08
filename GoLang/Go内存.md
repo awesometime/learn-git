@@ -8,7 +8,7 @@ Go Runtime
 
 ### 1 Go程序运行
 
-- [Go程序是怎样跑起来的](https://mp.weixin.qq.com/s?__biz=MjM5MDUwNTQwMQ==&mid=2257483812&idx=1&sn=3bc022cc699e24c0639e9ca6b321d552&chksm=a53918f2924e91e488c786c308353ee963df3e1bccb577bc9b03dd94f9551e4172401133becd&mpshare=1&scene=1&srcid=&key=7cdbdfe8ad7a4f033b81a92ec2bd7f51852fbcd0f8d8ea6174a902f647987fc4758d549b33ce9ea01378b0e738eed733e1146f08a46ba77094ff5aec49863940a57706423a5089d04f7710dd4b5b8a14&ascene=1&uin=MjY4NDk3MzYyNA%3D%3D&devicetype=Windows+10&version=62060833&lang=zh_CN&pass_ticket=H1Nq4dQ32l0py0NQyZ1JF1W2%2BIR8byLvnRK5tMaSFCxEkukPTZnfZztLOGnbywjd)
+- [Go程序是怎样跑起来的](https://mp.weixin.qq.com/s/Rewl0DKnq6CY53m5D3G2qw)
 
 ```
 目录
@@ -25,7 +25,7 @@ go命令 go build install run
 ```
 ### 2 Go内存分配
 
-- [Go内存分配](https://mp.weixin.qq.com/s?__biz=MjM5MDUwNTQwMQ==&mid=2257483812&idx=1&sn=3bc022cc699e24c0639e9ca6b321d552&chksm=a53918f2924e91e488c786c308353ee963df3e1bccb577bc9b03dd94f9551e4172401133becd&mpshare=1&scene=1&srcid=&key=7cdbdfe8ad7a4f033b81a92ec2bd7f51852fbcd0f8d8ea6174a902f647987fc4758d549b33ce9ea01378b0e738eed733e1146f08a46ba77094ff5aec49863940a57706423a5089d04f7710dd4b5b8a14&ascene=1&uin=MjY4NDk3MzYyNA%3D%3D&devicetype=Windows+10&version=62060833&lang=zh_CN&pass_ticket=H1Nq4dQ32l0py0NQyZ1JF1W2%2BIR8byLvnRK5tMaSFCxEkukPTZnfZztLOGnbywjd)
+- [Go内存分配那些事，就这么简单！](https://mp.weixin.qq.com/s/3gGbJaeuvx4klqcv34hmmw)
 
 - [GCTT 出品 | Go 语言的内存管理](https://mp.weixin.qq.com/s/Rm5kILm1EgDGisk-L0LDIg)
 
