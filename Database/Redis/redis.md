@@ -26,15 +26,22 @@
 - [通过思维导图整理redis的重要知识点](https://github.com/Weiwf/redis-mindmap)
 
 ### 2 redis 基础语法
+
+https://www.runoob.com/redis/redis-data-types.html
+
+https://www.cnblogs.com/dddyyy/p/9803828.html
+
 string
 ```
-set   设置值
-get    获取值
-mset   设置多个值
-mget   获取多个值
+String Key-Value
+
+set key value  设置值
+get key        获取值
+mset           设置多个值
+mget           获取多个值
 append
 del
-incr/decr
+incr/decr      对应的 value 自增/减1,如果没有这个key值 自动给你创建创建 并赋值为1
 ```
 list
 ```
@@ -47,17 +54,42 @@ lpushx rpushx
 ```
 set
 ```
-sadd srem
+无顺序，不能重复
+sadd key members   添加
+srem key a-member  删除
 sismember
-smembers   打印集合中的成员
+smembers key     查询 打印集合中的成员
 sdiff
 sinter
 sunion
 ```
 hash
 ```
+hset-key-filed-value
 
+HMSET myhash field1 "Hello" field2 "World"
+HGET myhash field1
+HGET myhash field2
 ```
+SortedSet（zset）
+```
+有顺序，不能重复
+
+适合做排行榜 排序需要一个分数属性
+
+zadd zset1 9 a 8 c 10 d 1 e   （添加元素 zadd key score member ）
+
+(ZRANGE key start stop [WITHSCORES])(查看所有元素：zrange key  0  -1  withscores)
+
+如果要查看分数，加上withscores.
+
+zrange zset1 0 -1 (从小到大)
+
+zrevrange zset1 0 -1 (从大到小)
+
+zincrby zset2 score member (对元素member 增加 score)
+```
+
 ### 3 redis-py python 操作 redis
 ```python
 import redis
