@@ -7,11 +7,11 @@
 写数据 print
    写入到标准输出             print   printf   println       默认格式/指定format/换行
    写入到文件对象             Fprint  Fprintf  Fprintln      默认格式/指定format/换行
-   写入成字符串形式返回给变量  Sprint  Sprintf  Sprintln
+   写入成字符串形式返回给变量   Sprint  Sprintf  Sprintln      默认格式/指定format/换行
 读数据 scan
-   从标准输入中读取  Scan   Scanf    Scanln
-   从文件对象中读取  Fscan  Fscanf   Fscanln
-   从字符串中读取    Sscan  Sscanf   Sscanln
+   从标准输入中读取             Scan   Scanf    Scanln       默认格式/指定format/换行 
+   从文件对象中读取             Fscan  Fscanf   Fscanln      默认格式/指定format/换行
+   从字符串中读取               Sscan  Sscanf   Sscanln      默认格式/指定format/换行
 ```
 
 
