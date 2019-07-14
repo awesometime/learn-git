@@ -1,11 +1,14 @@
 go编译器、go runtime、go解释器 
 
-本文讲go runtime
+[本文讲Go Runtime](https://github.com/ardanlabs/gotraining/blob/master/reading/README.md#runtimev)
 ```
 Go Runtime主要干什么  https://www.kancloud.cn/kancloud/the-way-to-go/72443
+
+
 调度
 内存分配 Go_Memory_Allocator
 垃圾回收 Go Garbage collection
+逃逸分析 Escape Analysis and Inlining
 栈处理、goroutine、channel、切片（slice）、map 和反射（reflection）
 ```
 
@@ -27,7 +30,16 @@ golang 程序启动过程
 
 go命令 go build install run
 ```
-### 2 Go内存分配
+
+### 2 调度
+
+[理解golang调度之一 ：操作系统调度](https://juejin.im/post/5cdeb6cdf265da1bd605727f)
+
+[理解golang调度之二 ：Go调度器]()
+
+[理解golang调度之三 ：并发]()
+
+### 3 Go内存分配
 
 - [译文：Go 内存分配器可视化指南](https://www.linuxzen.com/go-memory-allocator-visual-guide.html)
 
@@ -79,8 +91,27 @@ page span ThreadCache CentralCache PageHeap
 5 Go内存管理 内存分配 垃圾回收 内存释放
 逃逸分析和垃圾回收
 ```
-### 3 垃圾回收
+### 4 垃圾回收
+
+[垃圾回收(GC)浅谈 语言无关](https://juejin.im/post/5cf0ffa7f265da1ba56b052a)
 
 [译 Golang 中的垃圾回收（一)](https://mp.weixin.qq.com/s/SI-_9id0XjDGA3fEGaVFiA)
+```
+非分代并发的三色标记和清扫回收器
+
+1 Mark Setup - STW(Stop The World,延迟)
+  开启写屏障(Write Barrier)
+  回收器去检查并等待goroutine去做方法调用。方法调用确保了goroutines在安全的点停下来。
+2 Marking - Concurrent
+  一旦写屏障开启，回收器就会开始进入都标记阶段
+  回收器第一件做的事情就是拿走25%的可用CPU给自己使用。collector使用Goroutines去进行回收工作，也就是它会从应用程序抢过来对应数量的P和M。这意味着，4个线程的go程序里，会有一个P被拿去处理回收工作。
+  回收器会占用cpu资源
+3 Mark Termination -STW
+4 Sweeping - Concurrent
+
+runtime中有一个配置选项叫做 GC Percentage
+
+
+```
 
 [10.8 垃圾回收和 SetFinalizer](https://www.kancloud.cn/kancloud/the-way-to-go/72518)
