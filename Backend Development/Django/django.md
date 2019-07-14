@@ -30,6 +30,8 @@
   
     [Django uwsgi nginx mysql最主要参考 blog](http://blog.xander-ye.com/hello-docker/)
     
+  - [Docker 容器化部署 Python 应用](https://mp.weixin.qq.com/s/kbMNwdEy0aM96sp11NkSSQ)
+    
   - [Docker部署 - Django+MySQL+uWSGI+Nginx](https://zhuanlan.zhihu.com/p/29609591)
   
   - [2018 年不容错过的 Django 全栈项目  - 知乎 - 技术比较新 ](https://zhuanlan.zhihu.com/p/33903527):Django / DjangoRestFramework / Docker / Vue.JS / Celery / PostgreSQL / Redis / RabbitMQ
