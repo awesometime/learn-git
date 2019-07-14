@@ -1,8 +1,12 @@
+go编译器、go runtime、go解释器 
+
+本文讲go runtime
 ```
-Go Runtime 
+Go Runtime主要干什么  https://www.kancloud.cn/kancloud/the-way-to-go/72443
 调度
-内存
-垃圾回收
+内存分配
+垃圾回收 Garbage collection
+栈处理、goroutine、channel、切片（slice）、map 和反射（reflection）
 ```
 
 
@@ -71,3 +75,8 @@ page span ThreadCache CentralCache PageHeap
 5 Go内存管理 内存分配 垃圾回收 内存释放
 逃逸分析和垃圾回收
 ```
+### 3 垃圾回收
+
+[译 Golang 中的垃圾回收（一)](https://mp.weixin.qq.com/s/SI-_9id0XjDGA3fEGaVFiA)
+
+[10.8 垃圾回收和 SetFinalizer](https://www.kancloud.cn/kancloud/the-way-to-go/72518)
