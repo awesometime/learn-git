@@ -4,8 +4,8 @@ go编译器、go runtime、go解释器
 ```
 Go Runtime主要干什么  https://www.kancloud.cn/kancloud/the-way-to-go/72443
 调度
-内存分配
-垃圾回收 Garbage collection
+内存分配 Go_Memory_Allocator
+垃圾回收 Go Garbage collection
 栈处理、goroutine、channel、切片（slice）、map 和反射（reflection）
 ```
 
@@ -28,6 +28,10 @@ golang 程序启动过程
 go命令 go build install run
 ```
 ### 2 Go内存分配
+
+- [译文：Go 内存分配器可视化指南](https://www.linuxzen.com/go-memory-allocator-visual-guide.html)
+
+  [fanqiang  |A visual guide to Go Memory Allocator from scratch (Golang)](https://blog.learngoprogramming.com/a-visual-guide-to-golang-memory-allocator-from-ground-up-e132258453ed)
 
 - [图解 Golang的内存分配](https://mp.weixin.qq.com/s/pbwCYFEESkILGIJVqnNaLA)
 
