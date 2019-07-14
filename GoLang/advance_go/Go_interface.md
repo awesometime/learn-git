@@ -57,6 +57,39 @@ func main() {
 }
 
 ```
+空接口
+```go
+package main
+
+import "fmt"
+
+type Person struct {
+}
+
+func main()  {
+    var a interface{} = Person{}
+    var b interface{} = &Person{}
+    fmt.Println(a)
+    fmt.Println(b)
+}
+```
+断言
+```go
+// 断言
+// 1 判断变量数据类型
+   s, ok := i.(TypeName)
+    if ok {
+        fmt.Println(s)
+    }
+// 如果没有ok的话类型不正确的话会引起panic。
+
+// 2 也可以用switch形式：
+    switch v := v.(type) {
+      case TypeName:
+    ...
+    }
+```
+
 ### 接口底层
 
 ```
@@ -65,7 +98,14 @@ https://www.jianshu.com/p/ce91ca87fef1?utm_campaign=haruki&utm_content=note&utm_
 golang中的接口分为带方法的接口和空接口。
 带方法的接口在底层用iface表示，空接口的底层则是eface表示
 
-1   iface
+1   iface 结构见博客
+	//runtime/runtime2.go
+	//非空接口
+	type iface struct {
+	    tab  *itab
+	    data unsafe.Pointer    地址
+	}
+
 1.1 变量类型是如何转换成接口类型的？
     编译器生成的struct原始数据会复制一份，然后将新的数据的地址x赋值给iface.data, tab赋给iface.tab, 从而生成了完整的iface 
 1.2 指针变量类型是如何转换成接口类型的呢？
