@@ -58,7 +58,7 @@
 
 [今日头条Go建千亿级微服务的实践](https://www.jianshu.com/p/ea9ab1b67dce)
 
-
+[北邮人论坛的船新版本](https://git.byr.ac.cn/byr-bbs-dev/bbs)
 
 > 并发(concurrency)  goroutine channel
 
