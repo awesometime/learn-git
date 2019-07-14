@@ -46,7 +46,10 @@ Go runtime-scheduler
 
 - [Go调度器系列（4）源码阅读与探索](http://lessisbetter.site/2019/04/14/golang-scheduler-4-explore-source-code/)
 
-[python协程与golang协程的区别](https://segmentfault.com/a/1190000019127902?utm_campaign=studygolang.com&utm_medium=studygolang.com&utm_source=studygolang.com)
+[context主要用于在 goroutine 之间传递取消信号、超时时间、截止时间以及一些共享的值等。它几乎成了并发控制和超时控制的标准做法](https://mp.weixin.qq.com/s/ioYZ8AqnYAqYsi0KXKFAJA)
+
+
+python协程与golang协程的区别](https://segmentfault.com/a/1190000019127902?utm_campaign=studygolang.com&utm_medium=studygolang.com&utm_source=studygolang.com)
 
 [Go vs CPython: Visual comparison of concurrency and parallelism options](https://labs.getninjas.com.br/go-vs-cpython-visual-comparison-of-concurrency-and-parallelism-d29a1ebec20a)
 
