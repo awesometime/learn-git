@@ -46,7 +46,21 @@ Go runtime-scheduler
 
 - [Go调度器系列（4）源码阅读与探索](http://lessisbetter.site/2019/04/14/golang-scheduler-4-explore-source-code/)
 
-[context主要用于在 goroutine 之间传递取消信号、超时时间、截止时间以及一些共享的值等。它几乎成了并发控制和超时控制的标准做法](https://mp.weixin.qq.com/s/ioYZ8AqnYAqYsi0KXKFAJA)
+[context : 主要用于在 goroutine 之间传递取消信号、超时时间、截止时间以及一些共享的值等。它几乎成了并发控制和超时控制的标准做法](https://juejin.im/post/5d005529f265da1b86087f2f#heading-12)
+```
+如何使用 context
+context 使用起来非常方便。源码里对外提供了一个创建根节点 context 的函数：
+
+func Background() Context
+复制代码background 是一个空的 context， 它不能被取消，没有值，也没有超时时间。
+
+有了根节点 context，又提供了四个函数创建子节点 context：
+func WithCancel(parent Context) (ctx Context, cancel CancelFunc)
+func WithDeadline(parent Context, deadline time.Time) (Context, CancelFunc)
+func WithTimeout(parent Context, timeout time.Duration) (Context, CancelFunc)
+func WithValue(parent Context, key, val interface{}) Context
+复制代码context 会在函数传递间传递。只需要在适当的时间调用 cancel 函数向 goroutines 发出取消信号或者调用 Value 函数取出 context 中的值。
+```
 
 
 python协程与golang协程的区别](https://segmentfault.com/a/1190000019127902?utm_campaign=studygolang.com&utm_medium=studygolang.com&utm_source=studygolang.com)
