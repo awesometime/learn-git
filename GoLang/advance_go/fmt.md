@@ -2,7 +2,9 @@
 
 [fmt 中文官方文档](http://zh-golang.appspot.com/pkg/fmt/)
 
+[fmt包的格式化输出输入](https://www.cnblogs.com/nulige/p/10201488.html)
 
+http://c.biancheng.net/view/41.html
 ```
 写数据 print
    写入到标准输出             print   printf   println       默认格式/指定format/换行
