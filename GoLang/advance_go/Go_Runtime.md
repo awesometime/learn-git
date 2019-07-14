@@ -5,8 +5,8 @@ go编译器、go runtime、go解释器
 Go Runtime主要干什么  https://www.kancloud.cn/kancloud/the-way-to-go/72443
 
 
-调度
-内存分配 Go_Memory_Allocator
+并发调度 Go scheduler
+内存分配 Go Memory Allocator
 垃圾回收 Go Garbage collection
 逃逸分析 Escape Analysis and Inlining
 栈处理、goroutine、channel、切片（slice）、map 和反射（reflection）
@@ -33,11 +33,31 @@ go命令 go build install run
 
 ### 2 调度
 
-[理解golang调度之一 ：操作系统调度](https://juejin.im/post/5cdeb6cdf265da1bd605727f)
+[更多 goroutine](https://github.com/awesometime/learn-git/blob/master/GoLang/advance_go/Go_goroutine.md)
 
-[理解golang调度之二 ：Go调度器]()
+Go runtime-scheduler
 
-[理解golang调度之三 ：并发]()
+- [Analysis of the Go runtime scheduler 论文](http://www1.cs.columbia.edu/~aho/cs6998/reports/12-12-11_DeshpandeSponslerWeiss_GO.pdf)
+
+- [goroutine调度器](https://tonybai.com/2017/06/23/an-intro-about-goroutine-scheduler/)
+
+系列
+
+- [理解golang调度之一 ：操作系统调度](https://juejin.im/post/5cdeb6cdf265da1bd605727f)
+
+- [理解golang调度之二 ：Go调度器]()
+
+- [理解golang调度之三 ：并发]()
+
+系列
+
+- [Go调度器系列（1）起源](http://lessisbetter.site/2019/03/10/golang-scheduler-1-history/)
+
+- [Go调度器系列（2）宏观看调度器](http://lessisbetter.site/2019/03/26/golang-scheduler-2-macro-view/)
+
+- [Go调度器系列（3）图解调度原理](http://lessisbetter.site/2019/04/04/golang-scheduler-3-principle-with-graph/)
+
+- [Go调度器系列（4）源码阅读与探索](http://lessisbetter.site/2019/04/14/golang-scheduler-4-explore-source-code/)
 
 ### 3 Go内存分配
 
