@@ -1,6 +1,8 @@
 [Go语言interface底层实现](https://i6448038.github.io/2018/10/01/Golang-interface/)
 
-### a example of interface
+[golang中interface底层分析](https://www.jianshu.com/p/ce91ca87fef1?utm_campaign=haruki&utm_content=note&utm_medium=reader_share&utm_source=weixin)
+
+### 接口的使用 a example of interface
 ```go
 package main
 import "fmt"
@@ -55,6 +57,24 @@ func main() {
 }
 
 ```
+### 接口底层
+
+```
+https://www.jianshu.com/p/ce91ca87fef1?utm_campaign=haruki&utm_content=note&utm_medium=reader_share&utm_source=weixin
+
+golang中的接口分为带方法的接口和空接口。
+带方法的接口在底层用iface表示，空接口的底层则是eface表示
+
+1   iface
+1.1 变量类型是如何转换成接口类型的？
+    编译器生成的struct原始数据会复制一份，然后将新的数据的地址x赋值给iface.data, tab赋给iface.tab, 从而生成了完整的iface 
+1.2 指针变量类型是如何转换成接口类型的呢？
+    编译器自动生成了iface并直接将 &struct{age:18}创建的对象的地址（通过newobject）赋值给iface.data。也就是struct这个结构体没有被复制
+1.3 接口变量是如何找到struct 的具体某一个方法的呢？
+    iface.tab.fun 字段 存放接口的方法列表
+```
+
+### 接口能干吗
 
 Go只有封装
 
