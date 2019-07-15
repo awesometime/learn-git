@@ -887,13 +887,19 @@ func main() {
 
 ## JSON 数据格式
 
+https://github.com/Unknwon/the-way-to-go_ZH_CN/blob/master/eBook/12.9.md
+
+https://www.cnblogs.com/haiguixiansheng/articles/10718531.html
+
 json.Marshal()
 
-json.UnMarshal() 的函数签名是 
+json.UnMarshal() 
+
+函数签名是 
 ```go
 func Marshal(v interface{}) ([]byte, error)
+
 func Unmarshal(data []byte, v interface{}) error
-https://github.com/Unknwon/the-way-to-go_ZH_CN/blob/master/eBook/12.9.md
 ```
 
 ## XML 数据格式
