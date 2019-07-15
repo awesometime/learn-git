@@ -62,27 +62,13 @@
 
 > 并发(concurrency)  goroutine channel
 
-https://medium.com/rungo 系列
-
-[GCTT 出品 | 在 Go 中实现并发性](https://mp.weixin.qq.com/s/cX9FTkBncjrwcN8y1EuGdQ) : [英文出处](https://medium.com/rungo/achieving-concurrency-in-go-3f84cbf870ca)
-
-[Anatomy of Channels in Go - Concurrency in Go](https://medium.com/rungo/anatomy-of-channels-in-go-concurrency-in-go-1ec336086adb)
-
-[GCTT 出品 | 图解 Go 并发编程](https://mbd.baidu.com/newspage/data/landingshare?context=%7B%22nid%22%3A%22news_10061718063488657719%22%2C%22sourceFrom%22%3A%22bjh%22%2C%22url_data%22%3A%22bjhauthor%22%7D)  : [英文出处 Learning Go’s Concurrency Through Illustrations](https://medium.com/@trevor4e/learning-gos-concurrency-through-illustrations-8c4aff603b3)
-
-[Go Concurrency Patterns PPT  Rob Pike  Google](https://talks.golang.org/2012/concurrency.slide#1)
-
-[Go的CSP并发模型实现](https://www.cnblogs.com/sunsky303/p/9115530.html)
-
-[python协程与golang协程的区别](https://segmentfault.com/a/1190000019127902?utm_campaign=studygolang.com&utm_medium=studygolang.com&utm_source=studygolang.com)
-
-
-
 > Go对比其它语言
+
+[雨痕的Go源码剖析](https://github.com/qyuhen/book)
 
 [Go/Python/Erlang语言语法对比 图片](https://www.cnblogs.com/wahaha02/p/8876445.html#top)
 
-
+[go 语言思维 价值观](https://tonybai.com/2017/04/20/go-coding-in-go-way/?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io)
 
 > 其它
 ```
