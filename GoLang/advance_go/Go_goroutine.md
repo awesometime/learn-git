@@ -22,7 +22,7 @@ https://medium.com/@thatisuday 系列
 
 [Google I/O 2013 - Advanced Go Concurrency Patterns video](https://www.youtube.com/watch?v=QDDwwePbDtw)
 
-> 底层原理 Go语言运行时系统Go runtime（其中包括内存分配器，并发调度器scheduler，垃圾收集器等组件)
+> 底层原理 Go语言运行时系统 Go runtime（其中包括内存分配器，并发调度器scheduler，垃圾收集器等组件)
 
 模型
 
@@ -30,7 +30,7 @@ https://medium.com/@thatisuday 系列
 
 - [Go的CSP并发模型实现](https://www.cnblogs.com/sunsky303/p/9115530.html)
 
-Go runtime-scheduler
+Go runtime - scheduler
 
 - [Analysis of the Go runtime scheduler 论文](http://www1.cs.columbia.edu/~aho/cs6998/reports/12-12-11_DeshpandeSponslerWeiss_GO.pdf)
 
@@ -46,7 +46,7 @@ Go runtime-scheduler
 
 - [Go调度器系列（4）源码阅读与探索](http://lessisbetter.site/2019/04/14/golang-scheduler-4-explore-source-code/)
 
-[context : 主要用于在 goroutine 之间传递取消信号、超时时间、截止时间以及一些共享的值等。它几乎成了并发控制和超时控制的标准做法](https://juejin.im/post/5d005529f265da1b86087f2f#heading-12)
+- [context : 主要用于在 goroutine 之间传递取消信号、超时时间、截止时间以及一些共享的值等。它几乎成了并发控制和超时控制的标准做法](https://juejin.im/post/5d005529f265da1b86087f2f#heading-12)
 ```
 如何使用 context
 context 使用起来非常方便。源码里对外提供了一个创建根节点 context 的函数：
@@ -61,27 +61,22 @@ func WithTimeout(parent Context, timeout time.Duration) (Context, CancelFunc)
 func WithValue(parent Context, key, val interface{}) Context
 复制代码context 会在函数传递间传递。只需要在适当的时间调用 cancel 函数向 goroutines 发出取消信号或者调用 Value 函数取出 context 中的值。
 ```
+Go runtime - memory allocator
 
+[译文：Go 内存分配器可视化指南](https://www.linuxzen.com/go-memory-allocator-visual-guide.html)
 
-python协程与golang协程的区别](https://segmentfault.com/a/1190000019127902?utm_campaign=studygolang.com&utm_medium=studygolang.com&utm_source=studygolang.com)
+其它
+
+[python协程与golang协程的区别](https://segmentfault.com/a/1190000019127902?utm_campaign=studygolang.com&utm_medium=studygolang.com&utm_source=studygolang.com)
 
 [Go vs CPython: Visual comparison of concurrency and parallelism options](https://labs.getninjas.com.br/go-vs-cpython-visual-comparison-of-concurrency-and-parallelism-d29a1ebec20a)
+
+[goroutine背后的系统知识](http://www.sizeofvoid.net/goroutine-under-the-hood/)
+
 
 > 并发编程中锁
 
 [并发编程中为什么需要锁](https://github.com/k2huang/blogpost/blob/master/golang/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B/%E7%94%A8Go%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E5%B9%B6%E5%8F%91%20-%201.%E9%94%81%E7%9A%84%E4%BD%9C%E7%94%A8.md)
-
-> 其它
-
-go 语言思维 价值观
-
-[Go coding in go way](https://tonybai.com/2017/04/20/go-coding-in-go-way/?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io)
-
-[译文：Go 内存分配器可视化指南](https://www.linuxzen.com/go-memory-allocator-visual-guide.html)
-
-[雨痕的Go源码剖析](https://github.com/qyuhen/book)
-
-[goroutine背后的系统知识](http://www.sizeofvoid.net/goroutine-under-the-hood/)
 
 
 #### 并发 https://mp.weixin.qq.com/s/nqoRLVYIZmzgBBTSiIqkZg 学习笔记
