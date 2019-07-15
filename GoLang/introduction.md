@@ -346,7 +346,11 @@ func max(a, b int) int {
 	return b
 }
 ```
+### 闭包
 
+https://www.sulinehk.com/post/golang-closure-details/
+
+[Go 语言圣经 - 匿名函数](https://yar999.gitbooks.io/gopl-zh/content/ch5/ch5-06.html)
 
 # 第10章：结构（struct）与方法（method）
 
