@@ -2,15 +2,17 @@
 
 [go 中文官方文档](http://zh-golang.appspot.com/)
 
-[《The Way to Go》中文译本，中文名《Go 入门指南》 15k](https://github.com/Unknwon/the-way-to-go_ZH_CN/blob/master/eBook/directory.md)
+- [《The Way to Go》中文译本，中文名《Go 入门指南》 15k](https://github.com/Unknwon/the-way-to-go_ZH_CN/blob/master/eBook/directory.md)
 
-[build-web-application-with-golang  30k](https://github.com/astaxie/build-web-application-with-golang/blob/master/zh/preface.md)
+- [build-web-application-with-golang  30k](https://github.com/astaxie/build-web-application-with-golang/blob/master/zh/preface.md)
+
+- [Go语言圣经（中文版）在线阅读 |The Go Programming Language](https://docs.hacknode.org/gopl-zh/)
+
+  [Go语言圣经（中文版） 源码](https://github.com/adonovan/gopl.io)
+  
+- [Go 夜读](https://github.com/developer-learning/Reading-go)
 
 [Learn Go with tests   |Go中文网荣誉推出](https://studygolang.gitbook.io/learn-go-with-tests/)
-
-[Go语言圣经（中文版）在线阅读 |The Go Programming Language](https://docs.hacknode.org/gopl-zh/)
-
-[Go语言圣经（中文版） 源码](https://github.com/adonovan/gopl.io)
 
 [Go by Example    |Go Sheet](https://gobyexample.com/)
 
@@ -28,9 +30,9 @@
 
 > LeetCode
 
-[aQuaYi/LeetCode-in-Go](https://github.com/aQuaYi/LeetCode-in-Go)
+[aQuaYi/ LeetCode-in-Go](https://github.com/aQuaYi/LeetCode-in-Go)
 
-
+[halfrost / LeetCode-Go](https://github.com/halfrost/LeetCode-Go)
 
 > 嗯
 
@@ -38,8 +40,6 @@
 
 - [**Go 学习之路** developer-learning/learning-golang](https://github.com/developer-learning/learning-golang)
 
-- [Go 夜读](https://github.com/developer-learning/Reading-go)
- 
 - [Go 开发者学习路线图](https://github.com/Quorafind/golang-developer-roadmap-cn)
 
 - [快学 Go 语言 知乎](https://zhuanlan.zhihu.com/quickgo)
