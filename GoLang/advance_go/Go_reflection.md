@@ -1,3 +1,5 @@
+[reflect包](https://www.cnblogs.com/golove/p/5909541.html)
+
 反射和接口的关系
 
 [Go Blog的一篇文章《The law of reflection》](https://blog.golang.org/laws-of-reflection)
