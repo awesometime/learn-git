@@ -1,0 +1,1 @@
+nil只能赋值给指针、channel、func、interface、map或slice类型的变量，将nil赋值给其他类型的变量会引发panic。
