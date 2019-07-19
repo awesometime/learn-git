@@ -51,9 +51,23 @@ Dockerfile
 ```
 [Docker技术三大要点：cgroup, namespace和unionFS的理解](https://yq.aliyun.com/articles/680943#)
 
+[cgroups](https://www.infoq.cn/article/docker-kernel-knowledge-cgroups-resource-isolation/)
+```
+四个概念      task（任务）cgroup（控制组）subsystem（子系统）hierarchy（层级树）
+
+hierarchy（层级树）
+  |
+  ---cgroup 1  一组进程
+  ---cgroup 2
+  
+一个 hierarchy 关联一个或多个 subsystem 指定一些规则，比如CPU 子系统可以控制 CPU 时间分配，内存子系统可以限制 cgroup 内存使用量
+task（任务）== 一个进程
+```
+
+
 [进阶再看:  coolshell   DOCKER基础技术 ](https://coolshell.cn/?s=DOCKER%E5%9F%BA%E7%A1%80%E6%8A%80%E6%9C%AF)
 ```
-cgroup
+cgroup   图片 https://www.infoq.cn/article/docker-kernel-knowledge-cgroups-resource-isolation/
 namespace
 unionFS   DEVICEMAPPER  AUFS overlay2
 ```
