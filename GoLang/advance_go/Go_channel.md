@@ -4,6 +4,123 @@
 
 https://zhuanlan.zhihu.com/p/27917262
 
+
+
+```go
+1 chan 变量申明
+ch1 := make(chan string, 1)
+
+  一般要带缓冲的协程
+  
+2 slect
+  工厂函数
+3 WaitGroups
+4 Timeouts
+  close
+5 for elem := range queue
+Timers  适用于您希望将来做某事的时间
+Tickers 适用于您希望定期重复执行某些操作的情况 
+Mutexes
+
+//msg := <-pings
+//pongs <- msg
+pongs <- <-pings
+	
+```
+```go
+// use `select` with a `default` clause to
+// implement _non-blocking_ sends, receives, and even
+// non-blocking multi-way `select`s.
+
+package main
+
+import "fmt"
+
+func main() {
+    messages := make(chan string)
+    signals := make(chan bool)
+
+    select {
+    case msg := <-messages:
+        fmt.Println("received message", msg)
+    default:
+        fmt.Println("no message received")
+    }
+
+    // A non-blocking send . Here `msg`
+    // cannot be sent to the `messages` channel, because
+    // the channel has no buffer and there is no receiver.
+    // Therefore the `default` case is selected.
+    msg := "hi"
+    select {
+    case messages <- msg:
+        fmt.Println("sent message", msg)
+    default:
+        fmt.Println("no message sent")
+    }
+
+    // implement a multi-way non-blocking select. 
+    select {
+    case msg := <-messages:
+        fmt.Println("received message", msg)
+    case sig := <-signals:
+        fmt.Println("received signal", sig)
+    default:
+        fmt.Println("no activity")
+    }
+}
+```
+close
+```go
+package main
+
+import "fmt"
+
+func main() {
+	jobs := make(chan int, 5)
+	done := make(chan bool)
+
+	go func() {
+		for {
+			j, more := <-jobs
+			if more {
+				fmt.Println("received job", j)
+			} else {
+				fmt.Println("received all jobs")
+				done <- true
+				return
+			}
+		}
+	}()
+
+	for j := 1; j <= 3; j++ {
+		jobs <- j
+		fmt.Println("sent job", j)
+	}
+	close(jobs)
+	fmt.Println("sent all jobs")
+
+	<-done
+}
+
+sent job 1
+sent job 2
+sent job 3
+sent all jobs
+received job 1
+received job 2
+received job 3
+received all jobs
+```
+### channel能干吗
+
+```
+通过阻塞 保证同步
+Channel Synchronization
+Here’s an example of using a blocking receive to wait for a send goroutine to finish.
+https://gobyexample.com/channel-synchronization
+```
+
 ### deadlock
 
 [deadlock的几种情况](https://wumansgy.github.io/2018/09/09/go%E7%9A%84%E5%87%A0%E7%A7%8D%E6%AD%BB%E9%94%81%E6%83%85%E5%86%B5%E5%88%86%E6%9E%90/)
