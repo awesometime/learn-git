@@ -60,9 +60,23 @@ func f1(in chan int) {
 func main() {
 	out := make(chan int)
 	go f1(out)
-	out <- 2
+	out <- 2      // 发送方先要有接收方go程准备好，发送方阻塞等待， 接收方go程好了以后开始发送
 }
 ```
+这样也对 总之不要让go 程位于 mian函数最后边
+```go
+package main
+
+import "fmt"
+
+func main() {
+	messages := make(chan string)
+	go func() { messages <- "ping" }()
+	fmt.Println(<-messages)  // 接收方阻塞等待 发送方go程
+}
+
+```
+
 > 3
 ```go
 package main
