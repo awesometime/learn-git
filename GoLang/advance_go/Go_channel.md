@@ -10,7 +10,8 @@ https://zhuanlan.zhihu.com/p/27917262
 1 chan 变量申明
 不带缓冲区的就是同步的信道
  带缓冲区是异步的
-ch1 := make(chan string, 1)
+var ch chan int // ch == nil
+ch := make(chan string, 1)
 
   一般要带缓冲的协程
   
