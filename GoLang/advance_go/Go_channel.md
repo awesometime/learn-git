@@ -8,11 +8,13 @@ https://zhuanlan.zhihu.com/p/27917262
 
 ```go
 1 chan 变量申明
+不带缓冲区的就是同步的信道
+ 带缓冲区是异步的
 ch1 := make(chan string, 1)
 
   一般要带缓冲的协程
   
-2 slect
+2 slect  原理 为啥可以 监听
   工厂函数
 3 WaitGroups
 4 Timeouts
@@ -27,6 +29,7 @@ Mutexes
 pongs <- <-pings
 	
 ```
+use `select` with a `default` clause to implement _non-blocking_ sends, receives, and even non-blocking multi-way `select`s.
 ```go
 // use `select` with a `default` clause to
 // implement _non-blocking_ sends, receives, and even
@@ -97,7 +100,7 @@ func main() {
 		jobs <- j
 		fmt.Println("sent job", j)
 	}
-	close(jobs)
+	close(jobs)             // close
 	fmt.Println("sent all jobs")
 
 	<-done
@@ -112,6 +115,68 @@ received job 2
 received job 3
 received all jobs
 ```
+一个Bug
+```go
+package main
+
+const MaxOutstanding = 3
+
+var sem = make(chan int, MaxOutstanding)
+
+func Serve(queue chan *Request) {
+	for req := range queue {
+		sem <- 1
+		go func() {
+			process(req) // 这儿有 Bug，解释见下。 go 函数会继续循环，无需等当前go程结束，所以会导致req共享，因为req指向的地址是一块内存
+			<-sem
+		}()
+	}
+}
+```
+在 Go 的 for 循环中，该循环变量在每次迭代时会被重用，因此 req 变量会在所有的goroutine 间共享，这不是我们想要的。我们需要确保 req 对于每个 goroutine 来说都是唯一的。
+
+方法一 ：能够做到，就是将 req 的值作为实参传入到该 goroutine 的闭包中：
+```go
+package main
+
+const MaxOutstanding = 3
+
+var sem = make(chan int, MaxOutstanding)
+
+func Serve(queue chan *Request) {
+	for req := range queue {
+		sem <- 1
+		go func(req *Request) {
+			process(req)
+			<-sem
+		}(req)
+	}
+}
+```
+
+方法二 ：或者以相同的名字创建新的变量
+
+用相同的名字获得了该变量的一个新的版本,以此来局部地刻意屏蔽循环变量，使它对每个 goroutine 保持唯一。
+```go
+package main
+
+const MaxOutstanding = 3
+
+var sem = make(chan int, MaxOutstanding)
+
+func Serve(queue chan *Request) {
+	for req := range queue {
+		req := req // 为该 Go 程创建 req 的新实例。
+		sem <- 1
+		go func() {
+			process(req)
+			<-sem
+		}()
+	}
+}
+
+```
+
 ### channel能干吗
 
 ```
