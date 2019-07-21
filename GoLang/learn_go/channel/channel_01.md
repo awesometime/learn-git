@@ -1,4 +1,4 @@
-/*
+```
 Concurrency
 20 - Introduction to Concurrency 
 21 - Goroutines 
@@ -6,9 +6,11 @@ Concurrency
 23 - Buffered Channels and Worker Pools 
 24 - Select 
 25 - Mutex
-*/ 
+```
 
 
+> Channel as first-class citizen
+```go
 package main
 
 import (
@@ -54,9 +56,40 @@ func chanDemo() {
 		channels[i] <- 'A' + i
 	}
 
-	time.Sleep(time.Millisecond)
-	// 此处没用close 但是time.Millisecond之后
+	time.Sleep(time.Millisecond)    
+	// 此处没用close 但是time.Millisecond 之后
 	// 主函数main退出 发送方退出  接收方也收不到了
+}
+
+func main() {
+	chanDemo()
+}
+```
+> buffered Channel
+```go
+package main
+
+import (
+	"fmt"
+	"time"
+)
+
+func worker(id int, c chan int) {
+	// 发送方close关闭之后 接收方需要判断一下 没有数据了 然后停止
+
+	// method one
+	//for {
+	//	n, ok := <-c
+	//	if !ok {
+	//		break
+	//	}
+	//	fmt.Printf("Worker %d received %c\n", id, n) // %c字符
+	//}
+
+	// method two
+	for n := range c {
+		fmt.Printf("Worker %d received %c\n", id, n) // %c字符
+	}
 }
 
 func bufferedChannel() {
@@ -67,6 +100,37 @@ func bufferedChannel() {
 	c <- 'c'
 	c <- 'd'
 	time.Sleep(time.Millisecond)
+}
+
+func main() {
+	bufferedChannel()
+}
+```
+Channel close and range
+```go
+package main
+
+import (
+	"fmt"
+	"time"
+)
+
+func worker(id int, c chan int) {
+	// 发送方close关闭之后 接收方需要判断一下 没有数据了 然后停止
+
+	// method one
+	//for {
+	//	n, ok := <-c
+	//	if !ok {
+	//		break
+	//	}
+	//	fmt.Printf("Worker %d received %c\n", id, n) // %c字符
+	//}
+
+	// method two
+	for n := range c {
+		fmt.Printf("Worker %d received %c\n", id, n) // %c字符
+	}
 }
 
 func channelClose() {
@@ -81,19 +145,15 @@ func channelClose() {
 }
 
 func main() {
-	fmt.Println("Channel as first-class citizen")
-	chanDemo()
-	fmt.Println("Buffered channel")
-	bufferedChannel()
-	fmt.Println("Channel close and range")
 	channelClose()
 }
+```
 
-/*
+```
 var c chan int   // c == nil
 c := make(chan int)  // c == 0
   <-ch 在箭头的右边  收数据
 ch<-   在箭头的左边  发数据
 deadlock
 in go function and channel  is first-class citizen
-*/
+```
