@@ -2,6 +2,8 @@
 
 [图解Go的channel底层原理](https://mp.weixin.qq.com/s/w9_ycAYD6SRhaxy-4BnvwA)
 
+[channel](https://mp.weixin.qq.com/s/90Evbi5F5sA1IM5Ya5Tp8w)
+
 https://zhuanlan.zhihu.com/p/27917262
 
 
