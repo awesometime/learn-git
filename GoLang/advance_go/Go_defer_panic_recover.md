@@ -18,3 +18,18 @@ defer后边会接一个函数，但该函数不会立刻被执行，而是等到
    func recover() interface{}
    recover 返回接口类型 不同于 error类型 
 ```
+
+
+```go
+func (p *Pdf) Parse(msg []byte) (req interface{}, err error) {
+	defer func() {
+		if e := recover(); e != nil {
+			buf := make([]byte, 4096)
+			// stack 将调用stack的go程的调用栈踪迹格式化后写入到buf中并返回写入的字节数
+			n := runtime.Stack(buf, false)
+			msg := fmt.Sprintf("%s", buf[:n])
+			log.Errorf("panic happend %s", msg)
+			err = errors.New("panic happend")
+		}
+	}()
+```
