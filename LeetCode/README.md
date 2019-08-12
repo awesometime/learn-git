@@ -133,6 +133,8 @@ mysql必知必会
 
 [practicalAI](https://github.com/GokuMohandas/practicalAI)
 
+[apachecn/AiLearning](https://github.com/apachecn/AiLearning)
+
 
 
 
