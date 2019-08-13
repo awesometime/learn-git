@@ -129,11 +129,25 @@ mysql必知必会
 
 [100-Days-Of-ML-Code-ch](https://github.com/MLEveryday/100-Days-Of-ML-Code)
 
+言简意赅
+
 [Algorithm_Interview_Notes-Chinese](https://github.com/imhuay/Algorithm_Interview_Notes-Chinese)
 
-[practicalAI](https://github.com/GokuMohandas/practicalAI)
+数学基础
+
+对知识总体把握
+
+基本机器学习方法
+
+深度学习方法
+
+[GokuMohandas/practicalAI](https://github.com/GokuMohandas/practicalAI)
+
+Colab展示
 
 [apachecn/AiLearning](https://github.com/apachecn/AiLearning)
+
+从背景原理到开发流程到demo
 
 
 
