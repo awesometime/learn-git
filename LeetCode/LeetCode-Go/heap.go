@@ -1,5 +1,17 @@
 //https://mp.weixin.qq.com/s/A993f7N52DgS867XznfYxw
 
+
+type Interface interface {
+   // Len is the number of elements in the collection.
+   Len() int
+   // Less reports whether the element with
+   // index i should sort before the element with index j.
+   Less(i, j int) bool
+   // Swap swaps the elements with indexes i and j.
+   Swap(i, j int)
+}
+
+
 func heapSort(data Interface, a, b int) {
    first := a
    lo := 0
