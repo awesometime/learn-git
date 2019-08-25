@@ -12,6 +12,8 @@
   
 - [Go 夜读](https://github.com/developer-learning/Reading-go)
 
+- [快学 Go 语言](https://mp.weixin.qq.com/s/OVEPFX6YRBgdq2M_WVns7Q)
+
 [Learn Go with tests   |Go中文网荣誉推出](https://studygolang.gitbook.io/learn-go-with-tests/)
 
 [Go by Example    |Go Sheet](https://gobyexample.com/)
