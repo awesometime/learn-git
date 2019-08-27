@@ -1,3 +1,4 @@
+```
 本地构建工程
 1、构建工程原型 mvn archetype:generate
 mvn archetype:generate -DarchetypeGroupId=org.opendaylight.controller -DarchetypeArtifactId=opendaylight-startup-archetype -DarchetypeRepository=http://nexus.opendaylight.org/content/repositories/opendaylight.release/ -DarchetypeCatalog=remote -DarchetypeVersion=1.3.0-Carbon
@@ -43,4 +44,5 @@ opendaylight-user@root>feature:install odl-cl
 odl-classrelated          odl-classrelated-api      odl-classrelated-rest     odl-clustering-test-app      
 opendaylight-user@root>feature:install odl-classrelated
 
-10、登录http://172.18.141.230:8181/index.html
+10、登录http://ip:8181/index.html
+```
