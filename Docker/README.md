@@ -2,6 +2,8 @@
 
 [docs.docker.com ](https://docs.docker.com/get-started/)
 
+[dockone.io](http://dockone.io/)
+
 ### 学习
 
 [Docker —— 从入门到实践  gitbook](https://yeasy.gitbooks.io/docker_practice/)
@@ -49,6 +51,8 @@ Docker源码分析
 常用命令
 Dockerfile
 ```
+[dockone.io  cgroup, namespace和unionFS](http://dockone.io/article/2941)
+
 [Docker技术三大要点：cgroup, namespace和unionFS的理解](https://yq.aliyun.com/articles/680943#)
 
 [cgroups](https://www.infoq.cn/article/docker-kernel-knowledge-cgroups-resource-isolation/)
