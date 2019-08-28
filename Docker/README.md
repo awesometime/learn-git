@@ -50,6 +50,7 @@ Docker源码分析
 组件协作 client daemon
 常用命令
 Dockerfile
+容器与镜像的关系类似于面向对象编程中的对象与类
 ```
 [dockone.io  cgroup, namespace和unionFS](http://dockone.io/article/2941)
 
@@ -68,25 +69,6 @@ unionFS   DEVICEMAPPER  AUFS overlay2
 [Linux Namespace和Cgroup 详解](https://segmentfault.com/a/1190000009732550)
 
 ```
-WAN，全称Wide Area Network，中文名叫做广域网    网络出口 对外ip
-
-LAN，全称Local Area Network，中文名叫做局域网   内部ip
-WLAN 无线局域网
-VLAN（Virtual LAN），虚拟局域网
-
-VXLAN VXLAN（Virtual eXtensible Local Area Network) 虚拟扩展局域网
-
-物理层      mac
-数据链路层  交换机是根据MAC地址寻址 MAC地址表
-网络层      ip 路由器 根据IP地址
-传输层      port
-应用层
-
-
-路由器 不用Wan口只用Lan口相当于交换机
-二层交换机 三层交换机
-
-
 1 CGroups 资源分配
 Control Groups（简称 CGroups）就是能够隔离宿主机器上的物理资源，例如 CPU、内存、磁盘 I/O 和网络带宽
 
@@ -128,6 +110,14 @@ Docker 为我们提供了四种不同的网络模式，Host、Container、None �
 Docker 通过 Linux 的命名空间实现了网络的隔离，又通过 iptables 进行数据包转发，让 Docker 容器能够优雅地为
 宿主机器或者其他容器提供服务。
 
+Docker 创建一个容器的时候，会执行如下操作：
+
+创建一对虚拟接口，分别放到本地主机和新容器中；
+本地主机一端桥接到默认的 docker0 或指定网桥上，并具有一个唯一的名字，如 veth65f9；
+容器一端放到新容器中，并修改名字作为 eth0，这个接口只在容器的名字空间可见；
+从网桥可用地址段中获取一个空闲地址分配给容器的 eth0，并配置默认路由到桥接网卡 veth65f9。
+完成这些之后，容器就可以使用 eth0 虚拟网卡来连接其他容器和其他网络。
+
 2.1.2 Libnetwork
 具体实现 通过Libnetwork 
 整个网络部分的功能都是通过 Docker 拆分出来的 libnetwork 实现的，它提供了一个连接不同容器的实现，同时也能够
@@ -159,3 +149,5 @@ Advanced UnionFS 其实就是 UnionFS 的升级版
 /var/lib/docker/aufs/mnt/ 包含镜像或者容器层的挂载点
 最终会被 Docker 通过联合的方式进行组装。
 ```
+
+[同宿主机容器和不同宿主机容器之间怎么通信](https://blog.51cto.com/2367685/2349762)
