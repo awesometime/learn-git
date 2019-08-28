@@ -12,15 +12,17 @@ docker run --privileged=true -d -v /etc/localtime:/etc/localtime:ro -v /var/log:
 docker container start
 docker container stop
 docker save -o /root/cgs-shield-1.0.9.tar 100.95.181.176:5300/op_svc_cgs_container0/cgs-shield:1.0.9
-docker load -i cgs-shield-1.0.9.tar 
+docker load -i cgs-shield-1.0.9.tar
+
 docker pull 100.95.181.176:5300/op_svc_cgs_container0/cgs-shield:1.0.9
 docker push
+docker images
+docker rmi                                 删除镜像
+
 docker exec -it docker_id /bin/sh          登录进入容器
 docker exec -it xxx pip install flask -i http://mirrors.tools.huawei.com/pypi/simple/ --trusted-host mirrors.tools.huawei.com
 docker attach 
 docker build
-docker images
-docker rmi                                 删除镜像
 docker ps
 docker stop docker_id                      停止容器
 docker rm docker_id                        删除停止的docker
@@ -29,6 +31,14 @@ docker container prune
 docker start  ea508b1c2440 /bin/sh
 docker inspect 62ba
 docker cp file_name docker_id:目录         在节点使用命令上传文件到容器
+docker history
+
+数据卷
+docker volume ls 
+docker volume create
+docker volume rm 
+docker volume inspect
+docker volume prune
 ```
 
 ```shell
