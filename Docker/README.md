@@ -74,7 +74,7 @@ LAN，全称Local Area Network，中文名叫做局域网   内部ip
 WLAN 无线局域网
 VLAN（Virtual LAN），虚拟局域网
 
-VXLAN
+VXLAN VXLAN（Virtual eXtensible Local Area Network) 虚拟扩展局域网
 
 物理层      mac
 数据链路层  交换机是根据MAC地址寻址 MAC地址表
