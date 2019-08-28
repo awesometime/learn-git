@@ -87,7 +87,7 @@ VXLAN VXLAN（Virtual eXtensible Local Area Network) 虚拟扩展局域网
 二层交换机 三层交换机
 
 
-1 CGroups
+1 CGroups 资源分配
 Control Groups（简称 CGroups）就是能够隔离宿主机器上的物理资源，例如 CPU、内存、磁盘 I/O 和网络带宽
 
 四个概念      task（任务）cgroup（控制组）subsystem（子系统）hierarchy（层级树）
@@ -104,7 +104,7 @@ CPU 子系统可以控制 CPU 时间分配，
 task（任务）== 一个进程
 
 
-2 Namespaces
+2 Namespaces 权限隔离
 
 CLONE_NEWIPC
 CLONE_NEWNET
@@ -141,7 +141,7 @@ Docker 通过 Linux 的命名空间实现了网络的隔离，又通过 iptables
 Network
 Sandbox 通过 Endpoint 加入到对应的网络中，这里的网络可能就是我们在上面提到的 Linux 网桥bridge或者 VLAN
 
-3 UnionFS ——镜像
+3 UnionFS ——镜像分层提高存储效率
 Docker 中的每一个镜像都是由一系列只读的层组成的，Dockerfile 中的每一个命令都会在已有的只读层上创建一个新的层。
 当镜像被 docker run 命令创建时就会在镜像的最上层添加一个可写的层，也就是容器层，所有对于运行时容器的修改其实
 都是对这个容器读写层的修改。容器和镜像的区别就在于，所有的镜像都是只读的，而每一个容器其实等于镜像加上一个
