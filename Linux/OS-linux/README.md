@@ -122,3 +122,7 @@ https://www.cnblogs.com/kexinxin/category/1338888.html
 指在发生死锁时，必然存在一个进程——资源的环形链，即进程集合{P0，P1，P2，···，Pn}中的P0正在等待一个
 P1占用的资源；P1正在等待P2占用的资源，……，Pn正在等待已被P0占用的资源。
 ```
+
+# 内存
+
+[Linux 的虚拟内存](https://zhenbianshu.github.io/2018/11/understand_virtual_memory.html)
