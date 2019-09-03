@@ -22,15 +22,15 @@ https://medium.com/@thatisuday 系列
 
 [Google I/O 2013 - Advanced Go Concurrency Patterns video](https://www.youtube.com/watch?v=QDDwwePbDtw)
 
-> 底层原理 Go语言运行时系统 Go runtime（其中包括内存分配器，并发调度器scheduler，垃圾收集器等组件)
+# 底层原理 Go语言运行时系统 Go runtime（其中包括内存分配器，并发调度器scheduler，垃圾收集器等组件)
 
-模型
+> 1 模型
 
 - [好文  Go语言通过Goroutine来支持并发编程，有关其原理可以看这篇Go并发机制](https://github.com/k2huang/blogpost/blob/master/golang/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/%E5%B9%B6%E5%8F%91%E6%9C%BA%E5%88%B6/Go%E5%B9%B6%E5%8F%91%E6%9C%BA%E5%88%B6.md)
 
 - [Go的CSP并发模型实现](https://www.cnblogs.com/sunsky303/p/9115530.html)
 
-Go runtime - scheduler
+> 2 Go runtime - concurrency scheduler
 
 - [Analysis of the Go runtime scheduler 论文](http://www1.cs.columbia.edu/~aho/cs6998/reports/12-12-11_DeshpandeSponslerWeiss_GO.pdf)
 
@@ -61,11 +61,15 @@ func WithTimeout(parent Context, timeout time.Duration) (Context, CancelFunc)
 func WithValue(parent Context, key, val interface{}) Context
 复制代码context 会在函数传递间传递。只需要在适当的时间调用 cancel 函数向 goroutines 发出取消信号或者调用 Value 函数取出 context 中的值。
 ```
-Go runtime - memory allocator
+> 3 Go runtime - memory allocator
 
 [译文：Go 内存分配器可视化指南](https://www.linuxzen.com/go-memory-allocator-visual-guide.html)
 
-其它
+> 4 Go runtime - garbage collection
+
+
+
+# 其它
 
 [python协程与golang协程的区别](https://segmentfault.com/a/1190000019127902?utm_campaign=studygolang.com&utm_medium=studygolang.com&utm_source=studygolang.com)
 
@@ -94,7 +98,7 @@ Go runtime - memory allocator
 [![concurrency parallelism](https://mmbiz.qpic.cn/mmbiz_png/UWba2ryLMqlGWzyzqqeohYZr3yic7yFBfxDxrSrcyNVA2p5oA1c0UAbpBicdXFOyh19PWA1icpcuIAs68NcRvbpqw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)](https://mmbiz.qpic.cn/mmbiz_png/UWba2ryLMqlGWzyzqqeohYZr3yic7yFBfxDxrSrcyNVA2p5oA1c0UAbpBicdXFOyh19PWA1icpcuIAs68NcRvbpqw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)		       
 		       
 		       
-## Go 协程是什么？
+# Go 协程是什么？
 			    
 Go 协程是与其他函数或方法一起并发运行的函数或方法。Go 协程可以看作是轻量级线程。与线程相比，创建一个 Go 协程的成本很小。因此在 Go 应用中，常常会看到有数以千计的 Go 协程并发地运行。
 
