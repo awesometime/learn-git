@@ -19,15 +19,16 @@ Red-Black Tree is a self-balancing Binary Search Tree (BST) where every node fol
 # 红黑树 教科书 维基百科
 ```
 1
-    https://github.com/julycoding/The-Art-Of-Programming-By-July/blob/master/ebook/zh/03.01.md
+https://github.com/julycoding/The-Art-Of-Programming-By-July/blob/master/ebook/zh/03.01.md
 
-    Left-Leaning Red-Black Trees, Dagstuhl Workshop on Data Structures, Wadern, Germany, February, 2008，直接下载：            http://www.cs.princeton.edu/~rs/talks/LLRB/RedBlack.pdf。
+Left-Leaning Red-Black Trees, Dagstuhl Workshop on Data Structures, Wadern, Germany, February, 2008，
+直接下载：http://www.cs.princeton.edu/~rs/talks/LLRB/RedBlack.pdf。
 
-    原文链接：https://blog.csdn.net/v_JULY_v/article/details/6105630
+原文链接：https://blog.csdn.net/v_JULY_v/article/details/6105630
 
 2 http://dandanlove.com/2018/03/18/red-black-tree/
 
-3 程序员小黑
+3 程序员小黑 https://juejin.im/post/5a27c6946fb9a04509096248#comment
 ```
 > 在二叉树基础上 调整建立 红黑树 
 
