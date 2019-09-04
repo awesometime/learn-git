@@ -8,7 +8,7 @@ Go Runtime主要干什么  https://www.kancloud.cn/kancloud/the-way-to-go/72443
 并发调度 Go scheduler
 内存分配 Go Memory Allocator
 垃圾回收 Go Garbage collection
-逃逸分析 Escape Analysis and Inlining
+逃逸分析 Escape Analysis and Inlining  out of memory
 栈处理、goroutine、channel、切片（slice）、map 和反射（reflection）
 ```
 
@@ -135,3 +135,5 @@ runtime中有一个配置选项叫做 GC Percentage
 ```
 
 [10.8 垃圾回收和 SetFinalizer](https://www.kancloud.cn/kancloud/the-way-to-go/72518)
+
+### 5 内存泄漏
