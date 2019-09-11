@@ -46,4 +46,42 @@ ICMP应答处理
 ovs-ofctl add-flow s1 "table=0,priority=0,actions=resubmit(,1)"
 ovs-ofctl add-flow s1 "table=1,icmp,nw_dst=10.0.0.1,actions=mod_dl_dst=00:00:00:00:00:01,output:1"
 
+ virsh -c qemu:///system list
+  
+  
+vim ovs-ifup
+vim ovs-ifdown
+  
+ 
+chmod 777 ovs-ifup 
+chmod 777 ovs-ifdown
+  
+ovs-vsctl list
+  
+ovs-vsctl add-br lxbr0
+ovs-vsctl add-port lxbr0 enp7s0
+ovs-vsctl list-ports lxbr0
+       
+
+virsh list
+virsh console id-of-vm
+
+home/liuxin/odl#ls
+gen
+
+
+
+ovs-vsctl show 所有bridge
+
+ovs-ofctl show bridge名字   查看bridge信息
+
+ovs-ofctl dump-flows lxbr0  查看流表项
+
+ovs-ofctl del-flows lxbr0   删除流表
+
+ovs-ofctl add-flow lxbr0 actions=NORMAL
+
+ovs-ofctl add-flow lxbr0 in_port=2,actions=output:4
+
+ovs-vsctl list interface tapvm1w
 ```
