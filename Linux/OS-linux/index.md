@@ -1,7 +1,17 @@
+#### 操作系统from清华大学向勇，陈渝 笔记（一）绪论
+
+```
+https://blog.csdn.net/github_36487770/article/details/54924928
+
+https://www.bilibili.com/video/av6538245/?p=15
+```
+
+#### b站王道考研
+
 [计算机操作系统书 目录结构](https://github.com/SSHeRun/CS-Xmind-Note/tree/master/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F)
 
-深入分析Linux内核源码 知识结构
-
+#### 深入分析Linux内核源码 知识结构
+```
 前言
 
 第一章 走进linux
@@ -331,3 +341,4 @@
 2.10  块设备
 2.11  USB 设备
 2  参考文献
+```
