@@ -102,3 +102,28 @@ virsh # list --all
 ----------------------------------------------------
 ```
 3 修改虚拟机模板文件xml启动虚拟机
+
+```sh
+#！ /usr/bin/env bash OS='--os-variant=ubuntu16.04' Net='--network model=virtio,bridge=br-int,virtualport_type=openvswitch' Gr='--graphics vnc,listen=0.0.0.0' Cpu='--vcpu=2' Ram='--ram=512' function main() { if [ -z "$1" ];then echo "Uage: ./genVirtOS.h vm-name [vm-mac]" 	exit 1 fi if [ -n "$2" ];then Net="$Net,mac=${2}" fi vName=$1 Net="$Net,target=tap${vName}"w vStorage="/var/lib/libvirt/images/${vName}.img" cp -f ./cirros-0.3.5-x86_64-disk.img "${vStorage}" Name="--name=${vName}" Disk="--disk ${vStorage}" echo $Name $Disk virt-install $OS $Net $Disk $Gr $Cpu $Ram $Name --import --noautoconsole virsh list } main "$@"
+
+
+sudo apt-get install libxml++2.6-2  libxml++2.6-dev -y
+sudo apt-get install libdevmapper-dev -y
+sudo apt-get install libpciaccess-dev -y
+sudo apt-get install python-dev -y
+sudo apt-get install libnl-dev -y
+
+
+#! /usr/bin/env bash 
+function main() { 
+if [ "$#" != 1 ];then echo "Uage: ./destroyVirtOS.sh vm-name" exit 1 
+fi 
+vName="$1" 
+virsh destroy ${vName} 
+virsh undefine --remove-all-storage ${vName} 
+virsh list 
+} 
+
+main "$@" 
+
+```
