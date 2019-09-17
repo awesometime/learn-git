@@ -118,6 +118,7 @@ sudo ovs-ofctl add-flow br-int "in_port=2,icmp actions=push:NXM_OF_ETH_DST[],pop
   https://feisky.gitbooks.io/sdn/ovs/
 http://fishcried.com/2016-02-09/openvswitch-ops-guide/
 
+https://assafmuller.com/2014/05/21/ovs-arp-responder-theory-and-practice/
 
 ovs
 ovs-appctl           ovs-dpctl            ovs-tcpdump
