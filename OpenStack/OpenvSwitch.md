@@ -1,3 +1,22 @@
+＃＃＃ 两个虚机的ip处于不同网段时，OVS流表配置
+```
+vm1的ip: 192.168.1.10，mac addr: 52:54:00:5e:1c:52  网关: 192.168.1.1 mac addr: fe:54:00:5e:1c:52   port编号2
+vm3的ip: 192.168.2.10，mac addr: 52:54:00:da:98:88  网关: 192.168.2.1 mac addr: fe:54:00:da:98:88   port编号3
+
+
+ 网关: 192.168.1.1  的mac为addr:fe:54:00:5e:1c:52
+ 
+ovs-ofctl add-flow lxbr0 "in_port=2,arp,arp_tpa=192.168.1.1,arp_op=1 actions=move:NXM_OF_ETH_SRC[]->NXM_OF_ETH_DST[], mod_dl_src:fe:54:00:5e:1c:52,load:0x2->NXM_OF_ARP_OP[],move:NXM_NX_ARP_SHA[]->NXM_NX_ARP_THA[],load:0xfe54005e1c52->NXM_NX_ARP_SHA[],move:NXM_OF_ARP_SPA[]->NXM_OF_ARP_TPA[],load:0xc0a80101->NXM_OF_ARP_SPA[],in_port"
+
+ovs-ofctl add-flow lxbr0 "in_port=2,icmp actions=mod_dl_src:fe:54:00:da:98:88,mod_dl_dst:52:54:00:da:98:88,output:3"
+
+网关: 192.168.2.1　的mac为addr:fe:54:00:da:98:88
+
+ovs-ofctl add-flow lxbr0 "in_port=3,arp,arp_tpa=192.168.2.1,arp_op=1 actions=move:NXM_OF_ETH_SRC[]->NXM_OF_ETH_DST[], mod_dl_src:fe:54:00:da:98:88,load:0x2->NXM_OF_ARP_OP[],move:NXM_NX_ARP_SHA[]->NXM_NX_ARP_THA[],load:0xfe5400da9888->NXM_NX_ARP_SHA[],move:NXM_OF_ARP_SPA[]->NXM_OF_ARP_TPA[],load:0xc0a80201->NXM_OF_ARP_SPA[],in_port"
+
+ovs-ofctl add-flow lxbr0 "in_port=3,icmp actions=mod_dl_src:fe:54:00:5e:1c:52,mod_dl_dst:52:54:00:5e:1c:52,output:2"
+```
+
 ```
 https://cloud.tencent.com/developer/article/1082724
 https://www.sdnlab.com/19532.html
