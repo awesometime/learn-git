@@ -1,0 +1,174 @@
+OpenDaylight应用开发–基础篇
+0-ODL课程介绍
+一、ODL初体验
+1-1-SDN及ODL介绍
+1-2-ODL初体验实验
+1-3-OSGi及Karaf
+
+二 、印象SDN
+2-1-OFPlugin&Mininet
+2-2-OpenFlow实验
+2-3-OpenFlow协议介绍
+2-4-OpenFlowPlugin介绍
+2-5-RESTCONF介绍
+2-6-课程总结
+
+三、ODL's Hello World
+3-1-Maven基础
+3-2-ODL APP开发思路
+3-3-ODL Hello
+3-4-总结及思考练习题
+
+四、ODL MD-SAL RPC
+4-1-MD-SAL介绍
+4-2-YANG基础
+4-3-RPC原理简介
+4-4-AddFlow RPC实战
+4-5-pingHosts
+4-6-总结
+
+五、ODL MD-SAL Notification
+5-1-Notification原理
+5-2-Notification服务接口
+5-3-Blueprint
+5-4-Notification编程实践
+5-5-总结与思考题
+
+六、ODL MD-SAL DataStore
+6-1-DataStore介绍
+6-2-DataBroker及读写事务
+6-3-数据变更通知接口
+6-4-事务链
+6-5-总结及作业
+
+七、ODL L2Switch
+7-L2 Switch
+
+
+------------------------------------
+OpenDaylight应用开发–提高篇
+
+一、ODL分布式集群概述
+1 集群与分布式
+2 为什么是Akka？
+3 OpenDaylight与Akka
+4 搭建OpenDaylight集群
+
+二、ODL Routed RPC
+1 Routed RPC的yang建模
+2 Routed RPC的注册和调用
+3 RPC的分布式实现原理
+4 若干注意问题
+
+三、ODL Data Store Sharding
+1 分片策略
+2 分片配置和编程接口
+3 演示实例
+4 数据分片的问题
+
+四、ODL Data Store Consistency
+1 数据一致性问题及设计约束
+2 三阶段提交
+3 Raft算法
+4 DataStore的配置管理
+
+五、Entity Ownership Service
+1 问题背景及解决思路
+2 相关的类与接口
+3 实例
+
+六、Singleton Service
+1 问题背景
+2 相关的类与接口
+3 实例
+
+七、MountPoint Service
+1 Mount含义
+2 相关的类与接口
+3 应用实例
+
+八、Netconf Project
+1 项目介绍
+2 实现原理及核心流程
+3 应用
+
+九、ODL开发的常见问题
+
+--------------------------------------
+OpenDaylight应用开发—综合篇
+1 工欲善其事，必先利其器——项目简介
+2 知己知彼，百战不殆
+2.1 Docker及K8S原理知识
+2.2 主机内POD间网络实现原理
+2.3 跨主机POD间的网络实现原理-VXLAN
+
+3 运筹帷幄，决胜千里
+3.1 Yang最佳实践
+3.2 Maven最佳实践
+3.3 OSGi最佳实践
+
+4 如切如磋，如琢如磨
+4.1 编码规范
+4.2 测试杂谈
+4.3 OVSDB编码
+4.4 CNI插件开发
+4.5 重构，改善既有代码的设计
+
+5 不忘初心，以终为始--Let's start
+
+---------------------------------------------
+零基础掌握Neutron原理及应用–应用入门
+一.Neutron基础
+二.Neutron Security Group
+1.防火墙简介
+2.Neutron Security Group rule
+3.Neutron Security Group实现
+4.使用Neutron Security Group
+
+三.Neutron DHCP
+1.DHCP 协议简介
+2.Neutron 实现DHCP
+3.Neutron DHCP 相关操作
+4.DHCP 租约
+
+四.Neutron Router
+1.路由器基本概念
+2.Neutron Router实现和操作
+3.Neutron中4种路由器
+4.Router, Network, Subnet区别
+5.NAT
+
+五.Neutron Tenant
+1.Tenant基本概念和Neutron Tenant特征
+2.Tenant与Security Group的关系
+----------------------------------------
+Neutron实现原理（上）—架构和L2实现
+一.OpenStack Neutron架构
+1.1 Neutron的组成元素
+1.2 在OpenStack环境里面的部署模式
+1.3 Neutron与SDN的关系和集成方案
+1.4 Log和配置
+
+二.L2网络及其实现
+2.1 传统网络的二层网络
+2.2 FLAT，VLAN，VXLAN的实现
+2.3 OpenFlow的基本知识
+2.4 Neutron ML2架构
+2.5 L2 population
+2.6 VLAN aware VM
+2.7 虚机网卡的创建过程
+
+
+------------------------------------------
+Neutron实现原理（下）—L3和其他功能实现
+三.L3网络及其实现
+3.1 传统网络的三层网络
+3.2 Legacy路由器和DVR路由器的东西向流量
+3.3 Legacy路由器和DVR路由器的SNAT
+3.4 Legacy路由器和DVR路由器的Floatingip
+3.5 这些功能背后用到的策略路由，iptables，proxy ARP等具体技术
+
+四.其他功能
+4.1 Neutron Metadata Service
+4.2 Neutron QoS
+4.3 Allowed Address Pair
