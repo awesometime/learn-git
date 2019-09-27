@@ -1,6 +1,8 @@
 0/1背包
 https://mp.weixin.qq.com/s/2_KVD2Uk0Wzu2DTZWu04Dw
 
+https://www.cnblogs.com/Christal-R/p/Dynamic_programming.html
+
 完全背包
 https://mp.weixin.qq.com/s/XEa5RUm4l5S9ZXVlAxd7CA
 
