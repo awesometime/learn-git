@@ -8,7 +8,11 @@
 
 https://zhuanlan.zhihu.com/p/27917262
 
+[golang channel 使用总结](http://litang.me/post/golang-channel/)
 
+https://github.com/qcrao/Go-Questions
+
+https://segmentfault.com/a/1190000018385779
 
 ```go
 1 chan 变量申明
