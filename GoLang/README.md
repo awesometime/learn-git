@@ -14,6 +14,8 @@
 
 - [快学 Go 语言](https://mp.weixin.qq.com/s/OVEPFX6YRBgdq2M_WVns7Q)
 
+- [GO专家编程](https://github.com/RainbowMango/GoExpertProgramming)https://rainbowmango.gitbook.io/go/
+
 [Learn Go with tests   |Go中文网荣誉推出](https://studygolang.gitbook.io/learn-go-with-tests/)
 
 [Go by Example    |Go Sheet](https://gobyexample.com/)
