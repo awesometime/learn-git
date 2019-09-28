@@ -1,5 +1,7 @@
 [模板用法](https://gobyexample.com/)
 
+[ chan  ](https://rainbowmango.gitbook.io/go/chapter01/1.1-chan)
+
 [图解Go的channel底层原理](https://mp.weixin.qq.com/s/w9_ycAYD6SRhaxy-4BnvwA)
 
 [channel](https://mp.weixin.qq.com/s/90Evbi5F5sA1IM5Ya5Tp8w)
