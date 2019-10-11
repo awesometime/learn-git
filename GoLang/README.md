@@ -26,7 +26,9 @@
 
 [golang101 华人写的]()
 
+https://github.com/qcrao/Go-Questions/wiki
 
+https://github.com/chai2010/advanced-go-programming-book
 
 > 面试
 
