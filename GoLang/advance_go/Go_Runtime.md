@@ -59,6 +59,11 @@ Go runtime-scheduler
 
 - [Go调度器系列（4）源码阅读与探索](http://lessisbetter.site/2019/04/14/golang-scheduler-4-explore-source-code/)
 
+其它
+
+[弄懂goroutine调度原理](https://bingjian-zhu.github.io/2019/09/12/%E5%BC%84%E6%87%82goroutine%E8%B0%83%E5%BA%A6%E5%8E%9F%E7%90%86/)
+
+
 ### 3 Go内存分配
 
 - [译文：Go 内存分配器可视化指南](https://www.linuxzen.com/go-memory-allocator-visual-guide.html)
