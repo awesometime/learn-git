@@ -74,7 +74,7 @@ Go runtime-scheduler
 
 [![data heap stack code](https://mmbiz.qpic.cn/mmbiz_png/W4ZicqIeQOOfQV3u8HKZuxEqEZcNdPuOiaxxPkfhjVoqq2DXc1nibqEFL0IlweHPyKic2gxHDXicibEtiaLcZFVwstKDg/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)](https://mmbiz.qpic.cn/mmbiz_png/W4ZicqIeQOOfQV3u8HKZuxEqEZcNdPuOiaxxPkfhjVoqq2DXc1nibqEFL0IlweHPyKic2gxHDXicibEtiaLcZFVwstKDg/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
 
-- [重点推荐 |Go内存分配那些事，就这么简单！](https://mp.weixin.qq.com/s/3gGbJaeuvx4klqcv34hmmw)
+- [重点推荐 |Go内存分配那些事，就这么简单！ 大彬 Go语言充电站](http://lessisbetter.site/2019/07/06/go-memory-allocation/)
 
 汉字 有深意 虚拟内存申请 释放 heap分配 回收
 [![pic](https://mmbiz.qpic.cn/mmbiz_png/NjvicFU9uBtacnr4PU5ja25H9WlKgrgzy4ZLAdibJlINhSpzqr37GC2yVJefR80NsstMkdyfGic47kaaMQzUQHrKw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)](https://mmbiz.qpic.cn/mmbiz_png/NjvicFU9uBtacnr4PU5ja25H9WlKgrgzy4ZLAdibJlINhSpzqr37GC2yVJefR80NsstMkdyfGic47kaaMQzUQHrKw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
