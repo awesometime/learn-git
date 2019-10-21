@@ -177,7 +177,7 @@ go/src/runtime/makesizeclass.go
 
 ### 4 Go垃圾回收
 
-[Go垃圾回收 1：历史和原理](https://mp.weixin.qq.com/s/THleFV_uKMq4qsoODi2PdQ)
+[Go垃圾回收 1：历史和原理 大彬Go语言充电站](http://lessisbetter.site/)
 
 [垃圾回收(GC)浅谈 语言无关](https://juejin.im/post/5cf0ffa7f265da1ba56b052a)
 
