@@ -14,6 +14,22 @@ https://github.com/qcrao/Go-Questions
 
 https://segmentfault.com/a/1190000018385779
 
+https://blog.csdn.net/u010853261/article/details/85231944
+```
+Golang-Channel原理解析
+    Section1 channel使用实例
+	1.1 make channel
+	1.2 sends and receives
+	1.3 channel主要特性
+    Section2 源码分析
+	2.1 channel数据存储结构
+	2.2 make channel
+	2.3 协程从channel接收数据(goroutine receive data)
+	2.4 协程向channel写入数据(goroutine sender data)
+	2.5 channel close关闭channel源码分析
+```
+
+
 ```go
 1 chan 变量申明
 不带缓冲区的就是同步的信道
