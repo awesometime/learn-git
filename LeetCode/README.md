@@ -1,65 +1,3 @@
-[ 花花酱 ](https://zxi.mytechroad.com/blog/)
-
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
-
-## Tags Abbreviated description
-
-- **A** : `Array`
-- **DP** : `Dynamic Programming`
-- **Str** : `String`
-- **M** : `Math`
-- **T** : `Tree`
-- **HT** : `Hash Table`
-- **DS** : `Depth-first Search`
-- **BS** : `Binary Search`
-- **TP** : `Two Pointers`
-- **B** : `Backtracking`
-- **LL** : `Linked List`
-- **D&C** : `Divide and Conquer`
-- **H** : `Heap`
-- **S** : `Sort`
-- **Recu** : `Recursion`
-
-|index|problem|tags|method|
-|-|-|-|-|
-|0001||||
-|0002||||
-|0003||||
-|0004||||
-|0005||||
-|0006||||
-|0007||||
-|0008||||
-|0009||||
-|0010||||
-| 0011 | container_with_most_water |||
-|0012||||
-|0013||||
-| 0014 | longest_common_prefix |||
-|0015||||
-|0016||||
-|0017||||
-|0018||||
-|0019||||
-|0020||||
-|0021| best time |🍒D&C ||
-|0022| generate_parentheses |回溯 递归||
-|0023||||
-|0024||||
-|0025||||
-|0026||||
-|0027||||
-|0028||||
-|0029||||
-|0036||||
-| 0053 | maximum_subarray |🍒D&C||
-|0080||||
-|0263||||
-|0461||||
-
-
 > 链接
 
 ### doing...
@@ -153,8 +91,63 @@ Colab展示
 
 
 
+[ 花花酱 ](https://zxi.mytechroad.com/blog/)
 
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
+## Tags Abbreviated description
 
+- **A** : `Array`
+- **DP** : `Dynamic Programming`
+- **Str** : `String`
+- **M** : `Math`
+- **T** : `Tree`
+- **HT** : `Hash Table`
+- **DS** : `Depth-first Search`
+- **BS** : `Binary Search`
+- **TP** : `Two Pointers`
+- **B** : `Backtracking`
+- **LL** : `Linked List`
+- **D&C** : `Divide and Conquer`
+- **H** : `Heap`
+- **S** : `Sort`
+- **Recu** : `Recursion`
 
-
+|index|problem|tags|method|
+|-|-|-|-|
+|0001||||
+|0002||||
+|0003||||
+|0004||||
+|0005||||
+|0006||||
+|0007||||
+|0008||||
+|0009||||
+|0010||||
+| 0011 | container_with_most_water |||
+|0012||||
+|0013||||
+| 0014 | longest_common_prefix |||
+|0015||||
+|0016||||
+|0017||||
+|0018||||
+|0019||||
+|0020||||
+|0021| best time |🍒D&C ||
+|0022| generate_parentheses |回溯 递归||
+|0023||||
+|0024||||
+|0025||||
+|0026||||
+|0027||||
+|0028||||
+|0029||||
+|0036||||
+| 0053 | maximum_subarray |🍒D&C||
+|0080||||
+|0263||||
+|0461||||
