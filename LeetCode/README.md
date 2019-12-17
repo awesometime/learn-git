@@ -1,12 +1,11 @@
-> 链接
+> KPI
 
 ### doing...
 ```
-【深度学习  数据分析】
-【1月6-30日  ----->>】【数据结构和Algorithms implement】
-【3月1-30日  ----->>】【leetcode  *145道  *https://github.com/keon/algorithms/blob/master/README_CN.md
+【数据结构和Algorithms implement】
+【leetcode  *145道  *https://github.com/keon/algorithms/blob/master/README_CN.md
 *https://github.com/MisterBooo/LeetCodeAnimation *自己git】
-【4月-30日  ----->>】【论文 + 深度学习算法】
+
 
 --------------------------------- 
 https://github.com/apachecn/awesome-algorithm【有讲解】 【1级参考】 
@@ -26,12 +25,7 @@ https://github.com/TheAlgorithms/Python【数据结构实现】【】
 https://algorithm.yuanbin.me/zh-hans/part_i_basics/【数据结构实现 部分leetcode题】 【billryan / algorithm-exercise】
 下载一些github库  动画的那个  算法 leet题   自己的github
 【技术面试必备基础知识---算法 操作系统 数据库 网络 面向对象】【https://github.com/CyC2018/CS-Notes】                         
-mysql必知必会 
-
----------------------------------
-【黑客工具 - Ubuntu安装Kali工具集:Katoolin】
-【WebCMS】
-【数据集 KDD CUP 99、DARPA 2000、NSL-KDD】
+mysql必知必会
 ```
 
 
@@ -53,7 +47,7 @@ mysql必知必会
 【github 10*】【billryan / algorithm-exercise】【https://algorithm.yuanbin.me/zh-hans/part_i_basics/】【gitbook 有leetcode题解】
 -------------------
 【github 11 】【doc文档】【java】【CyC2018/CS-Notes】【技术面试必备基础知识---算法 操作系统 数据库 网络 面向对象】【https://github.com/CyC2018/CS-Notes】
-【github 12*】【done...】【facert/python-data-structure-cn 1.8k+】【https://facert.gitbooks.io/python-data-structure-cn/】【gitbook 偏数据结构知识内容讲解】
+【github 12*】【Done】【facert/python-data-structure-cn 1.8k+】【https://facert.gitbooks.io/python-data-structure-cn/】【gitbook 偏数据结构知识内容讲解】
 -------------------
 【github 13 】【https://www.cs.usfca.edu/~galles/visualization/Algorithms.html】【动画演示！！涵盖了常用的各种数据结构/排序/算法】
 【github 14 】【geekcomputers/Python】【pyhton实现小功能】【https://github.com/geekcomputers/Python】
@@ -89,7 +83,7 @@ Colab展示
 
 
 
-
+### 花花酱
 
 [ 花花酱 ](https://zxi.mytechroad.com/blog/)
 
