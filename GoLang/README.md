@@ -1,6 +1,10 @@
 > 置顶
 
-[go 中文官方文档](http://zh-golang.appspot.com/)
+[go 中文官方文档1](https://go-zh.org/doc/)
+
+[go 中文官方文档2](http://zh-golang.appspot.com/)
+
+[Go指南，练习一遍](https://tour.go-zh.org/welcome/)
 
 - [无闻Unknwon 《The Way to Go》中文译本，中文名《Go 入门指南》 15k](https://github.com/Unknwon/the-way-to-go_ZH_CN/blob/master/eBook/directory.md)
 
@@ -29,6 +33,10 @@
 [ 煎鱼的博客 ](https://book.eddycjy.com/golang/)
 
 [ 饶全成 Go-Questions ]https://github.com/qcrao/Go-Questions/wiki
+
+[飞雪无情的博客 和公众号](https://www.flysnow.org/categories/Golang/)
+
+[雨痕]
 
 [ 柴树杉 曹春晖 Go语言高级编程书 (Advanced Go Programming) ]https://github.com/chai2010/advanced-go-programming-book
 
