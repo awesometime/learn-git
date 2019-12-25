@@ -2,11 +2,11 @@
 
 [go 中文官方文档](http://zh-golang.appspot.com/)
 
-- [《The Way to Go》中文译本，中文名《Go 入门指南》 15k](https://github.com/Unknwon/the-way-to-go_ZH_CN/blob/master/eBook/directory.md)
+- [无闻Unknwon 《The Way to Go》中文译本，中文名《Go 入门指南》 15k](https://github.com/Unknwon/the-way-to-go_ZH_CN/blob/master/eBook/directory.md)
 
 - [build-web-application-with-golang  30k](https://github.com/astaxie/build-web-application-with-golang/blob/master/zh/preface.md)
 
-- [Go语言圣经（中文版）在线阅读 |The Go Programming Language](https://docs.hacknode.org/gopl-zh/)
+- [翻译自外文 Go语言圣经（中文版）在线阅读 |The Go Programming Language](https://docs.hacknode.org/gopl-zh/)
 
   [Go语言圣经（中文版） 源码](https://github.com/adonovan/gopl.io)
   
@@ -26,9 +26,11 @@
 
 [golang101 华人写的]()
 
-https://github.com/qcrao/Go-Questions/wiki
+[ 煎鱼的博客 ](https://book.eddycjy.com/golang/)
 
-https://github.com/chai2010/advanced-go-programming-book
+[ 饶全成 Go-Questions ]https://github.com/qcrao/Go-Questions/wiki
+
+[ 柴树杉 曹春晖 Go语言高级编程书 (Advanced Go Programming) ]https://github.com/chai2010/advanced-go-programming-book
 
 https://github.com/uber-go/guide/blob/master/style.md
 
