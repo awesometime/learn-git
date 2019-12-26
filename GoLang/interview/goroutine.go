@@ -22,3 +22,20 @@ func main() {
 
 }
 // 248
+
+
+
+
+// func main() {
+// 	i := 1
+// 	test := func() {
+// 		i += 1
+// 		fmt.Print(i)
+// 	}
+// 	test()
+// 	i = 10
+// 	test()
+
+// }
+
+// 211
