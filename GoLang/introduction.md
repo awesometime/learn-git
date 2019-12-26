@@ -8,6 +8,16 @@
 
 同一目录里变量名不能相同
 
+```
+目录结构
+一级目录
+    --dir1
+        aaa.go     package dir1
+    --dir2
+    	bbb.go     package dir2
+    main.go    package  main
+```
+
 ### 不懂就问
 
 > Type assertion 检测和转换接口变量的类型 **interface.(struct)** 
@@ -292,7 +302,16 @@ func main() {
 ### 运算符
 
 https://www.runoob.com/go/go-operators.html
+```
+Go 语言内置的运算符有：
 
+算术运算符  + - * /
+关系运算符  > < =
+逻辑运算符  &&and   ||or   !not
+位运算符     &与    |或    ^异或
+赋值运算符   += -=  \*=  /=
+其他运算符  *指针  &取地址
+```
 # 第5章：控制结构
 
 ### switch 结构
