@@ -179,6 +179,9 @@ https://github.com/Unknwon/the-way-to-go_ZH_CN/blob/master/eBook/11.4.md
 
 [体验golang语言的风骚编程](https://zhuanlan.zhihu.com/p/46370444)
 
+
+接下来按照 the way to go 的目录结构来，算是一个读书笔记吧
+
 # 第4章：基本结构和基本数据类型
 
 ### 变量
