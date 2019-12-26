@@ -6,6 +6,9 @@ https://blog.csdn.net/weixin_33874713/article/details/94165890
 
 此时 out != nil，因为虽然 out 的 value == nil， 但是 type !=nil
 
+**也就是interface 赋值 nil Pointer 之后，变成 non-nil**
+
+
 在写代码时如果不注意这里，很容易导致运行时的 panic
 
 ```go
