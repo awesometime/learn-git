@@ -19,6 +19,8 @@ OOP_Polymorphism_using_interface.md
 
 #### 例子：新增收益流
 
+**编写参数是接口变量的函数，这使得它们更具有一般性。使用接口使代码更具有普适性。**
+
 假设前面的组织通过广告业务，建立了一个新的收益流（Income Stream）。我们可以看到添加它非常简单，
 
 并且计算总收益也很容易，我们无需对 calculateNetIncome 函数进行任何修改。这就是多态的好处。
@@ -76,6 +78,8 @@ func (a Advertisement) source() string {
     return a.adName
 }
 
+// 编写参数是接口变量的函数，这使得它们更具有一般性。
+// 使用接口使代码更具有普适性。
 func calculateNetIncome(ic []Income) {
     var netincome int = 0
     for _, income := range ic {
@@ -91,6 +95,8 @@ func main() {
     project3 := TimeAndMaterial{projectName: "Project 3", noOfHours: 160, hourlyRate: 25}
     bannerAd := Advertisement{adName: "Banner Ad", CPC: 2, noOfClicks: 500}
     popupAd := Advertisement{adName: "Popup Ad", CPC: 5, noOfClicks: 750}
+    
+    // 编写参数是接口变量的函数，这使得它们更具有一般性。
     incomeStreams := []Income{project1, project2, project3, bannerAd, popupAd}
     calculateNetIncome(incomeStreams)
 }
