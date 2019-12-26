@@ -370,6 +370,8 @@ import "fmt"
 
 type Skills []string
 
+type List []int
+
 type Human struct {
 	name string
 	age int
@@ -417,22 +419,30 @@ type Class struct {
 	Grade int
 }
 
-
-// 赋值初始化
+//----------------值类型初始化--------------------------
+// 1 = 赋值
 var P person  // P现在就是person类型的变量了
 P.name = "Astaxie"  // 赋值"Astaxie"给P的name属性.
 P.age = 25  // 赋值"25"给变量P的age属性
 fmt.Printf("The person's name is %s", P.name)  // 访问P的name属性.
 
-// 两个字段都写清楚的初始化
+// 2 两个字段都写清楚的初始化
 bob := person{age:25, name:"Bob"}
 
-// 按照struct定义顺序初始化值
+// 3 按照struct定义顺序初始化值
 paul := person{"Paul", 43}
 
-//指针变量: 可以通过 new 函数分配一个指针，此处 P 的类型为 *person
+
+//----------------指针类型初始化----------------------------
+// 使用 new 函数给一个新的结构体变量分配内存，它返回 是指向已分配内存的指针
+// 指针变量: 可以通过 new 函数分配一个指针，此处 P 的类型为 *person
+
+var P *person
+P = new(person)  // P是一个指针
+
+// 效果如下
 P := new(person)  // 相当于P := &person{}  是一个取地址操作 P是指针 更快且节省内存空间
-P.name = "qwer"
+P.name = "qwer"  // 相当于 *P.name="qwer"
 P.age = 23
 ```
 
