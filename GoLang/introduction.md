@@ -386,6 +386,18 @@ https://www.sulinehk.com/post/golang-closure-details/
 > struct的匿名字段
 
 ```go
+// 定义一个struct，定义的时候是字段名与其类型一一对应，实际上Go语言支持只提供类型，
+// 而不写字段名的方式，也就是匿名字段。
+
+// 当匿名字段是一个struct的时候，那么这个struct所拥有的全部字段都被隐式地引入了当前定义的这个struct。
+
+// 哪些可以作为匿名字段
+// struct不仅能将struct作为匿名字段，自定义类型、内置类型都可以作为匿名字段，而且可以在相应的字段上进行函数操作
+
+// 有个问题：如果human里面有一个字段叫做phone，而student也有一个字段叫做phone，那么该怎么办呢？
+// Go语言很简单地解决了这个问题，最外层的优先访问，
+// 也就是当你通过student.phone访问的时候，是访问student里面的字段，而不是human里面的字段。
+
 package main
 
 import "fmt"
@@ -688,7 +700,7 @@ func main() {
 }
 ```
 
-[6.3. 通过嵌入结构体来扩展类型](https://docs.hacknode.org/gopl-zh/ch6/ch6-03.html)
+[6.3. 通过嵌入结构体来扩展类型 Go语言圣经](https://docs.hacknode.org/gopl-zh/ch6/ch6-03.html)
 ```go
 /*
    方法重写
@@ -705,8 +717,13 @@ import (
 
 type Point struct{ X, Y float64 }
 
+
+// ColoredPoint 类型的值便会拥有Point和RGBA类型的所有方法 ,以及直接定义在ColoredPoint中的方法
+// 当编译器解析一个选择器到方法时，比如p.ScaleBy，它会首先去找直接定义在这个类型里的ScaleBy方法，
+// 然后找被ColoredPoint的内嵌字段们引入的方法，然后去找Point和RGBA的内嵌字段引入的方法，然后一直递归向下找
+
 type ColoredPoint struct {
-	Point
+	Point   // 一个ColoredPoint并不是一个Point，但他"has a"Point，并且它有从Point类里引入的Distance和ScaleBy方法。
 	Color color.RGBA
 }
 
@@ -732,7 +749,8 @@ func main() {
 	blue := color.RGBA{0, 0, 255, 255}
 	var p = ColoredPoint{Point{1, 1}, red}
 	var q = ColoredPoint{Point{5, 4}, blue}
-	fmt.Println(p.Distance(q.Point)) // "5"
+	// 可以把ColoredPoint类型当作接收器来调用Point里的方法，即使ColoredPoint里没有声明这些方法
+	fmt.Println(p.Distance(q.Point)) // "5"   p.Distance(q) 是不对的
 	p.ScaleBy(2)
 	//(&p).ScaleBy(2)
 	//(&(p.Point)).ScaleBy(2)
