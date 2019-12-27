@@ -1,3 +1,4 @@
+goroutine 主协程要等待
 ```go
 package main
 
@@ -24,7 +25,7 @@ func main() {
 }
 // 248
 ```
-
+empty map 
 ```go
 package main
 
@@ -63,7 +64,7 @@ func main() {
 
 ```
 
-
+匿名函数
 
 ```go
 func main() {
