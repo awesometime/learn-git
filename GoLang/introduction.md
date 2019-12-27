@@ -535,6 +535,43 @@ P := new(person)  // 相当于P := &person{}  是一个取地址操作 P是指�
 P.name = "qwer"  // 相当于 *P.name="qwer"
 P.age = 23
 ```
+```go
+// https://docs.hacknode.org/gopl-zh/ch6/ch6-03.html
+package main
+
+import (
+	"fmt"
+	"sync"
+)
+
+// 这种用法
+var cache = struct {
+	sync.Mutex
+	mapping map[string]string
+}{
+	mapping: make(map[string]string),
+}
+
+
+func Lookup(key string) string {
+	cache.Lock()
+	v := cache.mapping[key]
+	cache.Unlock()
+	return v
+}
+
+func main() {
+	if cache.mapping == nil {
+		fmt.Println("map is nil")
+	} else {
+		fmt.Println("map is empty")
+	}
+	cache.mapping["a"] = "aaa"
+	cache.mapping["b"] = "bbb"
+	fmt.Println(Lookup("a"))
+	fmt.Println(Lookup("b"))
+}
+```
 
 ### 方法 面向对象
 
