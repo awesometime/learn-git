@@ -13,9 +13,13 @@
 一级目录
     --dir1
         aaa.go     package dir1
+	           xxx
     --dir2
     	bbb.go     package dir2
     main.go    package  main
+           main.go中   import 一级目录/dir1
+	               dir1.xxx
+          
 ```
 
 ### 不懂就问
