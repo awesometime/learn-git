@@ -1,3 +1,5 @@
+reflect.ValueOf(&ins).Elem().FieldByName(fieldName)
+
 [reflect包](https://www.cnblogs.com/golove/p/5909541.html)
 
 反射和接口的关系
