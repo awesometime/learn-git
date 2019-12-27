@@ -3,14 +3,33 @@
 https://i6448038.github.io/2018/08/26/map-secret/
 */
 
+### 空map和nil map
+
+https://blog.csdn.net/stpeace/article/details/82050482
+```
+
+对于nil slice而言， 爱咋地咋地， append和len都可以.
+
+对于nil map而言，nil map不能直接赋值， 但仍可以用len.真是个鸡肋。
+
+
+
+
+对于empty slice而言， 爱咋地咋地， append和len都可以.       
+
+对于empty map而言， 爱咋地咋地， append和len都可以.   
+```
+
 
 ### map的初始化
+
+main 函数里边
 ```go
 func main(){
 	// 先声明map
-	var mapping map[string]string
+	var mapping map[string]string    // 此时是 nil map，nil map不能赋值
 	// 再使用make函数创建一个非nil的map，nil map不能赋值
-	mapping = make(map[string]string)
+	mapping = make(map[string]string)  // 此时是 empty map,可以赋值   mapping = make(map[string]string, 0) 长度为0扔可以append
 	mapping["a"] = "aa"
 	mapping["b"] = "bb"
 	
@@ -54,7 +73,9 @@ for k, v := range m1 {
 }
 ```
 
-
+注意 
+	- map 是无序的 每次打印结果不同
+	- map中key不存在时 打印value相应类型的初始值
 ```go
 /*
 除slice map function之外的内建类型都可以作为key
