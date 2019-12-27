@@ -49,6 +49,8 @@ setable: true
 
 
 ```
+https://mojotv.cn/2019/07/21/golang-reflect
+
 反射三定律
 ```go
 1  Reflection goes from interface value to reflection object.
@@ -73,6 +75,18 @@ func (v Value) Interface() (i interface{})
 
 3  To modify a reflection object, the value must be settable.
 
+
+先看一下什么是反射对象reflection object？ 
+反射对象有很多，但是其中最关键的两个反射对象reflection object是：reflect.Type与reflect.Value.
+直白一点，就是对变量类型与值的抽象定义类，也可以说是变量的元信息的类定义.
+
+再来，为什么是接口变量值interface value, 不是变量值 variable value 或是对象值 object value 呢？
+因为后两者均不具备广泛性。在 Go 语言中，空接口 interface{}是可以作为一切类型值的通用类型使用。
+所以这里的接口值 interface value 可以理解为空接口变量值interface{} value。
+
+结合图示，将反射三原则归纳成一句话：
+通过反射可以实现反射对象reflection object与接口变量值interface value之间的相互推导与转化,
+如果通过反射修改对象变量的值，前提是对象变量本身是可修改的。
 ```
 
 reflct 包函数 
