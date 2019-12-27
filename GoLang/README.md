@@ -30,6 +30,8 @@
 
 [golang101 华人写的]()
 
+[基础 mojotv.cn/go](https://mojotv.cn/go/golang-reflect-string)
+
 [ 煎鱼的博客 ](https://book.eddycjy.com/golang/)
 
 [ 饶全成 Go-Questions ]https://github.com/qcrao/Go-Questions/wiki
