@@ -3,11 +3,11 @@ Go语言类型转换和类型断言
 https://www.jianshu.com/p/bd2acab2a8e9
 
 
-**Go语言的类型转换和类型断言:
+**Go语言的类型转换和类型断言:**
 
-类型转换在编译期完成，包括强制转换和 隐式转换typeA(变量)
+**类型转换在编译期完成，包括强制转换和 隐式转换typeA(变量)**
 
-类型断言在运行时确定，包括安全类型断言和非安全类型断言**
+**类型断言在运行时确定，包括安全类型断言和非安全类型断言**
 
 Go语言要求不同类型之间必须做显式的类型转换。但似乎涉及到接口类型时，就会有所不同。
 
@@ -71,8 +71,7 @@ var a A
 s = a.(string)
 ```
 
-总结  有图
-type_tab.png
+[![总结](https://upload-images.jianshu.io/upload_images/10797606-16168e32621d3a89.png?imageMogr2/auto-orient/strip|imageView2/2/w/425/format/webp)](https://upload-images.jianshu.io/upload_images/10797606-16168e32621d3a89.png?imageMogr2/auto-orient/strip|imageView2/2/w/425/format/webp)
 
 补充一个例子：
 ```
