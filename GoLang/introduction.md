@@ -933,6 +933,8 @@ Go 语言规范定义了接口方法集的调用规则：
 ```
 ### reflect
 
+[![pic](https://user-gold-cdn.xitu.io/2019/7/12/16be416ecd20d1ef?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)](https://user-gold-cdn.xitu.io/2019/7/12/16be416ecd20d1ef?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+
 [![reflect](https://pic4.zhimg.com/80/v2-5641dae0a8b8d4059e3782d8e92c204f_hd.jpg)](https://pic4.zhimg.com/80/v2-5641dae0a8b8d4059e3782d8e92c204f_hd.jpg)
 
 # 第12章：读写数据
