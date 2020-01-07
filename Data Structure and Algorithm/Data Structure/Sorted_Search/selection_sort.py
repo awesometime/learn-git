@@ -1,20 +1,26 @@
-# 1、时间复杂度：O(n2)  2、空间复杂度：O(1)  3、非稳定排序  4、原地排序
-# Python program for implementation of Selection Sort
-# https://www.geeksforgeeks.org/selection-sort/
+1、时间复杂度：O(n<sup>2</sup>)  2、空间复杂度：O(1)  3、非稳定排序  4、原地排序，不需要额外空间
 
+Python program for implementation of Selection Sort
+
+https://www.geeksforgeeks.org/selection-sort/  思路清晰
+    1 select
+    2 swap
+    3 counter shift  
+
+
+```py3
 # 一次 loop 后最小的到最左边
 def selection_sort(li):
-    # Traverse through all array elements 
+    # 3 counter shift :Traverse through all array elements 
     for i in range(len(li)):
-
-        # Find the minimum element in remaining 
-        # unsorted array 
+        
+        # 1 select :Find the minimum element in remaining unsorted array 
         min_idx = i
         for j in range(i + 1, len(li)):
             if li[min_idx] > li[j]:
                 min_idx = j
 
-        # Swap the found minimum element with the first element
+        # 2 Swap the found minimum element with the first element
         li[i], li[min_idx] = li[min_idx], li[i]   # 注意缩进 一定要放在第二层循环外边
         #print(li)
         # temp = li[i]
@@ -54,3 +60,4 @@ def selectionSort(alist):
 alist = [54, 26, 93, 17, 77, 31, 44, 55, 20]
 print(selectionSort(alist))
 print(alist)
+```
