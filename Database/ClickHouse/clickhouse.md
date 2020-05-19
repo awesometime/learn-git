@@ -3,17 +3,15 @@
 ClickHouse深度揭秘 
 https://www.sohu.com/a/361343972_100253472
 
-
 clickhouse-driver
 https://github.com/mymarilyn/clickhouse-driver
-
 ```
 
 ### 操作
 
-数据库部分
 
 > 创建数据库
+```
 CREATE TABLE log
 (
     `log_date` Date, 
@@ -23,12 +21,15 @@ CREATE TABLE log
 ENGINE = MergeTree(log_date, (sw_name, log_date), 8192)
 
 CREATE TABLE log (log_date Date, sw_name String, a_num Int32) ENGINE=MergeTree(log_date, (sw_name, log_date), 8192)
+```
 
 
 > 写入数据库shell命令方式    将log.csv写入clickhouse
 cat log.csv | clickhouse-client --format_csv_delimiter="|" --query="INSERT INTO database_name.table_name FORMAT CSV";
 
+
 > 写入数据库python    将log.csv写入clickhouse
+```
 >>> from clickhouse_driver import Client
 >>> import datetime
 >>> client = Client(host="10.64.28.64", port=9000, database="lx")
@@ -51,7 +52,7 @@ client.execute('CREATE TABLE test (x Int32) ENGINE = Memory')
 [datetime.datetime.strptime('2010-03-23', '%Y-%m-%d').date(), '10.11.10.123', 'HZ', 'C-04', 'Core', 500, 30],
 
 >>> client.execute(insert_sql, somedata, types_check=True)
-
+```
 
 
 
