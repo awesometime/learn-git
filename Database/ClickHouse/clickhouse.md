@@ -25,7 +25,9 @@ CREATE TABLE log (log_date Date, sw_name String, a_num Int32) ENGINE=MergeTree(l
 
 
 > 写入数据库shell命令方式    将log.csv写入clickhouse
+```
 cat log.csv | clickhouse-client --format_csv_delimiter="|" --query="INSERT INTO database_name.table_name FORMAT CSV";
+```
 
 
 > 写入数据库python    将log.csv写入clickhouse
