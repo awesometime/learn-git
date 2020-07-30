@@ -454,8 +454,22 @@ git clone git@github.com:自己账号/bootstrap.git
 
 ```
 
+### git 冲突解决
 
+```
+step1 在本地仓库中, 更新并合并代码
+git fetch origin
+git rebase origin/master
 
+step2 依据提示分别打开冲突的文件, 逐一修改冲突代码
+
+step3 所有冲突都修改完毕后, 提交修改的代码
+git add -u
+git rebase --continue
+
+step4 更新patch
+git push origin HEAD:refs/for/master
+```
 
 
 
