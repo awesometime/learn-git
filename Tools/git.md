@@ -452,7 +452,7 @@ git clone git@github.com:自己账号/bootstrap.git
     |/
     * d47c879 Initial commit
 
-```
+
 
 ### git 冲突解决
 
