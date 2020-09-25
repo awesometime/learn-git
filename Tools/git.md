@@ -470,6 +470,11 @@ git rebase --continue
 step4 更新patch
 git push origin HEAD:refs/for/master
 ```
-
+```
+git merge的冲突判定机制如下：
+先寻找两个commit的公共祖先，
+比较同一个文件分别在ours和theirs下对于公共祖先的差异，然后合并这两组差异。
+如果双方同时修改了一处地方且修改内容不同，就判定为合并冲突，依次输出双方修改的内容。
+```
 
 
