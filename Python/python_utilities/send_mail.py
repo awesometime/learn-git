@@ -27,7 +27,8 @@ def send_mail():
         # MIMEText()["to"]的数据类型为str类型,多个地址使用逗号分隔
         # sendmail(from_addrs, to_addrs, ...)的to_addrs为list类型。
         print("邮件发送success")
-    except Exception :  # 如果 try 中的语句没有执行，则会执行下面的 ret=False
+    except Exception as e:  # 如果 try 中的语句没有执行，则会执行下面的 ret=False
+        print(e)
         ret = False
     return ret
 
