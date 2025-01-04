@@ -6,6 +6,8 @@ import collections
 class Solution(object):
     def lengthOfLongestSubstringTwoDistinct(self, s):
         lookup = collections.defaultdict(int)
+        # loopup = {}
+        # loopup[char] = loopup.get(char, 0) + 1
         l, r, counter, res = 0, 0, 0, 0
         while r < len(s):
             lookup[s[r]] += 1
