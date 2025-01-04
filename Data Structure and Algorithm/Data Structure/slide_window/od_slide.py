@@ -3,6 +3,8 @@ s2 = "saaabcd"
 k = 1
 
 """
+https://labuladong.online/algo/essential-technique/sliding-window-framework/
+
 最左侧冗余覆盖子串
 举例：
 s1 = “ab”
