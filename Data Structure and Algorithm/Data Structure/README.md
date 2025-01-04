@@ -1,11 +1,16 @@
+主要重点 滑动窗口 回溯算法 动态规划
 
+Day05. 回溯算法核心原理  递归
+https://leetcode.cn/problems/permutations/solution/by-awesometime-a5lq/
 
+Day06. 回溯算法解决排列组合和子集问题
+https://leetcode.cn/problems/subsets/solution/by-awesometime-q726/
 
-Day14. 魔塔游戏
-https://leetcode.cn/problems/dungeon-game/solution/by-awesometime-w2em/
+Day10.回溯  200岛屿数量
+https://leetcode.cn/problems/number-of-islands/solution/by-awesometime-ktdr/
 
-Day13. 编辑距离
-https://leetcode.cn/problems/edit-distance/solution/by-awesometime-c6mm/
+Day08.动态规划核心原理 DP   322 零钱兑换
+https://leetcode.cn/problems/coin-change/solution/by-awesometime-b2hn/
 
 Day12. base case 的初始值如何设置
 https://leetcode.cn/problems/minimum-falling-path-sum/solution/by-awesometime-ym6x/
@@ -13,23 +18,17 @@ https://leetcode.cn/problems/minimum-falling-path-sum/solution/by-awesometime-ym
 Day11. 动态规划设计方法
 https://leetcode.cn/problems/longest-increasing-subsequence/solution/by-awesometime-m8lv/
 
-Day10.回溯  200岛屿数量
-https://leetcode.cn/problems/number-of-islands/solution/by-awesometime-ktdr/
+Day14. 魔塔游戏
+https://leetcode.cn/problems/dungeon-game/solution/by-awesometime-w2em/
+
+Day13. 编辑距离
+https://leetcode.cn/problems/edit-distance/solution/by-awesometime-c6mm/
 
 Day09. BFS 算法基础
 https://leetcode.cn/problems/minimum-depth-of-binary-tree/solution/by-awesometime-0ndr/
 
-Day08.动态规划核心原理 DP   322 零钱兑换
-https://leetcode.cn/problems/coin-change/solution/by-awesometime-b2hn/
-
 Day07. 子集划分问题
 https://leetcode.cn/problems/partition-to-k-equal-sum-subsets/solution/by-awesometime-4j4f/
-
-Day06. 回溯算法解决排列组合和子集问题
-https://leetcode.cn/problems/subsets/solution/by-awesometime-q726/
-
-Day05. 回溯算法核心原理
-https://leetcode.cn/problems/permutations/solution/by-awesometime-a5lq/
 
 Day04. 并查集算法
 https://leetcode.cn/problems/surrounded-regions/solution/by-awesometime-p7nd/
