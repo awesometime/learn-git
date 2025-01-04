@@ -1,5 +1,8 @@
 
+基础
 https://github.com/labuladong/basic-challenge/issues
+
+进阶
 https://github.com/labuladong/advanced-challenge/issues
 
 Day14. 魔塔游戏
