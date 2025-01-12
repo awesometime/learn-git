@@ -1,5 +1,5 @@
 ###
-二叉树的产生及递归遍历
+#二叉树的产生及递归遍历
 
 
 class TreeNode:
@@ -67,7 +67,7 @@ if __name__=='__main__':
     afterTraverse(root)
     print('\n')
     
-###
+"""
 前序遍历：
 D
 B
@@ -96,4 +96,4 @@ F
 G
 E
 D
-###
+"""

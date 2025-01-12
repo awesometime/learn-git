@@ -34,7 +34,24 @@ class Quick():
     def __init__(self):
         pass
 
-    # 两路快排
+    # 两路快排 递归 最好的方法1:
+    def GetLeastNumbers_Solution(self, tinput, k):
+        # write code here
+        if not tinput or k > len(tinput):
+            return []
+        tinput = self.quick_sort(tinput)
+        return tinput[:k]
+
+    def quick_sort(self, lst):
+        if not lst:
+            return []
+        pivot = lst[0]
+        left = self.quick_sort([x for x in lst[1:] if x < pivot])
+        right = self.quick_sort([x for x in lst[1:] if x >= pivot])
+
+        return left + [pivot] + right
+
+    # 两路快排 递归  方法2:
     def quickSort(self, alist):
         self.quickSortHelper(alist, 0, len(alist) - 1)
 
@@ -46,6 +63,9 @@ class Quick():
             self.quickSortHelper(alist, first, splitpoint - 1)
             self.quickSortHelper(alist, splitpoint + 1, last)
 
+    # 返回数组第一个值排序后的正确索引index,
+    # 此时索引左边均小于数组第一个值,索引右边均大于数组第一个值
+    # 以此递归
     def two_partition(self, alist, first, last):
         pivotvalue = alist[first]
 
@@ -58,18 +78,22 @@ class Quick():
             while leftmark <= rightmark and alist[leftmark] <= pivotvalue:
                 leftmark = leftmark + 1
             # 右指针 左移
-            while alist[rightmark] >= pivotvalue and rightmark >= leftmark:
+            while leftmark <= rightmark and alist[rightmark] >= pivotvalue:
                 rightmark = rightmark - 1
 
-            # 指针交叉 找到了分裂点
             if rightmark < leftmark:
+                # 指针交叉 找到了分裂点
                 done = True
             else:
+                # left < right
+                # 并且左指针值>pivotvalue,右指针值<pivotvalue,
+                # 交换左右指针对应的值
                 temp = alist[leftmark]
                 alist[leftmark] = alist[rightmark]
                 alist[rightmark] = temp
 
-        # 找到分裂点应该处的正确索引rightmark后 将枢轴点 与rightmark 交换
+        # 找到 pivotvalue的正确索引rightmark后
+        # 交换 pivotvalue 与指针rightmark对应的值
         temp = alist[first]
         alist[first] = alist[rightmark]
         alist[rightmark] = temp
@@ -94,7 +118,8 @@ class Quick():
                 low += 1
             alist[high] = alist[low]                            # 和第一种方法的区别在这里
 
-        # 循环退出时 low==high
+        # low==high时循环退出
+        # 找到mid_value正确的索引为low,
         alist[low] = mid_value
 
         # 对low左边的列表执行快速排序

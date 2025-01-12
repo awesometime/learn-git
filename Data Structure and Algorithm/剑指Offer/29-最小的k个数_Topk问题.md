@@ -83,9 +83,11 @@ class Solution:
             j = self.partition(nums, l, h)
             if j == k:
                 break
-            if j > k:           # 需要继续在 找到的 j 个小于pivot的值中 进行self.partition() 取出 k 个
+            if j > k:           
+                # 需要继续在 找到的 j 个小于pivot的值中 进行self.partition() 取出 k 个
                 h = j - 1
-            else:               # 需要继续在 大于pivot的值中 进行self.partition() 取出 k 个
+            else:               
+                # 需要继续在 大于pivot的值中 进行self.partition() 取出 k 个
                 l = j + 1
         return nums[k]
 
@@ -99,6 +101,7 @@ class Solution:
             while low < high and nums[low] <= parti:
                 low += 1
             nums[high] = nums[low]
+        # 找到parti值排序后正确的索引值low   
         nums[low] = parti
         return low
 
@@ -108,8 +111,8 @@ class Solution:
             return res
         kth_smallest = self.find_kth_smallest(tinput, k - 1)         # 注意 第k个 索引是k-1
         print(tinput)
-	
-	# 会改变原来数组 也就是在原数组基础上排序 所以取原数组的前k个即可
+    
+        # 会改变原来数组 也就是在原数组基础上排序 所以取原数组的前k个即可
         for i in range(k):
             res.append(tinput[i])
         return sorted(res)

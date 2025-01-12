@@ -7,6 +7,19 @@
 解释：最大平均数 (12-5-6+50)/4 = 51/4 = 12.75
 */
 
+/*
+class Solution:
+    def findMaxAverage(self, nums: List[int], k: int) -> float:
+        maxTotal = total = sum(nums[:k])
+        n = len(nums)
+
+        for i in range(k, n):
+            total = total - nums[i - k] + nums[i]
+            maxTotal = max(maxTotal, total)
+
+        return maxTotal / k
+*/
+
 func findMaxAverage(nums []int, k int) float64 {
 	k_total := 0
 	sum := 0

@@ -25,8 +25,7 @@ def find_str_index():
     # 这里need count 可以是负数
     # match_total 代表一共需匹配的字符总数 初始为len(s1)
     match_total = len(s1)
-    # 滑动窗口匹配
-    # 初始化 先处理字符串s2的前n1+k个字符
+
     """
     最左侧冗余覆盖子串
     s1 ab
@@ -35,6 +34,8 @@ def find_str_index():
      index = 1 {'b': 1, 'a': 0} match_total 2-> 1
      index = 2 {'b': 1, 'a': -1} match_total 1 
     """
+    # 滑动窗口匹配
+    # 初始化 先处理字符串s2的前n1+k个字符
     for index in range(n1 + int(k)):
         # 匹配到一个字符 这个字符的need数量减1
         if s2[index] in need:
