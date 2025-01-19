@@ -48,10 +48,15 @@ def ZeroOnePack(N, V, weight, value):
     dp = [[0 for col in range(V + 1)] for row in range(N + 1)]
     for i in range(1, N + 1):
         for j in range(1, V + 1):
-            if j < weight[i]:  # 总容量j小于物品i的容量时，直接不考虑物品i
+            if j < weight[i]:  
+                # 总容量j小于物品i的容量时，直接不考虑物品i
+                # 这种情况下只能选择不装入背包
                 dp[i][j] = dp[i - 1][j]
-            else:  # 注意由于weight、value数组下标从0开始，第i个物品的容量为weight[i-1],价值为value[i-1]
-                dp[i][j] = max(dp[i - 1][j], dp[i - 1][j - weight[i]] + value[i])  # 状态方程
+            else:  
+                # 注意由于weight、value数组下标从0开始，
+                # 第i个物品的容量为weight[i-1],价值为value[i-1]
+                # 状态方程
+                dp[i][j] = max(dp[i - 1][j], dp[i - 1][j - weight[i]] + value[i])
     max_value = dp[N][V]
     return max_value, dp
 
