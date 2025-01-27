@@ -49,7 +49,7 @@ def find_str_index():
             return 0
           
     # 动态调整窗口
-    for index in range(1, n2 - (n1 + int(k)) + 1):
+    for index in range(1, n2 - (n1 + int(k)) + 1): # n2是长串的藏长度
         del_char = s2[index - 1]
         add_char = s2[index + n1 + int(k) - 1]
         print(index)
