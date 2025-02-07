@@ -1,6 +1,9 @@
 TODO 主要重点 滑动窗口 回溯算法 动态规划
 
 > KPI
+> 
+灵茶山艾府 如何科学刷题
+https://leetcode.cn/circle/discuss/RvFUtj/
 
 ### doing...
 ```
@@ -10,6 +13,7 @@ TODO 主要重点 滑动窗口 回溯算法 动态规划
 
 
 --------------------------------- 
+https://github.com/apachecn/apachecn-algo-zh
 https://github.com/apachecn/awesome-algorithm【有讲解】 【1级参考】 
 https://github.com/keon/algorithms/blob/master/README_CN.md【unittest leetcode题 自带测试代码】
 

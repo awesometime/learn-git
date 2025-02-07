@@ -1,6 +1,8 @@
 TODO 
 TODO 主要重点 滑动窗口 回溯算法 动态规划
 
+灵茶山艾府 如何科学刷题
+https://leetcode.cn/circle/discuss/RvFUtj/
 速成学习规划
 https://labuladong.online/algo/intro/quick-learning-plan/
 
