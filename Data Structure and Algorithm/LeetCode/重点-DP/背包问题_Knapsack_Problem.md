@@ -13,26 +13,36 @@ https://labuladong.online/algo/dynamic-programming/knapsack1/
 dp[i][j] 定义：对于前i个物品，当前背包的容量为j，情况下可以装的最大价值是 dp[i][j]。
 
 3 根据「选择」，思考状态转移的逻辑
-dp[i][j] = max(选第i件物品    dp[i-1,j-Wi] + vi  (j >= Wi),  
-               不选第i件物品  dp[i-1,j]    )
-
-
+dp[i][j] = max( dp[i-1][j-weight[i]] + value[i]  (j >= weight[i]),     选第i件物品
+                dp[i-1][j]                                             不选第i件物品
+               )
 
 0-1背包, 每个物品只能取0个,或者1个.  【两个for循环, 二维数组dp[i][j],可优化成一维数组】
-f[i][j] = max{f[i-1][j-weight[i]] + value[i],    选第i件物品
-              f[i-1][j]                          不选第i件物品
+dp[i][j] = max{ dp[i-1][j-weight[i]] + value[i],    选第i件物品
+                dp[i-1][j]                          不选第i件物品
               }
 
 完全背包, 每个物品可以取无限次.  【三个for循环, 二维数组dp[i][j]】
-f[i][j] = max{f[i-1][j-k*weight[i]] + k*value[i] (其中0 <= k <= j/weight[i]),  选第i件物品
-              f[i-1][j]                                                        不选第i件物品
-             }
-
-多重背包, 每种物品都有个数限制, 第i个物品最多可以为num[i]个.
-【三个for循环, 二维数组dp[i][j]】
-f[i][j] = max{f[i-1][j-k*weight[i]] + k*value[i]} (其中0 <= k <= min{j/weight[i], num[i]}),  选第i件物品
-              f[i-1][j]                                                  不选第i件物品
+dp[i][j] = max{ dp[i-1][j-k*weight[i]] + k*value[i] (其中0 <= k <= j/weight[i]),  选第i件物品
+                dp[i-1][j]                                                        不选第i件物品
               }
+
+多重背包, 每种物品都有个数限制, 第i个物品最多可以为num[i]个.  【三个for循环, 二维数组dp[i][j]】
+dp[i][j] = max{ dp[i-1][j-k*weight[i]] + k*value[i]} (其中0 <= k <= min{j/weight[i], num[i]}),  选第i件物品
+                dp[i-1][j]                                                                      不选第i件物品
+              }
+4 代码模板：              
+for i in range(1, N+1):  # N物品个数
+    for j in range(1, V+1):   # V背包总体积 总重量
+        max_num_i = min(j/weight[i-1], num[i-1])
+
+        # 继承 前i-1个物品的总价值，即f[i-1][j]
+        f[i][j] = f[i-1][j]  
+        
+        # 初始取k=0为最大，下面的循环是把取了k个物品i能获得的最大价值赋值给f[i][j]
+        for k in range(max_num_i+1):
+            if f[i][j] < f[i-1][j-k*weight[i-1]]+k*value[i-1]:
+                f[i][j] = f[i-1][j-k*weight[i-1]]+k*value[i-1]  # 状态方程
 ```
 
 
@@ -56,7 +66,7 @@ https://zxi.mytechroad.com/blog/sp/knapsack-problem/
 
 dp[i,j]表示在前i件物品中选择若干件放在承重为 j 的背包中，可以取得的最大价值。
 
-vi表示第i件物品的价值。
+v[i]表示第i件物品的价值。
 
 **01背包的状态转换方程 dp[i,j] = Max{选 dp[i-1,j-Wi] + vi  (j >= Wi),  不选 dp[i-1,j] }**
 
@@ -81,14 +91,14 @@ dp[i-1][j-Vi] + Wi  选   代表将第i件放入背包之后的`总价值`，
 
 # 应该 遍历承重j的循环再外边    再遍历物品i比较好
 
-def knapsack01(w, v, N, W):
+def knapsack01(weight, value, N, W):  # N件物品 背包承载上限W
     dp = [[0] * (W + 1) for _ in range(N+1)]     # 多加一行一列 便于遍历
     for i in range(1, N + 1):                    # 遍历每件物品
         dp[i] = dp[i-1].clone()
-        for j in range(w[i], W + 1):             # j 是背包能承受的最大重量
+        for j in range(weight[i], W + 1):             # j 是背包能承受的最大重量
             # j 范围也可以(1,W+1)
-            # 此处j 从w[i]开始,所以不需要判断 j是否大于w[i]
-            dp[i][j] = max(dp[i-1][j],  dp[i-1][j-w[i]]  + v[i])
+            # 此处j 从weight[i]开始,所以不需要判断 j是否大于weight[i]
+            dp[i][j] = max(dp[i-1][j],  dp[i-1][j-weight[i]]  + value[i])
     return max(dp[N])
 ```  
   
@@ -129,12 +139,13 @@ def CompletePack(N, V, weight, value):
             # j/weight[i-1]表示容量为j时，物品i最多可以取多少次
             
             # 继承 前i-1个物品的总价值，即f[i-1][j]
-            f[i][j] = f[i - 1][j]  
+            f[i][j] = f[i-1][j]  
             
             # 初始取k=0为最大，下面的循环是把取了k个物品i能获得的最大价值赋值给f[i][j]
             for k in range(j/weight[i-1]+1):
                 if f[i][j] < f[i-1][j-k*weight[i-1]]+k*value[i-1]:
                     f[i][j] = f[i-1][j-k*weight[i-1]]+k*value[i-1]  # 状态方程
+                    # 选k次第i件物品 就需要在前i-1件物品时重量不超j-k*weight(第i件物品)
 
             # 上面的f[i][j]也可以通过下面一行代码求得
             #  f[i][j] = max([f[i-1][j-k*weight[i-1]]+k*value[i-1] for k in range(j/weight[i-1]+1)])
@@ -163,7 +174,10 @@ def MultiplePack(N, V, weight, value, num):
             # 对于物品i最多能取的次数是j/weight[i-1]与num[i-1]中较小者
             max_num_i = min(j/weight[i-1], num[i-1])
 
-            f[i][j] = f[i - 1][j]  # 初始取k=0为最大，下面的循环是把取了k个物品i能获得的最大价值赋值给f[i][j]
+            # 继承 前i-1个物品的总价值，即f[i-1][j]
+            f[i][j] = f[i-1][j]  
+            
+            # 初始取k=0为最大，下面的循环是把取了k个物品i能获得的最大价值赋值给f[i][j]
             for k in range(max_num_i+1):
                 if f[i][j] < f[i-1][j-k*weight[i-1]]+k*value[i-1]:
                     f[i][j] = f[i-1][j-k*weight[i-1]]+k*value[i-1]  # 状态方程
