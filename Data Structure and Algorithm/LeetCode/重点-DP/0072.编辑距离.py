@@ -5,7 +5,7 @@
 # 如何优化
 
 
-# 方法一:
+# 方法一: 自顶向下
 def minDistance(self, s1: str, s2: str) -> int:
     m = len(s1)
     n = len(s2)

@@ -150,7 +150,8 @@ def CompletePack(N, V, weight, value):
         for j in range(1, V+1):
             # 注意由于weight、value数组已经补0，第i个物品的容量为weight[i],价值为value[i]
             # j/weight[i]表示容量为j时，物品i最多可以取多少次
-            f[i][j] = f[i - 1][j]  # 初始取k=0为最大，下面的循环是把取了k个物品i能获得的最大价值赋值给f[i][j]
+            f[i][j] = f[i-1][j]  
+            # 初始取k=0为最大，下面的循环是把取了k个物品i能获得的最大价值赋值给f[i][j]
             for k in range(j/weight[i-1]+1):
                 if f[i][j] < f[i-1][j-k*weight[i]]+k*value[i]:
                     f[i][j] = f[i-1][j-k*weight[i]]+k*value[i]  # 状态方程
@@ -193,7 +194,9 @@ def MultiplePack(N, V, weight, value, num):
             # 对于物品i最多能取的次数是j/weight[i]与num[i]中较小者
             max_num_i = min(j/weight[i], num[i])
 
-            f[i][j] = f[i - 1][j]  # 初始取k=0为最大，下面的循环是把取了k个物品i能获得的最大价值赋值给f[i][j]
+            f[i][j] = f[i-1][j]  
+            
+            # 初始取k=0为最大，下面的循环是把取了k个物品i能获得的最大价值赋值给f[i][j]
             for k in range(max_num_i+1):
                 if f[i][j] < f[i-1][j-k*weight[i]]+k*value[i]:
                     f[i][j] = f[i-1][j-k*weight[i]]+k*value[i]  # 状态方程
